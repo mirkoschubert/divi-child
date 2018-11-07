@@ -8,6 +8,7 @@ if (!defined('ABSPATH')) die();
 */
 function divi_child_enqueue_scripts() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style('divi-fonts', get_stylesheet_directory_uri() . '/css/fonts.css');
 }
 add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
 
@@ -70,6 +71,45 @@ function divi_child_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) 
     $urls = array_diff( $urls, array( $emoji_svg_url ) );
   }
   return $urls;
+}
+
+
+// INFO: Disable oEmbeds
+
+/**
+ * Disable oEmbeds
+ */
+function divi_child_disable_embeds() {
+  remove_action( 'rest_api_init', 'wp_oembed_register_route' ); // JSON API
+  add_filter( 'embed_oembed_discover', '__return_false' ); // Auto Discover
+  remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 ); // Results
+  remove_action( 'wp_head', 'wp_oembed_add_discovery_links' ); // Discovery Links
+  remove_action( 'wp_head', 'wp_oembed_add_host_js' ); // Frontend JS
+  add_filter( 'tiny_mce_plugins', 'divi_child_disable_embeds_tinymce_plugin' ); // TinyMCE
+  add_filter( 'rewrite_rules_array', 'divi_child_disable_embeds_rewrites' ); // Rerite Rules
+  remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 ); // oEmbeds Preloader
+}
+add_action( 'init', 'divi_child_disable_embeds', 9999 );
+
+
+/**
+ * Remove oEmbed TinyMCE Plugin
+ */
+function divi_child_disable_embeds_tinymce_plugin( $plugins ) {
+  return array_diff( $plugins, array('wpembed') );
+}
+
+
+/**
+ * Disable oEmbeds rewrite rules
+ */
+function divi_child_disable_embeds_rewrites( $rules ) {
+  foreach( $rules as $rule => $rewrite ) {
+    if (false !== strpos($rewrite, 'embed=true')) {
+      unset($rules[$rule]);
+    }
+  }
+  return $rules;
 }
 
 

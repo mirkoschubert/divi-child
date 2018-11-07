@@ -1,10 +1,10 @@
 Features:
-  ☐ Disable WordPress Emojis
-  ☐ Disable WordPress oEmbeds
+  ✔ Disable WordPress Emojis @done(18-11-07 16:09)
+  ✔ Disable WordPress oEmbeds @done(18-11-07 16:15)
   ☐ Make links in the comments truely external
   ☐ Remove commentor's IPs
-  ☐ Option to localize Google Fonts
-  ☐ Remove global DNS prefetching
+  ✔ Option to localize Google Fonts @done(18-11-07 16:05)
+  ✔ Remove global DNS prefetching @done(18-11-07 16:09)
   ☐ Hide WordPress REST API
 Bugs:
   ☐ Fonts don't show in selection field
