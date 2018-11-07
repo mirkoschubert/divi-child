@@ -145,8 +145,12 @@ add_action( 'init', 'divi_child_remove_dns_prefetch');
 
 // INFO: Remove REST API info from head and headers (for security reasons) 
 
-remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-remove_action( 'template_redirect', 'rest_output_link_header', 11 );
+function divi_child_remove_api_headers() {
+  
+  remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
+  remove_action('wp_head', 'rest_output_link_wp_head', 10);
+  remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+}
+add_action('init', 'divi_child_remove_api_headers');
 
 ?>

@@ -5,7 +5,7 @@ Features:
   ✔ Remove commentor's IPs @done(18-11-07 16:20)
   ✔ Option to localize Google Fonts @done(18-11-07 16:05)
   ✔ Remove global DNS prefetching @done(18-11-07 16:09)
-  ☐ Hide WordPress REST API
+  ✔ Hide WordPress REST API @done(18-11-07 16:56)
 Bugs:
   ☐ Fonts don't show in selection field
 Ideas:
