@@ -23,6 +23,25 @@ function divi_child_body_class( $classes ) {
 add_action( 'body_class', 'divi_child_body_class' );
 
 
+// INFO: Comments (external links & comments IP) 
+
+/**
+ * Makes every comment and comment author link truely external (except 'respond')
+ */
+function divi_child_external_comment_links( $content ){
+  return str_replace( "<a ", "<a target='_blank' ", $content );
+}
+add_filter( "comment_text", "divi_child_external_comment_links" );
+add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
+
+
+/**
+ * Removes IP addresses from comments (old entries have to be deleted by hand)
+ */
+function divi_child_remove_comments_ip( $comment_author_ip ) {
+  return '';
+}
+add_filter( 'pre_comment_user_ip', 'divi_child_remove_comments_ip' );
 
 
 // INFO: Disable Emojis 
