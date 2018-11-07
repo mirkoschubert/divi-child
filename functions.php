@@ -1,6 +1,8 @@
 <?php
 if (!defined('ABSPATH')) die();
 
+// INFO: Setup 
+
 /**
 * Load all scripts and styles
 */
@@ -18,6 +20,8 @@ function divi_child_body_class( $classes ) {
   return $classes;
 }
 add_action( 'body_class', 'divi_child_body_class' );
+
+
 
 
 // INFO: Disable Emojis 
