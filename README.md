@@ -12,11 +12,11 @@ This is a WordPress child theme boilerplate for Divi, which aims to secure the s
 
 ## Instructions
 
-This is a child theme adjusted to the [Divi theme](https://www.elegantthemes.com/gallery/divi/) **only**! If you want to create your own child theme for any other WordPress theme, please use my [GDPR theme]() as a boilerplate.
+This is a child theme adjusted to the [Divi theme](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes **only**! If you want to create your own child theme for any other WordPress theme, please use my [GDPR theme]() as a boilerplate.
 
 ### CSS
 
-In order to create clean code and a descent inheritance, the child theme will create a `.child` body class once you activated the child theme. If you want to append your own CSS code to the `style.css`, you should use this class as a prefix, e.g.:
+In order to create clean code and a descent inheritance, the child theme uses a `.child` body class once you activated the child theme. If you want to append your own CSS code to the `style.css`, you should use this class as a prefix, e.g.:
 
 ```css
 .child p {

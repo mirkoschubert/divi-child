@@ -1,2 +1,12 @@
-Todo:
-  ☐ Item
+Features:
+  ☐ Disable WordPress Emojis
+  ☐ Disable WordPress oEmbeds
+  ☐ Make links in the comments truely external
+  ☐ Remove commentor's IPs
+  ☐ Option to localize Google Fonts
+  ☐ Remove global DNS prefetching
+  ☐ Hide WordPress REST API
+Bugs:
+  ☐ Fonts don't show in selection field
+Ideas:
+  ☐ 
