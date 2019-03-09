@@ -8,7 +8,8 @@ This is a WordPress child theme boilerplate for Divi, which aims to secure the s
 * Disable oEmbeds (old ones have to be removed by hand)
 * Disable WordPress Emojis (in every modern browser Emojis will be displayed anyway)
 * Remove global DNS Prefetching
-* Hide WordPress REST API for security reasons
+* Hide WordPress REST API meta data for security reasons
+* Remove Divi support center scripts from frontend (Divi 3.20.1 and up)
 
 ## Instructions
 

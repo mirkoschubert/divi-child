@@ -12,6 +12,15 @@ function divi_child_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
 
+/**
+ * Removes Divi Support Center from Frontend
+ * @since Divi 3.20.1
+ */
+function divi_child_remove_support_center() {
+	wp_dequeue_script( 'et-support-center' );
+	wp_deregister_script( 'et-support-center' );
+}
+add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
 
 /**
  * Custom Body Class for Child Theme
