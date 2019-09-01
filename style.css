@@ -14,3 +14,34 @@ Domain Path:  /languages
 
 /* For adding CSS rules to this file please use the .child class! */
 
+/**
+ * SPLIT SECTION FIX
+ */
+
+ @media screen and (max-width: 980px) {
+  .child .split-section-fix .et_pb_column.et_pb_column_empty {
+    display:block;
+    min-height: 60vw;
+  }
+
+  .child .split-section-fix .et_pb_row:nth-child(2n) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .child .split-section-fix .et_pb_column {
+    padding-left: 16%;
+    padding-right: 16%;
+  }
+
+  .child .split-section-fix .et_pb_column .et_pb_text_align_right {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .child .split-section-fix .et_pb_column {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}

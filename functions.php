@@ -13,6 +13,16 @@ function divi_child_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
 
 /**
+ * TODO: Load all language files
+ */
+/*function divi_child_languages() {
+  load_child_theme_textdomain( 'Divi', get_stylesheet_directory() . '/languages/theme' );
+  load_child_theme_textdomain( 'et-core', get_stylesheet_directory() . '/languages/core' );
+  load_child_theme_textdomain( 'et_builder', get_stylesheet_directory() . '/languages/builder' );
+}
+add_action( 'after_setup_theme', 'divi_child_languages');*/
+
+/**
  * Removes Divi Support Center from Frontend
  * @since Divi 3.20.1
  */
