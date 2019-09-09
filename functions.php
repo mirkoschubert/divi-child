@@ -33,6 +33,16 @@ function divi_child_remove_support_center() {
 add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
 
 /**
+ * Adds SVG support for file uploads
+ */
+function divi_child_supported_filetypes($filetypes) {
+
+  $new = array('svg' => 'image/svg+xml', 'svg' => 'image/svg');
+  return array_merge($filetypes, $new);
+}
+add_action('upload_mimes', 'divi_child_supported_filetypes');
+
+/**
  * Custom Body Class for Child Theme
  */
 function divi_child_body_class( $classes ) {
