@@ -51,6 +51,36 @@ function divi_child_body_class( $classes ) {
 }
 add_action( 'body_class', 'divi_child_body_class' );
 
+/**
+ * Fixed Body Classes for Theme Builder Header
+ */
+function divi_child_tb_fixed_body_class( $classes ) {
+  $has_tb_header = in_array( 'et-tb-has-header', $classes );
+  $is_fixed_header = 'on' === et_get_option( 'divi_fixed_nav', 'on' );
+
+  if ($has_tb_header) {
+    if ($is_fixed_header) {
+      $classes[] = 'et_fixed_nav';
+    } else {
+      $classes[] = 'et_non_fixed_nav';
+    }
+    $classes[] = 'et_show_nav';
+    unset($classes[array_search('et-tb-has-header', $classes)]);
+  }
+  return $classes;
+}
+add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
+
+/**
+ * Set Layout ID for the Main Header
+ */
+function divi_child_set_layout_id( $layout_id, $post_type ) {
+  if ($post_type === 'et_header_layout') {
+    $layout_id = 'main-header';
+  }
+  return $layout_id;
+}
+add_filter( 'et_builder_layout_id', 'divi_child_set_layout_id', 10, 2);
 
 // INFO: Comments (external links & comments IP) 
 

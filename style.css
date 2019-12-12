@@ -45,3 +45,34 @@ Domain Path:  /languages
     padding-right: 8%;
   }
 }
+
+/**
+ * THEME BUILDER HEADER FIX
+ */
+.child.et_fixed_nav.et_show_nav #main-header .et_pb_fullwidth_menu .et_pb_row,
+.child.et_non_fixed_nav.et_show_nav #main-header .et_pb_fullwidth_menu .et_pb_row {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .child.et_fixed_nav #main-header {
+    position: fixed; /* Delete this if you don't want a fixed menu on mobile devices! */
+  }
+}
+
+.child .et_pb_fullwidth_menu .et_pb_menu__search {
+  padding: 0 2rem;
+  background-color: #fff;
+}
+
+/* Fix the upper margin in the Template Builder */
+.child header#main-header.et-fb-root-ancestor {
+  top: 0 !important;
+}
+
+/* Fix the padding at the bottom in the Template Builder */
+.child header#main-header #et_pb_root {
+  padding-bottom: 0;
+}
+ 
