@@ -4,8 +4,17 @@ if (!defined('ABSPATH')) die();
 // INFO: Setup 
 
 /**
-* Load all scripts and styles
-*/
+ * Set up automatic updates
+ * @since WordPress 3.7
+ */
+add_filter( 'auto_update_core', '__return_true' );
+add_filter( 'auto_update_plugin', '__return_true' );
+add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'auto_update_translations', '__return_true' );
+
+/**
+ * Load all scripts and styles
+ */
 function divi_child_enqueue_scripts() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
   wp_enqueue_style('divi-fonts', get_stylesheet_directory_uri() . '/css/fonts.css');
