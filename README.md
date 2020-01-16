@@ -19,6 +19,10 @@ This is a WordPress child theme boilerplate for Divi, which aims to secure the s
 * Fix display errors in Theme Builder (Divi 4.0 and up)
 * Re-enable fixed navigation bar option when a global header in Theme builder is active (Divi 4.0 and up)
 
+**Secrutity Fixes:**
+
+* Set up automatic updates for the WordPress core, every plugin, theme and translation (WordPress 3.7 and up)
+
 ## Instructions
 
 This is a child theme adjusted to the [Divi theme](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes **only**! If you want to create your own child theme for any other WordPress theme, please use my [GDPR theme](https://github.com/mirkoschubert/gdpr-child/) as a boilerplate.
