@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) die();
 add_filter( 'auto_update_core', '__return_true' );
 add_filter( 'auto_update_plugin', '__return_true' );
 add_filter( 'auto_update_theme', '__return_true' );
-add_filter( 'auto_update_translations', '__return_true' );
+add_filter( 'auto_update_translation', '__return_true' );
 
 /**
  * Load all scripts and styles
