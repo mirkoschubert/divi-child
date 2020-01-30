@@ -62,6 +62,7 @@ add_action( 'body_class', 'divi_child_body_class' );
 
 /**
  * Fixed Body Classes for Theme Builder Header
+ * @since Divi 4.0
  */
 function divi_child_tb_fixed_body_class( $classes ) {
   $has_tb_header = in_array( 'et-tb-has-header', $classes );
@@ -82,10 +83,11 @@ add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
 
 /**
  * Set Layout ID for the Main Header
+ * @since Divi 4.0
  */
 function divi_child_set_layout_id( $layout_id, $post_type ) {
   if ($post_type === 'et_header_layout') {
-    $layout_id = 'main-header';
+    $layout_id = 'fixed-header';
   }
   return $layout_id;
 }

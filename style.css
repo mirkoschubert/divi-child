@@ -5,7 +5,7 @@ Description:  A Divi Child Theme
 Author:       Mirko Schubert
 Author URI:   https://mirkoschubert.de
 Template:     Divi
-Version:      1.2.2
+Version:      1.2.3
 License:      GNU General Public License version 3.0
 License URI:  http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain:  divi-child
@@ -49,30 +49,40 @@ Domain Path:  /languages
 /**
  * THEME BUILDER HEADER FIX
  */
-.child.et_fixed_nav.et_show_nav #main-header .et_pb_fullwidth_menu .et_pb_row,
-.child.et_non_fixed_nav.et_show_nav #main-header .et_pb_fullwidth_menu .et_pb_row {
+ .child.et-tb-has-header #fixed-header .et_pb_fullwidth_menu .et_pb_row {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 980px) {
-  .child.et_fixed_nav #main-header {
-    position: fixed; /* Delete this if you don't want a fixed menu on mobile devices! */
+body.admin-bar.et_fixed_nav #fixed-header {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar.et_fixed_nav #fixed-header {
+    top: 46px;
   }
 }
 
-.child .et_pb_fullwidth_menu .et_pb_menu__search {
+.child #fixed-header {
+  position: relative;
+  z-index: 999999;
+  top: 0;
+  width: 100%;
+  transition: background-color .4s, opacity .4s ease-in-out;
+}
+
+.child #fixed-header .et_pb_row,
+.et-fb-root-ancestor .child.et-db #et-boc .et-l .et_pb_row {
+  width: 100%;
+  margin: 0;
+}
+
+.child.et_fixed_nav #fixed-header {
+  position: fixed;
+}
+
+.et_pb_fullwidth_menu .et_pb_menu__search {
   padding: 0 2rem;
-  background-color: #fff;
+  background-color: transparent;
 }
-
-/* Fix the upper margin in the Template Builder */
-.child header#main-header.et-fb-root-ancestor {
-  top: 0 !important;
-}
-
-/* Fix the padding at the bottom in the Template Builder */
-.child header#main-header #et_pb_root {
-  padding-bottom: 0;
-}
- 
