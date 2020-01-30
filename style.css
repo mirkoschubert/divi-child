@@ -66,7 +66,7 @@ body.admin-bar.et_fixed_nav #fixed-header {
 
 .child #fixed-header {
   position: relative;
-  z-index: 999999;
+  z-index: 99999;
   top: 0;
   width: 100%;
   transition: background-color .4s, opacity .4s ease-in-out;
