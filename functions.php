@@ -4,7 +4,8 @@ if (!defined('ABSPATH')) die();
 // INFO: Setup 
 
 /**
- * Set up automatic updates
+ * Set up automatic updates (external updates such as the Divi theme don't work!)
+ * @since 1.2.1
  * @since WordPress 3.7
  */
 add_filter( 'auto_update_core', '__return_true' );
@@ -17,9 +18,19 @@ add_filter( 'auto_update_translation', '__return_true' );
  */
 function divi_child_enqueue_scripts() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-  wp_enqueue_style('divi-fonts', get_stylesheet_directory_uri() . '/css/fonts.css');
+  wp_enqueue_style('divi-fonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css');
+  wp_enqueue_script( 'divi-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
+
+/**
+ * Add special inline scripts
+ * @since 1.3.0
+ */
+function divi_child_page_fix() {
+  ?><script type="text/javascript">/* <![CDATA[ */ document.addEventListener('DOMContentLoaded', function() { var h = document.querySelector('.et-l--header'); var p = document.querySelector('#page-container'); if (document.querySelector('body.et_fixed_nav') !== null) { p.style.paddingTop = h.clientHeight + 'px'; }}); /* ]]> */</script><?php
+}
+add_action( 'wp_head', 'divi_child_page_fix', 1, 1);
 
 /**
  * TODO: Load all language files
@@ -62,6 +73,7 @@ add_action( 'body_class', 'divi_child_body_class' );
 
 /**
  * Fixed Body Classes for Theme Builder Header
+ * @since 1.2.0
  * @since Divi 4.0
  */
 function divi_child_tb_fixed_body_class( $classes ) {
@@ -75,23 +87,13 @@ function divi_child_tb_fixed_body_class( $classes ) {
       $classes[] = 'et_non_fixed_nav';
     }
     $classes[] = 'et_show_nav';
+    // With et-tb-has-header not set the page-container gets a padding-top of the height of the header
     unset($classes[array_search('et-tb-has-header', $classes)]);
   }
   return $classes;
 }
 add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
 
-/**
- * Set Layout ID for the Main Header
- * @since Divi 4.0
- */
-function divi_child_set_layout_id( $layout_id, $post_type ) {
-  if ($post_type === 'et_header_layout') {
-    $layout_id = 'fixed-header';
-  }
-  return $layout_id;
-}
-add_filter( 'et_builder_layout_id', 'divi_child_set_layout_id', 10, 2);
 
 // INFO: Comments (external links & comments IP) 
 

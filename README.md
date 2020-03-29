@@ -53,6 +53,8 @@ With my Theme Builder Header Hack we bring this back and fix some display errors
 
 Feel free to use one of my [Global Header Layouts](https://gist.github.com/mirkoschubert/05f938d6a5edc0001b7aa855d6d38ef6) to import a minimal global header with a fixed height!
 
+**Update v1.3.0:** Since the release of Divi 4 many changes were made, bringing some bugs to my theme builder hack. With v1.3.0 I hopefully fixed all of them and changed my hack in a way, that minor changes in Divi don't affect the Theme Builder Hack that much. If you find any bugs or display failures, please create an [issue](https://github.com/mirkoschubert/divi-child/issues) here on Github!
+
 ### Fonts
 
 In Divi you actually can turn off Google Fonts by switching off `Use Google Fonts` under `/Settings/Theme Options/General/`. Then you only see fonts from the [CSS font stack](https://www.cssfontstack.com/), but you can upload your own fonts manually.
