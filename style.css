@@ -100,3 +100,9 @@ Domain Path:  /languages
 .child.et_fixed_nav.et_secondary_nav_enabled #page-container {
   padding-top: 80px;
 }
+
+/** Theme Builder Menu Logo Image Sizing FIX Divi v4.6.6 **/
+.child .et_pb_menu_0_tb_header .et_pb_menu_inner_container>.et_pb_menu__logo-wrap .et_pb_menu__logo img,
+.child .et_pb_menu_0_tb_header .et_pb_menu__logo-slot .et_pb_menu__logo-wrap img {
+  width: auto;
+}
