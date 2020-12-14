@@ -10,15 +10,23 @@ function divi_child_stop_update_mails($send, $type, $core_update, $result) {
   if (!empty($type) && $type == 'success' ) { return false; }
   return true;
 }
-add_filter('auto_core_update_send_mail', 'divi_child_stop_update_mails', 10, 4);
+if (divi_child_get_theme_option('stop_mail_updates') === 'on') {
+  do_action( 'qm/notice', 'MISC: Update Emails' );
+  add_filter('auto_core_update_send_mail', 'divi_child_stop_update_mails', 10, 4);
+}
 
 
 /**
  * MISC: Adds SVG & WebP support for file uploads
  */
 function divi_child_supported_filetypes($filetypes) {
-
-  $new = array('svg' => 'image/svg+xml', 'svg' => 'image/svg', 'webp' => 'image/webp');
+  $new = array();
+  if (divi_child_get_theme_option('svg_support') === 'on') {
+    $new['svg'] = 'image/svg';
+  } 
+  if (divi_child_get_theme_option('webp_support') === 'on') {
+    $new['webp'] = 'image/webp';
+  }
   return array_merge($filetypes, $new);
 }
 add_action('upload_mimes', 'divi_child_supported_filetypes');

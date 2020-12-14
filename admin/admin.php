@@ -9,6 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Enqueues plugin admin scripts
+ * @since 0.2.0
+ */
+function divi_child_admin_scripts($hook) {
+	do_action( 'qm/notice', $hook );
+  if($hook !== 'divi_page_et_divi_child_options') return;
+  wp_enqueue_style('divi-child-admin-style', get_stylesheet_directory_uri() . '/admin/admin.css');
+}
+add_action('admin_enqueue_scripts', 'divi_child_admin_scripts');
+
+
 // Start Class
 if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
@@ -71,8 +83,11 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
 				// Bug Fixes
 				$options['support_center'] = (!empty($options['support_center'])) ? 'on' : 'off';
+				$options['tb_header_fix'] = (!empty($options['tb_header_fix'])) ? 'on' : 'off';
+				$options['tb_display_errors'] = (!empty($options['tb_display_errors'])) ? 'on' : 'off';
 
 				// Miscellaneous
+				$options['stop_mail_updates'] = (!empty($options['stop_mail_updates'])) ? 'on' : 'off';
 				$options['svg_support'] = (!empty($options['svg_support'])) ? 'on' : 'off';
 				$options['webp_support'] = (!empty($options['webp_support'])) ? 'on' : 'off';
 
@@ -111,7 +126,7 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
 			<div id="divi-child-options" class="wrap">
 				<div id="icon-plugins" class="icon32"></div>
-				<h1><?php esc_html_e( 'Divi Child Options', 'divi-child' ); ?><small><?php echo 'v'. DIVI_CHILD_VERSION; ?></small></h1>
+				<h1><?php esc_html_e( 'Divi Child Options', 'divi-child' ); ?> <small><?php echo 'v'. DIVI_CHILD_VERSION; ?></small></h1>
 				<form method="post" action="options.php">
 					<?php settings_fields( 'divi_child_options' ); ?>
 					<table class="form-table wpex-custom-admin-login-table">
@@ -151,7 +166,18 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 									<legend class="screen-reader-text"><span><?php esc_html_e( 'Bug Fixes', 'divi-child' ); ?></span></legend>
 									<label for="support_center">
 										<?php $support_center = self::get_theme_option('support_center'); ?>
-										<input type="checkbox" name="divi_child_options[support_center]" id="support_center" <?php checked( $support_center, 'on' ); ?>> <?php esc_html_e( 'Remove Divi Support Center from Frontend (Divi 3.20.1)', 'divi-child' ); ?>
+										<input type="checkbox" name="divi_child_options[support_center]" id="support_center" <?php checked( $support_center, 'on' ); ?>> <?php esc_html_e( 'Remove Divi Support Center from Frontend', 'divi-child' ); ?> <span class="versions"><?php esc_html_e( '(Divi 3.20.1 only)', 'divi-child' ); ?></span>
+									</label>
+									<br>
+									<label for="tb_header_fix">
+										<?php $tb_header_fix = self::get_theme_option('tb_header_fix'); ?>
+										<input type="checkbox" name="divi_child_options[tb_header_fix]" id="tb_header_fix" <?php checked( $tb_header_fix, 'on' ); ?>> <?php esc_html_e( 'Enable fixed navigation bar option in Theme Builder', 'divi-child' ); ?> <span class="versions"><?php esc_html_e( '(Divi 4.0 and up)', 'divi-child' ); ?></span>
+									</label>
+									<br>
+									<label for="tb_display_errors">
+										<?php $tb_display_errors = self::get_theme_option('tb_display_errors'); ?>
+										<input type="checkbox" name="divi_child_options[tb_display_errors]" id="tb_display_errors" <?php checked( $tb_display_errors, 'on' ); ?>> <?php esc_html_e( 'Fix display errors in Theme Builder', 'divi-child' ); ?> <span class="versions"><?php esc_html_e( '(Divi 4.0 and up)', 'divi-child' ); ?></span>
+										
 									</label>
 									<br>
 								</fieldset>
@@ -163,6 +189,11 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<td>
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e( 'Miscellaneous', 'divi-child' ); ?></span></legend>
+									<label for="stop_mail_updates">
+										<?php $stop_mail_updates = self::get_theme_option('stop_mail_updates'); ?>
+										<input type="checkbox" name="divi_child_options[stop_mail_updates]" id="stop_mail_updates" <?php checked( $stop_mail_updates, 'on' ); ?>> <?php esc_html_e( 'Only send an email when autoupdate was not successful.', 'divi-child' ); ?>
+									</label>
+									<br>
 									<label for="svg_support">
 										<?php $svg_support = self::get_theme_option('svg_support'); ?>
 										<input type="checkbox" name="divi_child_options[svg_support]" id="svg_support" <?php checked( $svg_support, 'on' ); ?>> <?php esc_html_e( 'Enable to upload SVG files', 'divi-child' ); ?>

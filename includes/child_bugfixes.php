@@ -9,7 +9,10 @@ function divi_child_remove_support_center() {
 	wp_dequeue_script( 'et-support-center' );
 	wp_deregister_script( 'et-support-center' );
 }
-add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
+if (divi_child_get_theme_option('support_center') === 'on') {
+  do_action( 'qm/notice', 'BUGFIX: Support Center' );
+  add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
+}
 
 
 /**
@@ -33,7 +36,10 @@ function divi_child_tb_fixed_body_class( $classes ) {
   }
   return $classes;
 }
-add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
+if (divi_child_get_theme_option('tb_header_fix') === 'on') {
+  do_action( 'qm/notice', 'BUGFIX: Fixed Header in Theme Builder' );
+  add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
+}
 
 
 /**
@@ -43,7 +49,10 @@ add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
 function divi_child_page_fix() {
   ?><script type="text/javascript">/* <![CDATA[ */ document.addEventListener('DOMContentLoaded', function() { var h = document.querySelector('.et-l--header'); var p = document.querySelector('#page-container'); if (document.querySelector('body.et_fixed_nav') !== null) { p.style.paddingTop = h.clientHeight + 'px'; }}); /* ]]> */</script><?php
 }
-add_action( 'wp_head', 'divi_child_page_fix', 1, 1);
+if (divi_child_get_theme_option('tb_display_errors') === 'on') {
+  do_action( 'qm/notice', 'BUGFIX: Fix Display Errors in Theme Builder' );
+  add_action( 'wp_head', 'divi_child_page_fix', 1, 1);
+}
 
 
 ?>

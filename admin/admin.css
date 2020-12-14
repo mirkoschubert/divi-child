@@ -1,0 +1,14 @@
+#divi-child-options h1 small {
+  color: #666;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+#divi-child-options label span.versions {
+  color: #666;
+}
+
+#divi-child-options ul {
+  list-style-type: disc;
+  padding-left: 3em;
+}
