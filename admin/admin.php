@@ -76,10 +76,19 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 				// Checkbox
 
 				// GDPR
-				$options['gdpr_comments'] = (!empty($options['gdpr_comments'])) ? 'on' : 'off';
+				$options['gdpr_comments_external'] = (!empty($options['gdpr_comments_external'])) ? 'on' : 'off';
+				$options['gdpr_comments_ip'] = (!empty($options['gdpr_comments_ip'])) ? 'on' : 'off';
+				$options['disable_emojis'] = (!empty($options['disable_emojis'])) ? 'on' : 'off';
+				$options['disable_oembeds'] = (!empty($options['disable_oembeds'])) ? 'on' : 'off';
+				$options['dns_prefetching'] = (!empty($options['dns_prefetching'])) ? 'on' : 'off';
+				$options['rest_api'] = (!empty($options['rest_api'])) ? 'on' : 'off';
 
 				// Page Speed
+				$options['page_pingback'] = (!empty($options['page_pingback'])) ? 'on' : 'off';
+				$options['remove_dashicons'] = (!empty($options['remove_dashicons'])) ? 'on' : 'off';
 				$options['version_query_strings'] = (!empty($options['version_query_strings'])) ? 'on' : 'off';
+				$options['remove_shortlink'] = (!empty($options['remove_shortlink'])) ? 'on' : 'off';
+				$options['preload_fonts'] = (!empty($options['preload_fonts'])) ? 'on' : 'off';
 
 				// Bug Fixes
 				$options['support_center'] = (!empty($options['support_center'])) ? 'on' : 'off';
@@ -90,6 +99,14 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 				$options['stop_mail_updates'] = (!empty($options['stop_mail_updates'])) ? 'on' : 'off';
 				$options['svg_support'] = (!empty($options['svg_support'])) ? 'on' : 'off';
 				$options['webp_support'] = (!empty($options['webp_support'])) ? 'on' : 'off';
+				
+				
+				if ( ! empty( $options['font_list'] ) ) {
+					$options['font_list'] = sanitize_text_field( $options['font_list'] );
+				} else {
+					unset( $options['font_list'] ); // Remove from options if empty
+				}
+
 
 
 				if ( ! empty( $options['checkbox_example'] ) ) {
@@ -136,9 +153,34 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<td>
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e( 'GDPR', 'divi-child' ); ?></span></legend>
-									<label for="gdpr_comments">
-										<?php $gdpr_comments = self::get_theme_option('gdpr_comments'); ?>
-										<input type="checkbox" name="divi_child_options[gdpr_comments]" id="gdpr_comments" <?php checked( $gdpr_comments, 'on' ); ?>> <?php esc_html_e( 'Fix external links in comments and remove commentor\'s IP.', 'divi-child' ); ?>
+									<label for="gdpr_comments_external">
+										<?php $gdpr_comments_external = self::get_theme_option('gdpr_comments_external'); ?>
+										<input type="checkbox" name="divi_child_options[gdpr_comments_external]" id="gdpr_comments_external" <?php checked( $gdpr_comments_external, 'on' ); ?>> <?php esc_html_e( 'Make every comment and comment author link truely external', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="gdpr_comments_ip">
+										<?php $gdpr_comments_ip = self::get_theme_option('gdpr_comments_ip'); ?>
+										<input type="checkbox" name="divi_child_options[gdpr_comments_ip]" id="gdpr_comments_ip" <?php checked( $gdpr_comments_ip, 'on' ); ?>> <?php esc_html_e( 'Don\'t save the commentor\'s IP address', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="disable_emojis">
+										<?php $disable_emojis = self::get_theme_option('disable_emojis'); ?>
+										<input type="checkbox" name="divi_child_options[disable_emojis]" id="disable_emojis" <?php checked( $disable_emojis, 'on' ); ?>> <?php esc_html_e( 'Disable Emojis', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="disable_oembeds">
+										<?php $disable_oembeds = self::get_theme_option('disable_oembeds'); ?>
+										<input type="checkbox" name="divi_child_options[disable_oembeds]" id="disable_oembeds" <?php checked( $disable_oembeds, 'on' ); ?>> <?php esc_html_e( 'Disable oEmbeds', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="dns_prefetching">
+										<?php $dns_prefetching = self::get_theme_option('dns_prefetching'); ?>
+										<input type="checkbox" name="divi_child_options[dns_prefetching]" id="dns_prefetching" <?php checked( $dns_prefetching, 'on' ); ?>> <?php esc_html_e( 'Remove DNS prefetching for WordPress', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="rest_api">
+										<?php $rest_api = self::get_theme_option('rest_api'); ?>
+										<input type="checkbox" name="divi_child_options[rest_api]" id="rest_api" <?php checked( $rest_api, 'on' ); ?>> <?php esc_html_e( 'Remove REST API & XML-RPC headers for security reasons', 'divi-child' ); ?>
 									</label>
 									<br>
 								</fieldset>
@@ -150,9 +192,35 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<td>
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e( 'Page Speed', 'divi-child' ); ?></span></legend>
+									<label for="page_pingback">
+										<?php $page_pingback = self::get_theme_option('page_pingback'); ?>
+										<input type="checkbox" name="divi_child_options[page_pingback]" id="page_pingback" <?php checked( $page_pingback, 'on' ); ?>> <?php esc_html_e( 'Disable page pingback', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="remove_dashicons">
+										<?php $remove_dashicons = self::get_theme_option('remove_dashicons'); ?>
+										<input type="checkbox" name="divi_child_options[remove_dashicons]" id="remove_dashicons" <?php checked( $remove_dashicons, 'on' ); ?>> <?php esc_html_e( 'Remove dashicons from the frontend', 'divi-child' ); ?>
+									</label>
+									<br>
 									<label for="version_query_strings">
 										<?php $version_query_strings = self::get_theme_option('version_query_strings'); ?>
 										<input type="checkbox" name="divi_child_options[version_query_strings]" id="version_query_strings" <?php checked( $version_query_strings, 'on' ); ?>> <?php esc_html_e( 'Remove CSS and JS query strings', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="remove_shortlink">
+										<?php $remove_shortlink = self::get_theme_option('remove_shortlink'); ?>
+										<input type="checkbox" name="divi_child_options[remove_shortlink]" id="remove_shortlink" <?php checked( $remove_shortlink, 'on' ); ?>> <?php esc_html_e( 'Remove shortlink from head', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="preload_fonts">
+										<?php $preload_fonts = self::get_theme_option('preload_fonts'); ?>
+										<input type="checkbox" name="divi_child_options[preload_fonts]" id="preload_fonts" <?php checked( $preload_fonts, 'on' ); ?>> <?php esc_html_e( 'Preload some fonts for speed', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="font_list">
+										<?php $font_list = self::get_theme_option('font_list'); ?>
+										<textarea id="font_list" name="divi_child_options[font_list]" rows="5"><?php echo esc_attr( $font_list ); ?></textarea>
+										<p class="description"><?php esc_html_e('Type ony one path per line, otherwise it will break!', 'divi-child'); ?></p>
 									</label>
 									<br>
 								</fieldset>
@@ -177,7 +245,6 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 									<label for="tb_display_errors">
 										<?php $tb_display_errors = self::get_theme_option('tb_display_errors'); ?>
 										<input type="checkbox" name="divi_child_options[tb_display_errors]" id="tb_display_errors" <?php checked( $tb_display_errors, 'on' ); ?>> <?php esc_html_e( 'Fix display errors in Theme Builder', 'divi-child' ); ?> <span class="versions"><?php esc_html_e( '(Divi 4.0 and up)', 'divi-child' ); ?></span>
-										
 									</label>
 									<br>
 								</fieldset>

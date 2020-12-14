@@ -7,8 +7,11 @@ if (!defined('ABSPATH')) die();
 function divi_child_external_comment_links( $content ){
   return str_replace( "<a ", "<a target='_blank' ", $content );
 }
-add_filter( "comment_text", "divi_child_external_comment_links" );
-add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
+if (divi_child_get_theme_option('gdpr_comments_external') === 'on') {
+  do_action( 'qm/notice', 'GDPR: Comments external links' );
+  add_filter( "comment_text", "divi_child_external_comment_links" );
+  add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
+}
 
 
 /**
@@ -17,7 +20,10 @@ add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
 function divi_child_remove_comments_ip( $comment_author_ip ) {
   return '';
 }
-add_filter( 'pre_comment_user_ip', 'divi_child_remove_comments_ip' );
+if (divi_child_get_theme_option('gdpr_comments_ip') === 'on') {
+  do_action( 'qm/notice', 'GDPR: Comments remove IP' );
+  add_filter( 'pre_comment_user_ip', 'divi_child_remove_comments_ip' );
+}
 
 
 /**
@@ -34,7 +40,10 @@ function divi_child_disable_emojis() {
   add_filter( 'tiny_mce_plugins', 'divi_child_disable_emojis_tinymce' );
   add_filter( 'wp_resource_hints', 'divi_child_disable_emojis_remove_dns_prefetch', 10, 2 );
 }
-add_action( 'init', 'divi_child_disable_emojis' );
+if (divi_child_get_theme_option('disable_emojis') === 'on') {
+  do_action( 'qm/notice', 'GDPR: Disable Emojis' );
+  add_action( 'init', 'divi_child_disable_emojis' );
+}
 
 
 function divi_child_disable_emojis_tinymce( $plugins ) {
@@ -69,7 +78,10 @@ function divi_child_disable_embeds() {
   add_filter( 'rewrite_rules_array', 'divi_child_disable_embeds_rewrites' ); // Rerite Rules
   remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 ); // oEmbeds Preloader
 }
-add_action( 'init', 'divi_child_disable_embeds', 9999 );
+if (divi_child_get_theme_option('disable_oembeds') === 'on') {
+  do_action( 'qm/notice', 'GDPR: Disable oEmbeds' );
+  add_action( 'init', 'divi_child_disable_embeds', 9999 );
+}
 
 // TinyMCE Plugin
 function divi_child_disable_embeds_tinymce_plugin( $plugins ) {
@@ -93,7 +105,10 @@ function divi_child_disable_embeds_rewrites( $rules ) {
 function divi_child_remove_dns_prefetch() {
   remove_action('wp_head', 'wp_resource_hints', 2);
 }
-add_action( 'init', 'divi_child_remove_dns_prefetch');
+if (divi_child_get_theme_option('dns_prefetching') === 'on') {
+  do_action( 'qm/notice', 'GDPR: Disable DNS prefetching' );
+  add_action( 'init', 'divi_child_remove_dns_prefetch');
+}
 
 
 /**
@@ -109,6 +124,9 @@ function divi_child_remove_api_headers() {
   remove_action('wp_head', 'wp_generator'); // remove generator tag
   remove_action('wp_head', 'wlwmanifest_link'); // remove windows live writer manifest
 }
-add_action('init', 'divi_child_remove_api_headers');
+if (divi_child_get_theme_option('rest_api') === 'on') {
+  do_action( 'qm/notice', 'GDPR: REST API' );
+  add_action('init', 'divi_child_remove_api_headers');
+}
 
 ?>
