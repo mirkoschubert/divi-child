@@ -3,6 +3,8 @@ if (!defined('ABSPATH')) die();
 
 // INFO: Setup
 
+include_once('admin/admin.php');
+
 /**
  * Load all scripts and styles
  */
