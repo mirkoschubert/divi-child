@@ -9,18 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-var_dump($GLOBALS['admin_page_hooks']['et_divi_options']);
-
 // Start Class
 if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
 	class Divi_Child_Theme_Options {
 
-		/**
-		 * Start things up
-		 *
-		 * @since 1.0.0
-		 */
 		public function __construct() {
 
 			// We only need to register the admin panel on the back-end
@@ -31,20 +24,10 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
 		}
 
-		/**
-		 * Returns all theme options
-		 *
-		 * @since 1.0.0
-		 */
 		public static function get_theme_options() {
-			return get_option( 'theme_options' );
+			return get_option( 'divi_child_options' );
 		}
 
-		/**
-		 * Returns single theme option
-		 *
-		 * @since 1.0.0
-		 */
 		public static function get_theme_option( $id ) {
 			$options = self::get_theme_options();
 			if ( isset( $options[$id] ) ) {
@@ -52,11 +35,6 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 			}
 		}
 
-		/**
-		 * Add sub menu page
-		 *
-		 * @since 1.0.0
-		 */
 		public static function add_admin_menu() {
       add_submenu_page(
         'et_divi_options',
@@ -69,16 +47,8 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
       );
 		}
 
-		/**
-		 * Register a setting and its sanitization callback.
-		 *
-		 * We are only registering 1 setting so we can store all options in a single option as
-		 * an array. You could, however, register a new setting for each option
-		 *
-		 * @since 1.0.0
-		 */
 		public static function register_settings() {
-			register_setting( 'theme_options', 'theme_options', array( 'Divi_Child_Theme_Options', 'sanitize' ) );
+			register_setting( 'divi_child_options', 'divi_child_options', array( 'Divi_Child_Theme_Options', 'sanitize' ) );
 		}
 
 		/**
@@ -92,6 +62,21 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 			if ( $options ) {
 
 				// Checkbox
+
+				// GDPR
+				$options['gdpr_comments'] = (!empty($options['gdpr_comments'])) ? 'on' : 'off';
+
+				// Page Speed
+				$options['version_query_strings'] = (!empty($options['version_query_strings'])) ? 'on' : 'off';
+
+				// Bug Fixes
+				$options['support_center'] = (!empty($options['support_center'])) ? 'on' : 'off';
+
+				// Miscellaneous
+				$options['svg_support'] = (!empty($options['svg_support'])) ? 'on' : 'off';
+				$options['webp_support'] = (!empty($options['webp_support'])) ? 'on' : 'off';
+
+
 				if ( ! empty( $options['checkbox_example'] ) ) {
 					$options['checkbox_example'] = 'on';
 				} else {
@@ -124,22 +109,81 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 		 */
 		public static function create_admin_page() { ?>
 
-			<div class="wrap">
-
-				<h1><?php esc_html_e( 'Divi Child Options', 'divi-child' ); ?></h1>
-
+			<div id="divi-child-options" class="wrap">
+				<div id="icon-plugins" class="icon32"></div>
+				<h1><?php esc_html_e( 'Divi Child Options', 'divi-child' ); ?><small><?php echo 'v'. DIVI_CHILD_VERSION; ?></small></h1>
 				<form method="post" action="options.php">
-
-					<?php settings_fields( 'theme_options' ); ?>
-
+					<?php settings_fields( 'divi_child_options' ); ?>
 					<table class="form-table wpex-custom-admin-login-table">
+						<!-- GDPR -->
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'GDPR', 'divi-child' ); ?></th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text"><span><?php esc_html_e( 'GDPR', 'divi-child' ); ?></span></legend>
+									<label for="gdpr_comments">
+										<?php $gdpr_comments = self::get_theme_option('gdpr_comments'); ?>
+										<input type="checkbox" name="divi_child_options[gdpr_comments]" id="gdpr_comments" <?php checked( $gdpr_comments, 'on' ); ?>> <?php esc_html_e( 'Fix external links in comments and remove commentor\'s IP.', 'divi-child' ); ?>
+									</label>
+									<br>
+								</fieldset>
+							</td>
+						</tr>
+						<!-- PAGE SPEED -->
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Page Speed', 'divi-child' ); ?></th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text"><span><?php esc_html_e( 'Page Speed', 'divi-child' ); ?></span></legend>
+									<label for="version_query_strings">
+										<?php $version_query_strings = self::get_theme_option('version_query_strings'); ?>
+										<input type="checkbox" name="divi_child_options[version_query_strings]" id="version_query_strings" <?php checked( $version_query_strings, 'on' ); ?>> <?php esc_html_e( 'Remove CSS and JS query strings', 'divi-child' ); ?>
+									</label>
+									<br>
+								</fieldset>
+							</td>
+						</tr>
+						<!-- BUG FIXES -->
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Bug Fixes', 'divi-child' ); ?></th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text"><span><?php esc_html_e( 'Bug Fixes', 'divi-child' ); ?></span></legend>
+									<label for="support_center">
+										<?php $support_center = self::get_theme_option('support_center'); ?>
+										<input type="checkbox" name="divi_child_options[support_center]" id="support_center" <?php checked( $support_center, 'on' ); ?>> <?php esc_html_e( 'Remove Divi Support Center from Frontend (Divi 3.20.1)', 'divi-child' ); ?>
+									</label>
+									<br>
+								</fieldset>
+							</td>
+						</tr>
+						<!-- MISCELLANIOUS -->
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Miscellaneous', 'divi-child' ); ?></th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text"><span><?php esc_html_e( 'Miscellaneous', 'divi-child' ); ?></span></legend>
+									<label for="svg_support">
+										<?php $svg_support = self::get_theme_option('svg_support'); ?>
+										<input type="checkbox" name="divi_child_options[svg_support]" id="svg_support" <?php checked( $svg_support, 'on' ); ?>> <?php esc_html_e( 'Enable to upload SVG files', 'divi-child' ); ?>
+									</label>
+									<br>
+									<label for="webp_support">
+										<?php $webp_support = self::get_theme_option('webp_support'); ?>
+										<input type="checkbox" name="divi_child_options[webp_support]" id="webp_support" <?php checked( $webp_support, 'on' ); ?>> <?php esc_html_e( 'Enable to upload WebP files', 'divi-child' ); ?>
+									</label>
+									<br>
+								</fieldset>
+							</td>
+						</tr>
 
 						<?php // Checkbox example ?>
 						<tr valign="top">
 							<th scope="row"><?php esc_html_e( 'Checkbox Example', 'divi-child' ); ?></th>
 							<td>
 								<?php $value = self::get_theme_option( 'checkbox_example' ); ?>
-								<input type="checkbox" name="theme_options[checkbox_example]" <?php checked( $value, 'on' ); ?>> <?php esc_html_e( 'Checkbox example description.', 'divi-child' ); ?>
+								<input type="checkbox" name="divi_child_options[checkbox_example]" <?php checked( $value, 'on' ); ?>> <?php esc_html_e( 'Checkbox example description.', 'divi-child' ); ?>
+								
 							</td>
 						</tr>
 
@@ -148,7 +192,8 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<th scope="row"><?php esc_html_e( 'Input Example', 'divi-child' ); ?></th>
 							<td>
 								<?php $value = self::get_theme_option( 'input_example' ); ?>
-								<input type="text" name="theme_options[input_example]" value="<?php echo esc_attr( $value ); ?>">
+								<input type="text" name="divi_child_options[input_example]" value="<?php echo esc_attr( $value ); ?>">
+								<p class="description"><?php esc_html_e('This is a description', 'divi-child'); ?></p>
 							</td>
 						</tr>
 
@@ -157,7 +202,7 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<th scope="row"><?php esc_html_e( 'Select Example', 'divi-child' ); ?></th>
 							<td>
 								<?php $value = self::get_theme_option( 'select_example' ); ?>
-								<select name="theme_options[select_example]">
+								<select name="divi_child_options[select_example]">
 									<?php
 									$options = array(
 										'1' => esc_html__( 'Option 1', 'divi-child' ),

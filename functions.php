@@ -1,12 +1,14 @@
 <?php
 if (!defined('ABSPATH')) die();
 
+define('DIVI_CHILD_VERSION', '1.4.0');
+
 // INFO: Setup
 
 include_once('admin/admin.php');
 
 /**
- * Load all scripts and styles
+ * STATIC: Load all scripts and styles
  */
 function divi_child_enqueue_scripts() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -17,17 +19,7 @@ add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
 
 
 /**
- * Add special inline scripts
- * @since 1.3.0
- */
-function divi_child_page_fix() {
-  ?><script type="text/javascript">/* <![CDATA[ */ document.addEventListener('DOMContentLoaded', function() { var h = document.querySelector('.et-l--header'); var p = document.querySelector('#page-container'); if (document.querySelector('body.et_fixed_nav') !== null) { p.style.paddingTop = h.clientHeight + 'px'; }}); /* ]]> */</script><?php
-}
-add_action( 'wp_head', 'divi_child_page_fix', 1, 1);
-
-
-/**
- * TODO: Load all language files
+ * STATIC: TODO: Load all language files
  */
 function divi_child_languages() {
   load_child_theme_textdomain( 'Divi', get_stylesheet_directory() . '/languages/theme' );
@@ -38,40 +30,7 @@ add_action( 'after_setup_theme', 'divi_child_languages');
 
 
 /**
- * Removes Divi Support Center from Frontend
- * @since Divi 3.20.1
- */
-function divi_child_remove_support_center() {
-	wp_dequeue_script( 'et-support-center' );
-	wp_deregister_script( 'et-support-center' );
-}
-add_action( 'wp_enqueue_scripts', 'divi_child_remove_support_center', 99999 );
-
-
-/**
- * Stops core auto update email notifications
- * @since 1.4.0
- * @since WordPress 5.5
- */
-function divi_child_stop_update_mails($send, $type, $core_update, $result) {
-  if (!empty($type) && $type == 'success' ) { return false; }
-  return true;
-}
-add_filter('auto_core_update_send_mail', 'divi_child_stop_update_mails', 10, 4);
-
-
-/**
- * Adds SVG & WebP support for file uploads
- */
-function divi_child_supported_filetypes($filetypes) {
-
-  $new = array('svg' => 'image/svg+xml', 'svg' => 'image/svg', 'webp' => 'image/webp');
-  return array_merge($filetypes, $new);
-}
-add_action('upload_mimes', 'divi_child_supported_filetypes');
-
-/**
- * Custom Body Class for Child Theme
+ * STATIC: Custom Body Class for Child Theme
  */
 function divi_child_body_class( $classes ) {
   $classes[] = 'child';
@@ -80,230 +39,17 @@ function divi_child_body_class( $classes ) {
 add_action( 'body_class', 'divi_child_body_class' );
 
 
-/**
- * Fixed Body Classes for Theme Builder Header
- * @since 1.2.0
- * @since Divi 4.0
- */
-function divi_child_tb_fixed_body_class( $classes ) {
-  $has_tb_header = in_array( 'et-tb-has-header', $classes );
-  $is_fixed_header = 'on' === et_get_option( 'divi_fixed_nav', 'on' );
+// GDPR
+include_once('includes/child_gdpr.php');
 
-  if ($has_tb_header) {
-    if ($is_fixed_header) {
-      $classes[] = 'et_fixed_nav';
-    } else {
-      $classes[] = 'et_non_fixed_nav';
-    }
-    $classes[] = 'et_show_nav';
-    // With et-tb-has-header not set the page-container gets a padding-top of the height of the header
-    unset($classes[array_search('et-tb-has-header', $classes)]);
-  }
-  return $classes;
-}
-add_filter( 'body_class', 'divi_child_tb_fixed_body_class');
+// Bugfixes
+include_once('includes/child_bugfixes.php');
 
+// Pagespeed
+include_once('includes/child_pagespeed.php');
 
-// INFO: Comments (external links & comments IP) 
+// Miscellaneous
+include_once('includes/child_misc.php')
 
-/**
- * Makes every comment and comment author link truely external (except 'respond')
- */
-function divi_child_external_comment_links( $content ){
-  return str_replace( "<a ", "<a target='_blank' ", $content );
-}
-add_filter( "comment_text", "divi_child_external_comment_links" );
-add_filter( "get_comment_author_link", "divi_child_external_comment_links" );
-
-
-/**
- * Removes IP addresses from comments (old entries have to be deleted by hand)
- */
-function divi_child_remove_comments_ip( $comment_author_ip ) {
-  return '';
-}
-add_filter( 'pre_comment_user_ip', 'divi_child_remove_comments_ip' );
-
-
-// INFO: Disable Emojis 
-
-/**
- * Disable the emoji's
- */
-function divi_child_disable_emojis() {
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  add_filter( 'tiny_mce_plugins', 'divi_child_disable_emojis_tinymce' );
-  add_filter( 'wp_resource_hints', 'divi_child_disable_emojis_remove_dns_prefetch', 10, 2 );
-}
-add_action( 'init', 'divi_child_disable_emojis' );
-
-
-/**
-* Filter function used to remove the tinymce emoji plugin.
-* @param array $plugins 
-* @return array Difference betwen the two arrays
-*/
-function divi_child_disable_emojis_tinymce( $plugins ) {
-  if ( is_array( $plugins ) ) {
-    return array_diff( $plugins, array( 'wpemoji' ) );
-  } else {
-    return array();
-  }
-}
-
-
-/**
-* Remove emoji CDN hostname from DNS prefetching hints.
-* @param array $urls URLs to print for resource hints.
-* @param string $relation_type The relation type the URLs are printed for.
-* @return array Difference betwen the two arrays.
-*/
-function divi_child_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
-  if ( 'dns-prefetch' == $relation_type ) {
-    $emoji_svg_url = apply_filters( 'emoji_svg_url','https://s.w.org/images/core/emoji/2/svg/' );
-  
-    $urls = array_diff( $urls, array( $emoji_svg_url ) );
-  }
-  return $urls;
-}
-
-
-// INFO: Disable oEmbeds
-
-/**
- * Disable oEmbeds
- */
-function divi_child_disable_embeds() {
-  remove_action( 'rest_api_init', 'wp_oembed_register_route' ); // JSON API
-  add_filter( 'embed_oembed_discover', '__return_false' ); // Auto Discover
-  remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 ); // Results
-  remove_action( 'wp_head', 'wp_oembed_add_discovery_links' ); // Discovery Links
-  remove_action( 'wp_head', 'wp_oembed_add_host_js' ); // Frontend JS
-  add_filter( 'tiny_mce_plugins', 'divi_child_disable_embeds_tinymce_plugin' ); // TinyMCE
-  add_filter( 'rewrite_rules_array', 'divi_child_disable_embeds_rewrites' ); // Rerite Rules
-  remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 ); // oEmbeds Preloader
-}
-add_action( 'init', 'divi_child_disable_embeds', 9999 );
-
-
-/**
- * Remove oEmbed TinyMCE Plugin
- */
-function divi_child_disable_embeds_tinymce_plugin( $plugins ) {
-  return array_diff( $plugins, array('wpembed') );
-}
-
-
-/**
- * Disable oEmbeds rewrite rules
- */
-function divi_child_disable_embeds_rewrites( $rules ) {
-  foreach( $rules as $rule => $rewrite ) {
-    if (false !== strpos($rewrite, 'embed=true')) {
-      unset($rules[$rule]);
-    }
-  }
-  return $rules;
-}
-
-
-// INFO: Remove global DNS Prefetching 
-
-/**
- * Remove DNS Prefetching for Wordpress
- */
-function divi_child_remove_dns_prefetch() {
-  remove_action('wp_head', 'wp_resource_hints', 2);
-}
-add_action( 'init', 'divi_child_remove_dns_prefetch');
-
-
-/**
- * Remove REST API & XMLRPC info from head and headers (for security reasons)
- */
-function divi_child_remove_api_headers() {
-  
-  remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
-  add_filter('xmlrpc_enabled', '__return_false'); // restrict xmlrpc
-  remove_action('wp_head', 'rsd_link'); // remove rsd link
-  remove_action('wp_head', 'rest_output_link_wp_head', 10);
-  remove_action('template_redirect', 'rest_output_link_header', 11, 0);
-  remove_action('wp_head', 'wp_generator'); // remove generator tag
-  remove_action('wp_head', 'wlwmanifest_link'); // remove windows live writer manifest
-}
-add_action('init', 'divi_child_remove_api_headers');
-
-
-// INFO: Some Pagespeed Hacks
-
-/**
- * Disable Self Pingback
- * @since 1.4.0
- */
-function divi_child_disable_pingback( &$links ) {
-  foreach ( $links as $l => $link ) {
-    if (0 === strpos($link, get_option('home'))) unset($links[$l]);
-  }
-}
-add_action('pre_ping', 'divi_child_disable_pingback');
-
-
-/**
- * Remove Dashicons on Frontend
- * @since 1.4.0
- */
-function divi_child_dequeue_dashicons() {
-  if (current_user_can( 'update_core' )) {
-    return;
-  }
-  wp_deregister_style('dashicons');
-}
-add_action( 'wp_enqueue_scripts', 'divi_child_dequeue_dashicons' );
-
-
-/**
- * Remove CSS & JS version query strings
- * @since 1.4.0
- */
-function divi_child_remove_query_strings( $src ) {
-if( strpos( $src, '?ver=' ) )
- $src = remove_query_arg( 'ver', $src );
-return $src;
-}
-add_filter( 'style_loader_src', 'divi_child_remove_query_strings', 10, 2 );
-add_filter( 'script_loader_src', 'divi_child_remove_query_strings', 10, 2 );
-
-
-/**
- * Remove Shortlink from Head
- * @since 1.4.0
- */
-function divi_child_remove_shortlink() {
-  remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-}
-add_action('init', 'divi_child_remove_shortlink');
-
-
-/**
- * Preload some of the biggest fonts for speed
- * @since 1.4.0
- */
-function divi_child_preload_fonts() {
-  $fonts = array(
-    '/wp-content/themes/Divi/core/admin/fonts/modules.ttf',
-  );
-
-  foreach ($fonts as $font) {
-    $font_type = 'font/' . substr($font, strrpos($font, ".") + 1);
-    echo '<link rel="preload" href="' . get_site_url()  . $font . '" as="font" type="' . $font_type . '" crossorigin />';
-  }
-}
-add_action('wp_head', 'divi_child_preload_fonts');
 
 ?>
