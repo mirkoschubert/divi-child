@@ -12,7 +12,9 @@ function divi_child_stop_update_mails($send, $type, $core_update, $result) {
 }
 if (divi_child_get_theme_option('stop_mail_updates') === 'on') {
   do_action( 'qm/notice', 'MISC: Update Emails' );
-  add_filter('auto_core_update_send_mail', 'divi_child_stop_update_mails', 10, 4);
+  add_filter('auto_core_update_send_mail', 'divi_child_stop_update_mails', 10, 4); // core
+  add_filter('auto_plugin_update_send_email', '__return_false'); // plugins
+  add_filter('auto_theme_update_send_email', '__return_false'); // themes
 }
 
 
