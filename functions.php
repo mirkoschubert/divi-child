@@ -5,8 +5,6 @@ define('DIVI_CHILD_VERSION', '1.4.0');
 
 // INFO: Setup
 
-include_once('admin/admin.php');
-
 /**
  * STATIC: Load all scripts and styles
  */
@@ -22,9 +20,7 @@ add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
  * STATIC: TODO: Load all language files
  */
 function divi_child_languages() {
-  load_child_theme_textdomain( 'Divi', get_stylesheet_directory() . '/languages/theme' );
-  load_child_theme_textdomain( 'et-core', get_stylesheet_directory() . '/languages/core' );
-  load_child_theme_textdomain( 'et_builder', get_stylesheet_directory() . '/languages/builder' );
+  load_child_theme_textdomain('divi-child', get_stylesheet_directory() . '/languages');
 }
 add_action( 'after_setup_theme', 'divi_child_languages');
 
@@ -38,6 +34,9 @@ function divi_child_body_class( $classes ) {
 }
 add_action( 'body_class', 'divi_child_body_class' );
 
+
+// Admin
+include_once('admin/admin.php');
 
 // GDPR
 include_once('includes/child_gdpr.php');

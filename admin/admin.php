@@ -139,7 +139,7 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 			?>
 			<label for="<?php echo $id; ?>">
 				<?php $checked = $this->get_theme_option($id); ?>
-				<input type="checkbox" name="divi_child_options[<?php echo $id; ?>]" id="<?php echo $id; ?>" <?php checked($checked, 'on'); ?>> <?php esc_html_e($description, 'divi-child'); if ($version) {?> <span class="versions"><?php esc_html_e($version, 'divi-child'); ?></span><?php }?>
+				<input type="checkbox" name="divi_child_options[<?php echo $id; ?>]" id="<?php echo $id; ?>" <?php checked($checked, 'on'); ?>> <?php echo $description; if ($version) {?> <span class="versions"><?php echo $version; ?></span><?php }?>
 			</label>
 			<br>
 			<?php
@@ -159,14 +159,14 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 							<th scope="row"><?php esc_html_e('GDPR', 'divi-child'); ?></th>
 							<td>
 								<fieldset>
-									<legend class="screen-reader-text"><span><?php esc_html_e( 'GDPR', 'divi-child' ); ?></span></legend>
+									<legend class="screen-reader-text"><span><?php esc_html_e('GDPR', 'divi-child'); ?></span></legend>
 									<?php
-										$this->add_checkbox('gdpr_comments_external', 'Make every comment and comment author link truely external');
-										$this->add_checkbox('gdpr_comments_ip', 'Don\'t save the commentor\'s IP address');
-										$this->add_checkbox('disable_emojis', 'Disable Emojis');
-										$this->add_checkbox('disable_oembeds', 'Disable oEmbeds');
-										$this->add_checkbox('dns_prefetching', 'Remove DNS prefetching for WordPress');
-										$this->add_checkbox('rest_api', 'Remove REST API & XML-RPC headers for security reasons');
+										$this->add_checkbox('gdpr_comments_external', esc_html__('Make every comment and comment author link truely external', 'divi-child'));
+										$this->add_checkbox('gdpr_comments_ip', esc_html__('Don\'t save the commentor\'s IP address', 'divi-child'));
+										$this->add_checkbox('disable_emojis', esc_html__('Disable Emojis', 'divi-child'));
+										$this->add_checkbox('disable_oembeds', esc_html__('Disable oEmbeds', 'divi-child'));
+										$this->add_checkbox('dns_prefetching', esc_html__('Remove DNS prefetching for WordPress', 'divi-child'));
+										$this->add_checkbox('rest_api', esc_html__('Remove REST API & XML-RPC headers for security reasons', 'divi-child'));
 									?>
 								</fieldset>
 							</td>
@@ -178,11 +178,11 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e('Page Speed', 'divi-child'); ?></span></legend>
 									<?php
-										$this->add_checkbox('page_pingback', 'Disable page pingback');
-										$this->add_checkbox('remove_dashicons', 'Remove dashicons from the frontend');
-										$this->add_checkbox('version_query_strings', 'Remove CSS and JS query strings');
-										$this->add_checkbox('remove_shortlink', 'Remove shortlink from head');
-										$this->add_checkbox('preload_fonts', 'Preload some fonts for speed');
+										$this->add_checkbox('page_pingback', esc_html__('Disable page pingback', 'divi-child'));
+										$this->add_checkbox('remove_dashicons', esc_html__('Remove dashicons from the frontend', 'divi-child'));
+										$this->add_checkbox('version_query_strings', esc_html__('Remove CSS and JS query strings', 'divi-child'));
+										$this->add_checkbox('remove_shortlink', esc_html__('Remove shortlink from head', 'divi-child'));
+										$this->add_checkbox('preload_fonts', esc_html__('Preload some fonts for speed', 'divi-child'));
 									?>
 									<label for="font_list">
 										<?php $font_list = $this->get_theme_option('font_list'); ?>
@@ -200,9 +200,21 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e('Bug Fixes', 'divi-child'); ?></span></legend>
 									<?php
-										$this->add_checkbox('support_center', 'Remove Divi Support Center from Frontend', '(Divi 3.20.1 only)');
-										$this->add_checkbox('tb_header_fix', 'Enable fixed navigation bar option in Theme Builder', '(Divi 4.0 and up)');
-										$this->add_checkbox('tb_display_errors', 'Fix display errors in Theme Builder', '(Divi 4.0 and up)');
+										$this->add_checkbox(
+											'support_center',
+											esc_html__('Remove Divi Support Center from Frontend', 'divi-child'),
+											esc_html__('(Divi 3.20.1 only)', 'divi-child')
+										);
+										$this->add_checkbox(
+											'tb_header_fix',
+											esc_html__('Enable fixed navigation bar option in Theme Builder', 'divi-child'),
+											esc_html__('(Divi 4.0 and up)', 'divi-child')
+										);
+										$this->add_checkbox(
+											'tb_display_errors',
+											esc_html__('Fix display errors in Theme Builder', 'divi-child'),
+											esc_html__('(Divi 4.0 and up)', 'divi-child')
+										);
 									?>
 								</fieldset>
 							</td>
@@ -214,9 +226,9 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e('Miscellaneous', 'divi-child'); ?></span></legend>
 									<?php
-										$this->add_checkbox('stop_mail_updates', 'Disable email notification when plugins or theme where automatically updated.');
-										$this->add_checkbox('svg_support', 'Enable to upload SVG files');
-										$this->add_checkbox('webp_support', 'Enable to upload WebP files');
+										$this->add_checkbox('stop_mail_updates', esc_html__('Disable email notification when plugins or theme where automatically updated.', 'divi-child'));
+										$this->add_checkbox('svg_support', esc_html__('Enable to upload SVG files', 'divi-child'));
+										$this->add_checkbox('webp_support', esc_html__('Enable to upload WebP files', 'divi-child'));
 									?>
 								</fieldset>
 							</td>
