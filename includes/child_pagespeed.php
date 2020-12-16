@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) die();
 
 /**
  * SPEED: Disable Self Pingback
- * @since 1.4.0
+ * @since 2.0.0
  */
 function divi_child_disable_pingback( &$links ) {
   foreach ( $links as $l => $link ) {
@@ -17,7 +17,7 @@ if (divi_child_get_theme_option('page_pingback') === 'on') {
 
 /**
  * SPEED: Remove Dashicons on Frontend
- * @since 1.4.0
+ * @since 2.0.0
  */
 function divi_child_dequeue_dashicons() {
   if (current_user_can( 'update_core' )) {
@@ -32,7 +32,7 @@ if (divi_child_get_theme_option('remove_dashicons') === 'on') {
 
 /**
  * SPEED: Remove CSS & JS version query strings
- * @since 1.4.0
+ * @since 2.0.0
  */
 function divi_child_remove_query_strings( $src ) {
 if( strpos( $src, '?ver=' ) )
@@ -47,7 +47,7 @@ if (divi_child_get_theme_option('version_query_strings') === 'on') {
 
 /**
  * SPEED: Remove Shortlink from Head
- * @since 1.4.0
+ * @since 2.0.0
  */
 function divi_child_remove_shortlink() {
   remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
@@ -59,21 +59,19 @@ if (divi_child_get_theme_option('remove_shortlink') === 'on') {
 
 /**
  * SPEED: Preload some of the biggest fonts for speed
- * @since 1.4.0
+ * @since 2.0.0
  */
 function divi_child_preload_fonts() {
-  $fonts = array(
-    '/wp-content/themes/Divi/core/admin/fonts/modules.ttf',
-  );
+  $font_list = divi_child_get_theme_option('font_list');
+  $fonts = ($font_list) ? explode("\n", $font_list) : array('/wp-content/themes/Divi/core/admin/fonts/modules.ttf');
 
   foreach ($fonts as $font) {
     $font_type = 'font/' . substr($font, strrpos($font, ".") + 1);
-    echo '<link rel="preload" href="' . get_site_url()  . $font . '" as="font" type="' . $font_type . '" crossorigin />';
+    $font_path = (substr($font, 0, 4 ) === "http") ? $font : get_site_url() . $font;
+    echo '<link rel="preload" href="' . $font_path . '" as="font" type="' . $font_type . '" crossorigin />';
   }
 }
 if (divi_child_get_theme_option('preload_fonts') === 'on') {
-  // TODO: Not working???
-  do_action( 'qm/notice', 'SPEED: Preload fonts' );
   add_action('wp_head', 'divi_child_preload_fonts');
 }
 
