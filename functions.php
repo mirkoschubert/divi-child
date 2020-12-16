@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) die();
 
-define('DIVI_CHILD_VERSION', '2.0.0');
+define('DIVI_CHILD_VERSION', '2.0.1');
 
 // INFO: Setup
 
