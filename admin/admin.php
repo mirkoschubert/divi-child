@@ -85,9 +85,9 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 
 
 		public function register_settings() {
-			do_action('qm/debug', get_option('divi_child_options'));
+			/* do_action('qm/debug', get_option('divi_child_options')); */
 			if (!get_option('divi_child_options')) {
-				do_action('qm/notice', 'Saving defaults...');
+				/* do_action('qm/notice', 'Saving defaults...'); */
 				add_option('divi_child_options', $this->defaults);
 			} else {
 				register_setting( 'divi_child_options', 'divi_child_options', array($this, 'sanitize' ) );

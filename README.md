@@ -1,8 +1,16 @@
 # Divi GDPR Child Theme
 
-This is a WordPress child theme boilerplate for Divi, which aims to secure the site and to configure it to meet the GDPR requirements. The child theme performs the following tasks:
+This piece of software is a WordPress child theme boilerplate for Divi. It aims to secure the site, to configure it to meet the GDPR requirements and to optimize it for a better page speed. In addition there are some bug fixes for the Divi Theme itself.
 
-**GDPR Fixes:**
+## Version 2.0 is finally here!
+
+Lots of new features are in stock for this new major version. And there are more to come! The Divi Child Theme has gotten it's own admin panel, which integrates nicely into the main options of Divi.
+
+You can easily enable or disable any of the features down below. So if you don't want one or two of those features, you don't have to go to the code and fix it yourself.
+
+I added a lot of new features as well, especially some pagespeed tweaks an some bug fixes for newer versions of Divi:
+
+**GDPR Features:**
 
 * Localize Google Fonts (or in fact any web font)
 * Make links in the comments truely external
@@ -12,16 +20,29 @@ This is a WordPress child theme boilerplate for Divi, which aims to secure the s
 * Remove global DNS Prefetching
 * Hide WordPress REST API meta data for security reasons
 
-**Divi Fixes:**
+**Page Speed Tweaks:**
 
-* Remove Divi support center scripts from frontend (Divi 3.20.1 and up)
+* Disable page pingback
+* Remove Dashicons from the frontend
+* Remove CSS and JS query strings
+* Remove Shortlink from head
+* Preload some fonts (or other files)
+
+**Divi Bug Fixes:**
+
+* Remove Divi support center scripts from frontend (Divi 3.20.1)
 * CSS Split Section Fix for alternating sections of image and text (responsive)
 * Fix display errors in Theme Builder (Divi 4.0 and up)
 * Re-enable fixed navigation bar option when a global header in Theme builder is active (Divi 4.0 and up)
 
-**Secrutity Fixes:**
+**Micellaneous features:**
 
-* Set up automatic updates for the WordPress core, every plugin, theme and translation (WordPress 3.7 and up)
+* Disable email notifications for plugin and theme auto-updates
+* Restrict email notifications for core updates (only errors will be sent)
+* Enable to upload SVG files
+* Enable to upload WebP files
+
+The next steps will be to bring some CSS hacks to the admin panel as well and to automate the Google Font localization. There will be more explanation for non technical users in the admin panel in the future. So have fun and stay tuned!
 
 ## Instructions
 
@@ -33,7 +54,7 @@ In order to create clean code and a descent inheritance, the child theme uses a 
 
 ```css
 .child p {
-  line-height: 1.6
+  line-height: 1.6;
 }
 ```
 

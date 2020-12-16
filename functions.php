@@ -50,5 +50,7 @@ include_once('includes/child_pagespeed.php');
 // Miscellaneous
 include_once('includes/child_misc.php')
 
+/** -------- Add your own code after this! -------- **/
+
 
 ?>

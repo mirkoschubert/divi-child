@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Divi Child\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-16 13:27+0000\n"
+"POT-Creation-Date: 2020-12-16 15:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -24,7 +24,9 @@ msgid "(Divi 4.0 and up)"
 msgstr ""
 
 #. Description of the theme
-msgid "A Divi Child Theme"
+msgid ""
+"A Divi Child Theme with lots of GDPR and page speed optimizations and some "
+"tweaks and bug fixed for the parent theme."
 msgstr ""
 
 #: admin/admin.php:198 admin/admin.php:201
