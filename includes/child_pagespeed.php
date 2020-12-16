@@ -63,7 +63,7 @@ if (divi_child_get_theme_option('remove_shortlink') === 'on') {
  */
 function divi_child_preload_fonts() {
   $font_list = divi_child_get_theme_option('font_list');
-  $fonts = ($font_list) ? explode("\n", $font_list) : array('/wp-content/themes/Divi/core/admin/fonts/modules.ttf');
+  $fonts = ($font_list) ? preg_split('/\r\n|\r|\n/', $font_list) : array('/wp-content/themes/Divi/core/admin/fonts/modules.ttf');
 
   foreach ($fonts as $font) {
     $font_type = 'font/' . substr($font, strrpos($font, ".") + 1);
