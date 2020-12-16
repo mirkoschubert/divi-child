@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) die();
 
-define('DIVI_CHILD_VERSION', '1.4.0');
+define('DIVI_CHILD_VERSION', '2.0.0');
 
 // INFO: Setup
 
@@ -17,7 +17,7 @@ add_action( 'wp_enqueue_scripts', 'divi_child_enqueue_scripts' );
 
 
 /**
- * STATIC: TODO: Load all language files
+ * STATIC: Load all language files
  */
 function divi_child_languages() {
   load_child_theme_textdomain('divi-child', get_stylesheet_directory() . '/languages');

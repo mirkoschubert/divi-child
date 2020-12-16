@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) die();
 
 /**
  * MISC: Stops core auto update email notifications
- * @since 1.4.0
+ * @since 2.0.0
  * @since WordPress 5.5
  */
 function divi_child_stop_update_mails($send, $type, $core_update, $result) {
