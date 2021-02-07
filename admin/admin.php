@@ -245,9 +245,3 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 	}
 }
 $theme_settings = new Divi_Child_Theme_Options();
-
-// Helper function to use in your theme to return a theme option value
-function divi_child_get_theme_option($id = '') {
-	global $theme_settings;
-	return $theme_settings->get_theme_option($id);
-}

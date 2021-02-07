@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) die();
 
-define('DIVI_CHILD_VERSION', '2.0.1');
+define('DIVI_CHILD_VERSION', '2.0.3');
 
 // INFO: Setup
 
@@ -37,6 +37,9 @@ add_action( 'body_class', 'divi_child_body_class' );
 
 // Admin
 include_once('admin/admin.php');
+
+// Helpers
+include_once('includes/helpers.php');
 
 // GDPR
 include_once('includes/child_gdpr.php');
