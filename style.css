@@ -5,7 +5,7 @@ Author: Mirko Schubert
 Author URI: https://mirkoschubert.de
 Description: A Divi Child Theme with lots of GDPR and page speed optimizations and some tweaks and bug fixed for the parent theme.
 Tags: child-theme
-Version: 2.0.4
+Version: 2.0.5
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.2
@@ -28,7 +28,7 @@ Domain Path: /languages
 
 /** Hyphenation (if possible) **/
 
-*,html{word-break:break-word;hyphens:auto}
+*,html{word-break:break-word;hyphens:auto;-ms-hyphens:auto;-webkit-hyphens:auto}
 
 /** SPLIT SECTION FIX **/
 
