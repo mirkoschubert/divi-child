@@ -2,6 +2,8 @@
 
 This piece of software is a WordPress child theme boilerplate for Divi. It aims to secure the site, to configure it to meet the GDPR requirements and to optimize it for a better page speed. In addition there are some bug fixes for the Divi Theme itself.
 
+<p><a href="https://www.buymeacoffee.com/musikuss" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
+
 ## Version 2.0 is finally here!
 
 Lots of new features are in stock for this new major version. And there are more to come! The Divi Child Theme has gotten it's own admin panel, which integrates nicely into the main options of Divi.
