@@ -5,10 +5,10 @@ Author: Mirko Schubert
 Author URI: https://mirkoschubert.de
 Description: A Divi Child Theme with lots of GDPR and page speed optimizations and some tweaks and bug fixed for the parent theme.
 Tags: child-theme
-Version: 2.0.5
+Version: 2.0.6
 Requires at least: 5.0
-Tested up to: 5.6
-Requires PHP: 7.2
+Tested up to: 6.0.1
+Requires PHP: 7.4
 License: GNU General Public License version 3.0
 License URI: http: //www.gnu.org/licenses/gpl-3.0.html
 Template: Divi
@@ -53,6 +53,6 @@ Domain Path: /languages
 /** Mobile Menu FIX **/
 /* If you don't need a fullscreen mobile menu, please comment out the following code! */
 
-.child .et_pb_fullwidth_menu .et_mobile_menu,.child .et_pb_menu .et_mobile_menu{position:fixed;top:var(--header-height);left:0;width:100%;height:calc(100vh - var(--header-height));display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:scroll;transition:all .4s ease}.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:calc(32px + var(--header-height))}@media screen and (max-width:782px){.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:calc(46px + var(--header-height))}}.child .et_pb_fullwidth_menu .closed .et_mobile_menu,.child .et_pb_menu .closed .et_mobile_menu{display:none;transition:all .4s ease;background-color:transparent}.child .et_pb_fullwidth_menu .et_mobile_menu li,.child .et_pb_menu .et_mobile_menu li{width:100%;max-width:480px;color:var(--text-color);text-align:center;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu li a,.child .et_pb_menu .et_mobile_menu li a{font-size:18px;font-weight:600;border:none;padding:.7rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li li a,.child .et_pb_menu .et_mobile_menu li li a{font-size:16px;font-weight:300;padding:.5rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a,.child .et_pb_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a{color:var(--text-color)!important}.child .et_pb_fullwidth_menu .et_mobile_menu li ul,.child .et_pb_menu .et_mobile_menu li ul{background-color:transparent!important;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu .menu-item-has-children>a,.child .et_pb_menu .et_mobile_menu .menu-item-has-children>a{background-color:transparent}
+.child .et_pb_fullwidth_menu .et_mobile_menu,.child .et_pb_menu .et_mobile_menu{position:fixed;top:0;left:0;width:100%;height:calc(100vh);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:scroll;transition:all .4s ease}.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:32px}@media screen and (max-width:782px){.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:46px}}.child .et_pb_fullwidth_menu .closed .et_mobile_menu,.child .et_pb_menu .closed .et_mobile_menu{display:none;transition:all .4s ease;background-color:transparent}.child .et_pb_fullwidth_menu .et_mobile_menu li,.child .et_pb_menu .et_mobile_menu li{width:100%;max-width:480px;color:var(--text-color);text-align:center;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu li a,.child .et_pb_menu .et_mobile_menu li a{font-size:18px;font-weight:600;border:none;padding:.7rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li li a,.child .et_pb_menu .et_mobile_menu li li a{font-size:16px;font-weight:300;padding:.5rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a,.child .et_pb_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a{color:var(--text-color)!important}.child .et_pb_fullwidth_menu .et_mobile_menu li ul,.child .et_pb_menu .et_mobile_menu li ul{background-color:transparent!important;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu .menu-item-has-children>a,.child .et_pb_menu .et_mobile_menu .menu-item-has-children>a{background-color:transparent}.child .mobile_nav.opened .mobile_menu_bar{z-index:11111}.child .mobile_nav.opened .mobile_menu_bar{box-shadow:none!important}.child .mobile_nav.opened .mobile_menu_bar::before{content:'M';color:var(--text-color)}
 
 /** -------- Add your own code after this! -------- **/
