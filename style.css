@@ -5,7 +5,7 @@ Author: Mirko Schubert
 Author URI: https://mirkoschubert.de
 Description: A Divi Child Theme with lots of GDPR and page speed optimizations and some tweaks and bug fixed for the parent theme.
 Tags: child-theme
-Version: 2.0.6
+Version: 2.1.0
 Requires at least: 5.0
 Tested up to: 6.0.1
 Requires PHP: 7.4
@@ -23,36 +23,6 @@ Domain Path: /languages
 
 :root {
   --header-height: 80px;
-  --text-color: #131313;
 }
-
-/** Hyphenation (if possible) **/
-
-*,html{word-break:break-word;hyphens:auto;-ms-hyphens:auto;-webkit-hyphens:auto}
-
-/** SPLIT SECTION FIX **/
-
-@media screen and (max-width:980px){.child .split-section-fix .et_pb_column.et_pb_column_empty{display:block;min-height:60vw}.child .split-section-fix .et_pb_row:nth-child(2n){display:flex;flex-direction:column-reverse}.child .split-section-fix .et_pb_column{padding-left:16%;padding-right:16%}.child .split-section-fix .et_pb_column .et_pb_text_align_right{text-align:left}}@media screen and (max-width:767px){.child .split-section-fix .et_pb_column{padding-left:8%;padding-right:8%}}
-
-/** THEME BUILDER HEADER FIX @since 1.2.0 **/
-
-.child.et-db #et-boc .et-l--header{position:relative;z-index:99997;top:0;width:100%;transition:background-color .4s,opacity .4s ease-in-out}.child.et_fixed_nav #et-boc .et-l--header{position:fixed}.child.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_pb_row{width:100%;margin:0;padding:0!important}.child.admin-bar.et_fixed_nav #et-boc .et-l--header{top:32px}@media screen and (max-width:782px){.child.admin-bar.et_fixed_nav #et-boc .et-l--header{top:46px}}@media screen and (max-width:600px){.child.admin-bar.et_fixed_nav #wpadminbar{position:fixed}}.child.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_pb_menu__search{padding:0 2rem;background-color:transparent}.child.et_fixed_nav #page-container{padding-top:var(--header-height)!important}
-
-/** Theme Builder Menu Logo Image Sizing FIX @since Divi v4.6.6 **/
-
-.child .et_pb_menu_0_tb_header .et_pb_menu_inner_container>.et_pb_menu__logo-wrap .et_pb_menu__logo img,
-.child .et_pb_menu_0_tb_header .et_pb_menu__logo-slot .et_pb_menu__logo-wrap img {
-  width: auto;
-}
-
-/** Mobile Menu Breakpoint FIX **/
-/* If you don't need a higher breakboint for the mobile menu, please comment out the following code! */
-
-@media screen and (max-width:1280px){.child .et_pb_fullwidth_menu .et_pb_menu__menu,.child .et_pb_menu .et_pb_menu__menu{display:none}.child .et_pb_fullwidth_menu .et_mobile_nav_menu,.child .et_pb_menu .et_mobile_nav_menu{float:none;margin:0 6px;display:flex;-webkit-box-align:center;align-items:center}.child .et_pb_fullwidth_menu .et_mobile_menu,.child .et_pb_fullwidth_menu .et_mobile_menu ul,.child .et_pb_menu .et_mobile_menu,.child .et_pb_menu .et_mobile_menu ul{list-style:none!important;text-align:left}.et_pb_fullwidth_menu .et_mobile_menu,.et_pb_menu .et_mobile_menu{top:100%;padding:5%}}
-
-/** Mobile Menu FIX **/
-/* If you don't need a fullscreen mobile menu, please comment out the following code! */
-
-.child .et_pb_fullwidth_menu .et_mobile_menu,.child .et_pb_menu .et_mobile_menu{position:fixed;top:0;left:0;width:100%;height:calc(100vh);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:scroll;transition:all .4s ease}.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:32px}@media screen and (max-width:782px){.child.admin-bar .et_pb_fullwidth_menu .et_mobile_menu,.child.admin-bar .et_pb_menu .et_mobile_menu{top:46px}}.child .et_pb_fullwidth_menu .closed .et_mobile_menu,.child .et_pb_menu .closed .et_mobile_menu{display:none;transition:all .4s ease;background-color:transparent}.child .et_pb_fullwidth_menu .et_mobile_menu li,.child .et_pb_menu .et_mobile_menu li{width:100%;max-width:480px;color:var(--text-color);text-align:center;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu li a,.child .et_pb_menu .et_mobile_menu li a{font-size:18px;font-weight:600;border:none;padding:.7rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li li a,.child .et_pb_menu .et_mobile_menu li li a{font-size:16px;font-weight:300;padding:.5rem 5%}.child .et_pb_fullwidth_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a,.child .et_pb_menu .et_mobile_menu li.current-menu-item li:not(.current-menu-item) a{color:var(--text-color)!important}.child .et_pb_fullwidth_menu .et_mobile_menu li ul,.child .et_pb_menu .et_mobile_menu li ul{background-color:transparent!important;padding-left:0}.child .et_pb_fullwidth_menu .et_mobile_menu .menu-item-has-children>a,.child .et_pb_menu .et_mobile_menu .menu-item-has-children>a{background-color:transparent}.child .mobile_nav.opened .mobile_menu_bar{z-index:11111}.child .mobile_nav.opened .mobile_menu_bar{box-shadow:none!important}.child .mobile_nav.opened .mobile_menu_bar::before{content:'M';color:var(--text-color)}
 
 /** -------- Add your own code after this! -------- **/

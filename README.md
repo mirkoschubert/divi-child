@@ -4,14 +4,6 @@ This piece of software is a WordPress child theme boilerplate for Divi. It aims 
 
 <p><a href="https://www.buymeacoffee.com/musikuss" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
 
-## Version 2.0 is finally here!
-
-Lots of new features are in stock for this new major version. And there are more to come! The Divi Child Theme has gotten it's own admin panel, which integrates nicely into the main options of Divi.
-
-You can easily enable or disable any of the features down below. So if you don't want one or two of those features, you don't have to go to the code and fix it yourself.
-
-I added a lot of new features as well, especially some pagespeed tweaks an some bug fixes for newer versions of Divi:
-
 **GDPR Features:**
 
 * Localize Google Fonts (or in fact any web font)
@@ -30,19 +22,28 @@ I added a lot of new features as well, especially some pagespeed tweaks an some 
 * Remove Shortlink from head
 * Preload some fonts (or other files)
 
+**Accessibility Tweaks:**
+
+* Fix the viewport meta (for Lighthouse)
+
 **Divi Bug Fixes:**
 
 * Remove Divi support center scripts from frontend (Divi 3.20.1)
 * CSS Split Section Fix for alternating sections of image and text (responsive)
-* Fix display errors in Theme Builder (Divi 4.0 and up)
+* Fix display errors in Theme Builder (Divi 4.0 up to 4.12)
 * Re-enable fixed navigation bar option when a global header in Theme builder is active (Divi 4.0 and up)
+* Set a `.split-section-fix` class for swapping text and image for tablet or lower (see [Split Section Fix](#user-content-split-section-fix))
 
 **Micellaneous features:**
 
+* Disable Projects custom post type as well as categories and tags
 * Disable email notifications for plugin and theme auto-updates
 * Restrict email notifications for core updates (only errors will be sent)
 * Enable to upload SVG files
 * Enable to upload WebP files
+* Enable hyphenation for the whole website
+* Set the breakpoint to 1280px for using mobile menu in landscape mode on a tablet
+* Enable fullscreen mode for the mobile menu
 
 The next steps will be to bring some CSS hacks to the admin panel as well and to automate the Google Font localization. There will be more explanation for non technical users in the admin panel in the future. So have fun and stay tuned!
 
@@ -82,6 +83,20 @@ Feel free to use one of my [Global Header Layouts](https://gist.github.com/mirko
 
 In Divi you actually can turn off Google Fonts by switching off `Use Google Fonts` under `/Settings/Theme Options/General/`. Then you only see fonts from the [CSS font stack](https://www.cssfontstack.com/), but you can upload your own fonts manually.
 
-But you can also use this child theme to organize your fonts. For Google Fonts simply use the [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts), copy the downloaded fonts to the `/fonts/` directory and edit the `/css/fonts.css`.
+But you can also use this child theme to organize your fonts. For Google Fonts simply use the [google-webfonts-helper](https://gwfh.mranftl.com/fonts), copy the downloaded fonts to the `/fonts/` directory and edit the `/assets/css/fonts.css`.
 
 **NOTE:** To use the `TODO` file you should edit it with VSCode and the `Todo+` extension. Please read their documentation for usage information.
+
+### Updating the Divi Child Theme
+
+The purpose of a child theme is to maintain changes even if the parent theme gets updated. So the Divi Child Theme will never have automatic updates. But if you want to use new functions, you can update the child theme manually:
+
+1. Download the [latest version](https://github.com/mirkoschubert/divi-child/releases/latest/) of the Divi child theme.
+2. Unzip it and upload the child theme via FTP to your WordPress installation into the directory `/wp-content/themes/`. You should keep the old version for now - **do not overwrite the old child theme yet!**
+3. Now you have to copy your custom code from the old to the new child theme. This will be mainly parts of the `styles.css` and `/assets/js/main.js`.
+4. If you have localized any font you should copy the contents of the `/assets/css/fonts.css` file as well as every file in the `/assets/fonts/` folder.
+5. If you used a version prior to `v2.0` you should also copy the font list for preloading from the `functions.php` to the list in the admin panel once you activated the new child theme.
+6. Check everything and then activate the new version of the Divi child theme.
+7. Check again if everything works and delete the old version of the child theme afterwards.
+
+You may have to use the [Customizer Export/Import](https://wordpress.org/plugins/customizer-export-import/) plugin for copying the customizer settings to the new child theme.

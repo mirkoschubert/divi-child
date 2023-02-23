@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) die();
 
-define('DIVI_CHILD_VERSION', '2.0.6');
+define('DIVI_CHILD_VERSION', '2.1.0');
 
 // INFO: Setup
 
@@ -49,6 +49,9 @@ include_once('includes/child_bugfixes.php');
 
 // Pagespeed
 include_once('includes/child_pagespeed.php');
+
+// Accessibility
+include_once('includes/child_a11y.php');
 
 // Miscellaneous
 include_once('includes/child_misc.php');

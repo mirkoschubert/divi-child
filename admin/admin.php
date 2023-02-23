@@ -46,12 +46,19 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 				'version_query_strings' => 'on',
 				'remove_shortlink' => 'on',
 				'preload_fonts' => 'off',
+        'viewport_meta' => 'on',
 				'support_center' => 'off',
 				'tb_header_fix' => 'on',
-				'tb_display_errors' => 'on',
+				'tb_display_errors' => 'off',
+        'logo_image_sizing' => 'on',
+				'split_section_fix' => 'off',
+        'disable_projects' => 'off',
 				'stop_mail_updates' => 'on',
 				'svg_support' => 'on',
 				'webp_support' => 'on',
+        'hyphens' => 'on',
+        'mobile_menu_breakpoint' => 'on',
+        'mobile_menu_fullscreen' => 'on',
 				'font_list' => sanitize_textarea_field('/wp-content/themes/Divi/core/admin/fonts/modules.ttf')
 			);
 			return $options;
@@ -113,16 +120,25 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 				$options['version_query_strings'] = (!empty($options['version_query_strings'])) ? 'on' : 'off';
 				$options['remove_shortlink'] = (!empty($options['remove_shortlink'])) ? 'on' : 'off';
 				$options['preload_fonts'] = (!empty($options['preload_fonts'])) ? 'on' : 'off';
+        
+        // A11y
+				$options['viewport_meta'] = (!empty($options['viewport_meta'])) ? 'on' : 'off';
+
 
 				// Bug Fixes
 				$options['support_center'] = (!empty($options['support_center'])) ? 'on' : 'off';
 				$options['tb_header_fix'] = (!empty($options['tb_header_fix'])) ? 'on' : 'off';
 				$options['tb_display_errors'] = (!empty($options['tb_display_errors'])) ? 'on' : 'off';
+				$options['logo_image_sizing'] = (!empty($options['logo_image_sizing'])) ? 'on' : 'off';
+				$options['split_section_fix'] = (!empty($options['split_section_fix'])) ? 'on' : 'off';
 
 				// Miscellaneous
 				$options['stop_mail_updates'] = (!empty($options['stop_mail_updates'])) ? 'on' : 'off';
 				$options['svg_support'] = (!empty($options['svg_support'])) ? 'on' : 'off';
 				$options['webp_support'] = (!empty($options['webp_support'])) ? 'on' : 'off';
+				$options['hyphens'] = (!empty($options['hyphens'])) ? 'on' : 'off';
+				$options['mobile_menu_breakpoint'] = (!empty($options['mobile_menu_breakpoint'])) ? 'on' : 'off';
+				$options['mobile_menu_fullscreen'] = (!empty($options['mobile_menu_fullscreen'])) ? 'on' : 'off';
 				
 				
 				if ( ! empty( $options['font_list'] ) ) {
@@ -193,6 +209,18 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 								</fieldset>
 							</td>
 						</tr>
+						<!-- ACCESSIBILITY -->
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e('Accessibility', 'divi-child'); ?></th>
+							<td>
+								<fieldset>
+									<legend class="screen-reader-text"><span><?php esc_html_e('Accessibility', 'divi-child'); ?></span></legend>
+									<?php
+										$this->add_checkbox('viewport_meta', esc_html__('Fix Viewport Meta', 'divi-child'));
+									?>
+								</fieldset>
+							</td>
+						</tr>
 						<!-- BUG FIXES -->
 						<tr valign="top">
 							<th scope="row"><?php esc_html_e('Bug Fixes', 'divi-child'); ?></th>
@@ -213,7 +241,16 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 										$this->add_checkbox(
 											'tb_display_errors',
 											esc_html__('Fix display errors in Theme Builder', 'divi-child'),
-											esc_html__('(Divi 4.0 and up)', 'divi-child')
+											esc_html__('(Divi 4.0 up to Divi 4.12)', 'divi-child')
+										);
+										$this->add_checkbox(
+											'logo_image_sizing',
+											esc_html__('Fix logo image sizing in Theme Builder', 'divi-child'),
+											esc_html__('(Divi 4.6.6)', 'divi-child')
+										);
+										$this->add_checkbox(
+											'split_section_fix',
+											__('Set CSS class <code>.split-section-fix</code> for swapping image and text on tablet and phone', 'divi-child')
 										);
 									?>
 								</fieldset>
@@ -226,9 +263,13 @@ if ( ! class_exists( 'Divi_Child_Theme_Options' ) ) {
 								<fieldset>
 									<legend class="screen-reader-text"><span><?php esc_html_e('Miscellaneous', 'divi-child'); ?></span></legend>
 									<?php
-										$this->add_checkbox('stop_mail_updates', esc_html__('Disable email notification when plugins or theme where automatically updated.', 'divi-child'));
+                    $this->add_checkbox('disable_projects', esc_html__('Disable custom post type Projects.', 'divi-child'));
+                    $this->add_checkbox('stop_mail_updates', esc_html__('Disable email notification when plugins or theme where automatically updated.', 'divi-child'));
 										$this->add_checkbox('svg_support', esc_html__('Enable to upload SVG files', 'divi-child'));
 										$this->add_checkbox('webp_support', esc_html__('Enable to upload WebP files', 'divi-child'));
+										$this->add_checkbox('hyphens', esc_html__('Enable hyphenation for the whole website', 'divi-child'));
+										$this->add_checkbox('mobile_menu_breakpoint', esc_html__('Set breakpoint for the mobile menu to 1280px', 'divi-child'));
+										$this->add_checkbox('mobile_menu_fullscreen', esc_html__('Enable fullscreen mode for the mobile menu', 'divi-child'));
 									?>
 								</fieldset>
 							</td>

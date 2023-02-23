@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Divi Child\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-16 15:57+0000\n"
+"POT-Creation-Date: 2023-02-23 12:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,12 +15,20 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.6; wp-5.6"
 
-#: admin/admin.php:206
+#: admin/admin.php:234
 msgid "(Divi 3.20.1 only)"
 msgstr ""
 
-#: admin/admin.php:211 admin/admin.php:216
+#: admin/admin.php:239
 msgid "(Divi 4.0 and up)"
+msgstr ""
+
+#: admin/admin.php:244
+msgid "(Divi 4.0 up to Divi 4.12)"
+msgstr ""
+
+#: admin/admin.php:249
+msgid "(Divi 4.6.6)"
 msgstr ""
 
 #. Description of the theme
@@ -29,28 +37,36 @@ msgid ""
 "tweaks and bug fixed for the parent theme."
 msgstr ""
 
-#: admin/admin.php:198 admin/admin.php:201
+#: admin/admin.php:214 admin/admin.php:217
+msgid "Accessibility"
+msgstr ""
+
+#: admin/admin.php:226 admin/admin.php:229
 msgid "Bug Fixes"
 msgstr ""
 
-#: admin/admin.php:77 admin/admin.php:78
+#: admin/admin.php:84 admin/admin.php:85
 msgid "Child Theme Options"
 msgstr ""
 
-#: admin/admin.php:229
+#: admin/admin.php:266
+msgid "Disable custom post type Projects."
+msgstr ""
+
+#: admin/admin.php:267
 msgid ""
 "Disable email notification when plugins or theme where automatically updated."
 msgstr ""
 
-#: admin/admin.php:166
+#: admin/admin.php:182
 msgid "Disable Emojis"
 msgstr ""
 
-#: admin/admin.php:167
+#: admin/admin.php:183
 msgid "Disable oEmbeds"
 msgstr ""
 
-#: admin/admin.php:181
+#: admin/admin.php:197
 msgid "Disable page pingback"
 msgstr ""
 
@@ -58,31 +74,47 @@ msgstr ""
 msgid "Divi Child"
 msgstr ""
 
-#: admin/admin.php:153
+#: admin/admin.php:169
 msgid "Divi Child Options"
 msgstr ""
 
-#: admin/admin.php:165
+#: admin/admin.php:181
 msgid "Don't save the commentor's IP address"
 msgstr ""
 
-#: admin/admin.php:210
+#: admin/admin.php:238
 msgid "Enable fixed navigation bar option in Theme Builder"
 msgstr ""
 
-#: admin/admin.php:230
+#: admin/admin.php:272
+msgid "Enable fullscreen mode for the mobile menu"
+msgstr ""
+
+#: admin/admin.php:270
+msgid "Enable hyphenation for the whole website"
+msgstr ""
+
+#: admin/admin.php:268
 msgid "Enable to upload SVG files"
 msgstr ""
 
-#: admin/admin.php:231
+#: admin/admin.php:269
 msgid "Enable to upload WebP files"
 msgstr ""
 
-#: admin/admin.php:215
+#: admin/admin.php:243
 msgid "Fix display errors in Theme Builder"
 msgstr ""
 
-#: admin/admin.php:159 admin/admin.php:162
+#: admin/admin.php:248
+msgid "Fix logo image sizing in Theme Builder"
+msgstr ""
+
+#: admin/admin.php:219
+msgid "Fix Viewport Meta"
+msgstr ""
+
+#: admin/admin.php:175 admin/admin.php:178
 msgid "GDPR"
 msgstr ""
 
@@ -94,7 +126,7 @@ msgstr ""
 msgid "https://mirkoschubert.de"
 msgstr ""
 
-#: admin/admin.php:164
+#: admin/admin.php:180
 msgid "Make every comment and comment author link truely external"
 msgstr ""
 
@@ -102,42 +134,52 @@ msgstr ""
 msgid "Mirko Schubert"
 msgstr ""
 
-#: admin/admin.php:224 admin/admin.php:227
+#: admin/admin.php:261 admin/admin.php:264
 msgid "Miscellaneous"
 msgstr ""
 
-#: admin/admin.php:176 admin/admin.php:179
+#: admin/admin.php:192 admin/admin.php:195
 msgid "Page Speed"
 msgstr ""
 
-#: admin/admin.php:185
+#: admin/admin.php:201
 msgid "Preload some fonts for speed"
 msgstr ""
 
-#: admin/admin.php:183
+#: admin/admin.php:199
 msgid "Remove CSS and JS query strings"
 msgstr ""
 
-#: admin/admin.php:182
+#: admin/admin.php:198
 msgid "Remove dashicons from the frontend"
 msgstr ""
 
-#: admin/admin.php:205
+#: admin/admin.php:233
 msgid "Remove Divi Support Center from Frontend"
 msgstr ""
 
-#: admin/admin.php:168
+#: admin/admin.php:184
 msgid "Remove DNS prefetching for WordPress"
 msgstr ""
 
-#: admin/admin.php:169
+#: admin/admin.php:185
 msgid "Remove REST API & XML-RPC headers for security reasons"
 msgstr ""
 
-#: admin/admin.php:184
+#: admin/admin.php:200
 msgid "Remove shortlink from head"
 msgstr ""
 
-#: admin/admin.php:190
+#: admin/admin.php:271
+msgid "Set breakpoint for the mobile menu to 1280px"
+msgstr ""
+
+#: admin/admin.php:253
+msgid ""
+"Set CSS class <code>.split-section-fix</code> for swapping image and text on "
+"tablet and phone"
+msgstr ""
+
+#: admin/admin.php:206
 msgid "Type ony one path per line, otherwise it will break!"
 msgstr ""

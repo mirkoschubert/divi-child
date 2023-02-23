@@ -3,24 +3,32 @@ msgstr ""
 "Project-Id-Version: Divi Child\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-16 13:22+0000\n"
-"PO-Revision-Date: 2020-12-16 16:02+0000\n"
+"PO-Revision-Date: 2023-02-23 12:36+0000\n"
 "Last-Translator: \n"
-"Language-Team: German\n"
+"Language-Team: Deutsch\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.4.6; wp-5.6"
+"X-Loco-Version: 2.6.3; wp-6.1.1"
 
-#: admin/admin.php:206
+#: admin/admin.php:234
 msgid "(Divi 3.20.1 only)"
 msgstr "(nur Divi 3.20.1)"
 
-#: admin/admin.php:211 admin/admin.php:216
+#: admin/admin.php:239
 msgid "(Divi 4.0 and up)"
 msgstr "(Divi 4.0 und höher)"
+
+#: admin/admin.php:244
+msgid "(Divi 4.0 up to Divi 4.12)"
+msgstr "(Divi 4.0 bis 4.12)"
+
+#: admin/admin.php:249
+msgid "(Divi 4.6.6)"
+msgstr "(Divi 4.6.6)"
 
 #. Description of the theme
 msgid ""
@@ -30,28 +38,36 @@ msgstr ""
 "Ein Divi Child-Theme mit vielen DSGVO- und Page-Speed-Optimierungen sowie "
 "einige Fehlerbehebungen für das Divi-Theme."
 
-#: admin/admin.php:198 admin/admin.php:201
+#: admin/admin.php:214 admin/admin.php:217
+msgid "Accessibility"
+msgstr "Barrierefreiheit"
+
+#: admin/admin.php:226 admin/admin.php:229
 msgid "Bug Fixes"
 msgstr "Fehlerbehebungen"
 
-#: admin/admin.php:77 admin/admin.php:78
+#: admin/admin.php:84 admin/admin.php:85
 msgid "Child Theme Options"
 msgstr "Child-Theme-Optionen"
 
-#: admin/admin.php:229
+#: admin/admin.php:266
+msgid "Disable custom post type Projects."
+msgstr "Projekte deaktivieren"
+
+#: admin/admin.php:267
 msgid ""
 "Disable email notification when plugins or theme where automatically updated."
 msgstr "E-Mail-Benachrichtigungen für automatische Updates deaktivieren"
 
-#: admin/admin.php:166
+#: admin/admin.php:182
 msgid "Disable Emojis"
 msgstr "Emojis deaktivieren"
 
-#: admin/admin.php:167
+#: admin/admin.php:183
 msgid "Disable oEmbeds"
 msgstr "oEmbeds deaktivieren"
 
-#: admin/admin.php:181
+#: admin/admin.php:197
 msgid "Disable page pingback"
 msgstr "Pingback deaktivieren"
 
@@ -59,32 +75,48 @@ msgstr "Pingback deaktivieren"
 msgid "Divi Child"
 msgstr "Divi Child"
 
-#: admin/admin.php:153
+#: admin/admin.php:169
 msgid "Divi Child Options"
 msgstr "Divi Child Einstellungen"
 
-#: admin/admin.php:165
+#: admin/admin.php:181
 msgid "Don't save the commentor's IP address"
 msgstr "Die IP-Adresse in den Kommentaren nicht speichern"
 
-#: admin/admin.php:210
+#: admin/admin.php:238
 msgid "Enable fixed navigation bar option in Theme Builder"
 msgstr ""
 "Die Option für eine feste Navigationsleiste für den Theme Builder aktivieren"
 
-#: admin/admin.php:230
+#: admin/admin.php:272
+msgid "Enable fullscreen mode for the mobile menu"
+msgstr "Vollbild-Modus für das mobile Menü aktivieren"
+
+#: admin/admin.php:270
+msgid "Enable hyphenation for the whole website"
+msgstr "Silbentrennung für die gesamte Webseite aktivieren"
+
+#: admin/admin.php:268
 msgid "Enable to upload SVG files"
 msgstr "Das Hochladen von SVG-Dateien zulassen"
 
-#: admin/admin.php:231
+#: admin/admin.php:269
 msgid "Enable to upload WebP files"
 msgstr "Das Hochladen von WebP-Dateien zulassen"
 
-#: admin/admin.php:215
+#: admin/admin.php:243
 msgid "Fix display errors in Theme Builder"
 msgstr "Darstellungsfehler im Theme Builder beheben"
 
-#: admin/admin.php:159 admin/admin.php:162
+#: admin/admin.php:248
+msgid "Fix logo image sizing in Theme Builder"
+msgstr "Logo-Bildgröße im Theme Builder beheben"
+
+#: admin/admin.php:219
+msgid "Fix Viewport Meta"
+msgstr "Viewport Meta beheben"
+
+#: admin/admin.php:175 admin/admin.php:178
 msgid "GDPR"
 msgstr "DSGVO"
 
@@ -96,7 +128,7 @@ msgstr "http://www.elegantthemes.com/gallery/divi/"
 msgid "https://mirkoschubert.de"
 msgstr "https://mirkoschubert.de"
 
-#: admin/admin.php:164
+#: admin/admin.php:180
 msgid "Make every comment and comment author link truely external"
 msgstr "Echte externe Links in den Kommentaren und beim Autor verwenden"
 
@@ -104,42 +136,54 @@ msgstr "Echte externe Links in den Kommentaren und beim Autor verwenden"
 msgid "Mirko Schubert"
 msgstr "Mirko Schubert"
 
-#: admin/admin.php:224 admin/admin.php:227
+#: admin/admin.php:261 admin/admin.php:264
 msgid "Miscellaneous"
 msgstr "Sonstige"
 
-#: admin/admin.php:176 admin/admin.php:179
+#: admin/admin.php:192 admin/admin.php:195
 msgid "Page Speed"
 msgstr "Page Speed"
 
-#: admin/admin.php:185
+#: admin/admin.php:201
 msgid "Preload some fonts for speed"
 msgstr "Einige Schriftarten zur Geschwindigkeitsverbesserung vorladen"
 
-#: admin/admin.php:183
+#: admin/admin.php:199
 msgid "Remove CSS and JS query strings"
 msgstr "Versionsnummern von CSS- und JS-Dateien entfernen"
 
-#: admin/admin.php:182
+#: admin/admin.php:198
 msgid "Remove dashicons from the frontend"
 msgstr "Dashicons vom Frontend entfernen"
 
-#: admin/admin.php:205
+#: admin/admin.php:233
 msgid "Remove Divi Support Center from Frontend"
 msgstr "Divi Support Center vom Frontend entfernen"
 
-#: admin/admin.php:168
+#: admin/admin.php:184
 msgid "Remove DNS prefetching for WordPress"
 msgstr "DNS-Prefetching für WordPress entfernen"
 
-#: admin/admin.php:169
+#: admin/admin.php:185
 msgid "Remove REST API & XML-RPC headers for security reasons"
 msgstr "REST API & XML-RPC Header aus Sicherheitsgründen entfernen"
 
-#: admin/admin.php:184
+#: admin/admin.php:200
 msgid "Remove shortlink from head"
 msgstr "Kurzlink vom Head entfernen"
 
-#: admin/admin.php:190
+#: admin/admin.php:271
+msgid "Set breakpoint for the mobile menu to 1280px"
+msgstr "Den Breakpoint für das mobile Menü auf 1280px setzen"
+
+#: admin/admin.php:253
+msgid ""
+"Set CSS class <code>.split-section-fix</code> for swapping image and text on "
+"tablet and phone"
+msgstr ""
+"Die CSS-Klasse <code>.split-section-fix</code> zum Tauschen von Bild und "
+"Text auf dem Tablet oder Telefon setzen"
+
+#: admin/admin.php:206
 msgid "Type ony one path per line, otherwise it will break!"
 msgstr "Nur einen Pfad pro Zeile eintragen, sonst funktioniert das nicht!"
