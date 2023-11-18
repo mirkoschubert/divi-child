@@ -1,0 +1,3701 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Divi 4.21.0\n"
+"Report-Msgid-Bugs-To: https://www.elegantthemes.com/members-area/help/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2023-05-29 09:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Loco https://localise.biz/\n"
+"POT-Creation-Date: 2023-05-29 09:00+0000\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2"
+
+msgid " Enable canonical URL's"
+msgstr "Canonical URLs aktivieren"
+
+msgid " Enable custom title "
+msgstr "Benutzerdefinierten Titel aktivieren "
+
+msgid ""
+"WordPress loads it's own WordPress emojis. Modern browsers support native "
+"emojis, making WordPress's emojis unnecessary in most cases. Removing "
+"WordPress emojis removes unneeded assets and improves performance."
+msgstr ""
+"WordPress lädt seine eigenen WordPress-Emojis. Moderne Browser unterstützen "
+"native Emojis, wodurch die Emojis von WordPress in den meisten Fällen "
+"überflüssig werden. Durch das Entfernen von WordPress-Emojis werden nicht "
+"benötigte Elemente entfernt und die Leistung verbessert."
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Yoga Studio"
+msgstr "Yoga-Studio"
+
+msgid "Yoga Studio About Page"
+msgstr "Yoga Studio Über Seite"
+
+msgid "Yoga Studio Blog Page"
+msgstr "Yoga-Studio-Blog-Seite"
+
+msgid "Yoga Studio Classes Page"
+msgstr "Yoga-Studio-Klassen-Seite"
+
+msgid "Yoga Studio Contact Page"
+msgstr "Kontaktseite des Yogastudios"
+
+msgid "Yoga Studio Home Page"
+msgstr "Homepage des Yoga-Studios"
+
+msgid "Yoga Studio Landing Page"
+msgstr "Zielseite des Yoga-Studios"
+
+msgid "Yoga Studio Team Page"
+msgstr "Seite des Yoga-Studio-Teams"
+
+msgid ""
+"You can disable this option if you want to remove the comments and comment "
+"form from single post pages. "
+msgstr ""
+"Sie können diese Option deaktivieren, wenn Sie die Kommentare und das "
+"Kommentarformular von den Beiträgen entfernen möchten. "
+
+msgid "You can find your API Key <a href=\"%s\" target=\"_blank\">here</a>."
+msgstr ""
+"Ihren API-Schlüssel finden Sie <a href=\"%s\" target=\"_blank\">hier</a>."
+
+msgid "You don't have pages"
+msgstr "Sie haben keine Seiten"
+
+msgid ""
+"You have hit your 500MB Limit. To continue to save items to your Divi Cloud, "
+"you must delete some of your existing items to free up space or upgrade your "
+"Divi Cloud storage."
+msgstr ""
+"Sie haben Ihr 500-MB-Limit erreicht. Um weiterhin Elemente in Ihrer Divi "
+"Cloud zu speichern, müssen Sie einige Ihrer vorhandenen Elemente löschen, um "
+"Speicherplatz freizugeben oder Ihren Divi Cloud-Speicher zu aktualisieren."
+
+msgid ""
+"Your %1$s subscription has expired. In order to download Premade Layouts "
+"from the %2$s Library you must <a href=\"%3$s\" target=\"_blank\">renew your "
+"subscription</a>."
+msgstr ""
+"Ihr %1$s Abonnement ist abgelaufen. Um vorgefertigte Layouts aus der %2$s "
+"Bibliothek herunterzuladen, müssen Sie <a href=\"%3$s\" target=\"_blank\">"
+"Erneuern Sie Ihr Abonnement</a>."
+
+msgid "Your Divi Cloud Session Has Ended"
+msgstr "Ihre Divi Cloud-Sitzung ist beendet"
+
+msgid "Your Divi Cloud membership has expired"
+msgstr "Ihre Divi Cloud-Mitgliedschaft ist abgelaufen"
+
+msgid ""
+"Your Divi Cloud membership has expired. To access items stored on your cloud,"
+" please <a href=\"%s\" target=\"_blank\">renew your Divi Cloud membership</a>"
+"."
+msgstr ""
+"Ihre Divi Cloud-Mitgliedschaft ist abgelaufen. Um auf in Ihrer Cloud "
+"gespeicherte Elemente zuzugreifen, <a href=\"%s\" target=\"_blank\">erneuern "
+"Sie bitte Ihre Divi Cloud-Mitgliedschaft</a>."
+
+msgid ""
+"Your Divi Cloud session has ended. Please try logging in again. If you "
+"continue to experience authorization failures, try closing Library modal and "
+"opening it again so that your authorization token can be regenerated."
+msgstr ""
+"Ihre Divi Cloud-Sitzung ist beendet. Bitte versuchen Sie sich erneut "
+"anzumelden. Wenn weiterhin Autorisierungsfehler auftreten, versuchen Sie, "
+"das Bibliotheksmodal zu schließen und erneut zu öffnen, damit Ihr "
+"Autorisierungstoken neu generiert werden kann."
+
+msgid "Your Existing Pages"
+msgstr "Ihre bestehenden Seiten"
+
+msgid "Your Saved Layouts"
+msgstr "Ihre gespeicherten Layouts"
+
+msgctxt "clear static resources"
+msgid "Clear"
+msgstr "klar"
+
+msgid "comments"
+msgstr "Kommentare"
+
+msgctxt "documentation links"
+msgid "Support"
+msgstr "Support"
+
+msgctxt "general options"
+msgid "General"
+msgstr "Allgemeines"
+
+msgid "hide error message"
+msgstr "Fehlermeldung ausblenden"
+
+msgctxt "integrate third-party code"
+msgid "Integration"
+msgstr "Integration"
+
+msgctxt "navigation menu"
+msgid "Navigation"
+msgstr "Navigation"
+
+msgctxt "page/post"
+msgid "Layout"
+msgstr "Layout"
+
+msgctxt "search engine optimization"
+msgid "SEO"
+msgstr "SEO"
+
+msgid "settings reset."
+msgstr "Einstellungen zurückgesetzt."
+
+msgid "settings saved."
+msgstr "Einstellungen gespeichert."
+
+msgid "show error message"
+msgstr "Fehlermeldung anzeigen"
+
+msgctxt "site ads placement areas"
+msgid "Ads"
+msgstr "Anzeigen"
+
+msgctxt "site color scheme"
+msgid "Colorization"
+msgstr "Einfärbung"
+
+msgctxt "theme updates"
+msgid "Updates"
+msgstr "Aktualisierungen"
+
+msgid "you don't have sufficient permissions to access this page"
+msgstr ""
+"Sie verfügen nicht über ausreichende Berechtigungen, um diese Seite zu "
+"besuchen"
+
+msgid "Access Your %s From Any Website"
+msgstr "Greifen Sie von jeder Website aus auf Ihr %s zu"
+
+msgid "Active Link Color"
+msgstr "Farbe für aktiven Link"
+
+msgid "Active Primary Menu Link Color"
+msgstr "Aktive Linkfarbe im Hauptmenü"
+
+msgid "Add Author Bio"
+msgstr "Fügen Sie die Bio des Autors hinzu"
+
+msgid "Add Button Icon"
+msgstr "Icon zu Schaltfläche (Button) hinzufügen"
+
+msgid "Add ET Box"
+msgstr "ET Box hinzufügen"
+
+msgid "Add ET Button"
+msgstr "ET Button hinzufügen"
+
+msgid "Add ET Learn more block"
+msgstr "ET Mehr Erfahren Block hinzufügen"
+
+msgid "Add ET Tabs"
+msgstr "ET Registerkarten hinzufügen"
+
+msgid "Add From Library"
+msgstr "Aus Bibliothek hinzufügen"
+
+msgid "Add New Category"
+msgstr "neue Kategorie hinzufügen"
+
+msgid "Add New Cloud Category"
+msgstr "Neue Cloud-Kategorie hinzufügen"
+
+msgid "Add New Cloud Tag"
+msgstr "Neues Cloud-Tag hinzufügen"
+
+msgid "Add New Layout"
+msgstr "Neues Layout hinzufügen"
+
+msgid "Add New Pack"
+msgstr "Neues Paket hinzufügen"
+
+msgid "Add New Tag"
+msgstr "Neues Tag hinzufügen"
+
+msgid "Add New Theme Options"
+msgstr "Fügen Sie neue Themenoptionen hinzu"
+
+msgid "Add Theme Options"
+msgstr "Themenoptionen hinzufügen"
+
+msgid "Add To Categories"
+msgstr "Zu Kategorien hinzufügen"
+
+msgid "Add To Divi Cloud"
+msgstr "Zu Divi Cloud hinzufügen"
+
+msgid "Add To Favorites"
+msgstr "Zu den Favoriten hinzufügen"
+
+msgid "Add To Tags"
+msgstr "Zu Tags hinzufügen"
+
+msgid "Add a Tooltip Text"
+msgstr "Tooltip-Text hinzufügen"
+
+msgid ""
+"Add code to the < body > (good for tracking codes such as google analytics)"
+msgstr ""
+"Code dem < body > hinzufügen (hilfreich beim Verfolgen von Codes wie "
+"beispielsweise Google Analytics)"
+
+msgid "Add code to the < head > of your blog"
+msgstr "Code dem < head > Ihres Blogs hinzufügen"
+
+msgid "Add code to the bottom of your posts, before the comments"
+msgstr "Code im unteren Bereich Ihrer Beiträge, vor den Kommentaren einfügen"
+
+msgid "Add code to the top of your posts"
+msgstr "Code im oberen Bereich Ihrer Beiträge einfügen"
+
+msgid "Adsense"
+msgstr "Adsense"
+
+msgid "Adsense Code"
+msgstr "Adsense-Code"
+
+msgid "Advertisement"
+msgstr "Werbung"
+
+msgid "Agency About Page"
+msgstr "Agentur-Über-Seite"
+
+msgid "Agency Blog Page"
+msgstr "Blog-Seite der Agentur"
+
+msgid "Agency Contact Page"
+msgstr "Kontaktseite der Agentur"
+
+msgid "Agency Home Page"
+msgstr "Homepage der Agentur"
+
+msgid "Agency Landing Page"
+msgstr "Landingpage der Agentur"
+
+msgid "Agency Portfolio Page"
+msgstr "Agentur-Portfolio-Seite"
+
+msgid "Agency Pricing Page"
+msgstr "Preisseite für Agenturen"
+
+msgid "All"
+msgstr "Alle"
+
+msgid ""
+"All Divi users can store up to %s items to their Divi Cloud for free. To "
+"save more items to your cloud and unlock unlimited storage, upgrade your "
+"Divi Cloud membership today. If you build Divi websites for a living, Divi "
+"Cloud is an awesome add-on and an amazing time saver. You are going to love "
+"it!"
+msgstr ""
+"Alle Divi-Benutzer können bis zu %s Artikel kostenlos in ihrer Divi Cloud "
+"speichern. Um mehr Artikel in Ihrer Cloud zu speichern und unbegrenzten "
+"Speicherplatz freizuschalten, führen Sie noch heute ein Upgrade Ihrer Divi "
+"Cloud-Mitgliedschaft durch. Wenn Sie Divi-Websites für Ihren Lebensunterhalt "
+"erstellen, ist Divi Cloud ein großartiges Add-on und eine erstaunliche "
+"Zeitersparnis. Sie werden es lieben!"
+
+msgid "All Theme Options"
+msgstr "Alle Themenoptionen"
+
+msgid "Alt"
+msgstr "Alt-Text"
+
+msgid ""
+"Any code you place here will appear in body section of all pages of your "
+"blog. This is usefull if you need to input a tracking pixel for a state "
+"counter such as Google Analytics."
+msgstr ""
+"Alle Codes, die hier platziert werden, erscheinen im Hauptabschnitt jeder "
+"Seite Ihres Blogs. Das ist vor allem nützlich, wenn Sie einen Tracking-Pixel "
+"für einen Zugriffszähler wie beispielsweise Google Analytics einfügen müssen."
+
+msgid ""
+"Any code you place here will appear in the head section of every page of "
+"your blog. This is useful when you need to add javascript or css to all "
+"pages."
+msgstr ""
+"Alle Codes, die hier platziert werden, erscheinen im Kopfzeilenabschnitt "
+"jeder Seite Ihres Blogs. Das ist vor allem nützlich, wenn Sie allen Seiten "
+"JavaScript oder CSS hinzufügen müssen."
+
+msgid ""
+"Any code you place here will be placed at the bottom of all single posts. "
+"This is useful if you are looking to integrating things such as social "
+"bookmarking links."
+msgstr ""
+"Jeder Code, den Sie hier eingeben, wird am Ende aller einzelnen Beiträge "
+"eingefügt. Dies ist nützlich, wenn Sie Dinge wie Social-Bookmarking-Links "
+"integrieren möchten."
+
+msgid ""
+"Any code you place here will be placed at the top of all single posts. This "
+"is useful if you are looking to integrating things such as social "
+"bookmarking links."
+msgstr ""
+"Alle Codes, die hier platziert werden, erscheinen im oberen Teil aller "
+"Beiträge. Das ist vor allen nützlich wenn Sie Bookmarking-Links aus sozialen "
+"Netzwerken und Ähnliches integrieren möchten."
+
+msgctxt "Apply layout to the page"
+msgid "Use This Layout"
+msgstr "Verwenden Sie dieses Layout"
+
+msgid "Archives"
+msgstr "Archive"
+
+msgid "Are You Sure?"
+msgstr "Bist du dir sicher?"
+
+msgid "Authentication Required"
+msgstr "Authentifizierung erforderlich"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Author Image URL"
+msgstr "Bild-URL des Autors"
+
+msgid "Auto"
+msgstr "Automatisch"
+
+msgid "Auto Speed"
+msgstr "Automatische Geschwindigkeit"
+
+msgid "Automattic slider speed (works only if Auto is set to yes)"
+msgstr ""
+"Automatische Slider-Geschwindigkeit (funktioniert nur, wenn \"Automatisch\" "
+"auf \"Ja\" gestellt ist)"
+
+msgid "Back To Top Button"
+msgstr "Button \"Nach oben\""
+
+msgid "Background"
+msgstr "Hintergrund"
+
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+msgid "Background Image"
+msgstr "Hintergrundbild"
+
+msgid "Background Position"
+msgstr "Hintergrundposition"
+
+msgid "Background Repeat"
+msgstr "Hintergrundwiederholung"
+
+msgid "Banner"
+msgstr "Banner"
+
+msgid ""
+"Before you can download Premade Layouts from the %1$s Library you must "
+"authenticate your %2$s subscription."
+msgstr ""
+"Bevor Sie vorgefertigte Layouts aus der %1$s Bibliothek herunterladen können,"
+" müssen Sie Ihr %2$s Abonnement authentifizieren."
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Blog Style Mode"
+msgstr "Blog-Modus"
+
+msgid "Body Font"
+msgstr "Haupt-Schriftart"
+
+msgid "Body Font Style"
+msgstr "Schriftformat im Body"
+
+msgid "Body Line Height"
+msgstr "Zeilenhöhe im Body"
+
+msgid "Body Link Color"
+msgstr "Linkfarbe im Body"
+
+msgid "Body Text Color"
+msgstr "Schriftfarbe im Body"
+
+msgid "Body Text Size"
+msgstr "Schriftgröße im Body"
+
+msgid "Body/Link Line Height"
+msgstr "Body/Link Zeilenhöhe"
+
+msgid "Body/Link Text Size"
+msgstr "Body/Link Schriftgröße"
+
+msgid "Bold"
+msgstr "Fett"
+
+msgid "Border Color"
+msgstr "Farbe der Umrandung (Border)"
+
+msgid "Border Radius"
+msgstr "Radius der Umrandung (Border)"
+
+msgid "Border Width"
+msgstr "Breite der Umrandung (Border)"
+
+msgid "Bottom"
+msgstr "Unten"
+
+msgid "Bottom Bar"
+msgstr "Untere Footerleiste"
+
+msgid "Bottom to Top"
+msgstr "Unten nach oben"
+
+msgctxt "Business"
+msgid "Agency"
+msgstr "Agentur"
+
+msgctxt "Business"
+msgid "Consultant"
+msgstr "Berater"
+
+msgid "Button Font Style"
+msgstr "Schriftformat von Schaltflächen (Buttons)"
+
+msgid "Buttons"
+msgstr "Buttons (Schaltfläche)"
+
+msgid "Buttons Font"
+msgstr "Schriftart für Schaltflächen (Buttons)"
+
+msgid "Buttons Hover Style"
+msgstr "Style des Buttons (Schaltfläche) beim Hover"
+
+msgid "Buttons Style"
+msgstr "Style des Buttons (Schaltfläche)"
+
+msgid "Buy"
+msgstr "Besorgen"
+
+msgid "By %s"
+msgstr "Von %s"
+
+msgid "By Elegant Themes"
+msgstr "Von Elegant Themes"
+
+msgid "By The Community"
+msgstr "Von der Gemeinschaft"
+
+msgid ""
+"By default comments are not placed on pages, however, if you would like to "
+"allow people to comment on your pages simply enable this option. "
+msgstr ""
+"Standardmäßig gibt es keine Kommentare zu Seiten. Wenn Sie Kommentare zu "
+"Ihren Seiten ermöglichen möchten, aktivieren Sie einfach diese Option. "
+
+msgid ""
+"By default pages are sorted by name. However if you would rather have them "
+"sorted by ID you can adjust this setting."
+msgstr ""
+"Standardmäßig werden Seiten nach Name angeordnet. Möchten Sie sie "
+"stattdessen nach ID anordnen, können Sie diese Einstellung ändern."
+
+msgid ""
+"By default the navigation bar stays on top of the screen at all times. We "
+"suggest to disable this option, if you need to use a logo taller than the "
+"default one."
+msgstr ""
+"Standardmäßig bleibt die Navigationsleiste jederzeit oben auf dem Bildschirm."
+" Wir schlagen vor, dass Sie diese Option deaktivieren, wenn Sie ein großes "
+"Logo verwenden möchten."
+
+msgid ""
+"By default the theme creates a Home link that, when clicked, leads back to "
+"your blog's homepage. If, however, you are using a static homepage and have "
+"already created a page called Home to use, this will result in a duplicate "
+"link. In this case you should disable this feature to remove the link."
+msgstr ""
+"Standardmäßig erstellt das Theme einen Link zur Startseite, der zurück zur "
+"Startseite Ihres Blogs/Seite führt. Wenn Sie eine statische Startseite "
+"verwenden und bereits eine Startseite erstellt haben, führt dies zu einem "
+"doppelten Link. In diesem Fall sollten Sie diese Funktion deaktivieren, um "
+"den Link zu entfernen."
+
+msgid ""
+"By default the theme creates post titles based on the title of your post and "
+"your blog name. If you would like to make your meta title different than "
+"your actual post title you can define a custom title for each post using "
+"custom fields. This option must be enabled for custom titles to work, and "
+"you must choose a custom field name for your title below."
+msgstr ""
+"Standardmäßig erstellt das Theme Beitragstitel basierend auf dem Titel Ihres "
+"Beitrags und dem Namen Ihres Blogs. Wenn Sie möchten, dass sich Ihr Meta-"
+"Titel von Ihrem tatsächlichen Beitragstitel unterscheidet, können Sie "
+"mithilfe von benutzerdefinierten Feldern einen benutzerdefinierten Titel für "
+"jeden Beitrag definieren. Damit benutzerdefinierte Titel funktionieren, muss "
+"diese Option aktiviert sein. Sie müssen ein benutzerdefiniertes Feld für "
+"Ihren Titel auswählen."
+
+msgid ""
+"By default the theme does not add keywords to your header. Most search "
+"engines don't use keywords to rank your site anymore, but some people define "
+"them anyway just in case. If you want to add meta keywords to your header "
+"then enable this option and fill in the custom keywords field below. "
+msgstr ""
+"Standardmäßig fügt das Theme Ihrem Header keine Keywords hinzu. Die meisten "
+"Suchmaschinen verwenden für das Ranking Ihrer Seite nicht länger Keywords, "
+"aber einige Leute definieren sie dennoch weiterhin. Wenn Sie Ihrem Header "
+"Meta-Keywords hinzufügen möchten, aktivieren Sie diese Option und geben Sie "
+"Ihre benutzerdefinierten Keywords im Feld unten ein. "
+
+msgid ""
+"By default the theme truncates your posts on index/homepages automatically "
+"to create post previews. If you would rather show your posts in full on "
+"index pages like a traditional blog then you can activate this feature."
+msgstr ""
+"Standardmäßig schneidet das Theme Ihre Beiträge automatisch zu, um daraus "
+"Voransichten zu erstellen. Möchten Sie stattdessen Ihre Beiträge wie in "
+"einem traditionellen Blog vollständig anzeigen lassen, können Sie diese "
+"Funktion aktivieren."
+
+msgid ""
+"By default the theme uses a combination of your blog name and your blog "
+"description, as defined when you created your blog, to create your homepage "
+"titles. However if you want to create a custom title then simply enable this "
+"option and fill in the custom title field below. "
+msgstr ""
+"Standardmäßig verwendet das Theme eine Kombination aus dem Namen und der "
+"Beschreibung Ihres Blogs, die Sie beim Erstellen Ihres Blogs definieren, um "
+"den Titel Ihrer Startseite zu erstellen. Wenn Sie einen benutzerdefinierten "
+"Titel erstellen möchten, aktivieren Sie einfach diese Option und geben Sie "
+"Ihren benutzerdefinierten Titel im Feld unten ein. "
+
+msgid ""
+"By default the theme uses your blog description, as defined when you created "
+"your blog, to fill in the meta description field. If you would like to use a "
+"different description then enable this option and fill in the custom "
+"description field below. "
+msgstr ""
+"Standardmäßig verwendet das Theme die Beschreibung Ihres Blogs, die Sie beim "
+"Erstellen Ihres Blogs definieren, um das Meta-Beschreibungsfeld auszufüllen. "
+"Wenn Sie eine andere Beschreibung verwenden möchten, aktivieren Sie diese "
+"Option und geben Sie Ihre benutzerdefinierte Beschreibung im Feld unten ein. "
+
+msgid ""
+"By default thumbnail images are created using custom fields. However, if you "
+"would rather use the images that are already in your post for your thumbnail "
+"(and bypass using custom fields) you can activate this option. Once "
+"activated thumbnail images will be generated automatically using the first "
+"image in your post. The image must be hosted on your own server."
+msgstr ""
+"Standardmäßig werden Miniaturbilder mit benutzerdefinierten Feldern erstellt."
+" Wenn Sie jedoch lieber die Bilder verwenden möchten, die sich bereits in "
+"Ihrem Beitrag für Ihr Miniaturbild befinden (und die Verwendung "
+"benutzerdefinierter Felder umgehen), können Sie diese Option aktivieren. "
+"Nach der Aktivierung werden automatisch Miniaturbilder aus dem ersten Bild "
+"in Ihrem Beitrag generiert. Das Bild muss auf Ihrem eigenen Server gehostet "
+"werden."
+
+msgid ""
+"By default thumbnails are not placed on pages (they are only used on posts). "
+"However, if you want to use thumbnails on pages you can! Just enable this "
+"option. "
+msgstr ""
+"Standardmäßig werden Miniaturansichten nicht auf der Seite platziert (sie "
+"werden nur in Beiträgen benutzt). Man kann Miniaturansichten jedoch auf "
+"Wunsch auf der Seite benutzen! Einfach diese Option aktivieren."
+
+msgid ""
+"By default thumbnails are placed at the beginning of your post on single "
+"post pages. If you would like to remove this initial thumbnail image to "
+"avoid repetition simply disable this option. "
+msgstr ""
+"Standardmäßig befinden sich auf Einzelbeitragsseiten Thumbnails am Anfang "
+"Ihres Beitrags. Wenn Sie dieses Thumbnail entfernen möchten, um "
+"Wiederholungen zu vermeiden, deaktivieren Sie einfach diese Option. "
+
+msgid "CSS"
+msgstr "CSS"
+
+msgid "CSS No Selector"
+msgstr "CSS Nein-Selektor"
+
+msgid "CSS Snippet"
+msgstr "CSS Schnipsel"
+
+msgid "Cancel"
+msgstr "Absagen"
+
+msgid ""
+"Canonicalization helps to prevent the indexing of duplicate content by "
+"search engines, and as a result, may help avoid duplicate content penalties "
+"and pagerank degradation. Some pages may have different URLs all leading to "
+"the same place. For example domain.com, domain.com/index.html, and www."
+"domain.com are all different URLs leading to your homepage. From a search "
+"engine's perspective these duplicate URLs, which also occur often due to "
+"custom permalinks, may be treated individually instead of as a single "
+"destination. Defining a canonical URL tells the search engine which URL you "
+"would like to use officially. The theme bases its canonical URLs off your "
+"permalinks and the domain name defined in the settings tab of wp-admin."
+msgstr ""
+"Autorisierung und Vereinheitlichung der Nachrichten hilft, die Indexierung "
+"von doppelten Inhalten durch Suchmaschinen zu verhindern und kann im "
+"Ergebnis dabei helfen, Strafen für doppelte Inhalte und Pagerank-"
+"Herabstufung zu vermeiden. Manche Seiten können verschiedene URLs haben, die "
+"alle an den gleichen Ort führen. Zum Beispiel: domain.com, domain.com/index."
+"html, und www.domain.com sind alle verschiedene URLs, die auf die Startseite "
+"führen. Aus Sicht der Suchmaschine sind diese doppelten URLs, die auch oft "
+"durch benutzerdefinierte Links entstehen können, können einzeln statt wie "
+"ein einzelnes Ziel behandelt werden. Festlegen einer anerkannten URL sagt "
+"der der Suchmaschine, welche URL offiziell benutzt werden soll. Das Theme "
+"basiert seine anerkannten URLs auf den Links und dem Domain-Namen, der im "
+"Einstellungs-Tab von wp-admin definiert ist."
+
+msgid "Caption"
+msgstr "Bildunterschrift (Caption)"
+
+msgid "Caption goes here"
+msgstr "Hier kommt die Bildunterschrift (Caption) hin"
+
+msgid "Caption title goes here"
+msgstr "Hier kommt die Überschrift des Bildes hin"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Center"
+msgstr "Zentriert"
+
+msgid "Centered"
+msgstr "Zentriert"
+
+msgid "Centered Inline Logo"
+msgstr "Zentriertes, innenliegendes Logo"
+
+msgid ""
+"Check this box if you want to display meta descriptions on category/archive "
+"pages. The description is based off the category description you choose when "
+"creating/edit your category in wp-admin."
+msgstr ""
+"Aktivieren Sie diese Box, wenn Sie Meta-Beschreibungen für Kategorie-"
+"/Archivseiten anzeigen möchten. Die Beschreibung basiert auf der Kategorie-"
+"Beschreibung, die Sie beim Erstellen/Bearbeiten Ihrer Kategorie in wp-admin "
+"auswählen."
+
+msgid "Choose File"
+msgstr "Datei wählen"
+
+msgid "Choose Library"
+msgstr "Wählen Sie Bibliothek"
+
+msgid "Choose an Image"
+msgstr "Bild auswählen"
+
+msgid "Choose button color"
+msgstr "Button-Farbe auswählen"
+
+msgid "Choose button type"
+msgstr "Button-Typ auswählen"
+
+msgid "Choose title autogeneration method"
+msgstr "Methode für Generierung der Titel wählen"
+
+msgid "Choose which items to display in the post info section"
+msgstr ""
+"Wählen Sie aus, welche Artikel im Post-Info-Bereich angezeigt werden sollen"
+
+msgid "Choose yes if you want for automatic slider animation"
+msgstr ""
+"Wählen Sie \"Ja\", wenn Sie die automatische Slider-Animation aktivieren "
+"möchten"
+
+msgctxt "Classes Page (Fitness, Training, etc)"
+msgid "Classes"
+msgstr "Klassen"
+
+msgid "Click here to learn more"
+msgstr "Hier klicken, um mehr zu erfahren"
+
+msgid "Close Modal"
+msgstr "Schließen Sie Modal"
+
+msgid "Cloud"
+msgstr "Wolke"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Code Integration"
+msgstr "Code-Integration"
+
+msgid "Code Snippet"
+msgstr "Code-Auszug"
+
+msgid "Code Snippets Library"
+msgstr "Code-Snippets-Bibliothek"
+
+msgid "Coffee Shop"
+msgstr "Café"
+
+msgid "Coffee Shop About Page"
+msgstr "Café-Info-Seite"
+
+msgid "Coffee Shop Blog Page"
+msgstr "Café-Blog-Seite"
+
+msgid "Coffee Shop Contact Page"
+msgstr "Kontaktseite des Cafés"
+
+msgid "Coffee Shop Footer Page"
+msgstr "Footer-Seite des Cafés"
+
+msgid "Coffee Shop Guide Page"
+msgstr "Coffeeshop-Leitfaden-Seite"
+
+msgid "Coffee Shop Home Page"
+msgstr "Homepage des Cafés"
+
+msgid "Coffee Shop Landing Page"
+msgstr "Zielseite des Cafés"
+
+msgid "Coffee Shop Menu Page"
+msgstr "Café-Menüseite"
+
+msgid "Coffee Shop Shop Page"
+msgstr "Café-Shop-Seite"
+
+msgid "Color"
+msgstr "Farbe"
+
+msgid "Color Pickers Default Palette"
+msgstr "Standardpalette Farbauswähler"
+
+msgid "Color Schemes"
+msgstr "Farbschemas"
+
+msgid "Column Layout"
+msgstr "Spaltenlayout"
+
+msgid "Comments"
+msgstr "Kommentare"
+
+msgid "Community"
+msgstr "Gemeinschaft"
+
+msgid "Complete your purchase using the pop-up to upgrade Divi Cloud."
+msgstr ""
+"Schließen Sie Ihren Kauf über das Popup ab, um Divi Cloud zu aktualisieren."
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Content goes here"
+msgstr "Hier kommt der Inhalt hin"
+
+msgid "Content text or html"
+msgstr "Inhalt Text oder HTML"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Copy To"
+msgstr "Kopieren nach"
+
+msgid "Copy To Divi Cloud"
+msgstr "In Divi Cloud kopieren"
+
+msgid "Copy To Library"
+msgstr "In Bibliothek kopieren"
+
+msgid "Copywriter"
+msgstr "Texter"
+
+msgid "Copywriter About Page"
+msgstr "Texter über Seite"
+
+msgid "Copywriter Blog Page"
+msgstr "Texter-Blog-Seite"
+
+msgid "Copywriter Contact Page"
+msgstr "Kontaktseite für Texter"
+
+msgid "Copywriter FAQ Page"
+msgstr "FAQ-Seite für Texter"
+
+msgid "Copywriter Home Page"
+msgstr "Homepage des Texters"
+
+msgid "Copywriter Landing Page"
+msgstr "Landing Page für Werbetexter"
+
+msgid "Copywriter Portfolio Page"
+msgstr "Texter-Portfolio-Seite"
+
+msgid "Copywriter Pricing Page"
+msgstr "Preisseite für Texter"
+
+msgid "Copywriter Services Page"
+msgstr "Seite für Texterdienste"
+
+msgid "Create New Category/Categories"
+msgstr "Neue Kategorie/Kategorien erstellen"
+
+msgid "Create New Tag(s)"
+msgstr "Neue Tags erstellen"
+
+msgid "Create New Tag/Tags"
+msgstr "Neues Tag/neue Tags erstellen"
+
+msgid "Critical CSS"
+msgstr "Kritisches CSS"
+
+msgid ""
+"Critical CSS greatly improves website load times and Google PageSpeed scores "
+"by deferring non-critical styles and eliminating render-blocking CSS "
+"requests."
+msgstr ""
+"Critical CSS verbessert die Ladezeiten von Websites und die Google PageSpeed-"
+"Ergebnisse erheblich, indem nicht kritische Stile zurückgestellt und CSS-"
+"Anforderungen, die das Rendering blockieren, eliminiert werden."
+
+msgid "Critical Threshold Height"
+msgstr "Kritische Schwellenhöhe"
+
+msgid "Current Color"
+msgstr "Aktuelle Farbe"
+
+msgid "Currently viewing archives from %1$s"
+msgstr "Derzeit werden Archive von %1$s angesehen"
+
+msgid "Custom CSS"
+msgstr "Eigene CSS"
+
+msgid "Custom field Name to be used for description"
+msgstr ""
+"Benutzerdefiniertes Feld \"Name\" für die Verwendung in der Beschreibung"
+
+msgid "Custom field Name to be used for keywords"
+msgstr "Benutzerdefiniertes Feld \"Name\" für die Verwendung für Keywords"
+
+msgid "Custom field Name to be used for title"
+msgstr "Benutzerdefiniertes Feld \"Name\" für die Verwendung im Titel"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Dashed"
+msgstr "Gestrichelt"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date format"
+msgstr "Datumsformat"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Defer Additional Third Party Scripts"
+msgstr "Verzögern Sie zusätzliche Skripte von Drittanbietern"
+
+msgid "Defer Gutenberg Block CSS"
+msgstr "Gutenberg-Block-CSS aufschieben"
+
+msgid "Defer jQuery And jQuery Migrate"
+msgstr "Verschieben Sie jQuery und jQuery Migrate"
+
+msgid "Define a character to separate BlogName and Post title"
+msgstr "Zeichen zur Trennung von Webseiten-Name und Beitragstitel definieren"
+
+msgid "Define the default color palette for color pickers in the Divi Builder."
+msgstr "Definieren Sie die Standardfarbpalette für Farbwähler in Divi Builder."
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete Permanently"
+msgstr "Dauerhaft löschen"
+
+msgid "Delete Selected Items"
+msgstr "Ausgewählte Elemente löschen"
+
+msgid "Demo"
+msgstr "Demo"
+
+msgid "Design Agency"
+msgstr "Designagentur"
+
+msgid "Design Agency About Page"
+msgstr "Design-Agentur über Seite"
+
+msgid "Design Agency Blog Page"
+msgstr "Blog-Seite der Designagentur"
+
+msgid "Design Agency Case Study Page"
+msgstr "Fallstudienseite für Designagenturen"
+
+msgid "Design Agency Contact Page"
+msgstr "Kontaktseite der Designagentur"
+
+msgid "Design Agency Home Page"
+msgstr "Homepage der Designagentur"
+
+msgid "Design Agency Landing Page"
+msgstr "Zielseite der Designagentur"
+
+msgid "Design Agency Portfolio Page"
+msgstr "Portfolio-Seite der Designagentur"
+
+msgid "Design Agency Project Page 1"
+msgstr "Designagentur Projektseite 1"
+
+msgid "Design Agency Project Page 2"
+msgstr "Designagentur-Projekt Seite 2"
+
+msgid "Designed by %1$s | Powered by %2$s"
+msgstr "Designed by %1$s | Powered by %2$s"
+
+msgid "Digital Payments"
+msgstr "Digitale Zahlungen"
+
+msgid "Digital Payments About Page"
+msgstr "Über die Seite „Digitale Zahlungen“."
+
+msgid "Digital Payments Blog Page"
+msgstr "Blog-Seite für digitale Zahlungen"
+
+msgid "Digital Payments Contact Page"
+msgstr "Kontaktseite für digitale Zahlungen"
+
+msgid "Digital Payments Features Page"
+msgstr "Seite mit Funktionen für digitale Zahlungen"
+
+msgid "Digital Payments Home Page"
+msgstr "Homepage für digitale Zahlungen"
+
+msgid "Digital Payments Landing Page"
+msgstr "Zielseite für digitale Zahlungen"
+
+msgid "Digital Payments Pricing Page"
+msgstr "Preisseite für digitale Zahlungen"
+
+msgid "Digital Payments Sign-Up Page"
+msgstr "Anmeldeseite für digitale Zahlungen"
+
+msgid "Disable Footer Credits"
+msgstr "Footer-Credits abschalten"
+
+msgid "Disable Translations"
+msgstr "Übersetzungen Deaktivieren"
+
+msgid "Disable WordPress Emojis"
+msgstr "Deaktivieren Sie WordPress-Emojis"
+
+msgid ""
+"Disable this option to remove the Google Fonts from your Divi Builder Pages."
+msgstr ""
+"Deaktivieren Sie diese Option, um die Google Fonts von Ihren Divi Builder "
+"Seiten zu entfernen."
+
+msgid ""
+"Disable this option to remove the Google Maps API script from your Divi "
+"Builder Pages. This may improve compatibility with third party plugins that "
+"also enqueue this script. Please Note: Modules that rely on the Google Maps "
+"API in order to function properly, such as the Maps and Fullwidth Maps "
+"Modules, will still be available but will not function while this option is "
+"disabled (unless you manually add Google Maps API script)."
+msgstr ""
+"Deaktivieren Sie diese Option, um das Google Maps API Skript von Ihren Divi "
+"Builder Seiten zu entfernen. Dies kann die Kompatibilität mit Plugins von "
+"Drittanbietern verbessern, die dieses Skript ebenfalls in die Warteschlange "
+"einreihen. Bitte beachten Sie: Module, die auf die Google Maps API "
+"angewiesen sind, um ordnungsgemäß zu funktionieren, wie z. B. die Module "
+"Maps und Fullwidth Maps, sind weiterhin verfügbar, funktionieren jedoch "
+"nicht, wenn diese Option deaktiviert ist (es sei denn, Sie fügen das Google "
+"Maps API Skript manuell hinzu)."
+
+msgid "Disable top tier dropdown menu links"
+msgstr "Dropdown-Menülinks der obersten Ebene deaktivieren"
+
+msgid ""
+"Disable translations if you don't want to display translated theme strings "
+"on your site."
+msgstr ""
+"Übersetzungen deaktivieren, wenn Sie auf Ihrer Seite keine übersetzten Theme-"
+"Strings anzeigen möchten."
+
+msgid "Disabled"
+msgstr "Deaktivieren"
+
+msgid ""
+"Disabling this option will remove the body code below from your blog. This "
+"allows you to remove the code while saving it for later use."
+msgstr ""
+"Wenn diese Option deaktiviert wird, wird der Body-Code unten aus Ihrem Blog "
+"entfernt. Dies ermöglicht Ihnen das Entfernen des Codes und das Speichern "
+"des Codes für späteren Gebrauch."
+
+msgid ""
+"Disabling this option will remove the header code below from your blog. This "
+"allows you to remove the code while saving it for later use."
+msgstr ""
+"Wenn diese Option deaktiviert wird, wird der Header-Code unten aus Ihrem "
+"Blog entfernt. Dies ermöglicht Ihnen das Entfernen des Codes und das "
+"Speichern des Codes für späteren Gebrauch."
+
+msgid ""
+"Disabling this option will remove the single bottom code below from your "
+"blog. This allows you to remove the code while saving it for later use."
+msgstr ""
+"Wenn diese Option deaktiviert wird, wird der Single Bottom Code unten aus "
+"Ihrem Blog entfernt. Dies ermöglicht Ihnen das Entfernen des Codes und das "
+"Speichern des Codes für späteren Gebrauch."
+
+msgid ""
+"Disabling this option will remove the single top code below from your blog. "
+"This allows you to remove the code while saving it for later use."
+msgstr ""
+"Wenn diese Option deaktiviert wird, wird der Single Top Code unten aus Ihrem "
+"Blog entfernt. Dies ermöglicht Ihnen das Entfernen des Codes und das "
+"Speichern des Codes für späteren Gebrauch."
+
+msgid "Display Home link"
+msgstr "Link zur Startseite anzeigen"
+
+msgid "Displays About Me Information"
+msgstr "Über mich Informationen anzeigen"
+
+msgid "Displays Adsense Ads"
+msgstr "Adsense-Werbung anzeigen"
+
+msgid "Displays Advertisements"
+msgstr "Werbung anzeigen"
+
+msgid "Divi Cloud"
+msgstr "Divi Cloud"
+
+msgid "Divi Cloud Categories"
+msgstr "Divi Cloud-Kategorien"
+
+msgid "Divi Cloud Tags"
+msgstr "Divi Cloud-Tags"
+
+msgid "Divi Customizer Settings"
+msgstr "Divi-Customizer-Einstellungen"
+
+msgid "Divi Library"
+msgstr "Divi-Bibliothek"
+
+msgctxt "Divi Library"
+msgid "%s Library"
+msgstr "%s-Bibliothek"
+
+msgctxt "Divi Library"
+msgid "View Mode"
+msgstr "Ansichtsmodus"
+
+msgctxt "Divi Library Global Module"
+msgid "Global"
+msgstr "Global"
+
+msgctxt "Divi Library Item Type"
+msgid "Layout"
+msgstr "Layout"
+
+msgctxt "Divi Library Item Type"
+msgid "Module"
+msgstr "Modul"
+
+msgctxt "Divi Library Layout Type"
+msgid "Row"
+msgstr "Die Zeile"
+
+msgctxt "Divi Library Layout Type"
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Divi Library Snippet Name"
+msgstr "Snippet-Name Divi Bibliothek"
+
+msgctxt "Divi Library Title"
+msgid "Layout Details"
+msgstr "Layout-Details"
+
+msgctxt "Divi Library View Mode"
+msgid "Grid View"
+msgstr "Rasteransicht"
+
+msgctxt "Divi Library View Mode"
+msgid "List View"
+msgstr "Listenansicht"
+
+msgctxt "Divi Library View Mode"
+msgid "Tag View"
+msgstr "Tag-Ansicht"
+
+msgctxt "Divi Library View Mode (Layout Pack)"
+msgid "Pack View"
+msgstr "Packungsansicht"
+
+msgid "Divi Page Settings"
+msgstr "Divi Seiteneinstellungen"
+
+msgid "Do you want to move selected items to your trash?"
+msgstr "Möchten Sie ausgewählte Elemente in Ihren Papierkorb verschieben?"
+
+msgid ""
+"Do you want to permanently delete all the items in your trash? This action "
+"cannot be undone and the items cannot be recovered."
+msgstr ""
+"Möchten Sie alle Elemente in Ihrem Papierkorb dauerhaft löschen? Diese "
+"Aktion kann nicht rückgängig gemacht werden und die Elemente können nicht "
+"wiederhergestellt werden."
+
+msgctxt "Documentation Page"
+msgid "Documentation"
+msgstr "Dokumentation"
+
+msgid "Dot Navigation"
+msgstr "Punktnavigation"
+
+msgid "Dotted"
+msgstr "Gepunktet"
+
+msgid "Double"
+msgstr "Doppelt"
+
+msgid "Download Backup Before Importing"
+msgstr "Laden Sie die Sicherung vor dem Import herunter"
+
+msgid "Download More Layouts From The Marketplace"
+msgstr "Laden Sie weitere Layouts vom Marktplatz herunter"
+
+msgid "Dropdown Menu Animation"
+msgstr "Animation für Drop-Down-Menü"
+
+msgid "Dropdown Menu Background Color"
+msgstr "Hintergrundfarbe für Drop-Down-Menü"
+
+msgid "Dropdown Menu Line Color"
+msgstr "Linienfarbe für Drop-Down-Menü"
+
+msgid "Dropdown Menu Text Color"
+msgstr "Schriftfarbe für Drop-Down-Menü"
+
+msgid "Duplicate"
+msgstr "Duplikat"
+
+msgid "Duplicate Global Item To Cloud"
+msgstr "Globales Element in Cloud duplizieren"
+
+msgid "Duplicate Locally"
+msgstr "Lokal duplizieren"
+
+msgid "Dynamic CSS"
+msgstr "Dynamisches CSS"
+
+msgid ""
+"Dynamic CSS greatly reduces CSS file size by dynamically generating only the "
+"assets necessary for the features and modules you use. This eliminates all "
+"file bloat and greatly improves load times."
+msgstr ""
+"Dynamisches CSS reduziert die CSS-Dateigröße erheblich, indem dynamisch nur "
+"die Elemente generiert werden, die für die von Ihnen verwendeten Funktionen "
+"und Module erforderlich sind. Dies eliminiert jegliches Aufblähen von "
+"Dateien und verbessert die Ladezeiten erheblich."
+
+msgid "Dynamic Icons"
+msgstr "Dynamische Symbole"
+
+msgid "Dynamic JavaScript Libraries"
+msgstr "Dynamische JavaScript-Bibliotheken"
+
+msgid "Dynamic Module Framework"
+msgstr "Dynamisches Modul-Framework"
+
+msgid "ET About Me Widget"
+msgstr "ET Über mich Widget"
+
+msgid "ET Adsense Widget"
+msgstr "ET Adsense-Widget"
+
+msgid "ET Advertisement"
+msgstr "ET Werbung"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Edit Footer Credits"
+msgstr "Footer-Credits ändern"
+
+msgid "Edit Tags & Categories"
+msgstr "Tags und Kategorien bearbeiten"
+
+msgid "Edit Theme Options"
+msgstr "Themenoptionen bearbeiten"
+
+msgid "Edit With Divi"
+msgstr "Bearbeiten mit Divi"
+
+msgid "Effect"
+msgstr "Effekt"
+
+msgid "Elegant Themes Account"
+msgstr "Konto Elegant Themes"
+
+msgid "Email"
+msgstr "E-Mail-Adresse"
+
+msgid "Empty Trash"
+msgstr "Leerer Müll"
+
+msgid "Enable Boxed Layout"
+msgstr "Boxlayout aktivieren"
+
+msgid "Enable Divi Cloud"
+msgstr "Aktivieren Sie Divi Cloud"
+
+msgid "Enable Divi Gallery"
+msgstr "Divi Galerie Aktivieren"
+
+msgid "Enable Responsive Images"
+msgstr "Responsive Images aktivieren"
+
+msgid "Enable Single Post 468x60 banner"
+msgstr "468x60-Banner für einzelne Beiträge aktivieren"
+
+msgid "Enable Vertical Navigation"
+msgstr "Vertikale Navigation aktivieren"
+
+msgid "Enable body code"
+msgstr "< body >-Code aktivieren"
+
+msgid ""
+"Enable caching of Google Fonts and load them inline. This reduces render-"
+"blocking requests and improves page load times."
+msgstr ""
+"Aktivieren Sie das Caching von Google Fonts und laden Sie sie inline. "
+"Dadurch werden Render-Blocking-Anfragen reduziert und die Seitenladezeiten "
+"verbessert."
+
+msgid "Enable canonical URL's"
+msgstr "Canonical URLs aktivieren"
+
+msgid "Enable custom description"
+msgstr "Benutzerdefinierte Beschreibung aktivieren"
+
+msgid "Enable custom keywords"
+msgstr "Benutzerdefinierte Keywords aktivieren"
+
+msgid "Enable custom titles"
+msgstr "Benutzerdefinierte Titel aktivieren"
+
+msgid "Enable header code"
+msgstr "Header-Code aktivieren"
+
+msgid "Enable meta descriptions"
+msgstr "Meta-Beschreibungen aktivieren"
+
+msgid "Enable single bottom code"
+msgstr "Single Bottom Code aktivieren"
+
+msgid "Enable single top code"
+msgstr "Single Top Code aktivieren"
+
+msgid ""
+"Enable this if you want to replace the WordPress default gallery with the "
+"Divi-style gallery."
+msgstr ""
+"Aktivieren Sie dies, wenn Sie die WordPress Standardgalerie durch die "
+"Galerie im Divi-Stil ersetzen möchten."
+
+msgid "Enable this option to display Back To Top Button while scrolling"
+msgstr ""
+"Aktivieren Sie diese Option, damit der Button \"Nach oben\" beim Scrollen "
+"angezeigt wird."
+
+msgid ""
+"Enable this option to get responsive images size generated when uploading "
+"images and adding srcset attribute for images element."
+msgstr ""
+"Aktivieren Sie diese Option, um beim Hochladen von Bildern und Hinzufügen "
+"des srcset-Attributs für das images-Element eine reaktionsfähige Bildgröße "
+"zu erhalten."
+
+msgid "Enable this option to get the smooth scrolling effect with mouse wheel"
+msgstr ""
+"Aktivieren Sie diese Option, um den das weiche Scrollen mit dem Mausrad zu "
+"erhalten."
+
+msgid "Enable this option to show thumbnails on Index Pages."
+msgstr ""
+"Aktivieren Sie diese Option, um Thumbnails auf Index-Seiten anzuzeigen."
+
+msgid ""
+"Enable this to allow the Divi Framework to only load the modules that are "
+"used on the page, and process the logic for the features in use."
+msgstr ""
+"Aktivieren Sie dies, damit das Divi Framework nur die Module lädt, die auf "
+"der Seite verwendet werden, und die Logik für die verwendeten Funktionen "
+"verarbeitet."
+
+msgid "Enabled"
+msgstr "Aktivieren"
+
+msgid ""
+"Enabling this option will display a 468x60 banner ad on the bottom of your "
+"post pages below the single post content. If enabled you must fill in the "
+"banner image and destination url below."
+msgstr ""
+"Wenn diese Option aktiviert wird, wird unterhalb der Inhalte einzelner "
+"Beiträge ein 468x60 großes Werbebanner angezeigt. Ist diese Option aktiviert,"
+" müssen Sie die Banner-Bild- und Ziel-URL unten eingeben."
+
+msgid ""
+"Enabling this option will lower the size of Google Fonts and improve load "
+"times, however it will limit Google Fonts support in some very old browsers. "
+"You can turn this off to increase support for older browsers at a slight "
+"cost to performance."
+msgstr ""
+"Die Aktivierung dieser Option verringert die Größe von Google Fonts und "
+"verbessert die Ladezeiten, schränkt jedoch die Unterstützung von Google "
+"Fonts in einigen sehr alten Browsern ein. Sie können dies deaktivieren, um "
+"die Unterstützung für ältere Browser mit geringen Leistungseinbußen zu "
+"verbessern."
+
+msgid "Enqueue Google Maps Script"
+msgstr "Stellen Sie das Google Maps-Skript in die Warteschlange"
+
+msgid "Enqueue jQuery Compatibility Script"
+msgstr "jQuery-Kompatibilitätsskript in die Warteschlange einreihen"
+
+msgid "Enter the URL of your Facebook Profile. "
+msgstr "Geben Sie die URL Ihres Facebook-Profils ein. "
+
+msgid "Enter the URL of your Instagram Profile. "
+msgstr "Geben Sie die URL Ihres Instagram-Profils ein."
+
+msgid "Enter the URL of your RSS feed. "
+msgstr "Geben Sie die URL Ihres RSS-Feeds ein. "
+
+msgid "Enter the URL of your Twitter Profile."
+msgstr "Geben Sie die URL Ihres Twitter-Profils ein."
+
+msgid "Error"
+msgstr "Fehler"
+
+msgctxt "Event Details Page"
+msgid "Details"
+msgstr "Einzelheiten"
+
+msgid "Exclude categories from the navigation bar"
+msgstr "Kategorien von der Navigationsleiste ausschließen"
+
+msgid "Exclude pages from the navigation bar"
+msgstr "Seiten von der Navigation (Menü) ausschließen"
+
+msgid "Expand"
+msgstr "Erweitern"
+
+msgid "Explore Other Modules With Tag"
+msgstr "Entdecken Sie andere Module mit Tag"
+
+msgid "Explore Other Rows With Tag"
+msgstr "Erkunden Sie andere Zeilen mit Tag"
+
+msgid "Explore Other Sections With Tag"
+msgstr "Erkunden Sie andere Abschnitte mit Tag"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Export %s"
+msgstr "%s exportieren"
+
+msgid "Export %s Name"
+msgstr "%s Name exportieren"
+
+msgid "Export Theme Options"
+msgstr "Themenoptionen exportieren"
+
+msgid ""
+"Exporting your %s will create a JSON file that can be imported into a "
+"different area."
+msgstr ""
+"Beim Exportieren von %s wird eine JSON Datei erstellt, die in einen anderen "
+"Bereich importiert werden kann."
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Facebook Profile Url"
+msgstr "URL des Facebook-Profils"
+
+msgid "Fade"
+msgstr "Einblenden (Fade)"
+
+msgid "Fade In"
+msgstr "Einblenden (Fade-in)"
+
+msgid "Failed to load your existing layouts. Please try again later."
+msgstr ""
+"Ihre vorhandenen Layouts konnten nicht geladen werden. Bitte versuchen Sie "
+"es später erneut."
+
+msgid "Farmers Market"
+msgstr "Bauernmarkt"
+
+msgid "Farmers Market About Page"
+msgstr "Farmers Market About-Seite"
+
+msgid "Farmers Market Blog Page"
+msgstr "Farmers Market Blog-Seite"
+
+msgid "Farmers Market Contact Page"
+msgstr "Bauernmarkt Kontaktseite"
+
+msgid "Farmers Market Donate Page"
+msgstr "Bauernmarkt-Spendenseite"
+
+msgid "Farmers Market Events Page"
+msgstr "Bauernmarkt-Veranstaltungsseite"
+
+msgid "Farmers Market Home Page"
+msgstr "Bauernmarkt Homepage"
+
+msgid "Farmers Market Landing Page"
+msgstr "Bauernmarkt Landing Page"
+
+msgid "Farmers Market Market Page"
+msgstr "Bauernmarkt Marktseite"
+
+msgid "Fashion About Page"
+msgstr "Mode über Seite"
+
+msgid "Fashion Blog Page"
+msgstr "Mode-Blog-Seite"
+
+msgid "Fashion Contact Page"
+msgstr "Mode-Kontaktseite"
+
+msgid "Fashion Designer Page"
+msgstr "Modedesigner-Seite"
+
+msgid "Fashion Gallery Page"
+msgstr "Mode-Galerie-Seite"
+
+msgid "Fashion Home Page"
+msgstr "Mode-Homepage"
+
+msgid "Fashion Landing Page"
+msgstr "Mode-Landingpage"
+
+msgid "Fashion Shop Page"
+msgstr "Fashion-Shop-Seite"
+
+msgid "Favorites"
+msgstr "Favoriten"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Find A Layout"
+msgstr "Finden Sie ein Layout"
+
+msgid "Find A Module"
+msgstr "Finden Sie ein Modul"
+
+msgid "Find A Page"
+msgstr "Suchen Sie eine Seite"
+
+msgid "Find A Row"
+msgstr "Finde eine Reihe"
+
+msgid "Find A Section"
+msgstr "Finden Sie einen Abschnitt"
+
+msgid "Find More Layouts"
+msgstr "Weitere Layouts finden"
+
+msgid "Fixed"
+msgstr "Fixiert"
+
+msgid "Fixed Menu Height"
+msgstr "Feste Menü Höhe"
+
+msgid "Fixed Navigation Bar"
+msgstr "Feste Navigationsleiste"
+
+msgid "Fixed Navigation Settings"
+msgstr "Einstellungen für fixe Navigation"
+
+msgid "Flip"
+msgstr "Drehen"
+
+msgid "Florist"
+msgstr "Florist"
+
+msgid "Florist About Page"
+msgstr "Info-Seite für Floristen"
+
+msgid "Florist Blog Page"
+msgstr "Floristen-Blog-Seite"
+
+msgid "Florist Contact Page"
+msgstr "Kontaktseite für Floristen"
+
+msgid "Florist Gallery Page"
+msgstr "Florist-Galerie-Seite"
+
+msgid "Florist Home Page"
+msgstr "Floristen-Homepage"
+
+msgid "Florist Landing Page"
+msgstr "Floristen-Landingpage"
+
+msgid "Florist Shop Page"
+msgstr "Seite des Blumenladens"
+
+msgid "Folder"
+msgstr "Mappe"
+
+msgid "Font"
+msgstr "Schriftart"
+
+msgid "Font Size"
+msgstr "Schriftgröße"
+
+msgid "Font Style"
+msgstr "Zeichenformat"
+
+msgid "Footer"
+msgstr "Footer"
+
+msgid "Footer Area"
+msgstr "Footerbereich"
+
+msgid "Footer Background Color"
+msgstr "Footer-Hintergrundfarbe"
+
+msgid "Footer Elements"
+msgstr "Footerelemente"
+
+msgid "Footer Menu"
+msgstr "Footermenü"
+
+msgid "Footer Menu Active Link Color"
+msgstr "Farbe für aktive Links im Footermenü"
+
+msgid "Footer Menu Background Color"
+msgstr "Hintergrundfarbe fürs Footermenü"
+
+msgid "Footer Menu Text Color"
+msgstr "Schriftfarbe fürs Footermenü"
+
+msgid ""
+"Forgot your <a href=\"%1$s\" target=\"_blank\">Username</a> or <a "
+"href=\"%1$s\" target=\"_blank\">Password</a>?"
+msgstr ""
+"<a href=\"%1$s\" target=\"_blank\">Nutzername</a> oder <a href=\"%1$s\" "
+"target=\"_blank\">Passwort</a> vergessen?"
+
+msgid "Free Divi Cloud Limit Reached"
+msgstr "Kostenloses Divi Cloud-Limit erreicht"
+
+msgid "Freelancer"
+msgstr "Freiberufler"
+
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+msgid "Fullwidth"
+msgstr "Volle Breite"
+
+msgid "General"
+msgstr "Allgemein"
+
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+msgid "Generating Screenshot"
+msgstr "Screenshot erstellen"
+
+msgid "Get Unlimited Divi Cloud Storage"
+msgstr "Holen Sie sich unbegrenzten Divi Cloud-Speicher"
+
+msgid "Get Unlimited Storage"
+msgstr "Holen Sie sich unbegrenzten Speicherplatz"
+
+msgid "Global items"
+msgstr "Globale Artikel"
+
+msgid ""
+"Global items cannot be added to your Divi Cloud. Would you like to save a "
+"non-global version to your Divi Cloud? The version on this website will "
+"remain a global instance"
+msgstr ""
+"Globale Elemente können nicht zu Ihrer Divi Cloud hinzugefügt werden. "
+"Möchten Sie eine nicht-globale Version in Ihrer Divi Cloud speichern? Die "
+"Version auf dieser Website bleibt eine globale Instanz"
+
+msgid "Google API Key"
+msgstr "Google API Schlüssel"
+
+msgid "Google Fonts Subsets"
+msgstr "Untergruppen von Google Fonts"
+
+msgid "Grab the first post image"
+msgstr "Erstes Bild aus Beitrag verwenden"
+
+msgid "Green"
+msgstr "Grün"
+
+msgid "Groove"
+msgstr "Geschwungen"
+
+msgid "HTML/JS Snippet"
+msgstr "HTML/JS-Schnipsel"
+
+msgid "Header & Navigation"
+msgstr "Header & Navigation"
+
+msgid "Header Elements"
+msgstr "Headerelemente"
+
+msgid "Header Font"
+msgstr "Schriftart Kopfzeile"
+
+msgid "Header Font Style"
+msgstr "Schriftformat im Header"
+
+msgid "Header Format"
+msgstr "Headerformat"
+
+msgid "Header Letter Spacing"
+msgstr "Zeichenabstand im Header"
+
+msgid "Header Line Height"
+msgstr "Zeilenhöhe im Header"
+
+msgid "Header Style"
+msgstr "Header-Style"
+
+msgid "Header Text Color"
+msgstr "Schriftfarbe im Header"
+
+msgid "Header Text Size"
+msgstr "Textgröße im Header"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Here you can add custom css to override or extend default styles."
+msgstr ""
+"Hier können Sie eigenes CSS hinzufügen, um Standard-Styles zu überschreiben "
+"oder zu erweitern."
+
+msgid ""
+"Here you can change which character separates your blog title and index page "
+"name when using autogenerated post titles. Common values are | or -"
+msgstr ""
+"Hier können Sie auswählen, welches Zeichen den Titel Ihres Blogs und "
+"Indexnamens voneinander trennt, wenn automatisch generierte Beitragstitel "
+"verwendet werden. Übliche Werte sind | oder -"
+
+msgid ""
+"Here you can change which character separates your blog title and post name "
+"when using autogenerated post titles. Common values are | or -"
+msgstr ""
+"Hier können Sie auswählen, welches Zeichen den Titel Ihres Blogs und Namen "
+"des Beitrags voneinander trennt, wenn automatisch generierte Beitragstitel "
+"verwendet werden. Übliche Werte sind | oder -"
+
+msgid "Here you can choose Shop Page & Category Page Layout for WooCommerce."
+msgstr ""
+"Hier können Sie das Layout für die Shop- und Kategorieseite für WooCommerce "
+"wählen."
+
+msgid "Here you can choose default sidebar layout"
+msgstr "Hier können Sie das standardmäßige Sidebar-Layout auswählen"
+
+msgid ""
+"Here you can choose how your titles on index pages are generated. You can "
+"change which order your blog name and index title are displayed, or you can "
+"remove the blog name from the title completely."
+msgstr ""
+"Hier können Sie auswählen, wie die Titel auf Index-Seiten generiert werden. "
+"Sie können die Reihenfolge, in der Ihr Blogname und Indextitel angezeigt "
+"werden, ändern oder den Blognamen komplett aus dem Titel entfernen."
+
+msgid "Here you can choose to display the Facebook Icon on your homepage. "
+msgstr ""
+"Hier können Sie entscheiden, ob das Facebook-Icon auf Ihrer Startseite "
+"angezeigt wird. "
+
+msgid "Here you can choose to display the Instagram Icon on your homepage. "
+msgstr "Hier können Sie das Instagram-Symbol auf Ihrer Homepage anzeigen."
+
+msgid "Here you can choose to display the RSS Icon. "
+msgstr "Hier können Sie entscheiden, ob das RSS-Icon angezeigt wird. "
+
+msgid "Here you can choose to display the Twitter Icon. "
+msgstr "Hier können Sie entscheiden, ob das Twitter-Icon angezeigt wird. "
+
+msgid ""
+"Here you can choose to remove certain categories from the navigation menu. "
+"All categories marked with an X will not appear in your navigation bar. "
+msgstr ""
+"Hier können Sie Kategorien bestimmen, die aus dem Navigationsmenü "
+"ausgeschlossen werden. Alle mit einem X markierten Kategorien werden in "
+"Ihrer Navigationsleiste nicht angezeigt. "
+
+msgid ""
+"Here you can choose to remove certain pages from the navigation menu. All "
+"pages marked with an X will not appear in your navigation bar. "
+msgstr ""
+"Hier können Sie Seiten bestimmen, die aus der Navigation (Menü) "
+"ausgeschlossen werden. Alle mit einem X markierten Seiten werden in Ihrer "
+"Navigation nicht angezeigt. "
+
+msgid ""
+"Here you can choose to reverse the order that your categories links are "
+"displayed. You can choose between ascending and descending."
+msgstr ""
+"Hier können Sie die Anordnung Ihrer Kategorie-Links umkehren. Sie können "
+"zwischen \"Aufsteigend\" und \"Absteigend\" wählen."
+
+msgid ""
+"Here you can choose to reverse the order that your pages links are displayed."
+" You can choose between ascending and descending."
+msgstr ""
+"Hier können Sie die Anordnung Ihrer Seitenlinks umkehren. Sie können "
+"zwischen \"Aufsteigend\" und \"Absteigend\" wählen."
+
+msgid "Here you can choose to sort your pages links."
+msgstr "Hier können Sie auswählen, wie Ihre Seitenlinks angeordnet werden."
+
+msgid ""
+"Here you can choose which items appear in the post info section on pages. "
+"This is the area, usually below the post title, which displays basic "
+"information about your post. The highlighted items shown below will appear. "
+msgstr ""
+"Hier können Sie auswählen, welche Elemente im Post-Info-Bereich auf Seiten "
+"angezeigt werden. Dies ist der Bereich, normalerweise unter dem "
+"Beitragstitel, der grundlegende Informationen zu Ihrem Beitrag anzeigt. Die "
+"unten gezeigten hervorgehobenen Elemente werden angezeigt."
+
+msgid ""
+"Here you can choose which items appear in the post info section on single "
+"post pages. This is the area, usually below the post title, which displays "
+"basic information about your post. The highlighted items shown below will "
+"appear. "
+msgstr ""
+"Hier können Sie auswählen, welche Elemente im Post-Info-Bereich auf "
+"einzelnen Post-Seiten angezeigt werden. Dies ist der Bereich, normalerweise "
+"unter dem Beitragstitel, der grundlegende Informationen zu Ihrem Beitrag "
+"anzeigt. Die unten gezeigten hervorgehobenen Elemente werden angezeigt."
+
+msgid ""
+"Here you can designate how many WooCommerce products are displayed on the "
+"archive page. This option works independently from the Settings > Reading "
+"options in wp-admin."
+msgstr ""
+"Hier können Sie bestimmen, wie viele WooCommerce-Produkte auf der "
+"Archivseite angezeigt werden. Die Option funktioniert unabhängig von den "
+"Einstellungen > Leseoption in wp-admin."
+
+msgid ""
+"Here you can designate how many recent articles are displayed on the Archive "
+"pages. This option works independently from the Settings > Reading options "
+"in wp-admin."
+msgstr ""
+"Hier können Sie festlegen, wie viele kürzlich erstellte Beiträge auf den "
+"Archivseiten angezeigt werden. Diese Option funktioniert unabhängig von den "
+"Leseoptionen in wp-admin."
+
+msgid ""
+"Here you can designate how many recent articles are displayed on the "
+"Category page. This option works independently from the Settings > Reading "
+"options in wp-admin."
+msgstr ""
+"Hier können Sie festlegen, wie viele kürzlich erstellte Beiträge auf der "
+"Kategorieseite angezeigt werden. Diese Option funktioniert unabhängig von "
+"den Leseoptionen in wp-admin."
+
+msgid ""
+"Here you can designate how many recent articles are displayed on the Search "
+"results pages. This option works independently from the Settings > Reading "
+"options in wp-admin."
+msgstr ""
+"Hier können Sie festlegen, wie viele kürzlich erstellte Beiträge auf den "
+"Suchergebnisseiten angezeigt werden. Diese Option funktioniert unabhängig "
+"von den Leseoptionen in wp-admin."
+
+msgid ""
+"Here you can designate how many recent articles are displayed on the Tag "
+"pages. This option works independently from the Settings > Reading options "
+"in wp-admin."
+msgstr ""
+"Hier können Sie festlegen, wie viele kürzlich erstellte Beiträge auf den Tag-"
+"Seiten angezeigt werden. Diese Option funktioniert unabhängig von den "
+"Leseoptionen in wp-admin."
+
+msgid "Here you can disable automatic memory limit increase."
+msgstr ""
+"Hier können Sie die automatische Erhöhung des Memory Limits deaktivieren."
+
+msgid "Here you can provide 468x60 banner destination url"
+msgstr "Hier können Sie die Ziel-URL für ein 468x60-Banner eingeben"
+
+msgid "Here you can provide 468x60 banner image url"
+msgstr "Hier können Sie die Bild-URL für ein 468x60-Banner eingeben"
+
+msgid "Hex Value"
+msgstr "Farbwert (Hex)"
+
+msgid "Hide"
+msgstr "Verstecken"
+
+msgid "Hide Logo Image"
+msgstr "Logobild verbergen"
+
+msgid "Hide Nav Before Scroll"
+msgstr "Vor dem scrollen Navigation ausblenden"
+
+msgid "Hide Navigation Until Scroll"
+msgstr "Navigation bis zum Scrollen verbergen"
+
+msgid "Hide empty categories"
+msgstr "Leere Kategorien ausblenden"
+
+msgid "High"
+msgstr "Hoch"
+
+msgid "Home"
+msgstr "Start"
+
+msgid "Homepage SEO"
+msgstr "Startseite SEO"
+
+msgid "Homepage custom title (if enabled)"
+msgstr "Benutzerdefinierter Startseitentitel (falls aktiviert)"
+
+msgid "Homepage meta description (if enabled)"
+msgstr "Meta-Beschreibung der Startseite (falls aktiviert)"
+
+msgid "Homepage meta keywords (if enabled)"
+msgstr "Meta-Keywords der Startseite (falls aktiviert)"
+
+msgid "Icon"
+msgstr "Icon"
+
+msgid "Icon Color"
+msgstr "Icon-Farbe"
+
+msgid "Icon Placement"
+msgstr "Icon Positionierung"
+
+msgid ""
+"If a page is built with the Divi Builder, the Gutenberg block CSS file is "
+"moved from the header to the footer. Since the file is most likely not used, "
+"we can load it later. This removes a render blocking request and improving "
+"performance."
+msgstr ""
+"Wenn eine Seite mit dem Divi Builder erstellt wird, wird die Gutenberg-Block-"
+"CSS-Datei von der Kopfzeile in die Fußzeile verschoben. Da die Datei "
+"höchstwahrscheinlich nicht verwendet wird, können wir sie später laden. "
+"Dadurch wird eine Renderblockierungsanforderung entfernt und die Leistung "
+"verbessert."
+
+msgid "If custom titles are disabled, choose autogeneration method"
+msgstr ""
+"Wenn benutzerdefinierte Titel deaktiviert sind, wählen Sie die automatische "
+"Generierungsmethode."
+
+msgid ""
+"If you are not using cutsom post titles you can still have control over how "
+"your titles are generated. Here you can choose which order you would like "
+"your post title and blog name to be displayed, or you can remove the blog "
+"name from the title completely."
+msgstr ""
+"Wenn Sie keine benutzerdefinierten Beitragstitel verwenden, haben Sie "
+"dennoch die Kontrolle darüber, wie Ihre Titel generiert werden. Hier können "
+"Sie wählen, in welcher Reihenfolge Ihr Beitragstitel und Blogname angezeigt "
+"werden, oder den Blognamen komplett aus dem Titel entfernen."
+
+msgid ""
+"If you are not using cutsom post titles you can still have control over hw "
+"your titles are generated. Here you can choose which order you would like "
+"your post title and blog name to be displayed, or you can remove the blog "
+"name from the title completely."
+msgstr ""
+"Wenn Sie keine benutzerdefinierten Beitragstitel verwenden, haben Sie "
+"dennoch die Kontrolle darüber, wie Ihre Titel generiert werden. Hier können "
+"Sie wählen, in welcher Reihenfolge Ihr Beitragstitel und Blogname angezeigt "
+"werden, oder den Blognamen komplett aus dem Titel entfernen."
+
+msgid ""
+"If you don't want to display some banners - leave approptiate fields blank"
+msgstr ""
+"Wenn einige Banner nicht angezeigt werden sollen - entsprechende Felder "
+"freilassen."
+
+msgid ""
+"If you have enabled custom titles you can add your custom title here. "
+"Whatever you type here will be placed between the < title >< /title > tags "
+"in header.php"
+msgstr ""
+"Wenn Sie benutzerdefinierte Titel aktiviert haben, können Sie hier Ihren "
+"benutzerdefinierten Titel hinzufügen. Was Sie hier eintippen, wird zwischen "
+"den < title >< /title >-Tags in header.php platziert."
+
+msgid ""
+"If you have enabled meta descriptions you can add your custom description "
+"here."
+msgstr ""
+"Wenn Sie Meta-Beschreibungen aktiviert haben, können Sie hier Ihre "
+"benutzerdefinierte Beschreibung hinzufügen."
+
+msgid ""
+"If you have enabled meta keywords you can add your custom keywords here. "
+"Keywords should be separated by comas. For example: wordpress,themes,"
+"templates,elegant"
+msgstr ""
+"Wenn Sie Meta-Keywords aktiviert haben, können Sie hier Ihre "
+"benutzerdefinierten Keywords hinzufügen. Keywords müssen durch Kommata "
+"getrennt werden. Zum Beispiel: wordpress,themes,templates,elegant"
+
+msgid ""
+"If you would like categories to be displayed in your navigationbar that "
+"don't have any posts in them then disable this option. By default empty "
+"categories are hidden"
+msgstr ""
+"Wenn Sie möchten, dass Kategorien in Ihrer Navigationsleiste angezeigt "
+"werden, zu denen es keine Beiträge gibt, deaktivieren Sie diese Option. "
+"Standardmäßig werden leere Kategorien ausgeblendet."
+
+msgid ""
+"If you would like to add a meta description to your post you can do so using "
+"custom fields. This option must be enabled for descriptions to be displayed "
+"on post pages. You can add your meta description using custom fields based "
+"off the custom field name you define below."
+msgstr ""
+"Wenn Sie Ihrem Beitrag eine Meta-Beschreibung hinzufügen möchten, können Sie "
+"das mithilfe von benutzerdefinierten Feldern bewerkstelligen. Diese Option "
+"muss aktiviert sein, damit Beschreibungen auf den Beitragsseiten angezeigt "
+"werden. Sie können mithilfe von benutzerdefinierten Feldern Ihre Meta-"
+"Beschreibung basierend auf dem Namen des benutzerdefinierten Feldes, den Sie "
+"unten definieren, hinzufügen."
+
+msgid ""
+"If you would like to add meta keywords to your post you can do so using "
+"custom fields. This option must be enabled for keywords to be displayed on "
+"post pages. You can add your meta keywords using custom fields based off the "
+"custom field name you define below."
+msgstr ""
+"Wenn Sie Ihrem Beitrag Meta-Keywords hinzufügen möchten, können Sie das "
+"mithilfe von benutzerdefinierten Feldern bewerkstelligen. Diese Option muss "
+"aktiviert sein, damit Keywords auf den Beitragsseiten angezeigt werden. Sie "
+"können mithilfe von benutzerdefinierten Feldern Ihre Meta-Keywords basierend "
+"auf dem Namen des benutzerdefinierten Feldes, den sie unten definieren, "
+"hinzufügen."
+
+msgid ""
+"If you would like to remove the dropdown menus from the categories "
+"navigation bar disable this feature."
+msgstr ""
+"Deaktivieren Sie diese Funktion, wenn Sie die Dropdown-Menüs aus der "
+"Kategorie-Navigationsleiste entfernen möchten."
+
+msgid ""
+"If you would like to remove the dropdown menus from the pages navigation bar "
+"disable this feature."
+msgstr ""
+"Deaktivieren Sie diese Funktion, wenn Sie die Dropdown-Menüs aus der "
+"Navigationsleiste entfernen möchten."
+
+msgid ""
+"If you would like to use your own custom logo image click the Upload Image "
+"button."
+msgstr ""
+"Wenn Sie Ihr eigenes Logo verwenden möchten, klicken Sie auf den Button "
+"\"Bild hochladen\"."
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Image Height"
+msgstr "Bildhöhe"
+
+msgid "Image Url"
+msgstr "Bild-URL"
+
+msgid "Image Width"
+msgstr "Bildbreite"
+
+msgid "Image doesn't exist"
+msgstr "Bild existiert nicht"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "Import %s"
+msgstr "%s importieren"
+
+msgid "Import & Export Customizer"
+msgstr "Import- und Export-Customizer"
+
+msgid "Import & Export Theme Options"
+msgstr "Themenoptionen importieren und exportieren"
+
+msgid "Import Theme Options"
+msgstr "Theme-Optionen importieren"
+
+msgid "Import These Templates"
+msgstr "Importieren Sie diese Vorlagen"
+
+msgid "Import To Cloud"
+msgstr "In die Cloud importieren"
+
+msgid "Improve Google Fonts Loading"
+msgstr "Verbessern Sie das Laden von Google Fonts"
+
+msgid "Improve your web design workflow and collaborate together in the cloud."
+msgstr ""
+"Verbessern Sie Ihren Webdesign-Workflow und arbeiten Sie in der Cloud "
+"zusammen."
+
+msgid ""
+"In some cases users will want to create parent categories or links as "
+"placeholders to hold a list of child links or categories. In this case it is "
+"not desirable to have the parent links lead anywhere, but instead merely "
+"serve an organizational function. Enabling this options will remove the "
+"links from all parent pages/categories so that they don't lead anywhere when "
+"clicked."
+msgstr ""
+"In einigen Fällen möchten Benutzer Parent-Kategorien oder -Links erstellen, "
+"unter denen Child-Links oder -Kategorien enthalten sind. In diesem Fall ist "
+"es nicht wünschenswert, dass die Parent-Links irgendwo hinführen. Sie haben "
+"eher eine organisatorische Funktion. Wird diese Option aktiviert, dann "
+"werden die Links von allen Parent-Seiten/-Kategorien entfernt, sodass Sie "
+"beim Anklicken mit nichts verknüpft sind."
+
+msgid "Index Page SEO"
+msgstr "Index-Seite SEO"
+
+msgid "Input 468x60 adsense code"
+msgstr "468x60-Google Adsense-Code eingeben"
+
+msgid "Input 468x60 advertisement banner image"
+msgstr "468x60-Werbebanner-Bild-URL eingeben"
+
+msgid "Input 468x60 advertisement destination url"
+msgstr "468x60-Werbebanner-Ziel-URL eingeben"
+
+msgctxt "Insert CSS Snippet from library"
+msgid "Use This CSS Snippet"
+msgstr "Verwenden Sie dieses CSS Snippet"
+
+msgctxt "Insert HTML/JS Snippet from library"
+msgid "Use This HTML/JS Snippet"
+msgstr "Verwenden Sie dieses HTML/JS-Snippet"
+
+msgctxt "Insert Module from library"
+msgid "Use This Module"
+msgstr "Verwenden Sie dieses Modul"
+
+msgctxt "Insert Page from library"
+msgid "Use This Page"
+msgstr "Verwenden Sie diese Seite"
+
+msgctxt "Insert Row from library"
+msgid "Use This Row"
+msgstr "Verwenden Sie diese Zeile"
+
+msgctxt "Insert Section from library"
+msgid "Use This Section"
+msgstr "Verwenden Sie diesen Abschnitt"
+
+msgid "Inset"
+msgstr "Innen"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Instagram Profile Url"
+msgstr "Instagram-Profil-URL"
+
+msgid "Interior Design Company"
+msgstr "Unternehmen für Innenarchitektur"
+
+msgid "Interior Design Company About Page"
+msgstr "Innenarchitektur-Unternehmen über Seite"
+
+msgid "Interior Design Company Blog Page"
+msgstr "Blog-Seite des Innenarchitekturunternehmens"
+
+msgid "Interior Design Company Contact Page"
+msgstr "Kontaktseite für Innenarchitekturunternehmen"
+
+msgid "Interior Design Company Home Page"
+msgstr "Homepage der Innenarchitekturfirma"
+
+msgid "Interior Design Company Landing Page"
+msgstr "Zielseite für Innenarchitekturunternehmen"
+
+msgid "Interior Design Company Portfolio Page"
+msgstr "Portfolio-Seite für Innenarchitekturunternehmen"
+
+msgid "Interior Design Company Services Page"
+msgstr "Seite mit den Dienstleistungen eines Innenarchitekturunternehmens"
+
+msgid "Interior Design Company Shop Page"
+msgstr "Shop-Seite des Innenarchitekturunternehmens"
+
+msgid "Italic"
+msgstr "Kursiv"
+
+msgid "Join Now"
+msgstr "Jetzt beitreten"
+
+msgid "LMS About Page"
+msgstr "LMS-Infoseite"
+
+msgid "LMS Blog Page"
+msgstr "LMS-Blog-Seite"
+
+msgid "LMS Contact Page"
+msgstr "LMS-Kontaktseite"
+
+msgid "LMS Course Page"
+msgstr "LMS-Kursseite"
+
+msgid "LMS Courses Page"
+msgstr "LMS-Kursseite"
+
+msgid "LMS Home Page"
+msgstr "LMS-Homepage"
+
+msgid "LMS Landing Page"
+msgstr "LMS-Landingpage"
+
+msgid "LMS Marketing Page"
+msgstr "LMS-Marketingseite"
+
+msgctxt "LMS Page"
+msgid "Course"
+msgstr "Kurs"
+
+msgctxt "LMS Page"
+msgid "Courses"
+msgstr "Kurse"
+
+msgid "LMS Pricing Page"
+msgstr "LMS-Preisseite"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgctxt "Layout"
+msgid "Add New"
+msgstr "Neue hinzufügen"
+
+msgctxt "Layout Categories"
+msgid "Manage Categories"
+msgstr "Kategorien verwalten"
+
+msgctxt "Layout Categories"
+msgid "Manage Tags"
+msgstr "Tags verwalten"
+
+msgctxt "Layout Category"
+msgid "Art & Design"
+msgstr "Kunstdesign"
+
+msgctxt "Layout Category"
+msgid "Business"
+msgstr "Geschäft"
+
+msgctxt "Layout Category"
+msgid "Community & Non-Profit"
+msgstr "Gemeinschaft & Non-Profit"
+
+msgctxt "Layout Category"
+msgid "Education"
+msgstr "Ausbildung"
+
+msgctxt "Layout Category"
+msgid "Events"
+msgstr "Veranstaltungen"
+
+msgctxt "Layout Category"
+msgid "Fashion & Beauty"
+msgstr "Mode & Schönheit"
+
+msgctxt "Layout Category"
+msgid "Food & Drink"
+msgstr "Essen & Trinken"
+
+msgctxt "Layout Category"
+msgid "Health & Fitness"
+msgstr "Gesundheit"
+
+msgctxt "Layout Category"
+msgid "Online Store"
+msgstr "Online-Shop"
+
+msgctxt "Layout Category"
+msgid "Services"
+msgstr "Dienstleistungen"
+
+msgctxt "Layout Category"
+msgid "Technology"
+msgstr "Technologie"
+
+msgid "Layout Name"
+msgstr "Layout-Name"
+
+msgid "Layout Pack"
+msgstr "Layout-Paket"
+
+msgctxt "Layout Pack"
+msgid "Fashion"
+msgstr "Mode"
+
+msgctxt "Layout Pack"
+msgid "Layouts In This Pack"
+msgstr "Layouts in diesem Paket"
+
+msgctxt "Layout Packs"
+msgid "Manage Packs"
+msgstr "Pakete verwalten"
+
+msgid "Layout Settings"
+msgstr "Layout-Einstellungen"
+
+msgid "Learn About Divi Cloud"
+msgstr "Erfahren Sie mehr über Divi Cloud"
+
+msgctxt "Learning Management System"
+msgid "LMS"
+msgstr "LMS"
+
+msgid "Leave a Reply to %s"
+msgstr "Antwort auf %s hinterlassen"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Left Sidebar"
+msgstr "Linke Seitenleiste (Sidebar)"
+
+msgid "Left to Right"
+msgstr "Links nach rechts"
+
+msgid "Letter Spacing"
+msgstr "Zeichenabstand"
+
+msgid "Library"
+msgstr "Bibliothek"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Limit Google Fonts Support For Legacy Browsers"
+msgstr "Beschränken Sie die Unterstützung von Google Fonts für ältere Browser"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Link text"
+msgstr "Link-Text"
+
+msgid "Live Preview"
+msgstr "Live Vorschau"
+
+msgid "Load Dynamic Stylesheet In-line"
+msgstr "Dynamisches Stylesheet inline laden"
+
+msgid "Load From Library"
+msgstr "Aus Bibliothek laden"
+
+msgid "Locations"
+msgstr "Standorte"
+
+msgid "Log In"
+msgstr "Einloggen"
+
+msgid "Log In To Divi Cloud"
+msgstr "Melden Sie sich bei Divi Cloud an"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Logo Max Height"
+msgstr "Logo Max Höhe"
+
+msgid "Low"
+msgstr "Niedrig"
+
+msgid "Make Full Width"
+msgstr "Volle Breite nutzen"
+
+msgid "Manage Layouts"
+msgstr "Layouts verwalten"
+
+msgid "Manage Un-widgetized Advertisements"
+msgstr "Anzeigen verwalten"
+
+msgid "Manage Your Elegant Themes Account"
+msgstr "Verwalten Sie Ihr Elegant Themes-Konto"
+
+msgctxt "Marketplace Page"
+msgid "Seller"
+msgstr "Verkäufer"
+
+msgid "Medium"
+msgstr "Mittel"
+
+msgid "Member Login"
+msgstr "Mitglieder-Login"
+
+msgid "Memory Limit Increase"
+msgstr "Memory Limit Erhöhen"
+
+msgid "Menu Height"
+msgstr "Menu Höhe"
+
+msgid "Menu Link Color"
+msgstr "Menü Linkfarbe"
+
+msgid "Menu Text Size"
+msgstr "Menü Textgröße"
+
+msgid "Menu Top Margin"
+msgstr "Menü am oberen Rand"
+
+msgid "Menu Width"
+msgstr "Menü Breite"
+
+msgid "Meta Font Style"
+msgstr "Metaschriftformat"
+
+msgid "Meta Letter Spacing"
+msgstr "Metazeilenabstand"
+
+msgid "Meta Line Height"
+msgstr "Metazeilenhöhe"
+
+msgid "Meta Text Size"
+msgstr "Metatextgröße"
+
+msgid "Mobile Menu"
+msgstr "Menü für mobile Geräte"
+
+msgid "Mobile Styles"
+msgstr "Mobile Designs"
+
+msgid "Module Name"
+msgstr "Modulname"
+
+msgid "Module Name Prefix"
+msgstr "Präfix des Modulnamens"
+
+msgid "Most Used"
+msgstr "Am meisten benutzt"
+
+msgid "Move"
+msgstr "Umzug"
+
+msgid "Move To"
+msgstr "Ziehen nach"
+
+msgid "Move To Divi Cloud"
+msgstr "Wechseln Sie zu Divi Cloud"
+
+msgid "My Cloud"
+msgstr "Meine Wolke"
+
+msgid "My Divi Cloud"
+msgstr "Meine Divi Cloud"
+
+msgid "My Library"
+msgstr "Meine Bibliothek"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New Theme Options"
+msgstr "Neue Themenoptionen"
+
+msgid "New To Old"
+msgstr "Neu zu Alt"
+
+msgid "New items are stored into %s library."
+msgstr "Neue Elemente werden in der %s Bibliothek gespeichert."
+
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Neuere Kommentare <span class=\"meta-nav\">&rarr;</span>"
+
+msgid "Next"
+msgstr "Nächste"
+
+msgid "Next Entries &raquo;"
+msgstr "Nächste Einträge &raquo;"
+
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "No Animation"
+msgstr "Keine Animation"
+
+msgid "No File Selected"
+msgstr "Keine Datei ausgewählt"
+
+msgid "No Repeat"
+msgstr "Keine Wiederholung"
+
+msgid "No Results"
+msgstr "Keine Ergebnisse"
+
+msgid "No Results Found"
+msgstr "Keine Ergebnisse gefunden"
+
+msgid "No Screenshot"
+msgstr "Kein Screenshot"
+
+msgid "No Sidebar"
+msgstr "Keine Seitenleiste (Sidebar)"
+
+msgid "No available options."
+msgstr "Keine verfügbaren Optionen"
+
+msgid ""
+"Note: Color settings set above should be applied to the Default color scheme."
+msgstr ""
+"Hinweis: Die oben eingestellten Farbeinstellungen sollten auf das Standard-"
+"Farbschema angewendet werden."
+
+msgid "Nothing found"
+msgstr "Nichts gefunden"
+
+msgid "Nothing found in Trash"
+msgstr "Nichts im Papierkorb gefunden"
+
+msgid "Number of Posts displayed on Archive pages"
+msgstr "Anzahl von angezeigten Beiträgen auf Archivseiten"
+
+msgid "Number of Posts displayed on Category page"
+msgstr "Anzahl von angezeigten Beiträgen auf Kategorieseite"
+
+msgid "Number of Posts displayed on Search pages"
+msgstr "Anzahl von angezeigten Beiträgen auf Suchseiten"
+
+msgid "Number of Posts displayed on Tag pages"
+msgstr "Anzahl von angezeigten Beiträgen auf Tag-Seiten"
+
+msgid "Number of Products displayed on WooCommerce archive pages"
+msgstr "Anzahl angezeigter Produkte auf WooCommerce-Archivseiten"
+
+msgid "Number of dropdown tiers shown"
+msgstr "Anzahl von angezeigten Dropdown-Ebenen"
+
+msgid "Off"
+msgstr "Aus"
+
+msgid "Old To New"
+msgstr "Alt zu Neu"
+
+msgid "On"
+msgstr "An"
+
+msgid "On Divi Cloud"
+msgstr "Auf Divi Cloud"
+
+msgid "Only Show"
+msgstr "Nur zeigen"
+
+msgid "Only Show Icon on Hover"
+msgstr "Icon nur beim Hover zeigen"
+
+msgid ""
+"Only load external JavaScript libraries when they are needed by a specific "
+"Divi modules on the page. This removes unused JavaScript from the main "
+"scripts bundle and improves load times."
+msgstr ""
+"Laden Sie externe JavaScript-Bibliotheken nur, wenn sie von einem bestimmten "
+"Divi-Modul auf der Seite benötigt werden. Dadurch wird nicht verwendetes "
+"JavaScript aus dem Hauptskriptpaket entfernt und die Ladezeiten verbessert."
+
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr "An"
+
+msgid "Open in a new window"
+msgstr "In einem neuen Fenster öffnen"
+
+msgid "Open link in new window"
+msgstr "Link in neuem Fenster öffnen"
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "Orange"
+msgstr "Orange"
+
+msgid "Order Category Links by Ascending/Descending"
+msgstr "Kategorie-Links auf-/absteigend anordnen"
+
+msgid "Order Pages Links by Ascending/Descending"
+msgstr "Seitenlinks auf-/absteigend anordnen"
+
+msgid "Outset"
+msgstr "Außen"
+
+msgctxt "Page"
+msgid "About"
+msgstr "Um"
+
+msgctxt "Page"
+msgid "Blog"
+msgstr "Bloggen"
+
+msgctxt "Page"
+msgid "Careers"
+msgstr "Karriere"
+
+msgctxt "Page"
+msgid "Case Study"
+msgstr "Fallstudie"
+
+msgctxt "Page"
+msgid "Categories"
+msgstr "Kategorien"
+
+msgctxt "Page"
+msgid "Contact"
+msgstr "Kontakt"
+
+msgctxt "Page"
+msgid "Designer"
+msgstr "Designer"
+
+msgctxt "Page"
+msgid "Donate"
+msgstr "Spenden"
+
+msgctxt "Page"
+msgid "Events"
+msgstr "Veranstaltungen"
+
+msgctxt "Page"
+msgid "FAQ"
+msgstr "FAQ"
+
+msgctxt "Page"
+msgid "Features"
+msgstr "Merkmale"
+
+msgctxt "Page"
+msgid "Gallery"
+msgstr "Galerie"
+
+msgctxt "Page"
+msgid "Gallery 1"
+msgstr "Galerie 1"
+
+msgctxt "Page"
+msgid "Gallery 2"
+msgstr "Galerie 2"
+
+msgctxt "Page"
+msgid "Gallery 3"
+msgstr "Galerie 3"
+
+msgctxt "Page"
+msgid "Guide"
+msgstr "Führen"
+
+msgctxt "Page"
+msgid "Home"
+msgstr "Heim"
+
+msgctxt "Page"
+msgid "Landing"
+msgstr "Landung"
+
+msgctxt "Page"
+msgid "Market"
+msgstr "Markt"
+
+msgctxt "Page"
+msgid "Marketing"
+msgstr "Marketing"
+
+msgctxt "Page"
+msgid "Portfolio"
+msgstr "Portfolio"
+
+msgctxt "Page"
+msgid "Pricing"
+msgstr "Preisgestaltung"
+
+msgctxt "Page"
+msgid "Project 1"
+msgstr "Projekt 1"
+
+msgctxt "Page"
+msgid "Project 2"
+msgstr "Projekt 2"
+
+msgctxt "Page"
+msgid "Services"
+msgstr "Dienstleistungen"
+
+msgctxt "Page"
+msgid "Shop"
+msgstr "Geschäft"
+
+msgctxt "Page"
+msgid "Team"
+msgstr "Mannschaft"
+
+msgid "Page Layout"
+msgstr "Seitenlayout"
+
+msgctxt "Page layout"
+msgid "View Live Demo"
+msgstr "Live-Demo ansehen"
+
+msgid "Pages"
+msgstr "Seiten"
+
+msgid "Pages:"
+msgstr "Seiten:"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password Protected"
+msgstr "Passwortgeschützt"
+
+msgid "Password: "
+msgstr "Passwort: "
+
+msgid "Paste image url here, if you chose \"images\" slider type"
+msgstr ""
+"Fügen Sie die Bild-URL hier ein, wenn Sie den Slider-Typ \"images\" gewählt "
+"haben"
+
+msgid "Performance"
+msgstr "Leistung"
+
+msgid "Phone"
+msgstr "Handy"
+
+msgid "Phone Number"
+msgstr "Telefonnummer"
+
+msgid "Photo Marketplace"
+msgstr "Foto-Marktplatz"
+
+msgid "Photo Marketplace About Page"
+msgstr "Photo Marketplace About-Seite"
+
+msgid "Photo Marketplace Categories Page"
+msgstr "Foto-Marktplatz-Kategorieseite"
+
+msgid "Photo Marketplace Contact Page"
+msgstr "Kontaktseite des Fotomarktplatzes"
+
+msgid "Photo Marketplace Home Page"
+msgstr "Homepage des Fotomarktplatzes"
+
+msgid "Photo Marketplace Landing Page"
+msgstr "Zielseite des Fotomarktplatzes"
+
+msgid "Photo Marketplace Pricing Page"
+msgstr "Preisseite für den Fotomarktplatz"
+
+msgid "Photo Marketplace Seller Page"
+msgstr "Foto-Marktplatz-Verkäuferseite"
+
+msgid "Photographer"
+msgstr "Fotograf"
+
+msgid "Pink"
+msgstr "Pink"
+
+msgid "Place Thumbs on Pages"
+msgstr "Thumbnails für Seiten anzeigen"
+
+msgid "Place Thumbs on Posts"
+msgstr "Thumbnails für Beiträge anzeigen"
+
+msgid "Place your adsense code here."
+msgstr "Geben Sie Ihren Google Adsense-Code hier ein."
+
+msgid "Please Log In Again"
+msgstr "Bitte melden Sie sich erneut an"
+
+msgid "Portability"
+msgstr "Portabilität"
+
+msgid "Post"
+msgstr "Beitrag"
+
+msgid "Post Title"
+msgstr "Beitrag Titel"
+
+msgid "Post info section"
+msgstr "Infobereich des Beitrags"
+
+msgid "Posted on"
+msgstr "Gepostet am"
+
+msgid "Premade Layouts"
+msgstr "Vorgefertigte Layouts"
+
+msgid "Previous"
+msgstr "Vorherige"
+
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+msgid "Primary Menu"
+msgstr "Hauptmenü"
+
+msgid "Primary Menu Background Color"
+msgstr "Haupthintergrundfarbe im Menü"
+
+msgid "Primary Menu Bar"
+msgstr "Primäre Menüleiste"
+
+msgid "Primary Menu Link Color"
+msgstr "Linkfarbe im Hauptmenü"
+
+msgid "Product Content"
+msgstr "Produktinhalt"
+
+msgid "Project Navigation"
+msgstr "Projektnavigation"
+
+msgid "Published"
+msgstr "Veröffentlicht"
+
+msgid "RSS"
+msgstr "RSS"
+
+msgid "RSS Icon Url"
+msgstr "URL des RSS-Icons"
+
+msgid "Ratings"
+msgstr "Bewertungen"
+
+msgid "Read Divi Documentation"
+msgstr "Divi-Dokumentation lesen"
+
+msgid "Red"
+msgstr "Rot"
+
+msgid "Remove From Cloud"
+msgstr "Aus Cloud entfernen"
+
+msgid "Remove From Favorites"
+msgstr "Von Favoriten entfernen"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Replace Existing Content"
+msgstr "Vorhandene Inhalte ersetzen"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Reset to Defaults"
+msgstr "Auf Standardwerte Zurücksetzen"
+
+msgid "Restaurant"
+msgstr "Restaurant"
+
+msgid "Restaurant About Page"
+msgstr "Restaurant-Über-Seite"
+
+msgid "Restaurant Blog Page"
+msgstr "Restaurant-Blog-Seite"
+
+msgid "Restaurant Contact Page"
+msgstr "Kontaktseite des Restaurants"
+
+msgid "Restaurant Gallery Page"
+msgstr "Restaurant-Galerie-Seite"
+
+msgid "Restaurant Home Page"
+msgstr "Homepage des Restaurants"
+
+msgid "Restaurant Landing Page"
+msgstr "Restaurant-Landingpage"
+
+msgctxt "Restaurant Page"
+msgid "Menu"
+msgstr "Speisekarte"
+
+msgid "Restaurant Shop Page"
+msgstr "Restaurant-Shop-Seite"
+
+msgid "Restaurant Team Page"
+msgstr "Restaurant-Team-Seite"
+
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+msgid "Ridge"
+msgstr "Kante"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Right Sidebar"
+msgstr "Rechte Seitenleiste (Sidebar)"
+
+msgid "Right to Left"
+msgstr "Rechts nach links"
+
+msgid "Role Editor"
+msgstr "Rolleneditor"
+
+msgid "Row Height"
+msgstr "Zeilenhöhe"
+
+msgid "Row Name"
+msgstr "Zeilenname"
+
+msgid "Row Name Prefix"
+msgstr "Zeilennamenpräfix"
+
+msgid "SaaS Company"
+msgstr "SaaS-Unternehmen"
+
+msgid "SaaS Company About Page"
+msgstr "Über Seite des SaaS-Unternehmens"
+
+msgid "SaaS Company Careers Page"
+msgstr "Karriereseite des SaaS-Unternehmens"
+
+msgid "SaaS Company Contact Page"
+msgstr "Kontaktseite des SaaS-Unternehmens"
+
+msgid "SaaS Company Documentation Page"
+msgstr "SaaS-Unternehmensdokumentationsseite"
+
+msgid "SaaS Company Features Page"
+msgstr "SaaS-Unternehmensfunktionsseite"
+
+msgid "SaaS Company Landing Page"
+msgstr "Zielseite des SaaS-Unternehmens"
+
+msgid "SaaS Company Pricing Page"
+msgstr "Preisseite für SaaS-Unternehmen"
+
+msgid "Save %s"
+msgstr "Speichern Sie %s"
+
+msgid "Save Changes"
+msgstr "Änderungen Speichern"
+
+msgid "Save Selection Only"
+msgstr "Nur Auswahl speichern"
+
+msgid "Save Theme Options"
+msgstr "Themenoptionen speichern"
+
+msgid "Save To Divi Cloud"
+msgstr "In Divi Cloud speichern"
+
+msgid "Save To Library"
+msgstr "In Bibliothek speichern"
+
+msgid "Save as Global"
+msgstr "Als global speichern"
+
+msgid "Save this %s to the Divi Library for later use."
+msgstr ""
+"Speichern Sie dieses %s zur späteren Verwendung in der Divi Bibliothek."
+
+msgid ""
+"Save unlimited layouts, theme builder templates, code snippets and more to "
+"Divi Cloud."
+msgstr ""
+"Speichern Sie unbegrenzt Layouts, Theme-Builder-Vorlagen, Code-Snippets und "
+"mehr in Divi Cloud."
+
+msgid "Scroll"
+msgstr "Scrollen"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Search &hellip;"
+msgstr "Suchen &hellip;"
+
+msgid "Search Bar Background Color"
+msgstr "Hintergrundfarbe Suchleiste"
+
+msgid "Search Bar Text Color"
+msgstr "Textfarbe Suchleiste"
+
+msgid "Search For Categories"
+msgstr "Suchen Sie nach Kategorien"
+
+msgid "Search For Layouts"
+msgstr "Suchen Sie nach Layouts"
+
+msgid "Search For Packs"
+msgstr "Suchen Sie nach Paketen"
+
+msgid "Search Results for: %s"
+msgstr "Suchergebnisse für: %s"
+
+msgid "Search Theme Options"
+msgstr "Themenoptionen durchsuchen"
+
+msgid "Search for:"
+msgstr "Suchen nach:"
+
+msgid "Search results for \"%s\""
+msgstr "Suchergebnisse für \"%s\""
+
+msgid "Secondary Menu"
+msgstr "Sekundäres Menü"
+
+msgid "Secondary Menu Background Color"
+msgstr "Sekundäre Hintergrundfarbe im Menü"
+
+msgid "Secondary Menu Bar"
+msgstr "Sekundäre Menüleiste"
+
+msgid "Secondary Menu Link Color"
+msgstr "Linkfarbe im Sekundären Menü"
+
+msgid "Section Height"
+msgstr "Sektionshöhe"
+
+msgid "Section Name"
+msgstr "Abteilungsname"
+
+msgid "Section Name Prefix"
+msgstr "Präfix des Abschnittsnamens"
+
+msgid "Select"
+msgstr "Wählen"
+
+msgid "Select Animation Effect"
+msgstr "Animationseffekt auswählen"
+
+msgid "Select Icon"
+msgstr "Icon auswählen"
+
+msgid "Select Page"
+msgstr "Seite wählen"
+
+msgid "Select Slider Type here"
+msgstr "Wählen Sie den Slider-Typ"
+
+msgid "Select between expanded and closed state"
+msgstr "Zwischen ausgeklapptem und geschlossenem Zustand wählen"
+
+msgid "Select yes if the link should be opened in a new window"
+msgstr ""
+"Wählen Sie \"Ja\", wenn der Link in einem neuen Fenster geöffnet werden soll"
+
+msgctxt "Services/Plans Page"
+msgid "Packages"
+msgstr "Pakete"
+
+msgid "Set As Logo"
+msgstr "Als Logo einrichten"
+
+msgid "Share With My Team"
+msgstr "Mit meinem Team teilen"
+
+msgid "Share Your Divi Cloud With Your Team"
+msgstr "Teilen Sie Ihre Divi Cloud mit Ihrem Team"
+
+msgid "Shared With Me"
+msgstr "Mit mir geteilt"
+
+msgid "Shop Page & Category Page Layout for WooCommerce"
+msgstr "Shopseiten- & Kategorieseiten-Layout für WooCommerce"
+
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Show Facebook Icon"
+msgstr "Facebook-Icon anzeigen"
+
+msgid "Show Instagram Icon"
+msgstr "Instagram-Symbol anzeigen"
+
+msgid "Show RSS Icon"
+msgstr "RSS-Icon anzeigen"
+
+msgid "Show Search Icon"
+msgstr "Suchsymbol anzeigen"
+
+msgid "Show Social Icons"
+msgstr "Socialicons zeigen"
+
+msgid "Show Thumbs on Index pages"
+msgstr "Thumbnails für Index-Seiten anzeigen"
+
+msgid "Show Top Bar"
+msgstr "Kopfleiste (Top Bar) Anzeigen"
+
+msgid "Show Twitter Icon"
+msgstr "Twitter-Icon anzeigen"
+
+msgid "Show comments on pages"
+msgstr "Kommentare zu Seiten anzeigen"
+
+msgid "Show comments on posts"
+msgstr "Kommentare zu Beiträgen anzeigen"
+
+msgid "Show dropdown menus"
+msgstr "Dropdown-Menüs anzeigen"
+
+msgid "Sidebar"
+msgstr "Seitenleiste (Sidebar)"
+
+msgid "Sidebar Layout"
+msgstr "Sidebar-Layout"
+
+msgid "Sidebar Width"
+msgstr "Breite der Seitenleiste (Sidebar)"
+
+msgid "Sign In To Divi Cloud"
+msgstr "Melden Sie sich bei Divi Cloud an"
+
+msgid "Sign Out Of Divi Cloud"
+msgstr "Melden Sie sich von Divi Cloud ab"
+
+msgid ""
+"Sign in to your Elegant Themes account using the pop-up to activate Divi "
+"Cloud."
+msgstr ""
+"Melden Sie sich über das Popup-Fenster bei Ihrem Elegant Themes-Konto an, um "
+"Divi Cloud zu aktivieren."
+
+msgid "Single Page Layout"
+msgstr "Einzelseiten-Layout"
+
+msgid "Single Post Layout"
+msgstr "Einzelbeitrag-Layout"
+
+msgid "Single Post Page SEO"
+msgstr "Einzelbeitragsseite SEO"
+
+msgid "Site Identity"
+msgstr "Website-Identität"
+
+msgid "Skills"
+msgstr "Fähigkeiten"
+
+msgid "Slide"
+msgstr "Slide"
+
+msgid "Slide In"
+msgstr "Slide-In"
+
+msgid "Slide In & Fullscreen Header Settings"
+msgstr "Slide-In- & Vollbild-Header-Einstellungen"
+
+msgid "Slider Type"
+msgstr "Slider-Typ"
+
+msgid "Smooth Scrolling"
+msgstr "Weiches Scrollen"
+
+msgid "Social Icon Color"
+msgstr "Farbe von Socialicons"
+
+msgid "Social Icon Size"
+msgstr "Größe von Socialicons"
+
+msgid "Solid"
+msgstr "Durchgehend"
+
+msgid ""
+"Some third party scripts may be incorrectly enqueued without declaring "
+"jQuery as dependency. If jQuery is deferred, these scripts could break. If "
+"you are experiencing console errors after enabling the \"Defer jQuery And "
+"jQuery Migrate\" option, you can enable this option, which will load an "
+"additional compatibility script that will attempt to solve the issue. You "
+"can turn this feature off if everything is working fine without it."
+msgstr ""
+"Einige Skripte von Drittanbietern werden möglicherweise fälschlicherweise in "
+"die Warteschlange eingereiht, ohne jQuery als Abhängigkeit zu deklarieren. "
+"Wenn jQuery zurückgestellt wird, könnten diese Skripte beschädigt werden. "
+"Wenn nach dem Aktivieren der Option „JQuery und jQuery Migrate“ "
+"Konsolenfehler auftreten, können Sie diese Option aktivieren, wodurch ein "
+"zusätzliches Kompatibilitätsskript geladen wird, das versucht, das Problem "
+"zu lösen. Sie können diese Funktion deaktivieren, wenn ohne sie alles gut "
+"funktioniert."
+
+msgid "Sort"
+msgstr "Sortieren"
+
+msgid "Sort Categories Links by Name/ID/Slug/Count/Term Group"
+msgstr "Kategorie-Links nach Name/ID/Slug/Count/Term-Gruppe anordnen"
+
+msgid "Sort Pages Links"
+msgstr "Seitenlinks anordnen"
+
+msgid "Split Into Modules"
+msgstr "In Module aufgeteilt"
+
+msgid "Split Into Rows"
+msgstr "In Reihen aufteilen"
+
+msgid "Split Into Sections"
+msgstr "In Abschnitte aufteilen"
+
+msgid "Split Layout Into Sections"
+msgstr "Layout in Abschnitte aufteilen"
+
+msgid "Split Row Into Modules"
+msgstr "Reihe in Module aufteilen"
+
+msgid "Split Section Into Rows"
+msgstr "Abschnitt in Zeilen aufteilen"
+
+msgid "Start Collaborating!"
+msgstr "Beginnen Sie mit der Zusammenarbeit!"
+
+msgid "State"
+msgstr "Zustand"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stretch Background Image"
+msgstr "Hintergrundbild strecken"
+
+msgid "Submit"
+msgstr "Senden"
+
+msgid "Submit Comment"
+msgstr "Kommentar absenden"
+
+msgid "Submit a Comment"
+msgstr "Kommentar absenden"
+
+msgid "Tab Content"
+msgstr "Tab-Inhalt"
+
+msgid "Tab Text"
+msgstr "Tab-Text"
+
+msgid "Tablet"
+msgstr "Tablet"
+
+msgid "Tag"
+msgstr "Schild"
+
+msgid "Tags"
+msgstr "Stichworte"
+
+msgid "Team Sidebar"
+msgstr "Team-Seitenleiste"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text Color"
+msgstr "Textfarbe"
+
+msgid "Text Size"
+msgstr "Schriftgröße"
+
+msgid "The Divi Marketplace is full of thousands of additional layouts!"
+msgstr "Der Divi Marketplace ist voll von Tausenden zusätzlicher Layouts!"
+
+msgid ""
+"The Divi icon font is broken up into various subsets. These subsets are "
+"loaded only when needed based on the modules and features used on each page. "
+"If you need access to the entire icon font on all pages (for example, if you "
+"are using our icon font in your child theme), then you can disable this "
+"option and load the entire icon font library on all pages."
+msgstr ""
+"Die Divi Icon-Schriftart ist in verschiedene Untergruppen aufgeteilt. Diese "
+"Teilmengen werden nur bei Bedarf geladen, basierend auf den Modulen und "
+"Funktionen, die auf jeder Seite verwendet werden. Wenn Sie auf allen Seiten "
+"Zugriff auf den gesamten Icon-Font benötigen (z. B. wenn Sie unseren Icon-"
+"Font in Ihrem Child-Theme verwenden), können Sie diese Option deaktivieren "
+"und die gesamte Icon-Font-Bibliothek auf allen Seiten laden."
+
+msgid "The Item couldn't be downloaded. Please try after a while."
+msgstr ""
+"Der Artikel konnte nicht heruntergeladen werden. Bitte versuchen Sie es nach "
+"einer Weile."
+
+msgid ""
+"The Maps module uses the Google Maps API and requires a valid Google API Key "
+"to function. Before using the map module, please make sure you have added "
+"your API key here. Learn more about how to create your Google API Key <a "
+"target=\"_blank\" href=\"%1$s\">here</a>."
+msgstr ""
+"Das Maps-Modul verwendet die Google Maps API und erfordert einen gültigen "
+"Google API-Schlüssel, um zu funktionieren. Bevor Sie das Kartenmodul "
+"verwenden, vergewissern Sie sich bitte, dass Sie hier Ihren API-Schlüssel "
+"hinzugefügt haben. Erfahren Sie <a target=\"_blank\" href=\"%1$s\">hier</a> "
+"mehr darüber, wie Sie Ihren Google API Schlüssel erstellen."
+
+msgid "The action failed in the following clouds."
+msgstr "Die Aktion scheiterte an den folgenden Wolken."
+
+msgid ""
+"The page you requested could not be found. Try refining your search, or use "
+"the navigation above to locate the post."
+msgstr ""
+"Die angefragte Seite konnte nicht gefunden werden. Verfeinern Sie Ihre Suche "
+"oder verwenden Sie die Navigation oben, um den Beitrag zu finden."
+
+msgid "Theme Accent Color"
+msgstr "Akzentfarbe im Design"
+
+msgid "Theme Customizer"
+msgstr "Theme Customizer"
+
+msgid "Theme Option"
+msgstr "Theme-Option"
+
+msgid "Theme Options"
+msgstr "Theme-Optionen"
+
+msgid "Theme Options Library"
+msgstr "Designoptionen-Bibliothek"
+
+msgid "This Website"
+msgstr "Diese Internetseite"
+
+msgid ""
+"This is the username that you use to access the Members Area on "
+"elegantthemes.com."
+msgstr ""
+"Dies ist der Benutzername, den Sie verwenden, um auf den Mitgliederbereich "
+"auf elegantthemes.com zuzugreifen."
+
+msgid ""
+"This option allows you to change how your dates are displayed. For more "
+"information please refer to the WordPress codex here:<a href='http://codex."
+"wordpress.org/Formatting_Date_and_Time' target='_blank'>Formatting Date and "
+"Time</a>"
+msgstr ""
+"Mit dieser Option können Sie festlegen, wie Ihr Datum angezeigt wird. "
+"Weitere Informationen finden Sie im WordPress-Kodex hier:<a href='http:"
+"//codex.wordpress.org/Formatting_Date_and_Time' target='_blank'>Datums- und "
+"Zeitformate</a>"
+
+msgid ""
+"This option dequeues the Divi style.css file and prints the contents in-line."
+" This removes a render blocking request and improves the PageSpeed scores of "
+"individual pages. However, it also prevents the style.css file from being "
+"cached. Since the stylesheet is small, it's recommended to keep this option "
+"enabled."
+msgstr ""
+"Diese Option entfernt die Divi style.css-Datei aus der Warteschlange und "
+"druckt den Inhalt inline. Dadurch wird eine Renderblockierungsanforderung "
+"entfernt und die PageSpeed-Scores einzelner Seiten verbessert. Es verhindert "
+"jedoch auch, dass die style.css-Datei zwischengespeichert wird. Da das "
+"Stylesheet klein ist, wird empfohlen, diese Option aktiviert zu lassen."
+
+msgid ""
+"This options allows you to control how many teirs your pages dropdown menu "
+"has. Increasing the number allows for additional menu items to be shown."
+msgstr ""
+"Mit dieser Option können Sie festlegen, wie viele Ebenen die Dropdown-Menüs "
+"Ihrer Seiten haben. Erhöhen der Zahl ermöglicht die Anzeige zusätzlicher "
+"Menüpunkte."
+
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Dieser Beitrag ist passwortgeschützt. Geben Sie das Passwort ein, um "
+"Kommentare anzusehen."
+
+msgid "This will enable Google Fonts for Non-English languages."
+msgstr "Damit wird Google Fonts für nicht-englische Sprachen aktiviert."
+
+msgid "This will enable the use of excerpts in posts or pages."
+msgstr ""
+"Damit wird die Verwendung von Textauszügen (Excerpt) in Beiträgen oder auf "
+"Seiten aktiviert."
+
+msgid ""
+"This will return all of the settings throughout the options page to their "
+"default values. <strong>Are you sure you want to do this?</strong>"
+msgstr ""
+"Dadurch werden alle Einstellungen auf der Optionsseite auf ihre "
+"Standardwerte zurückgesetzt. <strong>Möchten Sie das wirklich tun?</strong>"
+
+msgid "Tile"
+msgstr "Kacheln"
+
+msgid "Tile Horizontally"
+msgstr "Horizontal kacheln"
+
+msgid "Tile Vertically"
+msgstr "Vertikal kacheln"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid ""
+"To enable Divi Cloud on this website, log in to your Elegant Themes account"
+msgstr ""
+"Um Divi Cloud auf dieser Website zu aktivieren, melden Sie sich bei Ihrem "
+"Elegant Themes-Konto an"
+
+msgid "To view this protected post, enter the password below"
+msgstr "Um dieses geschützten Beitrag anzusehen, unten das Passwort eingeben."
+
+msgid "Top"
+msgstr "Oben"
+
+msgid "Top Bar Text Color"
+msgstr "Textfarbe Kopfleiste (Top Bar)"
+
+msgid "Top Bar Text Size"
+msgstr "Textgröße Kopfleiste (Top Bar)"
+
+msgid "Top to Bottom"
+msgstr "Oben nach unten"
+
+msgid "Trackbacks/Pingbacks"
+msgstr "Trackbacks/Pingbacks"
+
+msgid "Trash"
+msgstr "Müll"
+
+msgid ""
+"Trash storage for Divi Cloud is limited to 50 items for free accounts. Once "
+"your trash exceeds 50 items, the oldest items in your trashed will be "
+"permanently deleted to make room for new items. Purchase a <a href=\"%s\" "
+"target=\"_blank\">Divi Cloud Membership</a> for unlimited storage."
+msgstr ""
+"Der Papierkorbspeicher für Divi Cloud ist für kostenlose Konten auf 50 "
+"Elemente begrenzt. Sobald Ihr Papierkorb 50 Elemente überschreitet, werden "
+"die ältesten Elemente in Ihrem Papierkorb dauerhaft gelöscht, um Platz für "
+"neue Elemente zu schaffen. Kaufen Sie eine <a href=\"%s\" target=\"_blank\">"
+"Divi Cloud-Mitgliedschaft</a> für unbegrenzten Speicherplatz."
+
+msgid "Travel Agency"
+msgstr "Reisebüro"
+
+msgid "Travel Agency About Page"
+msgstr "Reisebüro-Über-Seite"
+
+msgid "Travel Agency Blog Page"
+msgstr "Reisebüro-Blog-Seite"
+
+msgid "Travel Agency Contact Page"
+msgstr "Kontaktseite des Reisebüros"
+
+msgid "Travel Agency Home Page"
+msgstr "Homepage des Reisebüros"
+
+msgid "Travel Agency Landing Page"
+msgstr "Zielseite des Reisebüros"
+
+msgid "Travel Agency Packages Page"
+msgstr "Reisebüro-Paketseite"
+
+msgid "Travel Agency Shop Page"
+msgstr "Reisebüro-Shop-Seite"
+
+msgid "Travel Agency Team Page"
+msgstr "Seite des Reisebüroteams"
+
+msgid "Tweet"
+msgstr "Tweeten"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "Twitter Profile Url"
+msgstr "URL des Twitter-Profils"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Type of the box"
+msgstr "Typ der Box"
+
+msgid "Typography"
+msgstr "Typographie"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Uh Oh!"
+msgstr "Äh oh!"
+
+msgid "Uh Oh! You have reached your Divi Cloud quota."
+msgstr "Äh oh! Sie haben Ihr Divi Cloud-Kontingent erreicht."
+
+msgid "Underline"
+msgstr "Unterstrichen"
+
+msgid "Unlock Unlimited Divi Cloud Storage"
+msgstr "Schalte unbegrenzten Divi Cloud-Speicher frei"
+
+msgid "Untagged"
+msgstr "Ohne Tag"
+
+msgid "Upgrade Your Divi Cloud"
+msgstr "Aktualisieren Sie Ihre Divi Cloud"
+
+msgid "Upgrade to Unlimited Cloud Storage!"
+msgstr "Upgrade auf unbegrenzten Cloud-Speicher!"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "Uppercase"
+msgstr "Versalien"
+
+msgid "Url"
+msgstr "URL"
+
+msgid "Use Background Color"
+msgstr "Hintergrundfarbe verwenden"
+
+msgid "Use Custom Sidebar Width"
+msgstr "Verwenden Sie benutzerdefinierte Breite für Sidebar"
+
+msgid "Use Google Fonts"
+msgstr "Verwenden Sie Google Fonts"
+
+msgid "Use Relative Image Paths"
+msgstr "Relative Bildpfade benutzen"
+
+msgid "Use excerpts when defined"
+msgstr "Textauszüge (Excerpt) verwenden, wenn definiert"
+
+msgid "Use resizing"
+msgstr "Skalierung verwenden"
+
+msgid "Used for icon button type"
+msgstr "Verwendet für Button-Typ Icon"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Username: "
+msgstr "Benutzername: "
+
+msgid "Vertical Menu Orientation"
+msgstr "Vertikale Menüausrichtung"
+
+msgid "Vertically Centered"
+msgstr "Vertikal zentriert"
+
+msgid "View Details"
+msgstr "Details anzeigen"
+
+msgid "View Theme Options"
+msgstr "Themenoptionen anzeigen"
+
+msgid "View in Divi Marketplace"
+msgstr "Auf Divi Marketplace anzeigen"
+
+msgid ""
+"Warning: This can cause JavaScript errors in some cases and should be used "
+"with care. When enabled, scripts registered by plugins and themes will be "
+"deferred to improve performance and jQuery will always be loaded in the body."
+msgstr ""
+"Warnung: Dies kann in einigen Fällen zu JavaScript-Fehlern führen und sollte "
+"mit Vorsicht verwendet werden. Wenn diese Option aktiviert ist, werden von "
+"Plugins und Designs registrierte Skripts zurückgestellt, um die Leistung zu "
+"verbessern, und jQuery wird immer im Hauptteil geladen."
+
+msgid "Watch video tutorials"
+msgstr "Videotutorials ansehen"
+
+msgid "Web Agency"
+msgstr "Webagentur"
+
+msgid "Web Agency Careers Page"
+msgstr "Karriereseite der Webagentur"
+
+msgid "Web Agency Contact Page"
+msgstr "Kontaktseite der Webagentur"
+
+msgid "Web Agency Home Page"
+msgstr "Homepage der Webagentur"
+
+msgid "Web Agency Landing Page"
+msgstr "Zielseite der Webagentur"
+
+msgid "Web Agency Portfolio Page"
+msgstr "Portfolio-Seite der Webagentur"
+
+msgid "Web Agency Pricing Page"
+msgstr "Preisseite für Webagenturen"
+
+msgid "Web Agency Services Page"
+msgstr "Seite der Dienste der Webagentur"
+
+msgid "Website Content Width"
+msgstr "Inhaltsbreite der Website"
+
+msgid "Website Gutter Width"
+msgstr "Spaltenabstände der Website"
+
+msgid "Wedding"
+msgstr "Hochzeit"
+
+msgid "Wedding About Page"
+msgstr "Hochzeit über Seite"
+
+msgid "Wedding Blog Page"
+msgstr "Hochzeitsblog Seite"
+
+msgid "Wedding Contact Page"
+msgstr "Kontaktseite Hochzeit"
+
+msgid "Wedding Details Page"
+msgstr "Hochzeitsdetailseite"
+
+msgid "Wedding Gallery Page"
+msgstr "Hochzeitsgalerie Seite"
+
+msgid "Wedding Home Page"
+msgstr "Homepage Hochzeit"
+
+msgid ""
+"Welcome to Divi! Before diving in to your new theme, please visit the <a "
+"style=\"color: #fff; font-weight: bold;\" href=\"%1$s\" target=\"_blank\">"
+"Divi Documentation</a> page for access to dozens of in-depth tutorials."
+msgstr ""
+"Willkommen zu Divi! Bevor Sie sich mit Ihrem neuen Design befassen, sehen "
+"Sie sich bitte die <a style=\"color: #fff; font-weight: bold;\" "
+"href=\"%1$s\" target=\"_blank\">Divi Dokumentations-</a>Seite für Zugriff "
+"auf wichtige Tutorials an."
+
+msgid ""
+"When Critical CSS is enabled, Divi determines an \"above the fold "
+"threshold\" and defers all styles for elements below the fold. However, this "
+"threshold is just a estimate and can vary on different devices. Increasing "
+"threshold height will deffer fewer styles, resulting in slightly slower load "
+"times but less of a chance for Cumulative Layout Shifts to occur. If you are "
+"experiencing CLS issues you can increase the threshold height."
+msgstr ""
+"Wenn Critical CSS aktiviert ist, bestimmt Divi einen „above the fold“-"
+"Schwellenwert und verschiebt alle Stile für Elemente „below the fold“. "
+"Dieser Schwellenwert ist jedoch nur eine Schätzung und kann auf "
+"verschiedenen Geräten variieren. Durch Erhöhen der Schwellenhöhe werden "
+"weniger Stile verzögert, was zu etwas langsameren Ladezeiten führt, aber "
+"weniger Chancen für kumulative Layoutverschiebungen hat. Wenn Sie CLS-"
+"Probleme haben, können Sie die Schwellenhöhe erhöhen."
+
+msgid ""
+"When possible, jQuery and jQuery Migrate will be moved to the body to speed "
+"up load times. If a third party plugin registers jQuery as a dependency, it "
+"will be moved back to the head."
+msgstr ""
+"Wenn möglich, werden jQuery und jQuery Migrate in den Body verschoben, um "
+"die Ladezeiten zu verkürzen. Wenn ein Plugin eines Drittanbieters jQuery als "
+"Abhängigkeit registriert, wird es zurück in den Kopf verschoben."
+
+msgid ""
+"When you define your keywords using custom fields you should use this value "
+"for the custom field Name. The Value of your custom field should be the meta "
+"keywords you would like to use, separated by comas."
+msgstr ""
+"Wenn Sie Ihre Keywords mithilfe von benutzerdefinierten Feldern definieren, "
+"sollten Sie diesen Wert für das benutzerdefinierte Feld \"Name\" verwenden. "
+"Der Wert Ihres benutzerdefinierten Felds sollten die durch Kommata "
+"getrennten Meta-Keywords sein, die Sie verwenden möchten."
+
+msgid ""
+"When you define your meta description using custom fields you should use "
+"this value for the custom field Name. The Value of your custom field should "
+"be the custom description you would like to use."
+msgstr ""
+"Wenn Sie Ihre Meta-Beschreibung mithilfe von benutzerdefinierten Feldern "
+"definieren, sollten Sie diesen Wert für das benutzerdefinierte Feld \"Name\" "
+"verwenden. Der Wert Ihres benutzerdefinierten Felds sollte die "
+"benutzerdefinierte Beschreibung sein, die Sie verwenden möchten."
+
+msgid ""
+"When you define your title using custom fields you should use this value for "
+"the custom field Name. The Value of your custom field should be the custom "
+"title you would like to use."
+msgstr ""
+"Wenn Sie Ihren Titel mithilfe von benutzerdefinierten Feldern definieren, "
+"sollten Sie diesen Wert für das benutzerdefinierte Feld \"Name\" verwenden. "
+"Der Wert Ihres benutzerdefinierten Felds sollte der benutzerdefinierte Titel "
+"sein, den Sie verwenden möchten."
+
+msgid ""
+"When you sync %s to Divi Cloud, they become available on every website you "
+"build."
+msgstr ""
+"Wenn Sie %s mit Divi Cloud synchronisieren, werden sie auf jeder von Ihnen "
+"erstellten Website verfügbar."
+
+msgid "Widget Bullet Color"
+msgstr "Listenpunktfarbe für Widgets"
+
+msgid "Widget Header Color"
+msgstr "Headerfarbe für Widgets"
+
+msgid "Widget Link Color"
+msgstr "Linkfarbe für Widgets"
+
+msgid "Widget Text Color"
+msgstr "Textfarbe für Widget"
+
+msgid "Widgets"
+msgstr "Widgets"
+
+msgctxt "WooCommerce items number"
+msgid "%1$s Item"
+msgid_plural "%1$s Items"
+msgstr[0] "%1$s-Artikel"
+msgstr[1] "%1$s-Artikel"

@@ -1,0 +1,276 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Divi Core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 08:21+0000\n"
+"PO-Revision-Date: 2023-05-29 08:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: German (Formal)\n"
+"Language: de_DE_formal\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Domain: et-core"
+
+#: core/components/Updates.php:30
+#, php-format
+msgid "%s: You cannot create a second instance of this class."
+msgstr "%s: Sie können keine zweite Instanz dieser Klasse erstellen."
+
+#: core/components/Updates.php:151 core/components/Updates.php:212
+msgid ""
+"<em>Before you can receive product updates, you must first authenticate your "
+"Elegant Themes subscription. To do this, you need to enter both your Elegant "
+"Themes Username and your Elegant Themes API Key into the Updates Tab in your "
+"theme and plugin settings. To locate your API Key, <a href=\"https://www."
+"elegantthemes.com/members-area/api/\" target=\"_blank\">log in</a> to your "
+"Elegant Themes account and navigate to the <strong>Account > API Key</strong>"
+" page. <a href=\"https://www.elegantthemes.com/documentation/divi/update-"
+"divi/\" target=\"_blank\">Learn more here</a></em>. If you still get this "
+"message, please make sure that your Username and API Key have been entered "
+"correctly"
+msgstr ""
+"<em>Bevor Sie Produkt-Updates erhalten können, müssen Sie zunächst Ihr "
+"Elegant Themes-Abonnement authentifizieren. Dazu müssen Sie sowohl Ihren "
+"Elegant Themes-Benutzernamen als auch Ihren Elegant Themes-API-Schlüssel auf "
+"der Registerkarte Updates in Ihren Themen- und Plugin-Einstellungen eingeben."
+" Um Ihren API-Schlüssel zu finden, <a href=\"https://www.elegantthemes."
+"com/members-area/api/\" target=\"_blank\">melden Sie sich bei Ihrem Elegant "
+"Themes-Konto an</a> und navigieren Sie zur Seite <strong>Konto > API-"
+"Schlüssel</strong>. <a href=\"https://www.elegantthemes."
+"com/documentation/divi/update-divi/\" target=\"_blank\">Hier erfahren Sie "
+"mehr</a></em>. Wenn Sie diese Meldung immer noch erhalten, vergewissern Sie "
+"sich bitte, dass Ihr Benutzername und Ihr API-Schlüssel korrekt eingegeben "
+"wurden"
+
+#: core/components/Updates.php:145
+msgid ""
+"<em>The license for this Divi Marketplace product has expired. Please <a "
+"target=\"_blank\" href=\"https://www.elegantthemes.com/members-"
+"area/marketplace/\">renew the license</a> to continue receiving product "
+"updates and support.</em>"
+msgstr ""
+"<em>Die Lizenz für dieses Divi Marketplace Produkt ist abgelaufen. Bitte <a "
+"target=\"_blank\" href=\"https://www.elegantthemes.com/members-"
+"area/marketplace/\">erneuern Sie die Lizenz</a>, um weiterhin Produkt-"
+"Updates und Support zu erhalten.</em>"
+
+#: core/components/Updates.php:150 core/components/Updates.php:211
+msgid ""
+"<em>Your Elegant Themes subscription has expired. You must <a href=\"https:"
+"//www.elegantthemes.com/members-area/renew/\" target=\"_blank\">renew your "
+"account</a> to regain access to product updates and support.</em>"
+msgstr ""
+"<em>Ihr Elegant Themes Abonnement ist abgelaufen. Sie müssen <a href=\"https:"
+"//www.elegantthemes.com/members-area/renew/\" target=\"_blank\">Ihr Konto "
+"erneuern</a>, um wieder Zugang zu Produkt-Updates und Support zu erhalten."
+"</em>"
+
+#: core/components/api/ElegantThemes.php:206
+msgid ""
+"An unexpected response was received from the version server. Please try "
+"again later."
+msgstr ""
+"Sie haben eine unerwartete Antwort vom Versionsserver erhalten. Bitte "
+"versuchen Sie es später noch einmal."
+
+#: core/components/VersionRollback.php:111
+#: core/components/VersionRollback.php:329
+#: core/components/api/ElegantThemes.php:107
+#: core/components/api/ElegantThemes.php:226
+msgid "An unknown error has occurred. Please try again later."
+msgstr ""
+"Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es später "
+"noch einmal."
+
+#. Name of the template
+msgid "Blank Page"
+msgstr "Leere Seite"
+
+#: core/components/Updates.php:724
+msgid "Check Again"
+msgstr "Erneut prüfen"
+
+#. Name of the theme
+msgid "Divi"
+msgstr "Divi"
+
+#. Author of the theme
+msgid "Elegant Themes"
+msgstr "Elegante Themen"
+
+#: core/components/Updates.php:115
+msgid ""
+"For all Elegant Themes products, please <a href=\"https://www.elegantthemes."
+"com/documentation/divi/update-divi/\" target=\"_blank\">authenticate your "
+"subscription</a> via the Updates tab in your theme & plugin settings to "
+"enable product updates. Make sure that your Username and API Key have been "
+"entered correctly."
+msgstr ""
+"Für alle Produkte von Elegant Themes müssen Sie sich <a href=\"https://www."
+"elegantthemes.com/documentation/divi/update-divi/\" target=\"_blank\">über "
+"die Registerkarte Updates in Ihren Theme- und Plugin-Einstellungen "
+"authentifizieren</a>, um Produkt-Updates zu aktivieren. Vergewissern Sie "
+"sich, dass Ihr Benutzername und Ihr API-Schlüssel korrekt eingegeben wurden."
+
+#: core/components/VersionRollback.php:264
+#: core/components/api/ElegantThemes.php:218
+#, php-format
+msgid ""
+"For privacy and security reasons, you cannot rollback to <strong>Version "
+"%1$s</strong>."
+msgstr ""
+"Aus Datenschutz- und Sicherheitsgründen können Sie nicht auf <strong>Version "
+"%1$s</strong> zurückgehen."
+
+#. Author URI of the theme
+msgid "http://www.elegantthemes.com"
+msgstr "http://www.elegantthemes.com"
+
+#. URI of the theme
+msgid "http://www.elegantthemes.com/gallery/divi/"
+msgstr "http://www.elegantthemes.com/gallery/divi/"
+
+#: core/components/VersionRollback.php:428
+msgid ""
+"If you recently updated to a new version and are experiencing problems, you "
+"can easily roll back to the previously-installed version. We always "
+"recommend using the latest version and testing updates on a staging site. "
+"However, if you run into problems after updating you always have the option "
+"to roll back."
+msgstr ""
+"Wenn Sie kürzlich auf eine neue Version aktualisiert haben und Probleme "
+"auftreten, können Sie ganz einfach auf die zuvor installierte Version "
+"zurückgehen. Wir empfehlen, immer die neueste Version zu verwenden und die "
+"Aktualisierungen auf einer Testseite zu testen. Sollten Sie jedoch nach der "
+"Aktualisierung auf Probleme stoßen, haben Sie immer die Möglichkeit, ein "
+"Rollback durchzuführen."
+
+#: core/components/Portability.php:1157
+msgid "imported"
+msgstr "importiert"
+
+#: core/components/api/ElegantThemes.php:116
+msgid "Invalid Username and/or API Key provided."
+msgstr "Ungültiger Benutzername und/oder API-Schlüssel angegeben."
+
+#: core/components/VersionRollback.php:270
+msgid "Learn more here."
+msgstr "Erfahren Sie hier mehr."
+
+#: core/components/VersionRollback.php:537
+msgid "Make sure you have a full site backup before proceeding."
+msgstr ""
+"Stellen Sie sicher, dass Sie ein vollständiges Backup Ihrer Website haben, "
+"bevor Sie fortfahren."
+
+#: core/components/VersionRollback.php:454
+#: core/components/VersionRollback.php:542
+msgid "Rollback to the previous version"
+msgstr "Rollback zur vorherigen Version"
+
+#: core/components/VersionRollback.php:529
+#, php-format
+msgid ""
+"Rolling back will reinstall the previous version of %1$s. You will be able "
+"to update to the latest version at any time. <a href=\"%2$s\" "
+"target=\"_blank\">Learn more here</a>."
+msgstr ""
+"Durch das Zurücksetzen wird die vorherige Version von %1$s neu installiert. "
+"Sie können jederzeit auf die neueste Version aktualisieren. <a href=\"%2$s\" "
+"target=\"_blank\">Hier erfahren Sie mehr</a>."
+
+#: core/components/VersionRollback.php:221
+msgid "Security check failed. Please refresh and try again."
+msgstr ""
+"Sicherheitsüberprüfung fehlgeschlagen. Bitte aktualisieren Sie und versuchen "
+"Sie es erneut."
+
+#. Description of the theme
+msgid ""
+"Smart. Flexible. Beautiful. Divi is the most powerful theme in our "
+"collection."
+msgstr ""
+"Klug. Flexibel. Schön. Divi ist das leistungsstärkste Thema in unserer "
+"Kollektion."
+
+#: core/components/Updates.php:686
+msgid ""
+"The Elegant Themes username you entered is invalid. Please enter a valid "
+"username to receive product updates. If you forgot your username you can <a "
+"href=\"https://www.elegantthemes.com/members-area/retrieve-username/\" "
+"target=\"_blank\">request it here</a>."
+msgstr ""
+"Der von Ihnen eingegebene Elegant Themes-Benutzername ist ungültig. Bitte "
+"geben Sie einen gültigen Benutzernamen ein, um Produktaktualisierungen zu "
+"erhalten. Wenn Sie Ihren Benutzernamen vergessen haben, können Sie ihn hier "
+"<a href=\"https://www.elegantthemes.com/members-area/retrieve-username/\" "
+"target=\"_blank\">anfordern</a>."
+
+#: core/components/VersionRollback.php:481
+#: core/components/api/ElegantThemes.php:212
+#, php-format
+msgid "The previously used version of %1$s does not support version rollback."
+msgstr ""
+"Die zuvor verwendete Version von %1$s unterstützt kein Versions-Rollback."
+
+#: core/components/VersionRollback.php:589
+msgid "Update to the Latest Version"
+msgstr "Update auf die neueste Version"
+
+#: core/components/VersionRollback.php:243
+#: core/components/VersionRollback.php:581
+#, php-format
+msgid ""
+"Update to the latest version to unlock the full power of %1$s. <a "
+"href=\"%2$s\" target=\"_blank\">Learn more here</a>."
+msgstr ""
+"Aktualisieren Sie auf die neueste Version, um die volle Leistung von %1$s "
+"freizuschalten. <a href=\"%2$s\" target=\"_blank\">Erfahren Sie hier mehr</a>"
+"."
+
+#: core/components/VersionRollback.php:424
+#: core/components/VersionRollback.php:472
+#: core/components/VersionRollback.php:511
+#: core/components/VersionRollback.php:563
+msgid "Version Rollback"
+msgstr "Version Rollback"
+
+#: core/components/VersionRollback.php:228
+msgid "You don't have sufficient permissions to access this page."
+msgstr "Sie haben nicht genügend Rechte, um auf diese Seite zuzugreifen."
+
+#: core/components/VersionRollback.php:520
+#, php-format
+msgid ""
+"You'll be rolled back to <strong>Version %1$s</strong> from the current "
+"<strong>Version %2$s</strong>."
+msgstr ""
+"Sie werden von der aktuellen <strong>Version %2$s</strong> auf die <strong>"
+"Version %1$s</strong> zurückgesetzt."
+
+#: core/components/VersionRollback.php:236
+#: core/components/VersionRollback.php:572
+#, php-format
+msgid ""
+"You're currently rolled back to <strong>Version %1$s</strong> from <strong>"
+"Version %2$s</strong>."
+msgstr ""
+"Sie sind gerade von der <strong>Version %2$s</strong> auf die <strong>"
+"Version %1$s</strong> zurückgesetzt worden."
+
+#: core/components/Updates.php:684
+msgid ""
+"Your Elegant Themes subscription has expired. You must <a href=\"https://www."
+"elegantthemes.com/members-area/\" target=\"_blank\">renew your account</a> "
+"to regain access to product updates and support. To ensure compatibility and "
+"security, it is important to always keep your themes and plugins updated."
+msgstr ""
+"Ihr Elegant Themes-Abonnement ist abgelaufen. Sie müssen <a href=\"https:"
+"//www.elegantthemes.com/members-area/\" target=\"_blank\">Ihr Konto "
+"erneuern</a>, um wieder Zugang zu Produkt-Updates und Support zu erhalten. "
+"Um Kompatibilität und Sicherheit zu gewährleisten, ist es wichtig, dass Sie "
+"Ihre Themes und Plugins immer auf dem neuesten Stand halten."

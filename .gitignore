@@ -2,4 +2,5 @@
 .synchronize
 docs
 push.sh
+.pushrc
 rsync.log

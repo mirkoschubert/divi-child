@@ -1,12 +1,13 @@
 <?php
-if (!defined('ABSPATH')) die();
+if (!defined('ABSPATH')) {
+  die();
+}
 
 /**
  * BUGFIX: Removes Divi Support Center from Frontend
  * @since Divi 3.20.1
  */
-function divi_child_remove_support_center()
-{
+function divi_child_remove_support_center() {
   wp_dequeue_script('et-support-center');
   wp_deregister_script('et-support-center');
 }
@@ -14,14 +15,12 @@ if (divi_child_get_theme_option('support_center') === 'on') {
   add_action('wp_enqueue_scripts', 'divi_child_remove_support_center', 99999);
 }
 
-
 /**
  * BUGFIX: Fixed Body Classes for Theme Builder Header
  * @since 1.2.0
  * @since Divi 4.0
  */
-function divi_child_tb_fixed_body_class($classes)
-{
+function divi_child_tb_fixed_body_class($classes) {
   $has_tb_header = in_array('et-tb-has-header', $classes);
   $is_fixed_header = 'on' === et_get_option('divi_fixed_nav', 'on');
 
@@ -38,7 +37,6 @@ function divi_child_tb_fixed_body_class($classes)
   return $classes;
 }
 
-
 /**
  * BUGFIX: Add CSS for fixed navigation with theme builder
  * @since 2.1.0
@@ -53,7 +51,6 @@ if (divi_child_get_theme_option('tb_header_fix') === 'on') {
   add_action('wp_head', 'divi_child_fixed_navigation', 10);
 }
 
-
 /**
  * BUGFIX: Add special inline scripts
  * @since 1.3.0
@@ -65,7 +62,6 @@ if (divi_child_get_theme_option('tb_display_errors') === 'on') {
   add_action('wp_head', 'divi_child_page_fix', 1);
 }
 
-
 /**
  * BUGFIX: Handle for switching image and text on tablet and lower (.split-section-fix)
  * @since 2.1.0
@@ -76,7 +72,6 @@ function divi_child_split_section_fix() {
 if (divi_child_get_theme_option('split_section_fix') === 'on') {
   add_action('wp_head', 'divi_child_split_section_fix', 10);
 }
-
 
 /**
  * BUGFIX: Theme Builder logo image sizing

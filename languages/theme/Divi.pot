@@ -1,0 +1,692 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Divi Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 08:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Domain: Divi"
+
+#: ../Divi/includes/functions/choices.php:71
+#: ../Divi/includes/functions/choices.php:72
+#: ../Divi/includes/functions/choices.php:73
+#: ../Divi/includes/functions/choices.php:75
+#: ../Divi/includes/functions/choices.php:76
+#: ../Divi/includes/functions/choices.php:77
+#: ../Divi/includes/functions/choices.php:78
+#: ../Divi/includes/functions/choices.php:79
+#: ../Divi/includes/functions/choices.php:80
+#: ../Divi/includes/functions/choices.php:81
+#: ../Divi/includes/functions/choices.php:82
+#: ../Divi/includes/functions/choices.php:83
+#: ../Divi/includes/functions/choices.php:84
+#: ../Divi/includes/functions/choices.php:85
+#: ../Divi/includes/functions/choices.php:86
+#: ../Divi/includes/functions/choices.php:87
+#: ../Divi/includes/functions/choices.php:88
+#: ../Divi/includes/functions/choices.php:89
+#: ../Divi/includes/functions/choices.php:90
+#, php-format
+msgid "%1$s Columns"
+msgstr ""
+
+#: ../Divi/includes/navigation.php:2
+msgid "&laquo; Older Entries"
+msgstr ""
+
+#: ../Divi/comments.php:18
+msgid "0 Comments"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:74
+msgid "1 Column"
+msgstr ""
+
+#: ../Divi/comments.php:18
+msgid "1 Comment"
+msgstr ""
+
+#: ../Divi/comments.php:23 ../Divi/comments.php:36
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-about.php:12
+#: ../Divi/includes/widgets/widget-about.php:41
+msgid "About Me"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-adsense.php:12
+#: ../Divi/includes/widgets/widget-adsense.php:41
+msgid "Adsense"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-adsense.php:49
+msgid "Adsense Code"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:12
+#: ../Divi/includes/widgets/widget-ads.php:136
+msgid "Advertisement"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:194
+#: ../Divi/includes/widgets/widget-ads.php:202
+#: ../Divi/includes/widgets/widget-ads.php:210
+#: ../Divi/includes/widgets/widget-ads.php:218
+#: ../Divi/includes/widgets/widget-ads.php:226
+#: ../Divi/includes/widgets/widget-ads.php:234
+#: ../Divi/includes/widgets/widget-ads.php:242
+#: ../Divi/includes/widgets/widget-ads.php:250
+msgid "Alt"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:188
+#: ../Divi/includes/widgets/widget-ads.php:190
+#: ../Divi/includes/widgets/widget-ads.php:192
+#: ../Divi/includes/widgets/widget-ads.php:194
+#: ../Divi/includes/widgets/widget-ads.php:196
+#: ../Divi/includes/widgets/widget-ads.php:198
+#: ../Divi/includes/widgets/widget-ads.php:200
+#: ../Divi/includes/widgets/widget-ads.php:202
+#: ../Divi/includes/widgets/widget-ads.php:204
+#: ../Divi/includes/widgets/widget-ads.php:206
+#: ../Divi/includes/widgets/widget-ads.php:208
+#: ../Divi/includes/widgets/widget-ads.php:210
+#: ../Divi/includes/widgets/widget-ads.php:212
+#: ../Divi/includes/widgets/widget-ads.php:214
+#: ../Divi/includes/widgets/widget-ads.php:216
+#: ../Divi/includes/widgets/widget-ads.php:218
+#: ../Divi/includes/widgets/widget-ads.php:220
+#: ../Divi/includes/widgets/widget-ads.php:222
+#: ../Divi/includes/widgets/widget-ads.php:224
+#: ../Divi/includes/widgets/widget-ads.php:226
+#: ../Divi/includes/widgets/widget-ads.php:228
+#: ../Divi/includes/widgets/widget-ads.php:230
+#: ../Divi/includes/widgets/widget-ads.php:232
+#: ../Divi/includes/widgets/widget-ads.php:234
+#: ../Divi/includes/widgets/widget-ads.php:236
+#: ../Divi/includes/widgets/widget-ads.php:238
+#: ../Divi/includes/widgets/widget-ads.php:240
+#: ../Divi/includes/widgets/widget-ads.php:242
+#: ../Divi/includes/widgets/widget-ads.php:244
+#: ../Divi/includes/widgets/widget-ads.php:246
+#: ../Divi/includes/widgets/widget-ads.php:248
+#: ../Divi/includes/widgets/widget-ads.php:250
+msgid "Banner"
+msgstr ""
+
+#. Name of the template
+msgid "Blank Page"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:9
+msgid "Bold"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:166
+msgid "Bottom"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:131
+msgid "Bottom to Top"
+msgstr ""
+
+#: ../Divi/includes/builder/feature/woocommerce-modules.php:526
+msgid "Build From Scratch"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:41
+msgid "Centered"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:42
+msgid "Centered Inline Logo"
+msgstr ""
+
+#: ../Divi/comments.php:18
+msgid "Comments"
+msgstr ""
+
+#: ../Divi/options_divi.php:373
+msgid "Critical CSS"
+msgstr ""
+
+#: ../Divi/options_divi.php:377
+msgid ""
+"Critical CSS greatly improves website load times and Google PageSpeed scores "
+"by deferring non-critical styles and eliminating render-blocking CSS "
+"requests."
+msgstr ""
+
+#: ../Divi/options_divi.php:380
+msgid "Critical Threshold Height"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:147
+msgid "Dashed"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:24
+#: ../Divi/includes/functions/choices.php:40
+#: ../Divi/includes/builder/feature/woocommerce-modules.php:527
+msgid "Default"
+msgstr ""
+
+#: ../Divi/options_divi.php:437
+msgid "Defer Additional Third Party Scripts"
+msgstr ""
+
+#: ../Divi/options_divi.php:402
+msgid "Defer Gutenberg Block CSS"
+msgstr ""
+
+#: ../Divi/options_divi.php:423
+msgid "Defer jQuery And jQuery Migrate"
+msgstr ""
+
+#: ../Divi/options_divi.php:395
+msgid "Disable WordPress Emojis"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-about.php:4
+msgid "Displays About Me Information"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-adsense.php:4
+msgid "Displays Adsense Ads"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:4
+msgid "Displays Advertisements"
+msgstr ""
+
+#: ../Divi/includes/builder/feature/BlockEditorIntegration.php:671
+msgid "Divi Page Settings"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:146
+msgid "Dotted"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:148
+msgid "Double"
+msgstr ""
+
+#: ../Divi/options_divi.php:352
+msgid "Dynamic CSS"
+msgstr ""
+
+#: ../Divi/options_divi.php:356
+msgid ""
+"Dynamic CSS greatly reduces CSS file size by dynamically generating only the "
+"assets necessary for the features and modules you use. This eliminates all "
+"file bloat and greatly improves load times."
+msgstr ""
+
+#: ../Divi/options_divi.php:359
+msgid "Dynamic Icons"
+msgstr ""
+
+#: ../Divi/options_divi.php:388
+msgid "Dynamic JavaScript Libraries"
+msgstr ""
+
+#: ../Divi/options_divi.php:345
+msgid "Dynamic Module Framework"
+msgstr ""
+
+#: ../Divi/options_divi.php:413
+msgid ""
+"Enable caching of Google Fonts and load them inline. This reduces render-"
+"blocking requests and improves page load times."
+msgstr ""
+
+#: ../Divi/options_divi.php:349
+msgid ""
+"Enable this to allow the Divi Framework to only load the modules that are "
+"used on the page, and process the logic for the features in use."
+msgstr ""
+
+#: ../Divi/options_divi.php:420
+msgid ""
+"Enabling this option will lower the size of Google Fonts and improve load "
+"times, however it will limit Google Fonts support in some very old browsers. "
+"You can turn this off to increase support for older browsers at a slight "
+"cost to performance."
+msgstr ""
+
+#: ../Divi/options_divi.php:430
+msgid "Enqueue jQuery Compatibility Script"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-about.php:6
+msgid "ET About Me Widget"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-adsense.php:6
+msgid "ET Adsense Widget"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:6
+msgid "ET Advertisement"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:57
+msgid "Expand"
+msgstr ""
+
+#: ../Divi/includes/social_icons.php:6
+msgid "Facebook"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:56
+msgid "Fade"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:132
+msgid "Fade In"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:194
+msgid "Fixed"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:59
+msgid "Flip"
+msgstr ""
+
+#: ../Divi/includes/functions/sidebars.php:13
+#: ../Divi/includes/functions/sidebars.php:22
+#: ../Divi/includes/functions/sidebars.php:31
+#: ../Divi/includes/functions/sidebars.php:40
+#: ../Divi/includes/functions/sidebars.php:49
+#: ../Divi/includes/functions/sidebars.php:58
+msgid "Footer Area"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:44
+msgid "Fullscreen"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:25
+msgid "Green"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:149
+msgid "Groove"
+msgstr ""
+
+#: ../Divi/options_divi.php:382
+msgid "High"
+msgstr ""
+
+#: ../Divi/theme-header.php:173 ../Divi/theme-header.php:251
+#: ../Divi/header.php:210 ../Divi/header.php:288
+msgid "Home"
+msgstr ""
+
+#: ../Divi/options_divi.php:406
+msgid ""
+"If a page is built with the Divi Builder, the Gutenberg block CSS file is "
+"moved from the header to the footer. Since the file is most likely not used, "
+"we can load it later. This removes a render blocking request and improving "
+"performance."
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:251
+msgid ""
+"If you don't want to display some banners - leave approptiate fields blank"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:188
+#: ../Divi/includes/widgets/widget-ads.php:196
+#: ../Divi/includes/widgets/widget-ads.php:204
+#: ../Divi/includes/widgets/widget-ads.php:212
+#: ../Divi/includes/widgets/widget-ads.php:220
+#: ../Divi/includes/widgets/widget-ads.php:228
+#: ../Divi/includes/widgets/widget-ads.php:236
+#: ../Divi/includes/widgets/widget-ads.php:244
+#: ../Divi/includes/widgets/widget-about.php:46
+msgid "Image"
+msgstr ""
+
+#: ../Divi/options_divi.php:409
+msgid "Improve Google Fonts Loading"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:151
+msgid "Inset"
+msgstr ""
+
+#: ../Divi/includes/social_icons.php:21
+msgid "Instagram"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:10
+msgid "Italic"
+msgstr ""
+
+#: ../Divi/comments.php:59
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:116
+msgid "Left"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:128
+msgid "Left to Right"
+msgstr ""
+
+#: ../Divi/options_divi.php:416
+msgid "Limit Google Fonts Support For Legacy Browsers"
+msgstr ""
+
+#: ../Divi/options_divi.php:366
+msgid "Load Dynamic Stylesheet In-line"
+msgstr ""
+
+#: ../Divi/options_divi.php:382
+msgid "Low"
+msgstr ""
+
+#: ../Divi/options_divi.php:382
+msgid "Medium"
+msgstr ""
+
+#: ../Divi/comments.php:24 ../Divi/comments.php:37
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../Divi/includes/navigation.php:3
+msgid "Next Entries &raquo;"
+msgstr ""
+
+#: ../Divi/single-project.php:74
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:103
+msgid "No"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:133
+msgid "No Animation"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:178
+msgid "No Repeat"
+msgstr ""
+
+#: ../Divi/includes/no-results.php:8
+msgid "No Results Found"
+msgstr ""
+
+#: ../Divi/options_divi.php:392
+msgid ""
+"Only load external JavaScript libraries when they are needed by a specific "
+"Divi modules on the page. This removes unused JavaScript from the main "
+"scripts bundle and improves load times."
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:185
+msgid "Open in a new window"
+msgstr ""
+
+#. If there are characters in your language that are not
+#. supported by Open Sans, translate this to 'off'. Do not translate
+#. into your own language.
+#: ../Divi/core/functions.php:247
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:26
+msgid "Orange"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:152
+msgid "Outset"
+msgstr ""
+
+#: ../Divi/single-project.php:56 ../Divi/single.php:135 ../Divi/page.php:49
+#: ../Divi/page-template-blank.php:52
+msgid "Pages:"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:27
+msgid "Pink"
+msgstr ""
+
+#: ../Divi/single-project.php:73
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:28
+msgid "Red"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:150
+msgid "Ridge"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:115
+msgid "Right"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:129
+msgid "Right to Left"
+msgstr ""
+
+#: ../Divi/includes/social_icons.php:33
+msgid "RSS"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:193
+msgid "Scroll"
+msgstr ""
+
+#: ../Divi/theme-header.php:121 ../Divi/theme-header.php:301
+#: ../Divi/header.php:158 ../Divi/header.php:338
+msgid "Search &hellip;"
+msgstr ""
+
+#: ../Divi/theme-header.php:123 ../Divi/theme-header.php:303
+#: ../Divi/header.php:160 ../Divi/header.php:340
+msgid "Search for:"
+msgstr ""
+
+#: ../Divi/includes/functions/sidebars.php:4
+msgid "Sidebar"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:58
+msgid "Slide"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:43
+msgid "Slide In"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:145
+msgid "Solid"
+msgstr ""
+
+#: ../Divi/options_divi.php:434
+msgid ""
+"Some third party scripts may be incorrectly enqueued without declaring "
+"jQuery as dependency. If jQuery is deferred, these scripts could break. If "
+"you are experiencing console errors after enabling the \"Defer jQuery And "
+"jQuery Migrate\" option, you can enable this option, which will load an "
+"additional compatibility script that will attempt to solve the issue. You "
+"can turn this feature off if everything is working fine without it."
+msgstr ""
+
+#: ../Divi/comments.php:59
+msgid "Submit a Comment"
+msgstr ""
+
+#: ../Divi/comments.php:59
+msgid "Submit Comment"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-about.php:48
+msgid "Text"
+msgstr ""
+
+#: ../Divi/options_divi.php:363
+msgid ""
+"The Divi icon font is broken up into various subsets. These subsets are "
+"loaded only when needed based on the modules and features used on each page. "
+"If you need access to the entire icon font on all pages (for example, if you "
+"are using our icon font in your child theme), then you can disable this "
+"option and load the entire icon font library on all pages."
+msgstr ""
+
+#: ../Divi/includes/no-results.php:9
+msgid ""
+"The page you requested could not be found. Try refining your search, or use "
+"the navigation above to locate the post."
+msgstr ""
+
+#: ../Divi/options_divi.php:370
+msgid ""
+"This option dequeues the Divi style.css file and prints the contents in-line."
+" This removes a render blocking request and improves the PageSpeed scores of "
+"individual pages. However, it also prevents the style.css file from being "
+"cached. Since the stylesheet is small, it's recommended to keep this option "
+"enabled."
+msgstr ""
+
+#: ../Divi/comments.php:4
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:179
+msgid "Tile"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:180
+msgid "Tile Horizontally"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:181
+msgid "Tile Vertically"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:180
+#: ../Divi/includes/widgets/widget-ads.php:192
+#: ../Divi/includes/widgets/widget-ads.php:200
+#: ../Divi/includes/widgets/widget-ads.php:208
+#: ../Divi/includes/widgets/widget-ads.php:216
+#: ../Divi/includes/widgets/widget-ads.php:224
+#: ../Divi/includes/widgets/widget-ads.php:232
+#: ../Divi/includes/widgets/widget-ads.php:240
+#: ../Divi/includes/widgets/widget-ads.php:248
+#: ../Divi/includes/widgets/widget-adsense.php:47
+#: ../Divi/includes/widgets/widget-about.php:44
+msgid "Title"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:164
+msgid "Top"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:130
+msgid "Top to Bottom"
+msgstr ""
+
+#: ../Divi/comments.php:43
+msgid "Trackbacks/Pingbacks"
+msgstr ""
+
+#: ../Divi/includes/social_icons.php:13
+msgid "Twitter"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:12
+msgid "Underline"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:11
+msgid "Uppercase"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:190
+#: ../Divi/includes/widgets/widget-ads.php:198
+#: ../Divi/includes/widgets/widget-ads.php:206
+#: ../Divi/includes/widgets/widget-ads.php:214
+#: ../Divi/includes/widgets/widget-ads.php:222
+#: ../Divi/includes/widgets/widget-ads.php:230
+#: ../Divi/includes/widgets/widget-ads.php:238
+#: ../Divi/includes/widgets/widget-ads.php:246
+msgid "Url"
+msgstr ""
+
+#: ../Divi/includes/widgets/widget-ads.php:183
+msgid "Use Relative Image Paths"
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:165
+msgid "Vertically Centered"
+msgstr ""
+
+#: ../Divi/options_divi.php:441
+msgid ""
+"Warning: This can cause JavaScript errors in some cases and should be used "
+"with care. When enabled, scripts registered by plugins and themes will be "
+"deferred to improve performance and jQuery will always be loaded in the body."
+msgstr ""
+
+#: ../Divi/includes/functions/tutorials.php:1
+msgid "Watch video tutorials"
+msgstr ""
+
+#: ../Divi/options_divi.php:385
+msgid ""
+"When Critical CSS is enabled, Divi determines an \"above the fold "
+"threshold\" and defers all styles for elements below the fold. However, this "
+"threshold is just a estimate and can vary on different devices. Increasing "
+"threshold height will deffer fewer styles, resulting in slightly slower load "
+"times but less of a chance for Cumulative Layout Shifts to occur. If you are "
+"experiencing CLS issues you can increase the threshold height."
+msgstr ""
+
+#: ../Divi/options_divi.php:427
+msgid ""
+"When possible, jQuery and jQuery Migrate will be moved to the body to speed "
+"up load times. If a third party plugin registers jQuery as a dependency, it "
+"will be moved back to the head."
+msgstr ""
+
+#: ../Divi/includes/builder/module/Menu.php:1118
+#: ../Divi/includes/builder/module/FullwidthMenu.php:1125
+#, php-format
+msgctxt "WooCommerce items number"
+msgid "%1$s Item"
+msgid_plural "%1$s Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../Divi/options_divi.php:399
+msgid ""
+"WordPress loads it's own WordPress emojis. Modern browsers support native "
+"emojis, making WordPress's emojis unnecessary in most cases. Removing "
+"WordPress emojis removes unneeded assets and improves performance."
+msgstr ""
+
+#: ../Divi/includes/functions/choices.php:102
+msgid "Yes"
+msgstr ""
