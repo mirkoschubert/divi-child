@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Divi Child\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 12:28+0000\n"
+"POT-Creation-Date: 2024-11-28 11:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,20 +15,28 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.4.6; wp-5.6"
 
-#: admin/admin.php:234
+#: admin/views/partials/a11y.php:54
+msgid "(Comment Form, Minimal Contact Form, Forminator)"
+msgstr ""
+
+#: admin/views/partials/bugs.php:8
 msgid "(Divi 3.20.1 only)"
 msgstr ""
 
-#: admin/admin.php:239
+#: admin/views/partials/bugs.php:14
 msgid "(Divi 4.0 and up)"
 msgstr ""
 
-#: admin/admin.php:244
+#: admin/views/partials/bugs.php:20
 msgid "(Divi 4.0 up to Divi 4.12)"
 msgstr ""
 
-#: admin/admin.php:249
+#: admin/views/partials/bugs.php:26
 msgid "(Divi 4.6.6)"
+msgstr ""
+
+#: admin/views/partials/a11y.php:33
+msgid "(Turn the Divi back to top button off!)"
 msgstr ""
 
 #. Description of the theme
@@ -37,36 +45,48 @@ msgid ""
 "tweaks and bug fixed for the parent theme."
 msgstr ""
 
-#: admin/admin.php:214 admin/admin.php:217
+#: admin/views/options.php:32 admin/views/options.php:35
 msgid "Accessibility"
 msgstr ""
 
-#: admin/admin.php:226 admin/admin.php:229
+#: admin/views/partials/a11y.php:32
+msgid "Accessible scroll to top button"
+msgstr ""
+
+#: admin/views/partials/a11y.php:27
+msgid "Add a skip link to the page"
+msgstr ""
+
+#: admin/views/partials/a11y.php:7
+msgid "Add ARIA support to all relevant elements"
+msgstr ""
+
+#: admin/views/options.php:42 admin/views/options.php:45
 msgid "Bug Fixes"
 msgstr ""
 
-#: admin/admin.php:84 admin/admin.php:85
+#: admin/admin.php:99 admin/admin.php:100
 msgid "Child Theme Options"
 msgstr ""
 
-#: admin/admin.php:266
+#: admin/views/partials/misc.php:7
 msgid "Disable custom post type Projects."
 msgstr ""
 
-#: admin/admin.php:267
+#: admin/views/partials/misc.php:12
 msgid ""
 "Disable email notification when plugins or theme where automatically updated."
 msgstr ""
 
-#: admin/admin.php:182
+#: admin/views/partials/gdpr.php:17
 msgid "Disable Emojis"
 msgstr ""
 
-#: admin/admin.php:183
+#: admin/views/partials/gdpr.php:22
 msgid "Disable oEmbeds"
 msgstr ""
 
-#: admin/admin.php:197
+#: admin/views/partials/page-speed.php:7
 msgid "Disable page pingback"
 msgstr ""
 
@@ -74,47 +94,55 @@ msgstr ""
 msgid "Divi Child"
 msgstr ""
 
-#: admin/admin.php:169
+#: admin/views/options.php:5
 msgid "Divi Child Options"
 msgstr ""
 
-#: admin/admin.php:181
+#: admin/views/partials/gdpr.php:12
 msgid "Don't save the commentor's IP address"
 msgstr ""
 
-#: admin/admin.php:238
+#: admin/views/partials/bugs.php:13
 msgid "Enable fixed navigation bar option in Theme Builder"
 msgstr ""
 
-#: admin/admin.php:272
+#: admin/views/partials/misc.php:37
 msgid "Enable fullscreen mode for the mobile menu"
 msgstr ""
 
-#: admin/admin.php:270
+#: admin/views/partials/misc.php:27
 msgid "Enable hyphenation for the whole website"
 msgstr ""
 
-#: admin/admin.php:268
+#: admin/views/partials/misc.php:17
 msgid "Enable to upload SVG files"
 msgstr ""
 
-#: admin/admin.php:269
+#: admin/views/partials/misc.php:22
 msgid "Enable to upload WebP files"
 msgstr ""
 
-#: admin/admin.php:243
+#: admin/views/partials/bugs.php:19
 msgid "Fix display errors in Theme Builder"
 msgstr ""
 
-#: admin/admin.php:248
+#: admin/views/partials/bugs.php:25
 msgid "Fix logo image sizing in Theme Builder"
 msgstr ""
 
-#: admin/admin.php:219
-msgid "Fix Viewport Meta"
+#: admin/views/partials/a11y.php:43
+msgid "Fix screenreader text"
 msgstr ""
 
-#: admin/admin.php:175 admin/admin.php:178
+#: admin/views/partials/a11y.php:38
+msgid "Fix viewport meta"
+msgstr ""
+
+#: admin/views/partials/a11y.php:17
+msgid "Focus all clickable elements correctly"
+msgstr ""
+
+#: admin/views/options.php:12 admin/views/options.php:15
 msgid "GDPR"
 msgstr ""
 
@@ -126,60 +154,91 @@ msgstr ""
 msgid "https://mirkoschubert.de"
 msgstr ""
 
-#: admin/admin.php:180
+#. %s is replaced with the link text
+#: assets/js/main.js:231
+#, javascript-format
+msgid "Link to %s opens in a new window"
+msgstr ""
+
+#: admin/views/partials/gdpr.php:7
 msgid "Make every comment and comment author link truely external"
+msgstr ""
+
+#: admin/views/partials/a11y.php:12
+msgid "Make main navigation fully keyboard accessible"
 msgstr ""
 
 #. Author of the theme
 msgid "Mirko Schubert"
 msgstr ""
 
-#: admin/admin.php:261 admin/admin.php:264
+#: admin/views/options.php:52 admin/views/options.php:55
 msgid "Miscellaneous"
 msgstr ""
 
-#: admin/admin.php:192 admin/admin.php:195
+#: admin/views/partials/a11y.php:53
+msgid "Optimize forms for accessibility"
+msgstr ""
+
+#: admin/views/options.php:22 admin/views/options.php:25
 msgid "Page Speed"
 msgstr ""
 
-#: admin/admin.php:201
+#: admin/views/partials/page-speed.php:27
 msgid "Preload some fonts for speed"
 msgstr ""
 
-#: admin/admin.php:199
+#: admin/views/partials/page-speed.php:17
 msgid "Remove CSS and JS query strings"
 msgstr ""
 
-#: admin/admin.php:198
+#: admin/views/partials/page-speed.php:12
 msgid "Remove dashicons from the frontend"
 msgstr ""
 
-#: admin/admin.php:233
+#: admin/views/partials/bugs.php:7
 msgid "Remove Divi Support Center from Frontend"
 msgstr ""
 
-#: admin/admin.php:184
+#: admin/views/partials/gdpr.php:27
 msgid "Remove DNS prefetching for WordPress"
 msgstr ""
 
-#: admin/admin.php:185
+#: admin/views/partials/gdpr.php:32
 msgid "Remove REST API & XML-RPC headers for security reasons"
 msgstr ""
 
-#: admin/admin.php:200
+#: admin/views/partials/page-speed.php:22
 msgid "Remove shortlink from head"
 msgstr ""
 
-#: admin/admin.php:271
+#: admin/views/partials/misc.php:32
 msgid "Set breakpoint for the mobile menu to 1280px"
 msgstr ""
 
-#: admin/admin.php:253
+#: admin/views/partials/bugs.php:31
 msgid ""
 "Set CSS class <code>.split-section-fix</code> for swapping image and text on "
 "tablet and phone"
 msgstr ""
 
-#: admin/admin.php:206
+#: includes/child_a11y.php:28
+msgid "Skip to content"
+msgstr ""
+
+#: admin/views/partials/a11y.php:22
+msgid "Tag external links for assistive technology"
+msgstr ""
+
+#: admin/views/partials/page-speed.php:36
 msgid "Type ony one path per line, otherwise it will break!"
+msgstr ""
+
+#: admin/views/partials/a11y.php:48
+msgid "Underline all links except headlines and social icons"
+msgstr ""
+
+#. Default text for unknown link
+#: assets/js/main.js:226
+msgid "unknown"
 msgstr ""

@@ -15,7 +15,7 @@ function divi_child_disable_pingback(&$links) {
 
   }
 }
-if (divi_child_get_theme_option('page_pingback') === 'on') {
+if (divi_child_get_theme_option('page_speed', 'remove_pingback') === 'on') {
   add_action('pre_ping', 'divi_child_disable_pingback');
 }
 
@@ -29,7 +29,7 @@ function divi_child_dequeue_dashicons() {
   }
   wp_deregister_style('dashicons');
 }
-if (divi_child_get_theme_option('remove_dashicons') === 'on') {
+if (divi_child_get_theme_option('page_speed', 'remove_dashicons') === 'on') {
   add_action('wp_enqueue_scripts', 'divi_child_dequeue_dashicons');
 }
 
@@ -44,7 +44,7 @@ function divi_child_remove_query_strings($src) {
 
   return $src;
 }
-if (divi_child_get_theme_option('version_query_strings') === 'on') {
+if (divi_child_get_theme_option('page_speed', 'remove_version_strings') === 'on') {
   add_filter('style_loader_src', 'divi_child_remove_query_strings', 10, 2);
   add_filter('script_loader_src', 'divi_child_remove_query_strings', 10, 2);
 }
@@ -56,7 +56,7 @@ if (divi_child_get_theme_option('version_query_strings') === 'on') {
 function divi_child_remove_shortlink() {
   remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 }
-if (divi_child_get_theme_option('remove_shortlink') === 'on') {
+if (divi_child_get_theme_option('page_speed', 'remove_shortlink') === 'on') {
   add_action('init', 'divi_child_remove_shortlink');
 }
 
@@ -65,7 +65,7 @@ if (divi_child_get_theme_option('remove_shortlink') === 'on') {
  * @since 2.0.0
  */
 function divi_child_preload_fonts() {
-  $font_list = divi_child_get_theme_option('font_list');
+  $font_list = divi_child_get_theme_option('page_speed', 'preload_font_list');
   $fonts = ($font_list) ? preg_split('/\r\n|\r|\n/', $font_list) : array('/wp-content/themes/Divi/core/admin/fonts/modules/all/modules.woff');
 
   foreach ($fonts as $font) {
@@ -74,6 +74,6 @@ function divi_child_preload_fonts() {
     echo '<link rel="preload" href="' . $font_path . '" as="font" type="' . $font_type . '" crossorigin />';
   }
 }
-if (divi_child_get_theme_option('preload_fonts') === 'on') {
+if (divi_child_get_theme_option('page_speed','preload_fonts') === 'on') {
   add_action('wp_head', 'divi_child_preload_fonts');
 }

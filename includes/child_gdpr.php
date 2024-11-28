@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 function divi_child_external_comment_links($content) {
   return str_replace("<a ", "<a target='_blank' ", $content);
 }
-if (divi_child_get_theme_option('gdpr_comments_external') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'comments_external') === 'on') {
   add_filter("comment_text", "divi_child_external_comment_links");
   add_filter("get_comment_author_link", "divi_child_external_comment_links");
 }
@@ -20,7 +20,7 @@ if (divi_child_get_theme_option('gdpr_comments_external') === 'on') {
 function divi_child_remove_comments_ip($comment_author_ip) {
   return '';
 }
-if (divi_child_get_theme_option('gdpr_comments_ip') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'comments_ip') === 'on') {
   add_filter('pre_comment_user_ip', 'divi_child_remove_comments_ip');
 }
 
@@ -38,9 +38,10 @@ function divi_child_disable_emojis() {
   add_filter('tiny_mce_plugins', 'divi_child_disable_emojis_tinymce');
   add_filter('wp_resource_hints', 'divi_child_disable_emojis_remove_dns_prefetch', 10, 2);
 }
-if (divi_child_get_theme_option('disable_emojis') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'disable_emojis') === 'on') {
   add_action('init', 'divi_child_disable_emojis');
 }
+
 
 function divi_child_disable_emojis_tinymce($plugins) {
   if (is_array($plugins)) {
@@ -72,7 +73,7 @@ function divi_child_disable_embeds() {
   add_filter('rewrite_rules_array', 'divi_child_disable_embeds_rewrites'); // Rerite Rules
   remove_filter('pre_oembed_result', 'wp_filter_pre_oembed_result', 10); // oEmbeds Preloader
 }
-if (divi_child_get_theme_option('disable_oembeds') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'disable_oembeds') === 'on') {
   add_action('init', 'divi_child_disable_embeds', 9999);
 }
 
@@ -97,7 +98,7 @@ function divi_child_disable_embeds_rewrites($rules) {
 function divi_child_remove_dns_prefetch() {
   remove_action('wp_head', 'wp_resource_hints', 2);
 }
-if (divi_child_get_theme_option('dns_prefetching') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'dns_prefetching') === 'on') {
   add_action('init', 'divi_child_remove_dns_prefetch');
 }
 
@@ -114,7 +115,7 @@ function divi_child_remove_api_headers() {
   remove_action('wp_head', 'wp_generator'); // remove generator tag
   remove_action('wp_head', 'wlwmanifest_link'); // remove windows live writer manifest
 }
-if (divi_child_get_theme_option('rest_api') === 'on') {
+if (divi_child_get_theme_option('gdpr', 'rest_api') === 'on') {
   add_action('init', 'divi_child_remove_api_headers');
 }
 

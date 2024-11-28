@@ -4,10 +4,10 @@ if (!defined('ABSPATH')) {
 }
 
 // Helper function to use in your theme to return a theme option value
-function divi_child_get_theme_option($id = '') {
+function divi_child_get_theme_option($topic = '',$id = '') {
   $options = get_option('divi_child_options');
-  if (isset($options[$id])) {
-    return $options[$id];
+  if (isset($options[$topic][$id])) {
+    return $options[$topic][$id];
   }
 }
 

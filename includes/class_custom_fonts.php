@@ -3,7 +3,6 @@ if (!defined('ABSPATH')) {
   die();
 }
 
-// WIP !!
 class Custom_Fonts {
 
   private static $instance = null;

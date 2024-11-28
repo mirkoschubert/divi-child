@@ -1,0 +1,14 @@
+{
+  "domain": "divi-child",
+  "locale_data": {
+    "divi-child": {
+      "": {
+        "domain": "divi-child",
+        "plural-forms": "nplurals=2; plural=(n != 1);",
+        "lang": "de_DE"
+      },
+      "unknown": ["unbekannt"],
+      "Link to %s opens in a new window": ["Link zu %s öffnet sich in einem neuen Fenster"]
+    }
+  }
+}
