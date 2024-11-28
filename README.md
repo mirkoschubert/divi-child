@@ -24,7 +24,16 @@ This piece of software is a WordPress child theme boilerplate for Divi. It aims 
 
 **Accessibility Tweaks:**
 
-* Fix the viewport meta (for Lighthouse)
+* Add ARIA support to all relevant elements
+* Make main navigation fully keyboard accessible
+* Focus all clickable elements correctly
+* Tag external links for assistive technology
+* Add a skip link to the page
+* Accessible scroll to top button (Turn off the Divi back-to-top button!)
+* Fix the viewport meta
+* Fix screenreader text
+* Underline all links except headlines and social icons
+* Optimize forms for accessibility (Contact & Comment Form, Minimal Contact Form, Forminator)
 
 **Divi Bug Fixes:**
 

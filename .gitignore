@@ -2,9 +2,6 @@
 .synchronize
 docs
 push.sh
-<<<<<<< HEAD
 .pushrc
-=======
 .push-ms.sh
->>>>>>> 8d8ee62 (accessibility)
 rsync.log
