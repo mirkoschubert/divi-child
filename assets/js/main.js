@@ -41,7 +41,7 @@ $('document').ready(function () {
 		} );
 	}
   
-  console.log(themeOptions)
+  //console.log(themeOptions)
 
   /**
    * Skip Link
@@ -121,7 +121,7 @@ $('document').ready(function () {
     $('.et_pb_blurb.et_clickable .et_pb_blurb_container').attr('tabindex', '0');
 
     $('.et_clickable').on('keydown', function (e) {
-      console.log('E:', e)
+      //console.log('E:', e)
       if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
           $(this).click()
@@ -233,6 +233,7 @@ $('document').ready(function () {
     })
   }
 
+
   /**
    * Optimize Forms
    */
@@ -247,6 +248,7 @@ $('document').ready(function () {
     $('div.forminator-field-checkbox div.forminator-field').removeAttr('aria-labelledby');
     $('div.forminator-field-radio div[role="radiogroup"] span').removeAttr('ID');
   }
+
 
   /**
    * Aria Support
@@ -494,7 +496,6 @@ $('document').ready(function () {
       hideAriaElement(element)
     })
   }
-
 
   /**
 	 * Add appropriate aria attributes to Accordion & Toggle Divi modules
