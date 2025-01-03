@@ -3,5 +3,4 @@
 docs
 push.sh
 .pushrc
-.push-ms.sh
 rsync.log
