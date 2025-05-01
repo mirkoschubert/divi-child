@@ -4,3 +4,4 @@ docs
 push.sh
 .pushrc
 rsync.log
+/vendor/

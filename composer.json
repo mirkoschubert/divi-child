@@ -1,0 +1,21 @@
+{
+  "name": "mirkoschubert/divi-child",
+  "description": "A Divi Child Theme with lots of GDPR and page speed optimizations and some tweaks and bug fixed for the parent theme.",
+  "type": "project",
+  "require": {
+    "php": "^8.2"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "DiviChild\\": "src/",
+      "DiviChild\\Modules\\": "modules/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mirkoschubert",
+      "email": "office@mirkoschubert.de"
+    }
+  ]
+}
