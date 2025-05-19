@@ -3,8 +3,8 @@
 namespace DiviChild\Admin;
 
 use DiviChild\Core\Config;
+use DiviChild\Admin\AdminAjax;
 use DiviChild\Admin\UI;
-use DiviChild\Core\Interfaces\ModuleInterface;
 
 final class Admin
 {
@@ -20,6 +20,9 @@ final class Admin
 
     $this->config = new Config();
     $this->options = $this->config->get_options();
+
+    new AdminAjax();
+
     $this->init();
   }
 
@@ -28,16 +31,37 @@ final class Admin
     add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
     add_action('admin_init', [$this, 'register_settings']);
     add_action('admin_menu', [$this, 'add_admin_menu'], 12);
-    add_action('wp_ajax_dvc_save_options', [$this, 'save_options']);
   }
 
+
+  /**
+   * Enqueue admin scripts and styles
+   * @return void
+   * @since 3.0.0
+   */
   public function enqueue_scripts()
   {
     wp_enqueue_style('divi-child-admin-style', "{$this->config->theme_url}/assets/css/admin.css");
     wp_enqueue_script('divi-child-admin-script', "{$this->config->theme_url}/assets/js/admin.js", ['jquery'], null, true);
-    wp_localize_script('divi-child-admin-script', 'dvc_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
+    
+    // NONCE für AJAX-Sicherheit 
+    wp_localize_script('divi-child-admin-script', 'dvc_ajax', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('dvc_ajax_nonce'), // NONCE hier erzeugen
+        'messages' => [
+            'saving' => __('Speichere...', 'divi-child'),
+            'success' => __('Gespeichert!', 'divi-child'),
+            'error' => __('Fehler beim Speichern.', 'divi-child')
+        ]
+    ]);
   }
 
+
+  /**
+   * Register settings for the admin page
+   * @return void
+   * @since 3.0.0
+   */
   public function register_settings()
   {
     if (!get_option('divi_child_options')) {
@@ -47,7 +71,14 @@ final class Admin
     }
   }
 
-  public function add_admin_menu()
+
+  /**
+   * Sanitize the options before saving
+   * @param array $options
+   * @return array
+   * @since 3.0.0
+   */
+  public function add_admin_menu(): void
   {
     add_submenu_page(
       'et_divi_options',
@@ -60,50 +91,22 @@ final class Admin
     );
   }
 
+
+  /**
+   * Create the admin page
+   * @return void
+   * @since 3.0.0
+   */
   public function create_admin_page()
   {
     if (!current_user_can('manage_options')) {
       return;
     }
     echo '<div class="wrap">';
-    $this->ui->header('Child Theme Options', $this->config->theme_version);
-    $this->list_modules();
+    $this->ui->header('Divi Child Theme', $this->config->theme_version);
+    $this->ui->list_modules($this->config->get_modules());
+    $this->ui->modal();
     echo '</div>';
-  }
-
-  public function list_modules()
-  {
-    $modules = $this->config->get_modules();
-
-    ?>
-    <div class="dvc-modules">
-      <div class="modules-grid">
-      <?php foreach ($modules as $slug => $module) : ?>
-        <div class="module">
-          <div class="module-content">
-            <div class="module-info">
-              <h2><?php echo esc_html($module['name']); ?> <small class="version">v<?php echo esc_html($module['version']); ?></small></h2>
-              <p><?php echo esc_html($module['description']); ?></p>
-            </div>
-            <div class="module-switch">
-              <label class="switch">
-                <input type="checkbox" class="module-toggle" data-slug="<?php echo esc_attr($slug); ?>" <?php checked($module['enabled'], true); ?>>
-                <span class="slider round"></span>
-              </label>
-            </div>
-          </div>
-          <?php if (!empty($module['options'])) : ?>
-          <div class="module-footer">
-            <button class="btn settings-btn" data-slug="<?php echo esc_attr($module['slug']); ?>">
-              <?php esc_html_e('Einstellungen', 'divi-child'); ?>
-            </button>
-          </div>
-          <?php endif; ?>
-        </div>
-      <?php endforeach; ?>
-      </div>
-    </div>
-    <?php
   }
 
 }

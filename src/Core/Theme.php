@@ -116,8 +116,8 @@ final class Theme
         // Initialize module if class exists
         if (class_exists($class_name)) {
           try {
-            new $class_name();
-            error_log("Loaded module: {$module_name}");
+            $instance = new $class_name();
+            error_log("Loaded module: {$module_name}, Slug: " . $instance->get_slug());
           } catch (\Exception $e) {
             error_log("Failed to load module {$module_name}: " . $e->getMessage());
           }

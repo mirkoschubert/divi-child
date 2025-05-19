@@ -3,7 +3,6 @@
 namespace DiviChild\Modules\GDPR;
 
 use DiviChild\Core\Abstracts\Module;
-//use DiviChild\Core\Config;
 
 final class GDPR extends Module
 {
@@ -16,7 +15,6 @@ final class GDPR extends Module
   protected $dependencies = [
     'jquery',
   ];
-  protected $config;
   protected $default_options = [
     'enabled' => true,
     'comments_external' => true,
@@ -27,21 +25,45 @@ final class GDPR extends Module
     'rest_api' => true
   ];
 
-  public function init()
+  public function admin_settings()
   {
-    parent::init();
-  }
-
-
-  public function sanitize_options($options)
-  {
-    $options['comments_external'] = isset($options['comments_external']);
-    $options['comments_ip'] = isset($options['comments_ip']);
-    $options['disable_emojis'] = isset($options['disable_emojis']);
-    $options['disable_oembeds'] = isset($options['disable_oembeds']);
-    $options['dns_prefetching'] = isset($options['dns_prefetching']);
-    $options['rest_api'] = isset($options['rest_api']);
-
-    return $options;
+    return [
+      'comments_external' => [
+        'type' => 'toggle',
+        'label' => __('Comments External', 'divi-child'),
+        'description' => __('Enable comments to be loaded from external sources.', 'divi-child'),
+        'default' => $this->default_options['comments_external'],
+      ],
+      'comments_ip' => [
+        'type' => 'toggle',
+        'label' => __('Comments IP', 'divi-child'),
+        'description' => __('Enable comments to be loaded with IP address.', 'divi-child'),
+        'default' => $this->default_options['comments_ip'],
+      ],
+      'disable_emojis' => [
+        'type' => 'toggle',
+        'label' => __('Disable Emojis', 'divi-child'),
+        'description' => __('Disable emojis for GDPR compliance.', 'divi-child'),
+        'default' => $this->default_options['disable_emojis'],
+      ],
+      'disable_oembeds' => [
+        'type' => 'toggle',
+        'label' => __('Disable oEmbeds', 'divi-child'),
+        'description' => __('Disable oEmbeds for GDPR compliance.', 'divi-child'),
+        'default' => $this->default_options['disable_oembeds'],
+      ],
+      'dns_prefetching' => [
+        'type' => 'toggle',
+        'label' => __('Disable DNS Prefetching', 'divi-child'),
+        'description' => __('Disable DNS prefetching for GDPR compliance.', 'divi-child'),
+        'default' => $this->default_options['dns_prefetching'],
+      ],
+      'rest_api' => [
+        'type' => 'toggle',
+        'label' => __('Disable REST API', 'divi-child'),
+        'description' => __('Disable REST API for GDPR compliance.', 'divi-child'),
+        'default' => $this->default_options['rest_api'],
+      ],
+    ];
   }
 }

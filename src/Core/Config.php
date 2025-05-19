@@ -19,6 +19,8 @@ final class Config
     $this->theme_slug = 'divi-child';
     $this->theme_dir = get_stylesheet_directory();
     $this->theme_url = get_stylesheet_directory_uri();
+
+    $this->options = get_option('divi_child_options');
   }
 
   /**
@@ -29,25 +31,59 @@ final class Config
   public function get_options()
   {
     $options = get_option('divi_child_options');
-    if ($options) {
-      return $options;
-    }
-    return false;
+    return $options ?? [];
   }
 
   /**
    * Gets all module options
-   * @param string $module
-   * @return array|false
-   * @since 1.0.0
+   * @param string $module_slug
+   * @return array
+   * @since 3.0.0
    */
-  public function get_module_options($module)
+  public function get_module_options($module_slug)
   {
-    $options = get_option('divi_child_options');
-    if (isset($options[$module])) {
-      return $options[$module];
+    //error_log("Optionen: " . print_r($this->options, true));
+
+    if (!isset($this->options[$module_slug])) {
+      error_log("Keine Optionen für {$module_slug} gefunden.");
+      return [];
     }
-    return false;
+
+    return $this->options[$module_slug] ?: [];
+  }
+
+  /**
+   * Saves module options
+   * @param string $module_slug
+   * @param array $options
+   * @return bool
+   * @since 3.0.0
+   */
+  public function save_module_options($module_slug, $options)
+  {
+    // Debug-Ausgabe vor dem Speichern
+    error_log("save_module_options({$module_slug}): Zu speichernde Optionen: " . print_r($options, true));
+
+    if (empty($this->options)) {
+      $this->options = $this->get_options();
+    }
+
+    // Vergleiche die neuen Optionen mit den vorhandenen
+    $has_changes = !isset($this->options[$module_slug]) || 
+                   $this->options[$module_slug] != $options;
+
+    // Speichere nur, wenn sich etwas geändert hat
+    if ($has_changes) {
+      $this->options[$module_slug] = $options;
+      // Speichern und Ergebnis zurückgeben
+      $result = update_option('divi_child_options', $this->options);
+      error_log("save_module_options({$module_slug}): Änderungen gespeichert, Ergebnis: " . ($result ? 'true' : 'false'));
+      return $result;
+    }
+    
+    // Keine Änderungen, trotzdem als erfolgreich melden
+    error_log("save_module_options({$module_slug}): Keine Änderungen erkannt, nichts zu speichern");
+    return true;
   }
 
   /**
@@ -59,11 +95,10 @@ final class Config
    */
   public function get_option($module, $id)
   {
-    $options = get_option('divi_child_options');
-    if (isset($options[$module][$id])) {
-      return $options[$module][$id];
+    if (empty($this->options)) {
+      $this->options = $this->get_options();
     }
-    return false;
+    return $this->options[$module][$id] ?? [];
   }
 
   /**
@@ -74,14 +109,18 @@ final class Config
    * @return void
    * @since 3.0.0
    */
-  public function set_option($module, $id, $value)
+  public function set_option($module, $key, $value): bool
   {
-    $options = get_option('divi_child_options');
-    if (!isset($options[$module])) {
-      $options[$module] = [];
+    if (empty($this->options)) {
+      $this->options = $this->get_options();
     }
-    $options[$module][$id] = $value;
-    update_option('divi_child_options', $options);
+
+    if (!isset($this->options[$module])) {
+      $this->options[$module] = [];
+    }
+    $this->options[$module][$key] = $value;
+
+    return update_option('divi_child_options', $this->options);
   }
 
   /**
@@ -93,10 +132,12 @@ final class Config
    */
   public function delete_option($module, $id)
   {
-    $options = get_option('divi_child_options');
-    if (isset($options[$module][$id])) {
-      unset($options[$module][$id]);
-      update_option('divi_child_options', $options);
+    if (empty($this->options)) {
+      $this->options = $this->get_options();
+    }
+    if (isset($this->options[$module][$id])) {
+      unset($this->options[$module][$id]);
+      update_option('divi_child_options', $this->options);
     }
   }
 
@@ -108,10 +149,12 @@ final class Config
    */
   public function delete_module_options($module)
   {
-    $options = get_option('divi_child_options');
-    if (isset($options[$module])) {
-      unset($options[$module]);
-      update_option('divi_child_options', $options);
+    if (empty($this->options)) {
+      $this->options = $this->get_options();
+    }
+    if (isset($this->options[$module])) {
+      unset($this->options[$module]);
+      update_option('divi_child_options', $this->options);
     }
   }
 
@@ -122,11 +165,7 @@ final class Config
    */
   public function get_defaults()
   {
-    // Hole alle Default-Optionen aus der Module-Registry
-    $defaults = \DiviChild\Core\Abstracts\Module::get_all_default_options();
-    error_log('Defaults: ' . print_r($defaults, true));
-
-    return $defaults;
+    return \DiviChild\Core\Abstracts\Module::get_all_default_options();
   }
 
   /**
@@ -140,20 +179,20 @@ final class Config
     $module_data = [];
 
     foreach ($modules as $slug => $instance) {
-        if (is_object($instance)) {
-            $module_data[$slug] = [
-                'enabled' => $this->get_option($slug, 'enabled') ?: $instance->is_enabled(),
-                'name' => $instance->get_name(),
-                'version' => $instance->get_version(),
-                'slug' => $instance->get_slug(),
-                'description' => $instance->get_description(),
-                'default_options' => $instance->get_default_options(),
-                'options' => $this->get_module_options($slug) ?: $instance->get_default_options(),
-                'instance' => $instance
-            ];
-        } else {
-            error_log("Invalid module instance for slug: $slug");
-        }
+      if (is_object($instance)) {
+        $module_data[$slug] = [
+          'enabled' => $this->get_option($slug, 'enabled') ?: $instance->is_enabled(),
+          'name' => $instance->get_name(),
+          'version' => $instance->get_version(),
+          'slug' => $instance->get_slug(),
+          'description' => $instance->get_description(),
+          'default_options' => $instance->get_default_options(),
+          'options' => $this->get_module_options($slug) ?: $instance->get_default_options(),
+          'instance' => $instance
+        ];
+      } else {
+        error_log("Invalid module instance for slug: $slug");
+      }
     }
 
     return $module_data;

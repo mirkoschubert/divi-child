@@ -118,5 +118,3 @@ function divi_child_remove_api_headers() {
 if (divi_child_get_theme_option('gdpr', 'rest_api') === 'on') {
   add_action('init', 'divi_child_remove_api_headers');
 }
-
-?>
