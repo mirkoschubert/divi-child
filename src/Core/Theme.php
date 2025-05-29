@@ -3,12 +3,14 @@
 namespace DiviChild\Core;
 
 use DiviChild\Core\Config;
+use DiviChild\Core\Migration;
 use DiviChild\Admin\Admin;
 
 final class Theme
 {
 
   protected $admin;
+  protected $migration;
   protected $config;
   protected $options = [];
 
@@ -22,6 +24,12 @@ final class Theme
     $this->config = new Config();
     $this->options = $this->config->get_options();
 
+    $this->migration = new Migration();
+
+    add_action('after_switch_theme', [$this, 'activate'], 10, 2);
+    add_action('switch_theme', [$this, 'deactivate'], 10, 3);
+    add_action('delete_theme', [$this, 'uninstall'], 10, 1);
+
     $this->load_modules();
 
     if (is_admin()) {
@@ -32,6 +40,33 @@ final class Theme
     add_action('wp_set_script_translations', [$this, 'set_script_translations'], 100);
     add_action('after_setup_theme', [$this, 'setup_languages']);
     add_action('body_class', [$this, 'add_child_body_class']);
+  }
+
+  public function activate($old_name = '', $old_theme = null) {
+
+    $current_theme = wp_get_theme();
+    if ($current_theme->get('Name') !== $this->config->theme_name) return; // Only run if this is the correct theme
+
+    $this->migration->run();
+
+    update_option('divi_child_version', $this->config->theme_version);
+    flush_rewrite_rules();
+  }
+
+  public function deactivate($new_name = '', $new_theme = null, $old_theme = null) {
+    if ($old_theme && $old_theme->get('Name') !== $this->config->theme_name) return; 
+
+    // Do any necessary cleanup here    
+    flush_rewrite_rules();
+  }
+
+  public function uninstall($stylesheet) {
+    $theme = wp_get_theme($stylesheet);
+    if ($theme->get('Name') !== $this->config->theme_name) return; // Only uninstall if this is the correct theme
+    
+    // Remove options on uninstall
+    delete_option('divi_child_options');
+    delete_option('divi_child_version');
   }
 
   /**

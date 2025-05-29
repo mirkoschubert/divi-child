@@ -5,7 +5,7 @@ namespace DiviChild\Modules\Bugs;
 use DiviChild\Core\Abstracts\ModuleService;
 use DiviChild\Core\Interfaces\FrontendServiceInterface;
 
-class FrontendService extends ModuleService implements FrontendServiceInterface
+final class FrontendService extends ModuleService implements FrontendServiceInterface
 {
 
   /**
@@ -16,6 +16,8 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
    */
   public function init_frontend()
   {
+    parent::init_frontend();
+
     // 1. Support Center
     if ($this->is_option_enabled('support_center')) {
       add_action('wp_enqueue_scripts', [$this, 'remove_divi_support_center']);
@@ -26,9 +28,7 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
       add_filter('body_class', [$this, 'add_fixed_navigation_class']);
       add_action('wp_head', [$this, 'add_header_css_variables'], 5);
     }
-      
-    // Scripts und Styles laden
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
+    
   }
 
 

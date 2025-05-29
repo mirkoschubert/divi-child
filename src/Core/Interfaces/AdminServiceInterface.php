@@ -3,7 +3,8 @@
 
 namespace DiviChild\Core\Interfaces;
 
-interface AdminServiceInterface extends ServiceInterface {
+interface AdminServiceInterface extends ServiceInterface
+{
     /**
      * Initialisiert Admin-spezifische Funktionalität
      * @return void
@@ -15,4 +16,5 @@ interface AdminServiceInterface extends ServiceInterface {
      * @return void
      */
     public function enqueue_admin_assets();
+
 }

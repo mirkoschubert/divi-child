@@ -14,6 +14,8 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
    */
   public function init_frontend()
   {
+    parent::init_frontend();
+    
     // 1. Viewport Meta
     if ($this->is_option_enabled('fix_viewport')) {
       add_action('init', [$this, 'remove_divi_viewport_meta']);

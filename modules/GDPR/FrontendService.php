@@ -12,7 +12,8 @@ class FrontendService extends ModuleService implements FrontendServiceInterface 
      * @return void
      */
     public function init_frontend() {
-        error_log("FrontendService init_frontend für GDPR Modul");
+        parent::init_frontend();
+
         // 1. Comments External
         if ($this->is_option_enabled('comments_external')) {
             add_filter("comment_text", [$this, 'external_comment_links']);

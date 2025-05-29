@@ -13,6 +13,8 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
    */
   public function init_frontend()
   {
+    parent::init_frontend();
+    
     // 1. Remove Pingback
     if ($this->is_option_enabled('remove_pingback')) {
       add_filter('pre_ping', [$this, 'remove_pingback']);

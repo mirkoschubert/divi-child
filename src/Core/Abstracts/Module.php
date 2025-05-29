@@ -152,8 +152,8 @@ abstract class Module implements ModuleInterface
       if (class_exists($class_name)) {
         $this->common_service = new $class_name($this);
         
-        if (method_exists($this->common_service, 'init')) {
-          $this->common_service->init();
+        if (method_exists($this->common_service, 'init_common')) {
+          $this->common_service->init_common();
         }
         
         break;

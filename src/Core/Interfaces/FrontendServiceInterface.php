@@ -1,9 +1,9 @@
 <?php
-// filepath: /Users/mirkoschubert/Projects/cms/wordpress/themes/child-themes/divi-child/src/Core/Interfaces/FrontendServiceInterface.php
 
 namespace DiviChild\Core\Interfaces;
 
-interface FrontendServiceInterface extends ServiceInterface {
+interface FrontendServiceInterface extends ServiceInterface
+{
     /**
      * Initialisiert Frontend-spezifische Funktionalität
      * @return void
@@ -15,4 +15,5 @@ interface FrontendServiceInterface extends ServiceInterface {
      * @return void
      */
     public function enqueue_frontend_assets();
+
 }
