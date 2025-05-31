@@ -1,0 +1,87 @@
+// Stylus Variables für WordPress Admin
+$wp-primary = #0085ba
+$wp-secondary = #11a0d2
+$wp-success = #46b450
+$wp-warning = #ffb900
+$wp-error = #d63638
+
+// Base Design Tokens
+$border-color = #ddd
+$border-radius = 5px
+$box-shadow = 0 1px 3px rgba(0, 0, 0, 0.1)
+
+// Spacing System
+$spacing-xs = .25rem
+$spacing-sm = .5rem
+$spacing-md = 1rem
+$spacing-lg = 1.5rem
+$spacing-xl = 2rem
+
+// Transitions
+$transition-fast = 0.2s ease
+$transition-normal = 0.3s ease
+$transition-slow = 0.5s ease
+
+// Grid Breakpoints
+$breakpoint-tablet = 782px
+$breakpoint-mobile = 600px
+$breakpoint-desktop = 1280px
+
+// WordPress Admin Colors
+$admin-blue = #0085ba
+$admin-gray = #646970
+$admin-light-gray = #f9f9f9
+$admin-border = #c3c4c7
+$admin-dark-gray = #1e1e1e
+
+// Typography
+$font-family-base = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+$font-size-sm = 12px
+$font-size-base = 14px
+$font-size-lg = 16px
+$font-size-xl = 18px
+
+// Z-Index Scale
+$z-dropdown = 1000
+$z-modal = 9999
+$z-tooltip = 10000
+
+// Mixins
+card-style()
+  background white
+  border 1px solid $border-color
+  border-radius $border-radius
+  box-shadow $box-shadow
+
+button-style()
+  padding 8px 16px
+  border-radius 3px
+  cursor pointer
+  transition background-color $transition-fast
+  
+  &:hover
+    opacity 0.8
+  
+  &:disabled
+    opacity 0.6
+    cursor not-allowed
+
+flex-between()
+  display flex
+  justify-content space-between
+  align-items center
+
+// Grid System
+grid-responsive($cols = 4, $gap = 1.5rem)
+  display grid
+  grid-template-columns repeat($cols, minmax(250px, 1fr))
+  grid-gap $gap
+  
+  @media (max-width: 1280px)
+    grid-template-columns repeat(3, minmax(250px, 1fr))
+  
+  @media (max-width: 900px)
+    grid-template-columns repeat(2, minmax(250px, 1fr))
+  
+  @media (max-width: $breakpoint-mobile)
+    grid-template-columns repeat(1, minmax(250px, 1fr))

@@ -11,6 +11,7 @@ abstract class Module implements ModuleInterface
   protected $enabled = true;
   protected $name = '';
   protected $description = '';
+  protected $author = '';
   protected $version = '';
   protected $slug = '';
   protected $dependencies = [
@@ -47,14 +48,12 @@ abstract class Module implements ModuleInterface
       $this->name = get_class($this);
       $this->name = str_replace('DiviChild\\Modules\\', '', $this->name);
     }
+    $this->author = empty($this->author) ? 'Mirko Schubert' : $this->author;
     $this->version = empty($this->version) ? '1.0.0' : $this->version;
     $this->slug = empty($this->slug) ? strtolower($this->name) : $this->slug;
 
     $this->config = new Config();
     $this->options = $this->config->get_module_options($this->slug);
-
-    // Debug-Ausgabe der geladenen Optionen
-    //error_log("Modul {$this->slug}: Geladene Optionen: " . print_r($this->options, true));
 
     // Stellen sicher, dass options ein Array ist
     if (!is_array($this->options)) {
@@ -69,9 +68,6 @@ abstract class Module implements ModuleInterface
         }
       }
     }
-
-    // Debug-Ausgabe der kombinierten Optionen
-    error_log("Module {$this->slug} - Combined Options: " . print_r($this->options, true));
 
     // Überprüfen, ob das Modul aktiviert ist
     if (!$this->is_enabled()) {
@@ -99,8 +95,6 @@ abstract class Module implements ModuleInterface
     // Verwende Reflection, um den tatsächlichen Verzeichnisnamen zu ermitteln
     $reflection = new \ReflectionClass($this);
     $module_dir = basename(dirname($reflection->getFileName()));
-
-    error_log("Module {$this->slug} - init_services mit Verzeichnis: {$module_dir}");
 
     // Frontend-Service-Initialisierung
     if (!is_admin()) {
@@ -254,9 +248,6 @@ abstract class Module implements ModuleInterface
     $sanitized = [];
     $admin_settings = $this->admin_settings();
 
-    // Debug für eingehende Optionen
-    error_log("sanitize_options: Eingehende Optionen: " . print_r($options, true));
-
     // PHP-Formular-Arrays korrigieren
     foreach ($options as $key => $value) {
       // Array-Notation korrigieren (z.B. "events[0" -> "events")
@@ -313,8 +304,6 @@ abstract class Module implements ModuleInterface
       }
     }
 
-    // Debug für sanitierte Optionen
-    error_log("sanitize_options: Sanitierte Optionen: " . print_r($sanitized, true));
 
     return $sanitized;
   }
@@ -329,8 +318,6 @@ abstract class Module implements ModuleInterface
    */
   private function sanitize_list_field($key, $value, $field_config)
   {
-    //error_log("sanitize_list_field für {$key}: " . print_r($value, true));
-
     // Stelle sicher, dass es ein Array ist
     if (!is_array($value)) {
       // Wenn es ein String ist, prüfen ob es mehrere Zeilen sind
@@ -366,8 +353,6 @@ abstract class Module implements ModuleInterface
 
       $sanitized[] = $item;
     }
-
-    //error_log("sanitize_list_field: Sanitierte Liste für {$key}: " . print_r($sanitized, true));
 
     return $sanitized;
   }
@@ -407,7 +392,6 @@ abstract class Module implements ModuleInterface
    */
   public static function get_all_modules(): array
   {
-    error_log('Module registry contents: ' . print_r(self::$modules, true));
     return self::$modules;
   }
 
@@ -494,6 +478,17 @@ abstract class Module implements ModuleInterface
   public function get_description()
   {
     return $this->description;
+  }
+
+
+  /**
+   * Gets the module author
+   * @return string
+   * @since 3.0.0
+   */
+  public function get_author()
+  {    
+    return $this->author;
   }
 
 

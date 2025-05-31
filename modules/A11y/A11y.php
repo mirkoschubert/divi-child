@@ -10,10 +10,16 @@ final class A11y extends Module
   protected $enabled = true;
   protected $name = 'Accessibility';
   protected $description = 'Accessibility module for WordPress.';
+  protected $author = 'Horst Nahrstedt';
   protected $version = '1.0.0';
   protected $slug = 'a11y';
   protected $dependencies = [
-    'jquery',
+    'js' => [
+      'jquery'
+    ],
+    'divi_version' => '4.0.0',
+    'php_version' => '7.4',
+    'wp_version' => '5.0',
   ];
   protected $default_options = [
     'enabled' => true,
@@ -101,4 +107,6 @@ final class A11y extends Module
       ]
     ];
   }
+
+
 }

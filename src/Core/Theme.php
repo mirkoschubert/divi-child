@@ -2,6 +2,7 @@
 
 namespace DiviChild\Core;
 
+use DiviChild\API\RestController;
 use DiviChild\Core\Config;
 use DiviChild\Core\Migration;
 use DiviChild\Admin\Admin;
@@ -30,6 +31,8 @@ final class Theme
     add_action('switch_theme', [$this, 'deactivate'], 10, 3);
     add_action('delete_theme', [$this, 'uninstall'], 10, 1);
 
+    add_action('rest_api_init', [$this, 'init_rest_api'], 10);
+
     $this->load_modules();
 
     if (is_admin()) {
@@ -40,6 +43,11 @@ final class Theme
     add_action('wp_set_script_translations', [$this, 'set_script_translations'], 100);
     add_action('after_setup_theme', [$this, 'setup_languages']);
     add_action('body_class', [$this, 'add_child_body_class']);
+  }
+
+  public function init_rest_api() {
+    $rest_controller = new RestController();
+    $rest_controller->register_routes();
   }
 
   public function activate($old_name = '', $old_theme = null) {
@@ -152,7 +160,6 @@ final class Theme
         if (class_exists($class_name)) {
           try {
             $instance = new $class_name();
-            error_log("Loaded module: {$module_name}, Slug: " . $instance->get_slug());
           } catch (\Exception $e) {
             error_log("Failed to load module {$module_name}: " . $e->getMessage());
           }

@@ -52,10 +52,7 @@ class AdminAjax
     // Moduleinstellungen und aktuelle Werte holen
     $settings = $module->admin_settings();
     $values = $module->get_options();
-    
-    //error_log("ajax_load_module_settings für {$module_slug}: Einstellungen: " . print_r($settings, true));
-    //error_log("ajax_load_module_settings für {$module_slug}: Werte: " . print_r($values, true));
-    
+        
     // UI-Klasse instanziieren
     $ui = new UI();
     
@@ -71,10 +68,7 @@ class AdminAjax
         $validation_messages[$field_id] = $field_config['validate']['error_message'];
       }
     }
-    
-    // Debug-Ausgabe
-    //error_log("ajax_load_module_settings für {$module_slug}: Validierungsmeldungen: " . print_r($validation_messages, true));
-    
+        
     // Antwort zurückgeben
     wp_send_json_success([
       'title' => $module->get_name() . ' ' . __('Settings', 'divi-child'),
@@ -104,7 +98,6 @@ class AdminAjax
     
     // Settings können leer sein, wenn nichts geändert wurde
     $settings = $_POST['settings'] ?? [];
-    error_log("AJAX Rohdaten: " . print_r($_POST['settings'], true));
     
     // Alle Module holen
     $modules = Module::get_all_modules();
@@ -128,8 +121,6 @@ class AdminAjax
       $sanitized['enabled'] = $existing_options['enabled'];
     }
     
-    // Debug-Logging
-    //error_log("ajax_save_module_settings für {$module_slug}: Sanitierte Optionen: " . print_r($sanitized, true));
     
     // Speichern
     $result = $this->config->save_module_options($module_slug, $sanitized);

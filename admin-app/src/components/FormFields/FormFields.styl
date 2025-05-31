@@ -1,0 +1,96 @@
+@import '../../styles/variables'
+@import '../../styles/mixins'
+
+.dvc-field
+  wordpress-field()
+  
+  // WordPress Components Integration
+  .components-base-control
+    margin-bottom 0
+    width 100%
+    
+    &__label
+      font-weight 600
+      color #333
+    
+    &__help
+      color #666
+      font-size 13px
+      font-style italic
+
+  &.toggle-field
+    .components-form-toggle
+      width 42px
+      height 22px
+
+      &.is-checked
+        .components-form-toggle__thumb
+          transform translateX(20px)
+
+      .components-form-toggle__input:focus+.components-form-toggle__track
+        box-shadow none
+
+      .components-form-toggle__track
+        width 42px
+        height 22px
+        border-radius 11px
+
+      .components-form-toggle__thumb
+        width 18px
+        height 18px
+
+    .components-toggle-control
+      margin-bottom 0
+
+      .components-h-stack
+        flex-direction row-reverse  
+
+      .components-toggle-control__help
+        margin-left 0
+
+// List Fields
+.list-field
+  .list-items
+    margin-bottom 12px
+  
+  .list-item
+    margin-bottom $spacing-sm
+    align-items flex-start
+  
+  .remove-item-btn
+    height 36px
+  
+  .add-item-section
+    margin-top 12px
+    padding-top 12px
+    border-top 1px solid $border-color
+
+// Repeater Fields
+.repeater-field
+  .repeater-items
+    margin-bottom $spacing-md
+  
+  .repeater-item
+    margin-bottom 12px
+    
+    &.collapsed
+      .components-card__header
+        cursor pointer
+  
+  .expand-toggle
+    justify-content flex-start
+    width 100%
+    text-align left
+  
+  .item-preview
+    color #666
+    font-weight normal
+    margin-left $spacing-sm
+  
+  .repeater-fields
+    display grid
+    gap $spacing-md
+  
+  .add-repeater-item
+    width 100%
+    justify-content center

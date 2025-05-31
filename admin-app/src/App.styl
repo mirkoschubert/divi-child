@@ -1,0 +1,53 @@
+@import './styles/variables'
+@import './styles/mixins'
+
+.dvc-react-admin
+  margin 0 0 0 -20px // Negiert WordPress Admin-Padding
+
+.dvc-react-loading
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 40px
+  text-align center
+  
+  .components-spinner
+    margin-bottom $spacing-md
+
+.dvc-react-header
+  background-color white
+  flex-between()
+  padding 0 $spacing-lg
+  border-bottom 1px solid $admin-border
+  height 4rem
+  margin-bottom 0
+  
+  h1
+    margin 0
+    font-size 2em
+    font-weight 500
+    flex 1 0 auto
+    padding 0
+    
+    small
+      color $admin-gray
+      font-size 12px
+      font-weight 400
+      line-height 12px
+      margin-left $spacing-xs
+
+.dvc-modules
+  padding $spacing-md $spacing-lg
+  margin: 0
+  
+  .modules-grid
+    grid-responsive(4, $spacing-lg)
+
+// WordPress Components Override
+wp-card-override()
+wp-modal-style()
+
+// Error States
+.error
+  color $wp-error

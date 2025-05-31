@@ -41,8 +41,6 @@ $('document').ready(function () {
 		} );
 	}
   
-  //console.log(themeOptions)
-
   /**
    * Skip Link
    */
@@ -121,7 +119,6 @@ $('document').ready(function () {
     $('.et_pb_blurb.et_clickable .et_pb_blurb_container').attr('tabindex', '0');
 
     $('.et_clickable').on('keydown', function (e) {
-      //console.log('E:', e)
       if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
           $(this).click()
@@ -225,7 +222,6 @@ $('document').ready(function () {
       /* translators: Default text for unknown link */
       let text = $el.text().trim() || $el.attr('title') || __('unknown', 'divi-child')
  
-      //console.log('Text:', text)
       if (target == "_blank" || target == "blank") {
         /* translators: %s is replaced with the link text */
         $el.attr('aria-label', sprintf(__('Link to %s opens in a new window', 'divi-child'), text))

@@ -1,0 +1,145 @@
+@import '../../styles/variables'
+@import '../../styles/mixins'
+
+.module
+  card-style() // Jetzt funktioniert das Mixin!
+  display flex
+  flex-direction column
+  height 100%
+  position relative
+  
+  // WordPress Card Component Override
+  .components-card__body
+    height 100%
+    display flex
+    flex-direction column
+    padding 0 !important
+  
+  // Das automatisch generierte Container-Div
+  > div[class*="css-"]
+    width 100% !important
+    height 100% !important
+    display flex !important
+    flex-direction column !important
+  
+  &.disabled
+    background-color #f4f4f4
+    opacity 0.7
+  
+  &.enabled
+    background-color white
+  
+  &.saving
+    state-saving()
+  
+  &.success
+    state-success()
+  
+  &.error
+    state-error()
+
+// CardHeader Styling
+.module .components-card__header
+  flex-shrink 0
+  display flex
+  justify-content space-between
+  align-items center
+  padding $spacing-md
+  border-bottom 1px solid $border-color
+  
+  h3
+    margin 0
+    font-size 1.375rem
+    font-weight 400
+    color $admin-dark-gray
+
+  .components-form-toggle
+    width 42px
+    height 22px
+
+    &.is-checked
+      .components-form-toggle__thumb
+        transform translateX(20px)
+
+    .components-form-toggle__input:focus+.components-form-toggle__track
+      box-shadow none
+
+    .components-form-toggle__track
+      width 42px
+      height 22px
+      border-radius 11px
+
+    .components-form-toggle__thumb
+      width 18px
+      height 18px
+
+// CardBody Styling  
+.module .components-card__body
+  flex-grow 1
+  padding $spacing-md
+  display flex
+  flex-direction column
+
+.module-content
+  flex-grow 1
+  display flex
+  flex-direction column
+
+.module-info
+  flex-grow 1
+
+  .module-details
+    display grid
+    grid-template-columns: repeat(2, auto)
+    gap $spacing-xs
+
+    dt
+      font-weight 600
+      color $admin-dark-gray
+      margin 0
+      text-align left
+
+    dd
+      margin 0
+      text-align: right
+      color $admin-gray
+    
+  .module-description
+    color $admin-gray
+    margin-bottom 0
+    font-size $font-size-base
+    line-height 1.4
+
+// CardFooter Styling
+.module .components-card__footer
+  flex-shrink 0
+  padding 0
+  border-top 1px solid $border-color
+
+.components-button.settings-btn
+  background-color white
+  border none
+  box-shadow none
+  color $wp-primary
+  width 100%
+  padding 0.875rem 1rem
+  cursor pointer
+  font-size $font-size-base
+  border-radius 0
+  transition background-color $transition-fast
+  justify-content center
+  
+  &:hover
+    background-color $admin-light-gray
+  
+  &:disabled
+    background-color #f4f4f4
+    color #aaa
+    cursor not-allowed
+
+// WordPress Toggle Control Override
+.module .components-toggle-control
+  margin-bottom 0
+  
+  .components-form-toggle
+    margin 0

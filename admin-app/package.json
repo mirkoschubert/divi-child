@@ -1,0 +1,46 @@
+{
+  "name": "divi-child-admin-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "start": "webpack --mode=development --watch",
+    "dev": "webpack serve --mode=development",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@wordpress/element": "^6.24.0",
+    "@wordpress/components": "^29.10.0",
+    "@wordpress/api-fetch": "^7.24.0",
+    "@wordpress/i18n": "^5.24.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/js": "^9.28.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.28.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1",
+    "stylus": "^0.64.0",
+    "stylus-loader": "^8.1.0"
+  }
+}

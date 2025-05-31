@@ -4,6 +4,7 @@ namespace DiviChild\Admin;
 
 use DiviChild\Core\Config;
 use DiviChild\Admin\AdminAjax;
+use DiviChild\Admin\ReactAdmin;
 use DiviChild\Admin\UI;
 
 final class Admin
@@ -16,11 +17,14 @@ final class Admin
 
   public function __construct()
   {
+    
     $this->ui = new UI();
-
     $this->config = new Config();
     $this->options = $this->config->get_options();
 
+    new ReactAdmin();
+    
+    // Old Admin REST API
     new AdminAjax();
 
     $this->init();
@@ -31,6 +35,11 @@ final class Admin
     add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
     add_action('admin_init', [$this, 'register_settings']);
     add_action('admin_menu', [$this, 'add_admin_menu'], 12);
+    
+    // 🔍 DEBUG: REST API Status prüfen
+    add_action('admin_init', function() {      
+      $rest_url = rest_url('divi-child/v1/modules');
+    });
   }
 
 

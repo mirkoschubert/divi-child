@@ -165,12 +165,19 @@ class FrontendService extends ModuleService implements FrontendServiceInterface 
      * @return void
      */
     private function remove_api_headers() {
+        // Deactivate XML-RPC
         remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
-        add_filter('xmlrpc_enabled', '__return_false'); // restrict xmlrpc
-        remove_action('wp_head', 'rsd_link'); // remove rsd link
-        remove_action('wp_head', 'rest_output_link_wp_head', 10);
-        remove_action('template_redirect', 'rest_output_link_header', 11);
-        remove_action('wp_head', 'wp_generator'); // remove generator tag
-        remove_action('wp_head', 'wlwmanifest_link'); // remove windows live writer manifest
+        add_filter('xmlrpc_enabled', '__return_false');
+        remove_action('wp_head', 'rsd_link');
+        remove_action('wp_head', 'wlwmanifest_link');
+
+        // Remove REST API links
+        if (!is_admin()) {
+            remove_action('wp_head', 'rest_output_link_wp_head', 10);
+            remove_action('template_redirect', 'rest_output_link_header', 11);
+        }
+
+        // Remove Generator Tag
+        remove_action('wp_head', 'wp_generator');
     }
 }

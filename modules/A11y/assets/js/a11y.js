@@ -5,8 +5,6 @@
 ;(function ($) {
   "use strict"
 
-  console.log("A11y Options:", a11yOptions)
-
   // Prüfe, ob Feature aktiviert ist
   function isFeatureEnabled(feature) {
     return a11yOptions && a11yOptions[feature] === "1"

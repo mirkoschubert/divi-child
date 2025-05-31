@@ -2,6 +2,8 @@
 
 namespace DiviChild\Core;
 
+use DiviChild\Core\Abstracts\Module;
+
 final class Config
 {
 
@@ -42,8 +44,6 @@ final class Config
    */
   public function get_module_options($module_slug)
   {
-    //error_log("Optionen: " . print_r($this->options, true));
-
     if (!isset($this->options[$module_slug])) {
       error_log("Keine Optionen für {$module_slug} gefunden.");
       return [];
@@ -61,9 +61,6 @@ final class Config
    */
   public function save_module_options($module_slug, $options)
   {
-    // Debug-Ausgabe vor dem Speichern
-    error_log("save_module_options({$module_slug}): Zu speichernde Optionen: " . print_r($options, true));
-
     if (empty($this->options)) {
       $this->options = $this->get_options();
     }
@@ -77,12 +74,9 @@ final class Config
       $this->options[$module_slug] = $options;
       // Speichern und Ergebnis zurückgeben
       $result = update_option('divi_child_options', $this->options);
-      error_log("save_module_options({$module_slug}): Änderungen gespeichert, Ergebnis: " . ($result ? 'true' : 'false'));
       return $result;
     }
     
-    // Keine Änderungen, trotzdem als erfolgreich melden
-    error_log("save_module_options({$module_slug}): Keine Änderungen erkannt, nichts zu speichern");
     return true;
   }
 
@@ -165,7 +159,7 @@ final class Config
    */
   public function get_defaults()
   {
-    return \DiviChild\Core\Abstracts\Module::get_all_default_options();
+    return Module::get_all_default_options();
   }
 
   /**
@@ -175,7 +169,7 @@ final class Config
    */
   public function get_modules()
   {
-    $modules = \DiviChild\Core\Abstracts\Module::get_all_modules();
+    $modules = Module::get_all_modules();
     $module_data = [];
 
     foreach ($modules as $slug => $instance) {
@@ -196,5 +190,43 @@ final class Config
     }
 
     return $module_data;
+  }
+
+  /**
+   * Holt Informationen über alle Module für React
+   * @return array
+   * @since 3.0.0
+   */
+  public function get_modules_info(): array
+  {
+    $modules = Module::get_all_modules();
+    $modules_info = [];
+
+    foreach ($modules as $slug => $module) {
+      $modules_info[$slug] = [
+        'slug' => $slug,
+        'name' => $module->get_name(),
+        'description' => $module->get_description(),
+        'author' => $module->get_author(),
+        'version' => $module->get_version(),
+        'enabled' => $this->is_module_enabled($slug),
+        'options' => $module->get_options(),
+        'admin_settings' => $module->admin_settings()
+      ];
+    }
+
+    return $modules_info;
+  }
+
+  /**
+   * Prüft, ob ein Modul aktiviert ist
+   * @param string $module_slug
+   * @return bool
+   * @since 3.0.0
+   */
+  public function is_module_enabled(string $module_slug): bool
+  {
+    $options = $this->get_module_options($module_slug);
+    return isset($options['enabled']) && $options['enabled'] === true;
   }
 }

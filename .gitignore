@@ -6,3 +6,4 @@ push5.sh
 .pushrc
 rsync.log
 /vendor/
+node_modules
