@@ -137,6 +137,9 @@ final class UI {
         case 'list':
           $this->list_field($field_id, $field_config, $current_value);
           break;
+        case 'repeater':
+          $this->repeater_field($field_id, $field_config, $current_value);
+          break;
         // Weitere Feldtypen nach Bedarf
       }
       
@@ -179,12 +182,14 @@ final class UI {
   private function text_field($field_id, $field_config, $current_value) {
     ?>
     <div class="dvc-field text-field">
-      <label for="<?php echo esc_attr($field_id); ?>" class="field-label">
-        <?php echo esc_html($field_config['label']); ?>
-      </label>
-      <?php if (!empty($field_config['description'])): ?>
-        <p class="field-description"><?php echo esc_html($field_config['description']); ?></p>
-      <?php endif; ?>
+      <div class="field-info">
+        <label for="<?php echo esc_attr($field_id); ?>" class="field-label">
+          <?php echo esc_html($field_config['label']); ?>
+        </label>
+        <?php if (!empty($field_config['description'])): ?>
+          <p class="field-description"><?php echo esc_html($field_config['description']); ?></p>
+        <?php endif; ?>
+      </div>
       <input type="text" 
              id="<?php echo esc_attr($field_id); ?>" 
              name="<?php echo esc_attr($field_id); ?>" 
@@ -332,6 +337,98 @@ final class UI {
     <?php
   }
 
+
+  /**
+   * Renders a repeater field
+   * @since 3.0.0
+   */
+  private function repeater_field($field_id, $field_config, $current_value) {
+    if (!is_array($current_value)) {
+        $current_value = [];
+    }
+    
+    ?>
+    <div class="dvc-field repeater-field"<?php echo $this->get_dependency_attributes($field_config); ?>>
+        <div class="field-info">
+            <span class="field-label"><?php echo esc_html($field_config['label']); ?></span>
+            <?php if (!empty($field_config['description'])): ?>
+                <p class="field-description"><?php echo esc_html($field_config['description']); ?></p>
+            <?php endif; ?>
+        </div>
+        
+        <!-- Eingabebereich (einmalig) -->
+        <div class="repeater-input-area">
+            <h4><?php esc_html_e('Add new entry', 'divi-child'); ?></h4>
+            <?php foreach ($field_config['fields'] as $sub_field_id => $sub_field_config): ?>
+                <div class="repeater-input-field" data-field="<?php echo esc_attr($sub_field_id); ?>">
+                    <?php
+                    // Bestehende Feld-Funktionen wiederverwenden
+                    $temp_id = "{$field_id}_new_{$sub_field_id}";
+                    $temp_config = array_merge($sub_field_config, ['label' => $sub_field_config['label']]);
+                    $default_value = $sub_field_config['default'] ?? '';
+                    
+                    switch ($sub_field_config['type']) {
+                        case 'text':
+                            $this->text_field($temp_id, $temp_config, $default_value);
+                            break;
+                        case 'toggle':
+                            $this->toggle_field($temp_id, $temp_config, $default_value);
+                            break;
+                        case 'select':
+                            $this->select_field($temp_id, $temp_config, $default_value);
+                            break;
+                        // Weitere Typen...
+                    }
+                    ?>
+                </div>
+            <?php endforeach; ?>
+            
+            <button type="button" class="button add-repeater-item" data-target="<?php echo esc_attr($field_id); ?>">
+                <?php esc_html_e('Add', 'divi-child'); ?>
+            </button>
+        </div>
+        
+        <!-- Tabellen-Ansicht der vorhandenen Einträge -->
+        <div class="repeater-table-container">
+            <?php if (!empty($current_value)): ?>
+                <table class="repeater-table wp-list-table widefat fixed striped">
+                    <thead>
+                        <tr>
+                            <?php foreach ($field_config['fields'] as $sub_field_id => $sub_field_config): ?>
+                                <th><?php echo esc_html($sub_field_config['label']); ?></th>
+                            <?php endforeach; ?>
+                            <th width="80"><?php esc_html_e('Actions', 'divi-child'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody id="<?php echo esc_attr($field_id); ?>_table_body">
+                        <?php foreach ($current_value as $index => $item): ?>
+                            <tr data-index="<?php echo esc_attr($index); ?>">
+                                <?php foreach ($field_config['fields'] as $sub_field_id => $sub_field_config): ?>
+                                    <td>
+                                        <?php echo esc_html($item[$sub_field_id] ?? ''); ?>
+                                        <input type="hidden" 
+                                               name="<?php echo esc_attr($field_id); ?>[<?php echo esc_attr($index); ?>][<?php echo esc_attr($sub_field_id); ?>]" 
+                                               value="<?php echo esc_attr($item[$sub_field_id] ?? ''); ?>">
+                                    </td>
+                                <?php endforeach; ?>
+                                <td>
+                                    <button type="button" class="button button-small remove-repeater-item">
+                                        <span class="dashicons dashicons-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p class="repeater-empty-message"><?php esc_html_e('No entries yet.', 'divi-child'); ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php
+  }
+
+
   /**
    * Helper function to get dependency attributes
    * @return array Attribute und CSS-Klassen für Abhängigkeiten
@@ -349,4 +446,5 @@ final class UI {
 
     return ' ' . implode(' ', $dependencies);
   }
+
 }

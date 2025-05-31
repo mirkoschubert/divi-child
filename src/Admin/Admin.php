@@ -43,6 +43,7 @@ final class Admin
   {
     wp_enqueue_style('divi-child-admin-style', "{$this->config->theme_url}/assets/css/admin.css");
     wp_enqueue_script('divi-child-admin-script', "{$this->config->theme_url}/assets/js/admin.js", ['jquery'], null, true);
+    wp_enqueue_script('divi-child-admin-ui-script', "{$this->config->theme_url}/assets/js/ui-components.js", ['jquery'], null, true);
     
     // NONCE für AJAX-Sicherheit 
     wp_localize_script('divi-child-admin-script', 'dvc_ajax', [

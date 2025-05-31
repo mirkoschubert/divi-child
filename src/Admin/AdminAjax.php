@@ -104,6 +104,7 @@ class AdminAjax
     
     // Settings können leer sein, wenn nichts geändert wurde
     $settings = $_POST['settings'] ?? [];
+    error_log("AJAX Rohdaten: " . print_r($_POST['settings'], true));
     
     // Alle Module holen
     $modules = Module::get_all_modules();

@@ -2,6 +2,7 @@
 .synchronize
 docs
 push.sh
+push5.sh
 .pushrc
 rsync.log
 /vendor/

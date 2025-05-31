@@ -52,15 +52,15 @@ abstract class Module implements ModuleInterface
 
     $this->config = new Config();
     $this->options = $this->config->get_module_options($this->slug);
-    
+
     // Debug-Ausgabe der geladenen Optionen
     //error_log("Modul {$this->slug}: Geladene Optionen: " . print_r($this->options, true));
-    
+
     // Stellen sicher, dass options ein Array ist
     if (!is_array($this->options)) {
       $this->options = [];
     }
-    
+
     // Füge fehlende Optionen aus den Standardwerten hinzu
     if (!empty($this->default_options) && is_array($this->default_options)) {
       foreach ($this->default_options as $key => $default_value) {
@@ -69,7 +69,7 @@ abstract class Module implements ModuleInterface
         }
       }
     }
-    
+
     // Debug-Ausgabe der kombinierten Optionen
     error_log("Module {$this->slug} - Combined Options: " . print_r($this->options, true));
 
@@ -99,24 +99,24 @@ abstract class Module implements ModuleInterface
     // Verwende Reflection, um den tatsächlichen Verzeichnisnamen zu ermitteln
     $reflection = new \ReflectionClass($this);
     $module_dir = basename(dirname($reflection->getFileName()));
-    
+
     error_log("Module {$this->slug} - init_services mit Verzeichnis: {$module_dir}");
-    
+
     // Frontend-Service-Initialisierung
     if (!is_admin()) {
       $possible_namespaces = [
         "DiviChild\\Modules\\{$module_dir}\\Service\\FrontendService",
-        "DiviChild\\Modules\\{$module_dir}\\FrontendService" 
+        "DiviChild\\Modules\\{$module_dir}\\FrontendService"
       ];
-      
-      foreach ($possible_namespaces as $class_name) {                
+
+      foreach ($possible_namespaces as $class_name) {
         if (class_exists($class_name)) {
           $this->frontend_service = new $class_name($this);
 
           if (method_exists($this->frontend_service, 'init_frontend')) {
             $this->frontend_service->init_frontend();
           }
-          
+
           break;
         }
       }
@@ -128,15 +128,15 @@ abstract class Module implements ModuleInterface
         "DiviChild\\Modules\\{$module_dir}\\Services\\AdminService",
         "DiviChild\\Modules\\{$module_dir}\\AdminService"
       ];
-      
+
       foreach ($possible_namespaces as $class_name) {
         if (class_exists($class_name)) {
           $this->admin_service = new $class_name($this);
-          
+
           if (method_exists($this->admin_service, 'init_admin')) {
             $this->admin_service->init_admin();
           }
-          
+
           break;
         }
       }
@@ -147,15 +147,15 @@ abstract class Module implements ModuleInterface
       "DiviChild\\Modules\\{$module_dir}\\Services\\CommonService",
       "DiviChild\\Modules\\{$module_dir}\\CommonService"
     ];
-    
+
     foreach ($possible_namespaces as $class_name) {
       if (class_exists($class_name)) {
         $this->common_service = new $class_name($this);
-        
+
         if (method_exists($this->common_service, 'init_common')) {
           $this->common_service->init_common();
         }
-        
+
         break;
       }
     }
@@ -199,19 +199,19 @@ abstract class Module implements ModuleInterface
     $reflection = new \ReflectionClass($this);
     $file_path = $reflection->getFileName();
     $module_dir = basename(dirname($file_path));
-    
+
     $css_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/css/{$this->slug}.css";
     $js_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/js/{$this->slug}.js";
-    
+
     // Nur CSS enqueuen, wenn die Datei existiert
     if (file_exists($css_file)) {
       wp_enqueue_style("divi-child-{$this->slug}-style", "{$this->config->theme_url}/modules/{$module_dir}/assets/css/{$this->slug}.css");
     }
-    
+
     // Nur JS enqueuen, wenn die Datei existiert
     if (file_exists($js_file)) {
       wp_enqueue_script("divi-child-{$this->slug}-script", "{$this->config->theme_url}/modules/{$module_dir}/assets/js/{$this->slug}.js", ['jquery'], null, true);
-      
+
       // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
       wp_localize_script("divi-child-{$this->slug}-script", 'dvc_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
     }
@@ -227,16 +227,16 @@ abstract class Module implements ModuleInterface
   {
     $admin_css_file = "{$this->config->theme_dir}/modules/{$this->name}/assets/css/{$this->slug}-admin.css";
     $admin_js_file = "{$this->config->theme_dir}/modules/{$this->name}/assets/js/{$this->slug}-admin.js";
-    
+
     // Nur Admin-CSS enqueuen, wenn die Datei existiert
     if (file_exists($admin_css_file)) {
       wp_enqueue_style("divi-child-{$this->slug}-admin-style", "{$this->config->theme_url}/modules/{$this->name}/assets/css/{$this->slug}-admin.css");
     }
-    
+
     // Nur Admin-JS enqueuen, wenn die Datei existiert
     if (file_exists($admin_js_file)) {
       wp_enqueue_script("divi-child-{$this->slug}-admin-script", "{$this->config->theme_url}/modules/{$this->name}/assets/js/{$this->slug}-admin.js", ['jquery'], null, true);
-      
+
       // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
       wp_localize_script("divi-child-{$this->slug}-admin-script", 'dvc_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
     }
@@ -255,27 +255,27 @@ abstract class Module implements ModuleInterface
     $admin_settings = $this->admin_settings();
 
     // Debug für eingehende Optionen
-    //error_log("sanitize_options: Eingehende Optionen: " . print_r($options, true));
-    
-    // PHP-Formular-Arrays korrigieren (wenn name="feld[]" verwendet wird)
+    error_log("sanitize_options: Eingehende Optionen: " . print_r($options, true));
+
+    // PHP-Formular-Arrays korrigieren
     foreach ($options as $key => $value) {
-      // Falls ein Key mit eckigen Klammern existiert
-      if (substr($key, -1) === '[') {
-        $real_key = rtrim($key, '[]');
-        //error_log("sanitize_options: Array-Feld gefunden: {$key} -> {$real_key}");
-        
-        // Wenn der Wert ein String ist, in ein Array umwandeln
-        if (!is_array($value) && !empty($value)) {
-          $options[$real_key] = [$value];
-        } else {
-          $options[$real_key] = $value;
+      // Array-Notation korrigieren (z.B. "events[0" -> "events")
+      if (preg_match('/^(\w+)\[(\d+)$/', $key, $matches)) {
+        $real_key = $matches[1];
+        $index = intval($matches[2]);
+
+        if (!isset($sanitized[$real_key])) {
+          $sanitized[$real_key] = [];
         }
-        
-        // Ursprünglichen Key entfernen
-        unset($options[$key]);
+
+        $sanitized[$real_key][$index] = $value;
+        continue;
       }
+
+      // Normale Felder verarbeiten
+      $sanitized[$key] = $value;
     }
-    
+
     // Jetzt reguläre Sanitierung durchführen
     foreach ($options as $key => $value) {
       // Für Listen-Felder
@@ -283,7 +283,13 @@ abstract class Module implements ModuleInterface
         $sanitized[$key] = $this->sanitize_list_field($key, $value, $admin_settings[$key]);
         continue;
       }
-      
+
+      // Für Repeater-Felder
+      if (isset($admin_settings[$key]) && $admin_settings[$key]['type'] === 'repeater') {
+        $sanitized[$key] = $this->sanitize_repeater_field($key, $value, $admin_settings[$key]);
+        continue;
+      }
+
       // Boolean-Werte richtig behandeln
       if (isset($this->default_options[$key]) && is_bool($this->default_options[$key])) {
         // Stringwerte "true" und "false" sowie Boolean-Werte und 0/1 korrekt interpretieren
@@ -308,7 +314,7 @@ abstract class Module implements ModuleInterface
     }
 
     // Debug für sanitierte Optionen
-    //error_log("sanitize_options: Sanitierte Optionen: " . print_r($sanitized, true));
+    error_log("sanitize_options: Sanitierte Optionen: " . print_r($sanitized, true));
 
     return $sanitized;
   }
@@ -324,7 +330,7 @@ abstract class Module implements ModuleInterface
   private function sanitize_list_field($key, $value, $field_config)
   {
     //error_log("sanitize_list_field für {$key}: " . print_r($value, true));
-    
+
     // Stelle sicher, dass es ein Array ist
     if (!is_array($value)) {
       // Wenn es ein String ist, prüfen ob es mehrere Zeilen sind
@@ -336,20 +342,20 @@ abstract class Module implements ModuleInterface
         $value = [];
       }
     }
-    
+
     $sanitized = [];
     $has_validation = isset($field_config['validate']) && isset($field_config['validate']['pattern']);
     $validation_pattern = $has_validation ? $field_config['validate']['pattern'] : '';
-    
+
     foreach ($value as $item) {
       // Sanitize item
       $item = trim(sanitize_text_field($item));
-      
+
       // Leere Einträge überspringen
       if (empty($item)) {
         continue;
       }
-      
+
       // Validierung, falls konfiguriert
       if ($has_validation && !empty($validation_pattern)) {
         if (!preg_match($validation_pattern, $item)) {
@@ -357,15 +363,42 @@ abstract class Module implements ModuleInterface
           continue;
         }
       }
-      
+
       $sanitized[] = $item;
     }
-    
+
     //error_log("sanitize_list_field: Sanitierte Liste für {$key}: " . print_r($sanitized, true));
-    
+
     return $sanitized;
   }
 
+
+  /**
+   * Sanitiert Repeater-Feld-Daten
+   */
+  private function sanitize_repeater_field($field_name, $value, $field_config)
+  {
+    if (!is_array($value)) {
+      return [];
+    }
+
+    $sanitized = [];
+    foreach ($value as $item) {
+      if (is_array($item)) {
+        $sanitized_item = [];
+        foreach ($field_config['fields'] as $sub_field_id => $sub_field_config) {
+          if (isset($item[$sub_field_id])) {
+            $sanitized_item[$sub_field_id] = sanitize_text_field($item[$sub_field_id]);
+          }
+        }
+        if (!empty($sanitized_item)) {
+          $sanitized[] = $sanitized_item;
+        }
+      }
+    }
+
+    return $sanitized;
+  }
 
   /**
    * Returns the module instance
@@ -503,7 +536,7 @@ abstract class Module implements ModuleInterface
       if (is_string($this->options[$key])) {
         return $this->options[$key] === 'on' || $this->options[$key] === '1' || $this->options[$key] === 'true';
       }
-      return (bool)$this->options[$key];
+      return (bool) $this->options[$key];
     }
 
     // Fallback auf Default-Werte
@@ -512,9 +545,9 @@ abstract class Module implements ModuleInterface
       if (is_string($defaults[$key])) {
         return $defaults[$key] === 'on' || $defaults[$key] === '1' || $defaults[$key] === 'true';
       }
-      return (bool)$defaults[$key];
+      return (bool) $defaults[$key];
     }
-    
+
     return false;
   }
 
@@ -528,7 +561,7 @@ abstract class Module implements ModuleInterface
     // Reflection nutzen, um tatsächlichen Modulpfad zu erhalten
     $reflection = new \ReflectionClass($this);
     $dir_name = basename(dirname($reflection->getFileName()));
-    
+
     return "{$this->config->theme_url}/modules/{$dir_name}/assets/{$path}";
   }
 }

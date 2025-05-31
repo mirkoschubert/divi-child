@@ -16,6 +16,8 @@ class DiviChildAdmin {
     this.modalManager = new ModalManager(this);
     this.validator = new FormValidator(this);
     this.listManager = new ListManager(this);
+    this.repeaterManager = new RepeaterManager(this); // Neu
+    this.uiHelpers = new UIHelpers(this); // Neu
     
     // Event-Listener registrieren
     this.registerEventListeners();
@@ -250,10 +252,29 @@ class ModalManager {
       const $field = this.$(field);
       const name = $field.attr('name');
       
-      // Überspringe Elemente ohne Namen
-      if (!name) return;
+      // Überspringe Elemente ohne Namen oder Repeater-Eingabefelder
+      if (!name || name.includes('_new_')) return;
       
-      // Array-Felder (name="field_name[]") speziell behandeln
+      // Spezielle Behandlung für Repeater-Arrays (events[0][id])
+      const repeaterMatch = name.match(/^(\w+)\[(\d+)\]\[(\w+)\]$/);
+      if (repeaterMatch) {
+        const fieldName = repeaterMatch[1];
+        const index = parseInt(repeaterMatch[2]);
+        const subField = repeaterMatch[3];
+        
+        if (!formData[fieldName]) {
+          formData[fieldName] = [];
+        }
+        
+        if (!formData[fieldName][index]) {
+          formData[fieldName][index] = {};
+        }
+        
+        formData[fieldName][index][subField] = $field.val();
+        return;
+      }
+      
+      // Array-Felder (name="field_name[]") 
       if (name.endsWith('[]')) {
         const baseName = name.slice(0, -2);
         if (!formData[baseName]) {

@@ -29,7 +29,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Constructor
    * @param Module $module
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function __construct(Module $module)
   {
@@ -42,7 +42,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Initializes common functionalities
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function init_common()
   {
@@ -54,7 +54,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Initializes frontend functionalities
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function init_frontend()
   {
@@ -68,7 +68,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Initializes admin functionalities
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function init_admin()
   {
@@ -82,7 +82,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Enqueues common assets
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function enqueue_common_assets()
   {
@@ -93,7 +93,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Enqueues frontend assets
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function enqueue_frontend_assets()
   {
@@ -104,7 +104,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Enqueues admin assets
    * @return void
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function enqueue_admin_assets()
   {
@@ -115,7 +115,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Returns the module slug
    * @return string
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function get_module_slug()
   {
@@ -126,7 +126,7 @@ abstract class ModuleService implements ServiceInterface
   /**
    * Returns the module options
    * @return array
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function get_module_options()
   {
@@ -138,7 +138,7 @@ abstract class ModuleService implements ServiceInterface
    * Returns a specific module option
    * @param string $key Optionsschlüssel
    * @return mixed
-   * @since 1.0.0
+   * @since 3.0.0
    */
   public function get_module_option($key)
   {
@@ -156,7 +156,7 @@ abstract class ModuleService implements ServiceInterface
    * Checks if a specific option is enabled
    * @param string $key 
    * @return bool
-   * @since 1.0.0
+   * @since 3.0.0
    */
   protected function is_option_enabled($key)
   {
@@ -167,6 +167,17 @@ abstract class ModuleService implements ServiceInterface
     // Fallback auf Default-Werte
     $defaults = $this->module->get_default_options();
     return isset($defaults[$key]) ? (bool) $defaults[$key] : false;
+  }
+
+  /**
+   * Checks if a specific option is empty
+   * @param mixed $key
+   * @return bool
+   * @since 3.0.0
+   */
+  protected function is_option_empty($key)
+  {
+    return !isset($this->options[$key]) || empty($this->options[$key]) || $this->options[$key] === '';
   }
 
 }
