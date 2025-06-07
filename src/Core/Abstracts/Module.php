@@ -27,6 +27,7 @@ abstract class Module implements ModuleInterface
   protected $frontend_service;
   protected $admin_service;
   protected $common_service;
+  protected $rest_controller;
 
   public function __construct()
   {
@@ -77,6 +78,9 @@ abstract class Module implements ModuleInterface
     // Automatisch Services initialisieren, wenn sie existieren
     $this->init_services();
 
+    // Initialize REST Controller
+    add_action('rest_api_init', [$this, 'init_rest_controller'], 5);
+
     // Assets laden
     if (is_admin()) {
       add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts']);
@@ -99,7 +103,7 @@ abstract class Module implements ModuleInterface
     // Frontend-Service-Initialisierung
     if (!is_admin()) {
       $possible_namespaces = [
-        "DiviChild\\Modules\\{$module_dir}\\Service\\FrontendService",
+        "DiviChild\\Modules\\{$module_dir}\\Services\\FrontendService",
         "DiviChild\\Modules\\{$module_dir}\\FrontendService"
       ];
 
@@ -153,6 +157,47 @@ abstract class Module implements ModuleInterface
         break;
       }
     }
+  }
+
+  /**
+   * Initialisiert den REST Controller falls vorhanden
+   * @return void
+   * @since 3.0.0
+   */
+  public function init_rest_controller()
+  {
+    if ($this->rest_controller !== null) {
+      error_log("⚠️ REST Controller für {$this->slug} bereits initialisiert");
+      return;
+    }
+    $reflection = new \ReflectionClass($this);
+    $module_dir = basename(dirname($reflection->getFileName()));
+
+    $possible_namespaces = [
+      "DiviChild\\Modules\\{$module_dir}\\API\\RestController",
+      "DiviChild\\Modules\\{$module_dir}\\RestController"
+    ];
+
+    foreach ($possible_namespaces as $class_name) {
+      if (class_exists($class_name)) {
+        $this->rest_controller = new $class_name($this);
+        if (method_exists($this->rest_controller, 'register_routes')) {
+          $this->rest_controller->register_routes();
+        }
+
+        error_log("✅ REST Controller initialized for module: {$this->slug}");
+        break;
+      }
+    }
+  }
+
+  /**
+   * Gibt den REST Controller zurück
+   * @return mixed|null
+   */
+  public function get_rest_controller()
+  {
+    return $this->rest_controller ?? null;
   }
 
   /**
@@ -487,7 +532,7 @@ abstract class Module implements ModuleInterface
    * @since 3.0.0
    */
   public function get_author()
-  {    
+  {
     return $this->author;
   }
 

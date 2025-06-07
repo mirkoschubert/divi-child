@@ -9,7 +9,7 @@ import type {
   ModuleInfo,
 } from '@/types'
 
-export const useModules = () => {
+export const useModules = (): UseModulesReturn => {
   const [modules, setModules] = useState<Record<string, ModuleInfo>>({})
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -51,14 +51,23 @@ export const useModules = () => {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`)
       }
 
-      const data = await response.json()
+      const data = await response.json() as ModulesApiResponse
 
       if (data.success && data.data) {
-        setModules(data.data)
+        // 🔧 Type-Safe Verarbeitung
+        const processedModules: Record<string, ModuleInfo> = {}
+        
+        Object.entries(data.data).forEach(([slug, moduleData]) => {
+          // Type assertion für moduleData
+          const module = moduleData as ModuleInfo
+          processedModules[slug] = module
+        })
+
+        setModules(processedModules)
 
         // 🔍 DEBUG: Detaillierte Analyse jedes Moduls
         console.group('🔍 Module Analysis')
-        Object.entries(data.data).forEach(([slug, module]) => {
+        Object.entries(processedModules).forEach(([slug, module]) => {
           console.group(`📦 Module: ${slug}`)
           console.log('✅ All properties:', Object.keys(module))
           console.log('📖 Name:', module.name)

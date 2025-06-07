@@ -10,6 +10,7 @@ final class Pagespeed extends Module
   protected $enabled = true;
   protected $name = 'Pagespeed';
   protected $description = 'Google Pagespeed optimization module for WordPress.';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'pagespeed';
   protected $dependencies = [
@@ -22,9 +23,10 @@ final class Pagespeed extends Module
     'remove_version_strings' => true,
     'remove_shortlink' => true,
     'preload_fonts' => false,
-    'preload_fonts_list' => ['/wp-content/themes/Divi/core/admin/fonts/modules/all/modules.woff']
+    'preload_fonts_list' => [
+      ['path' => '/wp-content/themes/Divi/core/admin/fonts/modules/all/modules.woff']
+    ]
   ];
-
 
   /**
    * Summary of admin_settings
@@ -66,13 +68,24 @@ final class Pagespeed extends Module
         'default' => $this->default_options['preload_fonts'],
       ],
       'preload_fonts_list' => [
-        'type' => 'list',
+        'type' => 'repeater',
         'label' => __('Fonts List', 'divi-child'),
-        'description' => __('Enter Fonts (without domain) to preload.', 'divi-child'),
+        'description' => __('Enter font paths to preload for better performance.', 'divi-child'),
+        'fields' => [
+          'path' => [
+            'type' => 'text',
+            'label' => __('Font Path', 'divi-child'),
+            'description' => __('Path starting with "/wp-content/" and ending with font extension', 'divi-child'),
+            'default' => '',
+            'validate' => [
+              'pattern' => '/^\/wp-content\/.*\.(woff|woff2|ttf|otf|eot)$/',
+              'error_message' => __('Please enter a valid font path. It should start with "/wp-content/" and end with a font extension (woff, woff2, ttf, otf, eot).', 'divi-child')
+            ]
+          ]
+        ],
         'default' => $this->default_options['preload_fonts_list'],
-        'validate' => [
-          'pattern' => '/^\/wp-content\/.*\.(woff|woff2|ttf|otf|eot)$/',
-          'error_message' => __('Please enter a valid font path. It should start with "/wp-content/" and end with a font extension (woff, woff2, ttf, otf, eot).', 'divi-child')
+        'depends_on' => [
+          'preload_fonts' => true
         ]
       ],
     ];

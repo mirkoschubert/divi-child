@@ -61,22 +61,41 @@ final class Config
    */
   public function save_module_options($module_slug, $options)
   {
-    if (empty($this->options)) {
-      $this->options = $this->get_options();
-    }
-
-    // Vergleiche die neuen Optionen mit den vorhandenen
-    $has_changes = !isset($this->options[$module_slug]) || 
-                   $this->options[$module_slug] != $options;
-
-    // Speichere nur, wenn sich etwas geändert hat
-    if ($has_changes) {
-      $this->options[$module_slug] = $options;
-      // Speichern und Ergebnis zurückgeben
-      $result = update_option('divi_child_options', $this->options);
-      return $result;
-    }
+    error_log("🔥 save_module_options called for: {$module_slug}");
     
+    if (empty($this->options)) {
+        $this->options = $this->get_options();
+    }
+
+    $old_options = $this->options[$module_slug] ?? [];
+    
+    // 🎯 DEBUG: Was genau wird verglichen?
+    error_log("🔍 Old options: " . print_r($old_options, true));
+    error_log("🔍 New options: " . print_r($options, true));
+    
+    $has_changes = $old_options != $options;
+    
+    error_log("🔍 Has changes: " . ($has_changes ? 'YES' : 'NO'));
+
+    if ($has_changes) {
+        $this->options[$module_slug] = $options;
+        
+        // Hook VOR dem Speichern
+        do_action('divi_child_module_options_saving_' . $module_slug, $options, $old_options);
+        
+        $result = update_option('divi_child_options', $this->options);
+        
+        // Hook NACH dem Speichern
+        if ($result) {
+            error_log("🔥 Firing hook: divi_child_module_options_saved_{$module_slug}");
+            do_action('divi_child_module_options_saved_' . $module_slug, $options, $old_options);
+        }
+        
+        return $result;
+    } else {
+        error_log("⚠️ No changes detected - hook NOT fired!");
+    }
+
     return true;
   }
 

@@ -27,7 +27,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   const [formData, setFormData] = useState<Record<string, unknown>>({})
   const [isLoading, setIsLoading] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
-  const [hiddenFields, setHiddenFields] = useState<Set<string>>(new Set())
 
   // Initialisiere Formulardaten
   useEffect(() => {
@@ -39,34 +38,20 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
       const currentValue = module.options[fieldId]
       initialData[fieldId] =
         currentValue !== undefined ? currentValue : fieldConfig.default
+
+      // 🔍 Debug für depends_on Struktur
+      /* if (fieldConfig.depends_on) {
+        console.log(`🔍 Field ${fieldId} dependencies:`, fieldConfig.depends_on)
+      } */
     })
 
+    console.log('🔍 Initial form data:', initialData)
     setFormData(initialData)
-    updateFieldVisibility(initialData)
   }, [module])
-
-  // Update field visibility based on dependencies
-  const updateFieldVisibility = (data: Record<string, unknown>) => {
-    const hidden = new Set<string>()
-
-    Object.entries(module.admin_settings).forEach(([fieldId, fieldConfig]) => {
-      if (fieldConfig.depends_on && fieldConfig.depends_value !== undefined) {
-        const dependentValue = data[fieldConfig.depends_on]
-        const requiredValue = fieldConfig.depends_value
-
-        if (dependentValue !== requiredValue) {
-          hidden.add(fieldId)
-        }
-      }
-    })
-
-    setHiddenFields(hidden)
-  }
 
   const handleFieldChange = (fieldId: string, value: unknown) => {
     const newData = { ...formData, [fieldId]: value }
     setFormData(newData)
-    updateFieldVisibility(newData)
   }
 
   const handleToggleChange = (fieldId: string, isChecked: boolean) => {
@@ -85,7 +70,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   }
 
   const renderField = (fieldId: string, fieldConfig: FieldConfig) => {
-    if (fieldId === 'enabled' || hiddenFields.has(fieldId)) {
+    if (fieldId === 'enabled') {
       return null
     }
 
@@ -95,6 +80,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
         fieldId={fieldId}
         fieldConfig={fieldConfig}
         value={formData[fieldId]}
+        allValues={formData} // 🔧 FIXED: allValues hinzugefügt
         onChange={(value) => handleFieldChange(fieldId, value)}
         onToggle={handleToggleChange}
       />

@@ -58,8 +58,8 @@ final class Umami extends Module
       ],
       'events' => [
         'type' => 'repeater',
-        'label' => 'Umami Events',
-        'description' => 'Konfiguriere Events für Umami Analytics',
+        'label' => __('Umami Events', 'divi-child'),
+        'description' => __('Configure events for Umami Analytics', 'divi-child'),
         'fields' => [
           'id' => [
             'type' => 'text',
@@ -74,7 +74,7 @@ final class Umami extends Module
         ],
         'default' => [],
         'depends_on' => [
-          'enable_events' => 'true'
+          'enable_events' => true
         ]
       ],
     ];

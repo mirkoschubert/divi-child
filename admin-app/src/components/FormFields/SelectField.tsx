@@ -24,6 +24,8 @@ const SelectField: React.FC<SelectFieldProps> = ({
   return (
     <div className="dvc-field select-field">
       <SelectControl
+        __next40pxDefaultSize
+        __nextHasNoMarginBottom
         label={config.label}
         help={config.description}
         value={value}

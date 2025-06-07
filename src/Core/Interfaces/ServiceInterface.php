@@ -3,7 +3,6 @@
 namespace DiviChild\Core\Interfaces;
 
 interface ServiceInterface {
-
     /**
      * Gibt den Modul-Slug zurück
      * @return string

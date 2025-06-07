@@ -19,6 +19,7 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
   return (
     <div className="dvc-field textarea-field">
       <TextareaControl
+        __nextHasNoMarginBottom
         label={config.label}
         help={config.description}
         value={value}

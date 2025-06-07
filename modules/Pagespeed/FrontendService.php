@@ -38,7 +38,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
     }
   }
 
-
   /**
    * Lädt Frontend-spezifische Assets
    * @return void
@@ -49,7 +48,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
   {
     // Keine Assets für dieses Modul im Frontend
   }
-
 
   /**
    * Entfernt den Pingback-Header
@@ -67,7 +65,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
     }
   }
 
-
   /**
    * Entfernt Dashicons vom Frontend
    * @return void
@@ -81,7 +78,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
     }
     wp_deregister_style('dashicons');
   }
-
 
   /**
    * Entfernt CSS- und JS-Version-Query-Strings
@@ -98,7 +94,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
 
     return $src;
   }
-
 
   /**
    * Entfernt den Shortlink-Header
@@ -119,11 +114,24 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
    */
   public function preload_fonts()
   {
-    $fonts = $this->get_module_option('preload_fonts_list');
-    foreach ($fonts as $font) {
-      $font_type = 'font/' . substr($font, strrpos($font, ".") + 1);
-      $font_path = (substr($font, 0, 4) === "http") ? $font : get_site_url() . $font;
-      echo '<link rel="preload" href="' . $font_path . '" as="font" type="' . $font_type . '" crossorigin="anonymous">' . "\n";
+    $fonts_data = $this->get_module_option('preload_fonts_list');
+    
+    // 🔧 Neue Datenstruktur verarbeiten
+    if (is_array($fonts_data)) {
+      foreach ($fonts_data as $font_item) {
+        if (is_array($font_item) && isset($font_item['path'])) {
+          $font_path = $font_item['path'];
+        } else {
+          // Fallback für alte Datenstruktur (Migration)
+          $font_path = is_string($font_item) ? $font_item : '';
+        }
+        
+        if (!empty($font_path)) {
+          $font_type = 'font/' . substr($font_path, strrpos($font_path, ".") + 1);
+          $font_url = (substr($font_path, 0, 4) === "http") ? $font_path : get_site_url() . $font_path;
+          echo '<link rel="preload" href="' . esc_url($font_url) . '" as="font" type="' . esc_attr($font_type) . '" crossorigin="anonymous">' . "\n";
+        }
+      }
     }
   }
 }

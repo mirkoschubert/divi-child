@@ -9,10 +9,10 @@ use DiviChild\Admin\Admin;
 
 final class Theme
 {
-
   protected $admin;
   protected $migration;
   protected $config;
+  protected $rest_controller;
   protected $options = [];
 
   /**
@@ -46,8 +46,8 @@ final class Theme
   }
 
   public function init_rest_api() {
-    $rest_controller = new RestController();
-    $rest_controller->register_routes();
+    $this->rest_controller = new RestController();
+    $this->rest_controller->register_routes();
   }
 
   public function activate($old_name = '', $old_theme = null) {

@@ -51,12 +51,11 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
     const updatedValue = value.filter((_, i) => i !== index)
     onChange(updatedValue)
 
-    // Expanded-Status für gelöschtes Item entfernen
     setExpandedItems((prev) => {
       const newSet = new Set(prev)
       newSet.delete(index)
       // Indices der nachfolgenden Items anpassen
-      const adjustedSet = new Set()
+      const adjustedSet = new Set<number>()
       newSet.forEach((i) => {
         if (i < index) {
           adjustedSet.add(i)
@@ -91,11 +90,11 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
 
   const getItemPreview = (item: Record<string, unknown>): string => {
     // Versuche ein aussagekräftiges Preview zu erstellen
-    const previewFields = ['title', 'name', 'label', 'text']
+    const previewFields = ['title', 'name', 'label', 'text', 'id']
 
     for (const field of previewFields) {
       if (item[field] && typeof item[field] === 'string') {
-        const preview = String(item[field]).substring(0, 50)
+        const preview = String(item[field]).substring(0, 40)
         return preview.length < String(item[field]).length
           ? preview + '...'
           : preview
@@ -105,21 +104,24 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
     // Fallback: Erstes verfügbares Feld
     const firstValue = Object.values(item)[0]
     if (firstValue && typeof firstValue === 'string') {
-      const preview = firstValue.substring(0, 30)
+      const preview = firstValue.substring(0, 25)
       return preview.length < firstValue.length ? preview + '...' : preview
     }
 
-    return __('Item', 'divi-child')
+    return __('Empty item', 'divi-child')
   }
 
   return (
     <div className="dvc-field repeater-field">
-      <label className="dvc-field-label">
-        {config.label}
+      {/* 🔧 Label und Description wie bei TextField */}
+      <div className="dvc-field-header">
+        <label className="dvc-field-label" htmlFor={id}>
+          {config.label}
+        </label>
         {config.description && (
           <p className="dvc-field-description">{config.description}</p>
         )}
-      </label>
+      </div>
 
       <div className="repeater-items">
         {value.map((item, index) => {
@@ -133,29 +135,40 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                 isExpanded ? 'expanded' : 'collapsed'
               }`}
             >
-              <CardHeader>
+              <CardHeader className="repeater-item-header">
                 <Flex justify="space-between" align="center">
-                  <FlexItem>
+                  <FlexItem
+                    className="repeater-item-toggle"
+                    onClick={() => toggleExpanded(index)} // 🔧 Ganzer Bereich klickbar
+                    style={{ cursor: 'pointer', flex: 1 }} // 🔧 Flex: 1 für vollen Platz
+                  >
                     <Button
                       variant="tertiary"
-                      onClick={() => toggleExpanded(index)}
+                      onClick={(e) => {
+                        e.stopPropagation() // 🔧 Verhindert Doppel-Events
+                        toggleExpanded(index)
+                      }}
                       className="expand-toggle"
                     >
-                      <strong>
-                        {__('Item', 'divi-child')} {index + 1}
-                      </strong>
-                      {!isExpanded && (
-                        <span className="item-preview">: {preview}</span>
-                      )}
-                      <span className="dashicon">{isExpanded ? '↑' : '↓'}</span>
+                      {/* 🔧 Besserer Pfeil mit mehr Abstand */}
+                      <span className="expand-icon">
+                        {isExpanded ? '▼' : '▶'}
+                      </span>
+                      <span className="item-label">
+                        {preview || __('Empty item', 'divi-child')}
+                      </span>
                     </Button>
                   </FlexItem>
                   <FlexItem>
                     <Button
                       variant="secondary"
                       isDestructive
-                      onClick={() => removeItem(index)}
+                      onClick={(e) => {
+                        e.stopPropagation() // 🔧 Verhindert versehentliches Aufklappen
+                        removeItem(index)
+                      }}
                       className="remove-item-btn"
+                      size="small"
                     >
                       {__('Remove', 'divi-child')}
                     </Button>
@@ -164,7 +177,8 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
               </CardHeader>
 
               {isExpanded && (
-                <CardBody>
+                <CardBody className="repeater-item-content">
+                  {/* 🔧 Kein wrapper - Felder direkt rendern */}
                   <div className="repeater-fields">
                     {config.fields &&
                       Object.entries(config.fields).map(
@@ -174,8 +188,12 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                             fieldId={fieldId}
                             fieldConfig={fieldConfig}
                             value={item[fieldId]}
+                            allValues={item}
                             onChange={(newValue) =>
                               updateItem(index, fieldId, newValue)
+                            }
+                            onToggle={(fieldId, value) =>
+                              updateItem(index, fieldId, value)
                             }
                           />
                         )
@@ -186,6 +204,13 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
             </Card>
           )
         })}
+
+        {/* Leerer Zustand */}
+        {value.length === 0 && (
+          <div className="repeater-empty">
+            <p>{__('No items yet. Add your first item below.', 'divi-child')}</p>
+          </div>
+        )}
       </div>
 
       <Button

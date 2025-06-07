@@ -22,14 +22,13 @@ export interface AdminSettings {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'toggle' | 'select' | 'number' | 'list' | 'repeater';
+  type: 'text' | 'textarea' | 'toggle' | 'select' | 'multi_select' | 'number' | 'list' | 'repeater' | 'font_selector';
   label: string;
   description?: string;
   default?: unknown;
   options?: Record<string, string>; // Für select fields
   fields?: Record<string, FieldConfig>; // Für repeater fields
-  depends_on?: string;
-  depends_value?: string | boolean;
+  depends_on?: Record<string, string | boolean | number>;
   validate?: {
     pattern?: string;
     min?: number;

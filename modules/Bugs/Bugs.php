@@ -54,7 +54,7 @@ final class Bugs extends Module
         'max' => 200,
         'step' => 1,
         'depends_on' => [
-          'fixed_navigation' => 'true'
+          'fixed_navigation' => true
         ]
       ],
       'display_errors' => [
