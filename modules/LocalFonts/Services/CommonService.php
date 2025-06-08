@@ -22,7 +22,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
     // 🎯 FONT-HOOKS IMMER REGISTRIEREN (Frontend + Builder)
     if (!empty($this->get_module_option('selected_fonts'))) {
       add_filter('et_websafe_fonts', [$this, 'register_local_fonts_websafe'], 999, 1);
-      error_log("🎯 LocalFonts: Websafe fonts hook registered in COMMON (Frontend + Builder)");
     }
 
     // 🎯 AUTO-UPDATE SYSTEM - läuft überall
@@ -31,7 +30,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
     // Cron-Job registrieren (nur einmal)
     if (!wp_next_scheduled('divi_child_check_font_updates')) {
       wp_schedule_event(strtotime('03:00:00'), 'daily', 'divi_child_check_font_updates');
-      error_log("✅ Font auto-update cron scheduled for 3am daily");
     }
 
     // Cleanup-Cron
@@ -44,11 +42,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
    */
   public function register_local_fonts_websafe($fonts)
   {
-    error_log("🎯 register_local_fonts_websafe CALLED FROM COMMON SERVICE!");
-    error_log("🔍 is_admin(): " . (is_admin() ? 'true' : 'false'));
-    error_log("🔍 doing_ajax(): " . (wp_doing_ajax() ? 'true' : 'false'));
-    error_log("🔍 Input fonts count: " . count($fonts));
-
     $installed_fonts = get_option('divi_child_installed_fonts', []);
 
     if (empty($installed_fonts)) {
@@ -70,10 +63,8 @@ class CommonService extends ModuleService implements CommonServiceInterface
         'standard' => 1
       ];
 
-      error_log("✅ Added to websafe_fonts FROM COMMON: {$font_family}");
     }
 
-    error_log("🎯 Final fonts count FROM COMMON: " . count($fonts));
     return $fonts;
   }
 
@@ -263,7 +254,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
     $update_log = array_slice($update_log, 0, 50);
 
     update_option('divi_child_font_update_log', $update_log);
-    error_log("📝 Auto-update log saved: " . count($font_updates) . " fonts updated");
   }
 
 
@@ -293,7 +283,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
     foreach ($actual_files as $file) {
       if (!in_array($file, $expected_files)) {
         unlink($fonts_dir . '/' . $file);
-        error_log("🧹 Auto-cleaned orphaned file: {$file}");
       }
     }
   }

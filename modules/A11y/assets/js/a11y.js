@@ -476,6 +476,87 @@
   }
 
   /**
+   * Enhanced ARIA Labeling for Social Icons and Sliders
+   */
+  function setupEnhancedAriaLabeling() {
+    // Social Icons Module Enhancement
+    $(".et-social-icon").each(function(){  
+      const $this = $(this)
+      const classList = $this.attr("class")
+      
+      if (classList) {
+        // Extract social network name
+        let socialName = classList.replace("et-social-icon", "").trim()
+                                 .replace("et-social-", "").trim()
+        
+        if (socialName) {
+          // Clean up network name for better readability
+          socialName = socialName.replace("-", " ")
+          socialName = socialName.replace("google plus", "Google Plus")
+          
+          const ariaLabel = wp.i18n.sprintf(
+            wp.i18n.__('Visit our %s page', 'divi-child'),
+            socialName
+          )
+          $this.find("a").attr("aria-label", ariaLabel)
+        }
+      }
+    })
+
+    // Individual Social Media Icons in Social Media Module
+    $(".et_pb_social_icon > a.icon").each(function(){
+      const $this = $(this)
+      const titleText = $this.attr("title")
+      
+      if (titleText) {
+        $this.attr("aria-label", titleText)
+      }
+    })
+
+    // Slider Navigation Controls
+    $("a.et-pb-arrow-prev").each(function(){
+      $(this).attr({
+        "aria-label": wp.i18n.__('Previous slide', 'divi-child'),
+        "role": "button"
+      })
+    })
+
+    $("a.et-pb-arrow-next").each(function(){
+      $(this).attr({
+        "aria-label": wp.i18n.__('Next slide', 'divi-child'), 
+        "role": "button"
+      })
+    })
+
+    // Swiper Controls
+    $(".swiper-button-prev").attr("aria-label", wp.i18n.__('Previous slide', 'divi-child'))
+    $(".swiper-button-next").attr("aria-label", wp.i18n.__('Next slide', 'divi-child'))
+
+    // Video Play Buttons
+    $("a.et_pb_video_play").each(function(){
+      $(this).attr("aria-label", wp.i18n.__('Play video', 'divi-child'))
+    })
+  }
+
+  /**
+   * Fix Duplicate Menu IDs
+   */
+  function fixDuplicateMenuIds() {
+    const seenIds = new Set()
+    
+    $("[id]").each(function() {
+      const currentId = $(this).attr("id")
+      
+      if (seenIds.has(currentId)) {
+        // Remove duplicate ID
+        $(this).removeAttr("id")
+      } else {
+        seenIds.add(currentId)
+      }
+    })
+  }
+
+  /**
    * Accordion & Toggle Module Support
    */
   function setupAccordionAndToggle() {
@@ -574,6 +655,8 @@
     if (isFeatureEnabled("aria_support")) {
       setupAriaSupport()
       setupAccordionAndToggle()
+      setupEnhancedAriaLabeling()
+      fixDuplicateMenuIds()
     }
 
     if (isFeatureEnabled("external_links")) {

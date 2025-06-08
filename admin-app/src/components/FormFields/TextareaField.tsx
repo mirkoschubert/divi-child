@@ -8,6 +8,7 @@ interface TextareaFieldProps {
   config: FieldConfig
   value: string
   onChange: (value: string) => void
+  className?: string
 }
 
 const TextareaField: React.FC<TextareaFieldProps> = ({
@@ -15,9 +16,10 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
   config,
   value,
   onChange,
+  className = ''
 }) => {
   return (
-    <div className="dvc-field textarea-field">
+    <div className={`dvc-field textarea-field ${className}`}>
       <TextareaControl
         __nextHasNoMarginBottom
         label={config.label}

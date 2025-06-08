@@ -5,5 +5,5 @@ export { default as MultiSelectField } from './MultiSelectField'
 export { default as NumberField } from './NumberField'
 export { default as RepeaterField } from './RepeaterField'
 export { default as TextareaField } from './TextareaField'
-export { default as FontSelectorField } from './FontSelectorField'
-
+export { default as ColorField } from './ColorField'
+export { default as GroupField } from './GroupField'

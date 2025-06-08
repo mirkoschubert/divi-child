@@ -8,6 +8,7 @@ interface NumberFieldProps {
   config: FieldConfig
   value: number
   onChange: (value: number) => void
+  className?: string
 }
 
 const NumberField: React.FC<NumberFieldProps> = ({
@@ -15,12 +16,13 @@ const NumberField: React.FC<NumberFieldProps> = ({
   config,
   value,
   onChange,
+  className = ''
 }) => {
   const min = config.validate?.min
   const max = config.validate?.max
 
   return (
-    <div className="dvc-field number-field">
+    <div className={`dvc-field number-field ${className}`}>
       <NumberControl
         __next40pxDefaultSize
         label={config.label}

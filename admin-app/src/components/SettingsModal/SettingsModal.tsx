@@ -27,24 +27,36 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   const [formData, setFormData] = useState<Record<string, unknown>>({})
   const [isLoading, setIsLoading] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null)
 
   // Initialisiere Formulardaten
   useEffect(() => {
     const initialData: Record<string, unknown> = {}
+    let firstGroupFound = false
 
-    Object.entries(module.admin_settings).forEach(([fieldId, fieldConfig]) => {
-      if (fieldId === 'enabled') return // Skip enabled field
+    const flattenFields = (fields: Record<string, any>, prefix = '') => {
+      Object.entries(fields).forEach(([fieldId, fieldConfig]) => {
+        if (fieldId === 'enabled') return // Skip enabled field
 
-      const currentValue = module.options[fieldId]
-      initialData[fieldId] =
-        currentValue !== undefined ? currentValue : fieldConfig.default
+        if (fieldConfig.type === 'group') {
+          // Set first group as expanded
+          if (!firstGroupFound) {
+            setExpandedGroup(fieldId)
+            firstGroupFound = true
+          }
+          // Recursively flatten group fields
+          if (fieldConfig.fields) {
+            flattenFields(fieldConfig.fields, prefix)
+          }
+        } else {
+          // Regular field - use current options or default
+          const currentValue = module.options[fieldId]
+          initialData[fieldId] = currentValue !== undefined ? currentValue : fieldConfig.default
+        }
+      })
+    }
 
-      // 🔍 Debug für depends_on Struktur
-      /* if (fieldConfig.depends_on) {
-        console.log(`🔍 Field ${fieldId} dependencies:`, fieldConfig.depends_on)
-      } */
-    })
-
+    flattenFields(module.admin_settings)
     console.log('🔍 Initial form data:', initialData)
     setFormData(initialData)
   }, [module])
@@ -58,6 +70,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     handleFieldChange(fieldId, isChecked)
   }
 
+  const handleGroupToggle = (groupId: string) => {
+    setExpandedGroup(expandedGroup === groupId ? null : groupId)
+  }
+
   const handleSave = async () => {
     setIsSaving(true)
     try {
@@ -69,7 +85,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     }
   }
 
-  const renderField = (fieldId: string, fieldConfig: FieldConfig) => {
+  const renderField = (fieldId: string, fieldConfig: FieldConfig, index: number) => {
     if (fieldId === 'enabled') {
       return null
     }
@@ -80,9 +96,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
         fieldId={fieldId}
         fieldConfig={fieldConfig}
         value={formData[fieldId]}
-        allValues={formData} // 🔧 FIXED: allValues hinzugefügt
+        allValues={formData}
         onChange={(value) => handleFieldChange(fieldId, value)}
         onToggle={handleToggleChange}
+        isFirstGroup={index === 0 && fieldConfig.type === 'group'}
+        isExpanded={fieldConfig.type === 'group' && expandedGroup === fieldId}
+        onGroupToggle={handleGroupToggle}
+        onFieldChange={handleFieldChange}
       />
     )
   }
@@ -108,8 +128,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
       ) : (
         <>
           <div className="dvc-form">
-            {Object.entries(module.admin_settings).map(([fieldId, fieldConfig]) =>
-              renderField(fieldId, fieldConfig)
+            {Object.entries(module.admin_settings).map(([fieldId, fieldConfig], index) =>
+              renderField(fieldId, fieldConfig, index)
             )}
           </div>
 

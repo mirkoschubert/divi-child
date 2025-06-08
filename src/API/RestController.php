@@ -95,7 +95,7 @@ class RestController extends WP_REST_Controller
           'version' => $module->get_version(),
           'enabled' => isset($options['enabled']) && $options['enabled'] === true,
           'options' => $options,
-          'admin_settings' => $module->admin_settings()
+          'admin_settings' => $module->get_admin_settings_with_dependencies()
         ];
       }
 

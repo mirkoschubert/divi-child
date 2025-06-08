@@ -30,7 +30,15 @@
     padding: 0 !important
     
   .dvc-form
-    padding: 24px 0
+    padding: 0
+    
+    // If first child is NOT a group, add top padding
+    > .dvc-field:not(.group-field):first-child
+      margin-top: 24px
+      
+    // If last child is NOT a group, add bottom padding  
+    > .dvc-field:not(.group-field):last-child
+      margin-bottom: 24px
     
   .dvc-loading
     display: flex
@@ -78,7 +86,11 @@
       margin: 20px auto !important
       
     .dvc-form
-      padding: 16px 0
+      > .dvc-field:not(.group-field):first-child
+        margin-top: 16px
+        
+      > .dvc-field:not(.group-field):last-child
+        margin-bottom: 16px
       
     .dvc-modal-footer
       padding: 12px 16px

@@ -70,7 +70,7 @@ final class Admin
     $js_file_url = $this->config->theme_url . '/admin-app/build/admin-app.js';
 
     if (!file_exists($js_file_path)) {
-      error_log("React Admin JS file not found: {$js_file_path}");
+      error_log("❌ React Admin JS file not found: {$js_file_path}");
       return;
     }
 

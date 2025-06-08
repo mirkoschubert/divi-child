@@ -16,13 +16,10 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
   {
     parent::init_frontend();
 
-    error_log("🎯 LocalFonts FrontendService INIT - Klasse geladen!");
-
     // CSS-Dateien einbinden (nur im Frontend)
     $selected_fonts = $this->get_module_option('selected_fonts');
     if (!empty($selected_fonts)) {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_local_fonts'], 5);
-        error_log("✅ CSS enqueue registered");
     }
   }
 
@@ -49,8 +46,6 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
           [],
           filemtime($css_path)
         );
-
-        error_log("✅ Enqueued CSS: {$css_filename}");
       } else {
         error_log("❌ CSS file not found: {$css_path}");
       }

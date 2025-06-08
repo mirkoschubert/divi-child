@@ -48,6 +48,7 @@ abstract class ModuleService implements ServiceInterface
   {
     // Basisinitialisierung für gemeinsame Funktionalitäten, kann von Kindklassen überschrieben werden
     add_action('wp_enqueue_scripts', [$this, 'enqueue_common_assets']);
+    add_action('admin_enqueue_scripts', [$this, 'enqueue_common_assets']);
   }
 
 

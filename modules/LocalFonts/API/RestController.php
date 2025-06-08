@@ -107,7 +107,7 @@ class RestController extends ModuleController
         ]);
 
         if (is_wp_error($response)) {
-            error_log('Google Fonts API Error: ' . $response->get_error_message());
+            error_log('❌ Google Fonts API Error: ' . $response->get_error_message());
             return [];
         }
 
@@ -115,7 +115,7 @@ class RestController extends ModuleController
         $data = json_decode($body, true);
 
         if (!isset($data['items']) || !is_array($data['items'])) {
-            error_log('Google Fonts API returned invalid data');
+            error_log('❌ Google Fonts API returned invalid data');
             return [];
         }
 

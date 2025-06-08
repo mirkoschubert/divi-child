@@ -94,7 +94,7 @@ final class LocalFonts extends Module
     ]);
 
     if (is_wp_error($response)) {
-      error_log('Webfonts Helper API Error: ' . $response->get_error_message());
+      error_log('❌ Webfonts Helper API Error: ' . $response->get_error_message());
       return $this->get_websafe_fonts_options();
     }
 
@@ -153,13 +153,11 @@ final class LocalFonts extends Module
 
     $fonts_to_download = array_diff($new_selected, $old_selected);
     if (!empty($fonts_to_download)) {
-      error_log("🔽 Admin triggered font downloads: " . implode(', ', $fonts_to_download));
       $downloads->download_fonts($fonts_to_download);
     }
 
     $fonts_to_remove = array_diff($old_selected, $new_selected);
     if (!empty($fonts_to_remove)) {
-      error_log("🗑️ Admin triggered font removal: " . implode(', ', $fonts_to_remove));
       $downloads->remove_fonts($fonts_to_remove);
     }
   }

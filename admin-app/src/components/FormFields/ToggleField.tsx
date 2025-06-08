@@ -9,6 +9,7 @@ interface ToggleFieldProps {
   value: boolean
   onChange: (value: boolean) => void
   onToggle?: (fieldId: string, isChecked: boolean) => void
+  className?: string
 }
 
 const ToggleField: React.FC<ToggleFieldProps> = ({ 
@@ -16,7 +17,8 @@ const ToggleField: React.FC<ToggleFieldProps> = ({
   config, 
   value, 
   onChange, 
-  onToggle 
+  onToggle,
+  className = ''
 }) => {
   const handleChange = (checked: boolean) => {
     onChange(checked)
@@ -24,7 +26,7 @@ const ToggleField: React.FC<ToggleFieldProps> = ({
   }
 
   return (
-    <div className="dvc-field toggle-field">
+    <div className={`dvc-field toggle-field ${className}`}>
       <ToggleControl
         __nextHasNoMarginBottom
         label={config.label}

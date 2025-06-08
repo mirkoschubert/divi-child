@@ -45,7 +45,7 @@ final class Config
   public function get_module_options($module_slug)
   {
     if (!isset($this->options[$module_slug])) {
-      error_log("Keine Optionen für {$module_slug} gefunden.");
+      error_log("❌ Keine Optionen für {$module_slug} gefunden.");
       return [];
     }
 
@@ -60,23 +60,14 @@ final class Config
    * @since 3.0.0
    */
   public function save_module_options($module_slug, $options)
-  {
-    error_log("🔥 save_module_options called for: {$module_slug}");
-    
+  {    
     if (empty($this->options)) {
         $this->options = $this->get_options();
     }
 
-    $old_options = $this->options[$module_slug] ?? [];
-    
-    // 🎯 DEBUG: Was genau wird verglichen?
-    error_log("🔍 Old options: " . print_r($old_options, true));
-    error_log("🔍 New options: " . print_r($options, true));
-    
+    $old_options = $this->options[$module_slug] ?? [];    
     $has_changes = $old_options != $options;
     
-    error_log("🔍 Has changes: " . ($has_changes ? 'YES' : 'NO'));
-
     if ($has_changes) {
         $this->options[$module_slug] = $options;
         
@@ -87,7 +78,6 @@ final class Config
         
         // Hook NACH dem Speichern
         if ($result) {
-            error_log("🔥 Firing hook: divi_child_module_options_saved_{$module_slug}");
             do_action('divi_child_module_options_saved_' . $module_slug, $options, $old_options);
         }
         
@@ -204,7 +194,7 @@ final class Config
           'instance' => $instance
         ];
       } else {
-        error_log("Invalid module instance for slug: $slug");
+        error_log("❌ Invalid module instance for slug: $slug");
       }
     }
 

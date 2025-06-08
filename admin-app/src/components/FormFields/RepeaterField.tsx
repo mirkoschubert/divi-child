@@ -19,6 +19,7 @@ interface RepeaterFieldProps {
   config: FieldConfig
   value: Record<string, unknown>[]
   onChange: (value: Record<string, unknown>[]) => void
+  className?: string
 }
 
 const RepeaterField: React.FC<RepeaterFieldProps> = ({
@@ -26,6 +27,7 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
   config,
   value,
   onChange,
+  className = '',
 }) => {
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
 
@@ -112,7 +114,7 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
   }
 
   return (
-    <div className="dvc-field repeater-field">
+    <div className={`dvc-field repeater-field ${className}`}>
       {/* 🔧 Label und Description wie bei TextField */}
       <div className="dvc-field-header">
         <label className="dvc-field-label" htmlFor={id}>
@@ -144,7 +146,7 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                   >
                     <Button
                       variant="tertiary"
-                      onClick={(e) => {
+                      onClick={(e: React.MouseEvent) => {
                         e.stopPropagation() // 🔧 Verhindert Doppel-Events
                         toggleExpanded(index)
                       }}
@@ -163,7 +165,7 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                     <Button
                       variant="secondary"
                       isDestructive
-                      onClick={(e) => {
+                      onClick={(e: React.MouseEvent) => {
                         e.stopPropagation() // 🔧 Verhindert versehentliches Aufklappen
                         removeItem(index)
                       }}

@@ -6,7 +6,8 @@ import {
   NumberField,
   RepeaterField,
   TextareaField,
-  FontSelectorField,
+  ColorField,
+  GroupField,
 } from '../FormFields'
 import type { FieldConfig } from '@/types'
 import { useMemo } from 'react'
@@ -18,6 +19,10 @@ interface FormFieldRendererProps {
   allValues: Record<string, unknown>
   onChange: (value: unknown) => void
   onToggle?: (fieldId: string, isChecked: boolean) => void
+  isFirstGroup?: boolean
+  isExpanded?: boolean
+  onGroupToggle?: (groupId: string) => void
+  onFieldChange?: (fieldId: string, value: unknown) => void
 }
 
 export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
@@ -27,6 +32,10 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
   allValues,
   onChange,
   onToggle,
+  isFirstGroup = false,
+  isExpanded = false,
+  onGroupToggle,
+  onFieldChange,
 }) => {
   // 🔧 Dependency-Check für die echte API-Struktur
   const isVisible = useMemo(() => {
@@ -56,6 +65,14 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
     return null
   }
 
+  // 🔧 Dependency Status Check
+  const getDependencyStatus = () => {
+    if (!fieldConfig.dependency_status) return '';
+    return fieldConfig.dependency_status.supported ? '' : 'unsupported';
+  }
+
+  // Dependency-Message wird nicht mehr angezeigt - Requirements stehen in der Description
+
   // Rest bleibt gleich...
   const commonProps = {
     id: fieldId,
@@ -64,11 +81,14 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
     onChange,
   }
 
+  const dependencyClass = getDependencyStatus()
+
   switch (fieldConfig.type) {
     case 'text':
       return (
         <TextField
           {...commonProps}
+          className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
         />
@@ -78,6 +98,7 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <TextareaField
           {...commonProps}
+          className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
         />
@@ -87,6 +108,7 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <ToggleField
           {...commonProps}
+          className={dependencyClass}
           value={Boolean(value)}
           onChange={onChange}
           onToggle={onToggle}
@@ -97,6 +119,7 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <SelectField
           {...commonProps}
+          className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
         />
@@ -106,7 +129,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <MultiSelectField
           {...commonProps}
-          value={(value as Record<string, unknown>[]) || []}
+          className={dependencyClass}
+          value={(value as string[]) || []}
           onChange={onChange}
         />
       )
@@ -115,6 +139,7 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <NumberField
           {...commonProps}
+          className={dependencyClass}
           value={(value as number) || 0}
           onChange={onChange}
         />
@@ -124,23 +149,40 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <RepeaterField
           {...commonProps}
+          className={dependencyClass}
           value={(value as Record<string, unknown>[]) || []}
           onChange={onChange}
         />
       )
 
-    case 'font_selector':
+    case 'color':
       return (
-        <FontSelectorField
+        <ColorField
           {...commonProps}
-          value={(value as Record<string, { weights: string[] }>) || {}}
+          className={dependencyClass}
+          value={(value as string) || ''}
           onChange={onChange}
+        />
+      )
+
+    case 'group':
+      return (
+        <GroupField
+          {...commonProps}
+          className={dependencyClass}
+          value={(value as Record<string, unknown>) || {}}
+          onChange={onChange}
+          isFirstGroup={isFirstGroup}
+          isExpanded={isExpanded}
+          onToggle={onGroupToggle}
+          allValues={allValues}
+          onFieldChange={onFieldChange}
         />
       )
 
     default:
       return (
-        <div className="dvc-field">
+        <div className={`dvc-field ${dependencyClass}`}>
           <p>Unsupported field type: {fieldConfig.type}</p>
         </div>
       )

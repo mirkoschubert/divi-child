@@ -17,33 +17,6 @@ $plugin->init();
 /** -------- Add your own code after this! -------- **/
 
 
-// TEMPORÄRER DEBUG - Google Fonts Status prüfen
-add_action('wp_head', function() {
-    if (function_exists('et_builder_google_fonts_is_enabled')) {
-        $google_fonts_enabled = et_builder_google_fonts_is_enabled();
-        error_log('GOOGLE FONTS ENABLED: ' . ($google_fonts_enabled ? 'YES' : 'NO'));
-    }
-    
-    if (function_exists('et_get_option')) {
-        $divi_use_google_fonts = et_get_option('divi_use_google_fonts', 'on');
-        error_log('DIVI USE GOOGLE FONTS OPTION: ' . $divi_use_google_fonts);
-    }
-}, 1);
-
-// ALTERNATIVE: Websafe Fonts Test
-add_filter('et_websafe_fonts', function($fonts) {
-    error_log("🎯 DIRECT WEBSAFE Hook called!");
-    
-    $fonts['Roboto'] = [
-        'styles' => '100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic',
-        'character_set' => 'latin-ext',
-        'type' => 'sans-serif',
-        'standard' => 1
-    ];
-    
-    return $fonts;
-}, 999, 1);
-
 add_action('wp_head', function() {
     if (function_exists('et_get_theme_version')) {
         $divi_version = et_get_theme_version();

@@ -4,9 +4,11 @@ namespace DiviChild\Core\Abstracts;
 
 use DiviChild\Core\Interfaces\ModuleInterface;
 use DiviChild\Core\Config;
+use DiviChild\Core\Traits\DependencyChecker;
 
 abstract class Module implements ModuleInterface
 {
+  use DependencyChecker;
 
   protected $enabled = true;
   protected $name = '';
@@ -184,8 +186,6 @@ abstract class Module implements ModuleInterface
         if (method_exists($this->rest_controller, 'register_routes')) {
           $this->rest_controller->register_routes();
         }
-
-        error_log("✅ REST Controller initialized for module: {$this->slug}");
         break;
       }
     }
@@ -391,7 +391,7 @@ abstract class Module implements ModuleInterface
       // Validierung, falls konfiguriert
       if ($has_validation && !empty($validation_pattern)) {
         if (!preg_match($validation_pattern, $item)) {
-          error_log("sanitize_list_field: Ungültiger Eintrag {$item}");
+          error_log("❌ sanitize_list_field: Ungültiger Eintrag {$item}");
           continue;
         }
       }
@@ -603,5 +603,33 @@ abstract class Module implements ModuleInterface
     $dir_name = basename(dirname($reflection->getFileName()));
 
     return "{$this->config->theme_url}/modules/{$dir_name}/assets/{$path}";
+  }
+
+  /**
+   * Returns admin settings with dependency checks
+   * @return array
+   */
+  public function get_admin_settings_with_dependencies(): array
+  {
+    $settings = $this->admin_settings();
+    
+    foreach ($settings as $key => &$setting) {
+      if (isset($setting['dependencies'])) {
+        $dependency_check = $this->check_dependencies($setting['dependencies']);
+        $setting['dependency_status'] = $dependency_check;
+      }
+      
+      // Process grouped fields recursively
+      if ($setting['type'] === 'group' && isset($setting['fields'])) {
+        foreach ($setting['fields'] as $field_key => &$field_setting) {
+          if (isset($field_setting['dependencies'])) {
+            $dependency_check = $this->check_dependencies($field_setting['dependencies']);
+            $field_setting['dependency_status'] = $dependency_check;
+          }
+        }
+      }
+    }
+    
+    return $settings;
   }
 }

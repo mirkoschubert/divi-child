@@ -22,12 +22,13 @@ export interface AdminSettings {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'textarea' | 'toggle' | 'select' | 'multi_select' | 'number' | 'list' | 'repeater' | 'font_selector';
-  label: string;
+  type: 'text' | 'textarea' | 'toggle' | 'select' | 'multi_select' | 'number' | 'list' | 'repeater' | 'font_selector' | 'color' | 'group';
+  label?: string;
+  title?: string;
   description?: string;
   default?: unknown;
   options?: Record<string, string>; // Für select fields
-  fields?: Record<string, FieldConfig>; // Für repeater fields
+  fields?: Record<string, FieldConfig>; // Für repeater fields und groups
   depends_on?: Record<string, string | boolean | number>;
   validate?: {
     pattern?: string;
@@ -35,6 +36,16 @@ export interface FieldConfig {
     max?: number;
     error_message?: string;
   };
+  dependencies?: {
+    wordpress?: string;
+    divi?: string;
+    plugins?: Record<string, string>;
+  };
+  dependency_status?: DependencyStatus;
+}
+
+export interface DependencyStatus {
+  supported: boolean;
 }
 
 // API Response Typen

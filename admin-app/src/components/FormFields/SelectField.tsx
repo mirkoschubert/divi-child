@@ -8,6 +8,7 @@ interface SelectFieldProps {
   config: FieldConfig
   value: string
   onChange: (value: string) => void
+  className?: string
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({
@@ -15,6 +16,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
   config,
   value,
   onChange,
+  className = ''
 }) => {
   const options = Object.entries(config.options || {}).map(([key, label]) => ({
     label,
@@ -22,7 +24,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
   }))
 
   return (
-    <div className="dvc-field select-field">
+    <div className={`dvc-field select-field ${className}`}>
       <SelectControl
         __next40pxDefaultSize
         __nextHasNoMarginBottom

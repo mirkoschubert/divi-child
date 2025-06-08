@@ -4,6 +4,15 @@
 .dvc-field
   wordpress-field()
   
+  // Group fields use different spacing
+  &.group-field
+    wordpress-field-grouped()
+  
+  // Dependency Status Styling
+  &.unsupported
+    opacity 0.5
+    pointer-events none
+  
   // WordPress Components Integration
   .components-base-control
     margin-bottom 0
@@ -17,36 +26,37 @@
       color #666
       font-size 13px
       font-style italic
+      margin-top 0
 
-  &.toggle-field
-    .components-form-toggle
+.toggle-field
+  .components-form-toggle
+    width 42px
+    height 22px
+
+    &.is-checked
+      .components-form-toggle__thumb
+        transform translateX(20px)
+
+    .components-form-toggle__input:focus+.components-form-toggle__track
+      box-shadow none
+
+    .components-form-toggle__track
       width 42px
       height 22px
+      border-radius 11px
 
-      &.is-checked
-        .components-form-toggle__thumb
-          transform translateX(20px)
+    .components-form-toggle__thumb
+      width 18px
+      height 18px
 
-      .components-form-toggle__input:focus+.components-form-toggle__track
-        box-shadow none
+  .components-toggle-control
+    margin-bottom 0
 
-      .components-form-toggle__track
-        width 42px
-        height 22px
-        border-radius 11px
+    .components-h-stack
+      flex-direction row-reverse  
 
-      .components-form-toggle__thumb
-        width 18px
-        height 18px
-
-    .components-toggle-control
-      margin-bottom 0
-
-      .components-h-stack
-        flex-direction row-reverse  
-
-      .components-toggle-control__help
-        margin-left 0
+    .components-toggle-control__help
+      margin-left 0
 
 // List Fields
 .list-field
@@ -239,3 +249,158 @@
 
     .components-button
       margin-right: 10px
+
+// Color Field Styles
+.color-field
+  .color-field-layout
+    display flex
+    align-items flex-start
+    justify-content space-between
+    gap 16px
+    
+  .color-field-info
+    flex 1
+    
+    .color-field-label
+      display block
+      font-weight 600
+      color #333
+      margin-bottom 4px
+      
+    .color-field-description
+      margin 0
+      color #666
+      font-size 13px
+      font-style italic
+      line-height 1.4
+      
+  .color-field-control
+    flex-shrink 0
+    
+    .color-indicator-wrapper
+      cursor pointer
+      display inline-block
+      padding 4px
+      border-radius 50%
+      transition all 0.2s ease
+      
+      &:hover
+        background-color #f0f0f0
+        transform scale(1.05)
+        
+      .components-color-indicator
+        width 32px
+        height 32px
+        border-radius 50%
+        border 2px solid #ddd
+        box-shadow 0 2px 4px rgba(0,0,0,0.1)
+        transition all 0.2s ease
+        
+        &:hover
+          border-color #007cba
+          box-shadow 0 2px 8px rgba(0,124,186,0.2)
+
+// Color Picker Popover Styles  
+.color-field-popover
+  z-index 1000000 !important
+  
+  .color-field-picker
+    padding 12px
+    background white
+    border-radius 6px
+    box-shadow 0 8px 24px rgba(0,0,0,0.15)
+    min-width 260px
+    
+    // WordPress ColorPicker component styles
+    .components-color-picker
+      width 100% !important
+      
+      .components-color-picker__saturation
+        margin-bottom 12px
+        
+      .components-color-picker__hue
+        margin-bottom 12px
+
+// Group Field Styles
+.group-field
+  border-top 1px solid #e0e0e0
+  margin-bottom 0
+  padding 0
+  overflow hidden
+  background white
+  
+  &:last-child
+    border-bottom 1px solid #e0e0e0
+
+  .group-field-header
+    padding 16px 20px
+    background #f8f9fa
+    border-bottom 1px solid #e0e0e0
+    cursor pointer
+    display flex
+    align-items center
+    justify-content space-between
+    transition all 0.2s ease
+    
+    &:hover
+      background #f0f2f5
+      
+    .group-field-info
+      flex 1
+      
+      .group-field-title
+        margin 0 0 4px 0
+        font-size 16px
+        font-weight 600
+        color #333
+        line-height 1.3
+        
+      .group-field-description
+        margin 0
+        font-size 13px
+        color #666
+        line-height 1.4
+        font-style italic
+        
+    .group-field-toggle
+      flex-shrink 0
+      margin-left 16px
+      color #666
+      transition transform 0.2s ease
+      display flex
+      align-items center
+      justify-content center
+      width 2rem
+      height 2rem
+      
+      svg
+        width 1.5rem
+        height 1.5rem
+      
+  .group-field-content
+    overflow hidden
+    transition height 0.3s ease-in-out
+    will-change height
+    height 0
+    
+  .group-field-fields
+    padding 20px 0
+    
+    .dvc-field
+      margin-bottom 20px
+      
+      &:last-child
+        margin-bottom 0
+        
+  // Collapsed State
+  &.collapsed
+    .group-field-header
+      border-bottom none
+      
+    .group-field-toggle
+      transform rotate(0deg)
+      
+  // Expanded State  
+  &.expanded
+    .group-field-toggle
+      transform rotate(0deg)

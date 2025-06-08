@@ -8,6 +8,7 @@ interface TextFieldProps {
   config: FieldConfig
   value: string
   onChange: (value: string) => void
+  className?: string
 }
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -15,9 +16,10 @@ const TextField: React.FC<TextFieldProps> = ({
   config,
   value,
   onChange,
+  className = ''
 }) => {
   return (
-    <div className="dvc-field text-field">
+    <div className={`dvc-field text-field ${className}`}>
       <TextControl
         __nextHasNoMarginBottom
         __next40pxDefaultSize

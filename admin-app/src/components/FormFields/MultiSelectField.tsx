@@ -1,17 +1,19 @@
 import { useState } from '@wordpress/element'
 import { FormTokenField } from '@wordpress/components'
 import { __ } from '@wordpress/i18n'
+import type { FieldConfig } from '@/types'
+
+// TokenItem Type Definition (nicht exportiert von @wordpress/components)
+interface TokenItem {
+  value: string
+}
 
 interface MultiSelectFieldProps {
   id: string
-  config: {
-    label: string
-    description?: string
-    default?: string[]
-    options?: Record<string, string>
-  }
+  config: FieldConfig
   value: string[]
   onChange: (value: string[]) => void
+  className?: string
 }
 
 const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
@@ -19,6 +21,7 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
   config,
   value = [],
   onChange,
+  className = '',
 }) => {
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -36,7 +39,12 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
   // Transformiere values für Anzeige
   const displayValues = value.map((val) => options[val] || val)
 
-  const handleChange = (newValues: string[]) => {
+  const handleChange = (tokens: (string | TokenItem)[]) => {
+    // Konvertiere TokenItems zu strings
+    const newValues = tokens.map(token => 
+      typeof token === 'string' ? token : token.value
+    )
+    
     // Transformiere Display-Werte zurück zu Keys
     const actualValues = newValues.map((displayVal) => {
       const key = Object.keys(options).find((k) => options[k] === displayVal)
@@ -46,7 +54,7 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
   }
 
   return (
-    <div className="dvc-field multi-select-field">
+    <div className={`dvc-field multi-select-field ${className}`}>
       <label htmlFor={id}>{config.label}</label>
       {config.description && (
         <p className="description">{config.description}</p>

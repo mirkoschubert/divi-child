@@ -188,14 +188,10 @@ class Downloads
     $fonts_url = $upload_dir['baseurl'] . '/local-fonts';
     $css_rules = [];
 
-    error_log("🎯 Generating CSS for {$font_family} with metadata: " . json_encode($metadata));
-
     // 🎯 Varianten aus Metadaten holen
     $variants = $metadata['variants'] ?? ['regular'];
 
     foreach ($extracted_files as $filename) {
-      error_log("🔍 Processing file: {$filename}");
-
       // Versuche Weight und Style aus Dateinamen zu extrahieren
       $weight = '400';
       $style = 'normal';
@@ -214,8 +210,6 @@ class Downloads
         $weight = '400';
         $style = 'normal';
       }
-
-      error_log("🔍 Parsed {$filename}: weight={$weight}, style={$style}");
 
       // @font-face CSS generieren
       $css_rules[] = sprintf(
@@ -243,8 +237,6 @@ class Downloads
     $css_path = $fonts_dir . '/' . $css_filename;
 
     file_put_contents($css_path, $css_content);
-    error_log("✅ Generated CSS: {$css_filename} with " . count($css_rules) . " rules");
-    error_log("🔍 CSS content length: " . strlen($css_content) . " characters");
   }
 
 

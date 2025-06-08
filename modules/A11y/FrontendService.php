@@ -32,6 +32,8 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
       add_action('wp_footer', [$this, 'add_scroll_top'], 10);
     }
     
+    // 4. Dynamic CSS for animations and text selection
+    add_action('wp_head', [$this, 'add_dynamic_css']);
 
     // Scripts
     add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
@@ -76,14 +78,27 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
     if ($this->is_option_enabled('underline_links')) {
       wp_enqueue_style('divi-child-underline-links', $this->module->get_asset_url("css/a11y-underline-links.min.css"));
     }
+
+    // 8. Stop Animations
+    if ($this->is_option_enabled('stop_animations')) {
+      wp_enqueue_style('divi-child-stop-animations', $this->module->get_asset_url("css/a11y-stop-animations.min.css"));
+    }
+
+    // 9. Slider Navigation Spacing
+    if ($this->is_option_enabled('slider_nav_spacing')) {
+      wp_enqueue_style('divi-child-slider-nav-spacing', $this->module->get_asset_url("css/a11y-slider-nav-spacing.min.css"));
+    }
       
     wp_enqueue_script(
       'divi-child-a11y-script', 
       $this->module->get_asset_url('js/a11y.js'), 
-      ['jquery'], 
+      ['jquery', 'wp-i18n'], 
       null, 
       true
     );
+    
+    // Set script translations for i18n support
+    wp_set_script_translations('divi-child-a11y-script', 'divi-child');
     
     // Optionen an JS übergeben
     wp_localize_script('divi-child-a11y-script', 'a11yOptions', $this->get_module_options());
@@ -135,6 +150,35 @@ class FrontendService extends ModuleService implements FrontendServiceInterface
    */
   public function add_scroll_top() {
     echo '<button class="top-link hide" id="js-top"><svg role="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg><span class="screen-reader-text">Back to top</span></button>';
+  }
+
+  /**
+   * Adds dynamic CSS for animations and text selection
+   * @return void
+   * @package A11y
+   * @since 1.0.0
+   */
+  public function add_dynamic_css() {
+    $css = '';
+    
+    // Custom text selection colors
+    $bg_color = $this->get_module_option('text_highlight_bg');
+    $text_color = $this->get_module_option('text_highlight_color');
+    
+    if ($bg_color && $text_color) {
+      $css .= '::selection {';
+      $css .= 'color: ' . esc_attr($text_color) . ' !important;';
+      $css .= 'background-color: ' . esc_attr($bg_color) . ' !important;';
+      $css .= '}';
+      $css .= '::-moz-selection {';
+      $css .= 'color: ' . esc_attr($text_color) . ' !important;';
+      $css .= 'background-color: ' . esc_attr($bg_color) . ' !important;';
+      $css .= '}';
+    }
+    
+    if (!empty($css)) {
+      echo '<style id="divi-child-a11y-dynamic-css">' . $css . '</style>';
+    }
   }
 
 }
