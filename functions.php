@@ -4,8 +4,6 @@ if (!defined('ABSPATH')) {
 }
 
 define('DIVI_CHILD_VERSION', '3.0.0');
-define('GOOGLE_FONTS_API_KEY', 'AIzaSyAI9txf9yWhhjxeMOCR94PVaVgM-1sYAjU');
-
 
 require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 

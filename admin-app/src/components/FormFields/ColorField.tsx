@@ -38,11 +38,11 @@ const ColorField: React.FC<ColorFieldProps> = ({
     <div className={`dvc-field color-field ${className}`}>
       <div className="color-field-layout">
         <div className="color-field-info">
-          <label className="color-field-label">
+          <label className="dvc-field-label">
             {config.label}
           </label>
           {config.description && (
-            <p className="color-field-description">{config.description}</p>
+            <p className="dvc-field-description">{config.description}</p>
           )}
         </div>
         <div className="color-field-control">

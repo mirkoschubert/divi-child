@@ -17,6 +17,7 @@ final class Misc extends Module
   ];
   protected $default_options = [
     'enabled' => true,
+    'admin_dark_mode' => false,
     'duplicate_posts' => false,
     'disable_projects' => false,
     'stop_mail_updates' => false,
@@ -44,6 +45,12 @@ final class Misc extends Module
         'title' => __('Admin & Backend', 'divi-child'),
         'description' => __('WordPress backend improvements and content management features', 'divi-child'),
         'fields' => [
+          'admin_dark_mode' => [
+            'type' => 'toggle',
+            'label' => __('Enable dark mode for admin', 'divi-child'),
+            'description' => __('Switch WordPress admin interface to dark mode with the theme colors', 'divi-child'),
+            'default' => $this->default_options['admin_dark_mode'],
+          ],
           'duplicate_posts' => [
             'type' => 'toggle',
             'label' => __('Enable duplicate posts', 'divi-child'),

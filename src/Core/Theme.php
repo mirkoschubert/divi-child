@@ -42,18 +42,22 @@ final class Theme
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     add_action('wp_set_script_translations', [$this, 'set_script_translations'], 100);
     add_action('after_setup_theme', [$this, 'setup_languages']);
-    add_action('body_class', [$this, 'add_child_body_class']);
+
+    $this->add_child_body_class();
   }
 
-  public function init_rest_api() {
+  public function init_rest_api()
+  {
     $this->rest_controller = new RestController();
     $this->rest_controller->register_routes();
   }
 
-  public function activate($old_name = '', $old_theme = null) {
+  public function activate($old_name = '', $old_theme = null)
+  {
 
     $current_theme = wp_get_theme();
-    if ($current_theme->get('Name') !== $this->config->theme_name) return; // Only run if this is the correct theme
+    if ($current_theme->get('Name') !== $this->config->theme_name)
+      return; // Only run if this is the correct theme
 
     $this->migration->run();
 
@@ -61,17 +65,21 @@ final class Theme
     flush_rewrite_rules();
   }
 
-  public function deactivate($new_name = '', $new_theme = null, $old_theme = null) {
-    if ($old_theme && $old_theme->get('Name') !== $this->config->theme_name) return; 
+  public function deactivate($new_name = '', $new_theme = null, $old_theme = null)
+  {
+    if ($old_theme && $old_theme->get('Name') !== $this->config->theme_name)
+      return;
 
     // Do any necessary cleanup here    
     flush_rewrite_rules();
   }
 
-  public function uninstall($stylesheet) {
+  public function uninstall($stylesheet)
+  {
     $theme = wp_get_theme($stylesheet);
-    if ($theme->get('Name') !== $this->config->theme_name) return; // Only uninstall if this is the correct theme
-    
+    if ($theme->get('Name') !== $this->config->theme_name)
+      return; // Only uninstall if this is the correct theme
+
     // Remove options on uninstall
     delete_option('divi_child_options');
     delete_option('divi_child_version');
@@ -115,15 +123,23 @@ final class Theme
   }
 
   /**
-   * Add custom body class for child theme
-   * @param array $classes
-   * @return array
+   * Add a 'child' class to the body tag
+   * @return void
    * @since 1.0.0
    */
-  public function add_child_body_class($classes)
+  public function add_child_body_class()
   {
-    $classes[] = 'child';
-    return $classes;
+    if (is_admin()) {
+      add_filter('admin_body_class', function ($classes) {
+        $classes .= ' child';
+        return $classes;
+      });
+    } else {
+      add_filter('body_class', function ($classes) {
+        $classes[] = 'child';
+        return $classes;
+      });
+    }
   }
 
   /**

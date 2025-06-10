@@ -117,9 +117,9 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
     <div className={`dvc-field repeater-field ${className}`}>
       {/* 🔧 Label und Description wie bei TextField */}
       <div className="dvc-field-header">
-        <label className="dvc-field-label" htmlFor={id}>
+        <h4 className="dvc-field-label">
           {config.label}
-        </label>
+        </h4>
         {config.description && (
           <p className="dvc-field-description">{config.description}</p>
         )}

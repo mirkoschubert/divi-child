@@ -55,13 +55,16 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
 
   return (
     <div className={`dvc-field multi-select-field ${className}`}>
-      <label htmlFor={id}>{config.label}</label>
-      {config.description && (
-        <p className="description">{config.description}</p>
-      )}
+      <div className="dvc-field-header">
+        <h4 className='dvc-field-label'>{config.label}</h4>
+        {config.description && (
+          <p className="dvc-field-description">{config.description}</p>
+        )}
+      </div>
 
       <FormTokenField
         value={displayValues}
+        label={__('Add Items', 'divi-child')}
         suggestions={filteredSuggestions.map((key) => options[key])}
         onChange={handleChange}
         placeholder={__('Search and select...', 'divi-child')}
