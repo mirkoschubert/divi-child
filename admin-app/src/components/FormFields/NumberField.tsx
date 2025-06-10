@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { __experimentalNumberControl as NumberControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
@@ -9,20 +10,22 @@ interface NumberFieldProps {
   value: number
   onChange: (value: number) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const NumberField: React.FC<NumberFieldProps> = ({
+const NumberField = forwardRef<HTMLDivElement, NumberFieldProps>(({
   id,
   config,
   value,
   onChange,
-  className = ''
-}) => {
+  className = '',
+  style
+}, ref) => {
   const min = config.validate?.min
   const max = config.validate?.max
 
   return (
-    <div className={`dvc-field number-field ${className}`}>
+    <div ref={ref} className={`dvc-field number-field ${className}`} style={style}>
       <NumberControl
         __next40pxDefaultSize
         label={config.label}
@@ -34,6 +37,6 @@ const NumberField: React.FC<NumberFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default NumberField

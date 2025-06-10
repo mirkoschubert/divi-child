@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { SelectControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
@@ -9,22 +10,24 @@ interface SelectFieldProps {
   value: string
   onChange: (value: string) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const SelectField: React.FC<SelectFieldProps> = ({
+const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>(({
   id,
   config,
   value,
   onChange,
-  className = ''
-}) => {
+  className = '',
+  style
+}, ref) => {
   const options = Object.entries(config.options || {}).map(([key, label]) => ({
     label,
     value: key,
   }))
 
   return (
-    <div className={`dvc-field select-field ${className}`}>
+    <div ref={ref} className={`dvc-field select-field ${className}`} style={style}>
       <SelectControl
         __next40pxDefaultSize
         __nextHasNoMarginBottom
@@ -36,6 +39,6 @@ const SelectField: React.FC<SelectFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default SelectField

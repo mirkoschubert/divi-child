@@ -10,7 +10,7 @@ import {
   GroupField,
 } from '../FormFields'
 import type { FieldConfig } from '@/types'
-import { useMemo } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 
 interface FormFieldRendererProps {
   fieldId: string
@@ -37,6 +37,7 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
   onGroupToggle,
   onFieldChange,
 }) => {
+  const fieldRef = useRef<HTMLDivElement>(null)
   // 🔧 Dependency-Check für die echte API-Struktur
   const isVisible = useMemo(() => {
     if (!fieldConfig.depends_on) {
@@ -60,10 +61,29 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
     return true
   }, [fieldConfig.depends_on, allValues, fieldId])
 
-  // 🔧 Feld verstecken wenn Dependencies nicht erfüllt sind
-  if (!isVisible) {
-    return null
-  }
+  useEffect(() => {
+    // GroupField und RepeaterField haben ihre eigene Höhenlogik - nicht überschreiben
+    if (fieldConfig.type === 'group' || fieldConfig.type === 'repeater') {
+      return
+    }
+    
+    const timer = setTimeout(() => {
+      if (fieldRef.current) {
+        if (isVisible) {
+          fieldRef.current.style.height = 'auto'
+          const height = fieldRef.current.scrollHeight
+          fieldRef.current.style.height = '0px'
+          // Force reflow
+          fieldRef.current.offsetHeight
+          fieldRef.current.style.height = `${height}px`
+        } else {
+          fieldRef.current.style.height = '0px'
+        }
+      }
+    }, 0)
+
+    return () => clearTimeout(timer)
+  }, [isVisible, fieldConfig.type])
 
   // 🔧 Dependency Status Check
   const getDependencyStatus = () => {
@@ -82,12 +102,20 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
   }
 
   const dependencyClass = getDependencyStatus()
+  
+  const fieldStyle = {
+    overflow: 'hidden',
+    transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out',
+    opacity: isVisible ? 1 : 0
+  }
 
   switch (fieldConfig.type) {
     case 'text':
       return (
         <TextField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
@@ -98,6 +126,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <TextareaField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
@@ -108,6 +138,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <ToggleField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={Boolean(value)}
           onChange={onChange}
@@ -119,6 +151,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <SelectField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
@@ -129,6 +163,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <MultiSelectField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as string[]) || []}
           onChange={onChange}
@@ -139,6 +175,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <NumberField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as number) || 0}
           onChange={onChange}
@@ -149,6 +187,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <RepeaterField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as Record<string, unknown>[]) || []}
           onChange={onChange}
@@ -159,6 +199,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <ColorField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as string) || ''}
           onChange={onChange}
@@ -169,6 +211,8 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       return (
         <GroupField
           {...commonProps}
+          ref={fieldRef}
+          style={fieldStyle}
           className={dependencyClass}
           value={(value as Record<string, unknown>) || {}}
           onChange={onChange}

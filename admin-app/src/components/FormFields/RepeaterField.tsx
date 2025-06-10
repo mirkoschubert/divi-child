@@ -1,4 +1,4 @@
-import { useState } from '@wordpress/element'
+import { useState, useEffect, useRef, forwardRef } from '@wordpress/element'
 import {
   Button,
   Card,
@@ -20,16 +20,20 @@ interface RepeaterFieldProps {
   value: Record<string, unknown>[]
   onChange: (value: Record<string, unknown>[]) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const RepeaterField: React.FC<RepeaterFieldProps> = ({
+const RepeaterField = forwardRef<HTMLDivElement, RepeaterFieldProps>(({
   id,
   config,
   value,
   onChange,
   className = '',
-}) => {
+  style
+}, ref) => {
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
+  const contentRefs = useRef<Map<number, HTMLDivElement>>(new Map())
+  const fieldsRefs = useRef<Map<number, HTMLDivElement>>(new Map())
 
   const addItem = () => {
     const newItem: Record<string, unknown> = {}
@@ -78,6 +82,26 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
     onChange(updatedValue)
   }
 
+  useEffect(() => {
+    // Timeout für nächsten Frame, damit DOM-Updates abgeschlossen sind
+    const timer = setTimeout(() => {
+      contentRefs.current.forEach((contentEl, index) => {
+        const fieldsEl = fieldsRefs.current.get(index)
+        
+        if (contentEl && fieldsEl) {
+          if (expandedItems.has(index)) {
+            const height = fieldsEl.scrollHeight
+            contentEl.style.height = `${height}px`
+          } else {
+            contentEl.style.height = '0px'
+          }
+        }
+      })
+    }, 0)
+
+    return () => clearTimeout(timer)
+  }, [expandedItems, value])
+
   const toggleExpanded = (index: number) => {
     setExpandedItems((prev) => {
       const newSet = new Set(prev)
@@ -114,16 +138,17 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
   }
 
   return (
-    <div className={`dvc-field repeater-field ${className}`}>
-      {/* 🔧 Label und Description wie bei TextField */}
-      <div className="dvc-field-header">
-        <h4 className="dvc-field-label">
-          {config.label}
-        </h4>
-        {config.description && (
-          <p className="dvc-field-description">{config.description}</p>
-        )}
-      </div>
+    <div ref={ref} className={`dvc-field repeater-field ${className}`} style={style}>
+      <div className="repeater-field-wrapper">
+        {/* 🔧 Label und Description wie bei TextField */}
+        <div className="dvc-field-header">
+          <h4 className="dvc-field-label">
+            {config.label}
+          </h4>
+          {config.description && (
+            <p className="dvc-field-description">{config.description}</p>
+          )}
+        </div>
 
       <div className="repeater-items">
         {value.map((item, index) => {
@@ -178,9 +203,30 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                 </Flex>
               </CardHeader>
 
-              {isExpanded && (
-                <CardBody className="repeater-item-content">
-                  {/* 🔧 Kein wrapper - Felder direkt rendern */}
+              <div 
+                className="repeater-item-content-wrapper"
+                ref={(el) => {
+                  if (el) {
+                    contentRefs.current.set(index, el)
+                  } else {
+                    contentRefs.current.delete(index)
+                  }
+                }}
+                style={{
+                  overflow: 'hidden',
+                  transition: 'height 0.3s ease-in-out'
+                }}
+              >
+                <CardBody 
+                  className="repeater-item-content"
+                  ref={(el) => {
+                    if (el) {
+                      fieldsRefs.current.set(index, el)
+                    } else {
+                      fieldsRefs.current.delete(index)
+                    }
+                  }}
+                >
                   <div className="repeater-fields">
                     {config.fields &&
                       Object.entries(config.fields).map(
@@ -202,7 +248,7 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
                       )}
                   </div>
                 </CardBody>
-              )}
+              </div>
             </Card>
           )
         })}
@@ -215,15 +261,16 @@ const RepeaterField: React.FC<RepeaterFieldProps> = ({
         )}
       </div>
 
-      <Button
-        variant="secondary"
-        onClick={addItem}
-        className="add-repeater-item"
-      >
-        {__('Add Item', 'divi-child')}
-      </Button>
+        <Button
+          variant="secondary"
+          onClick={addItem}
+          className="add-repeater-item"
+        >
+          {__('Add Item', 'divi-child')}
+        </Button>
+      </div>
     </div>
   )
-}
+})
 
 export default RepeaterField

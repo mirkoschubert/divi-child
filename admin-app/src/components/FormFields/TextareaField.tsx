@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { TextareaControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
@@ -9,17 +10,19 @@ interface TextareaFieldProps {
   value: string
   onChange: (value: string) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const TextareaField: React.FC<TextareaFieldProps> = ({
+const TextareaField = forwardRef<HTMLDivElement, TextareaFieldProps>(({
   id,
   config,
   value,
   onChange,
-  className = ''
-}) => {
+  className = '',
+  style
+}, ref) => {
   return (
-    <div className={`dvc-field textarea-field ${className}`}>
+    <div ref={ref} className={`dvc-field textarea-field ${className}`} style={style}>
       <TextareaControl
         __nextHasNoMarginBottom
         label={config.label}
@@ -30,6 +33,6 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default TextareaField

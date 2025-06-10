@@ -11,7 +11,8 @@
     font-size $font-size-base
     font-weight 500
     color $admin-dark-gray
-    margin-bottom 4px
+    margin-top 0
+    margin-bottom $spacing-xs
     
   .dvc-field-description
     margin 0
@@ -31,7 +32,7 @@
   // WordPress Components Integration
   .components-base-control,
   .components-toggle-control
-    margin-bottom 0
+    margin 20px 0
     width 100%
     
     &__label
@@ -70,8 +71,6 @@
       height 18px
 
   .components-toggle-control
-    margin-bottom 0
-
     .components-h-stack
       flex-direction row-reverse  
 
@@ -215,10 +214,12 @@
     height 0
     
   .group-field-fields
-    padding 20px 0
+    // Verhindert margin collapse mit einem kleinen padding
+    padding 1px 0
+    margin -1px 0
     
     .dvc-field
-      margin-bottom 20px
+      //margin-bottom 20px
       
       &:last-child
         margin-bottom 0
@@ -241,90 +242,93 @@
 .repeater-field
   max-height none !important
 
-  .repeater-items
-    margin-bottom $spacing-md
-  
-  .repeater-item
-    margin-bottom $spacing-sm
-    /* border 1px solid $admin-border */
-    border-radius $border-radius
-    overflow hidden
-    
-    &.expanded
-      .repeater-item-header
-        /* border-bottom 1px solid $admin-border */
-        
-    &.collapsed
-      .repeater-item-header
-        border-bottom none
-        cursor pointer
+  .repeater-field-wrapper
+    margin 20px 0
 
-  .repeater-item-header
-    padding .75rem 1rem !important
-    background $admin-light-gray
-    cursor pointer
+    .repeater-items
+      margin-bottom $spacing-md
     
-    .repeater-item-toggle
-      flex 1
-    
-    .expand-toggle
-      padding 0 !important
-      background none !important
-      border none !important
-      box-shadow none !important
-      text-align left
-      width 100%
-      justify-content flex-start
-      pointer-events none
+    .repeater-item
+      margin-bottom $spacing-sm
+      /* border 1px solid $admin-border */
+      border-radius $border-radius
+      overflow hidden
       
-      &:hover
+      &.expanded
+        .repeater-item-header
+          /* border-bottom 1px solid $admin-border */
+          
+      &.collapsed
+        .repeater-item-header
+          border-bottom none
+          cursor pointer
+
+    .repeater-item-header
+      padding .75rem 1rem !important
+      background $admin-light-gray
+      cursor pointer
+      
+      .repeater-item-toggle
+        flex 1
+      
+      .expand-toggle
+        padding 0 !important
         background none !important
+        border none !important
+        box-shadow none !important
+        text-align left
+        width 100%
+        justify-content flex-start
+        pointer-events none
         
-      .expand-icon
-        display inline-block
-        width 16px
-        height 16px
-        margin-right 8px
-        font-size 12px
-        line-height 16px
-        text-align center
-        color $admin-gray
-        transition transform 0.2s ease
+        &:hover
+          background none !important
+          
+        .expand-icon
+          display inline-block
+          width 16px
+          height 16px
+          margin-right 8px
+          font-size 12px
+          line-height 16px
+          text-align center
+          color $admin-gray
+          transition transform 0.2s ease
+          
+        .item-label
+          color $admin-dark-gray
+          font-weight 500
+    
+    .repeater-item-content
+      padding 0 !important
+
+    .repeater-fields
+      padding 1.25rem 0
+      
+      .dvc-field
+        margin-bottom 1rem
+        padding-bottom 1rem
+        border-bottom 1px solid #f0f0f0
         
-      .item-label
-        color $admin-dark-gray
-        font-weight 500
-  
-  .repeater-item-content
-    padding 0 !important
+        &:last-child
+          margin-bottom 0
+          padding-bottom 0
+          border-bottom none
 
-  .repeater-fields
-    padding 1.25rem 0
-    
-    .dvc-field
-      margin-bottom 1rem
-      padding-bottom 1rem
-      border-bottom 1px solid #f0f0f0
+    .repeater-empty
+      text-align center
+      padding 40px 20px
+      background $admin-light-gray
+      border 2px dashed $admin-border
+      border-radius 4px
+      color $admin-gray
       
-      &:last-child
-        margin-bottom 0
-        padding-bottom 0
-        border-bottom none
-
-  .repeater-empty
-    text-align center
-    padding 40px 20px
-    background $admin-light-gray
-    border 2px dashed $admin-border
-    border-radius 4px
-    color $admin-gray
-    
-    p
-      margin 0
-      font-style italic
-      
-  .add-repeater-item
-    width 100%
-    justify-content center
-    margin-bottom: .25rem
+      p
+        margin 0
+        font-style italic
+        
+    .add-repeater-item
+      width 100%
+      justify-content center
+      margin-bottom: .25rem
 

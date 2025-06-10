@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { ToggleControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
@@ -10,23 +11,25 @@ interface ToggleFieldProps {
   onChange: (value: boolean) => void
   onToggle?: (fieldId: string, isChecked: boolean) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const ToggleField: React.FC<ToggleFieldProps> = ({ 
+const ToggleField = forwardRef<HTMLDivElement, ToggleFieldProps>(({ 
   id, 
   config, 
   value, 
   onChange, 
   onToggle,
-  className = ''
-}) => {
+  className = '',
+  style
+}, ref) => {
   const handleChange = (checked: boolean) => {
     onChange(checked)
     onToggle?.(id, checked)
   }
 
   return (
-    <div className={`dvc-field toggle-field ${className}`}>
+    <div ref={ref} className={`dvc-field toggle-field ${className}`} style={style}>
       <ToggleControl
         __nextHasNoMarginBottom
         label={config.label}
@@ -36,6 +39,6 @@ const ToggleField: React.FC<ToggleFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default ToggleField

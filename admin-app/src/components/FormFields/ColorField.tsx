@@ -1,5 +1,5 @@
 import { ColorPicker, ColorIndicator, Popover } from '@wordpress/components'
-import { useState, useRef } from '@wordpress/element'
+import { useState, useRef, forwardRef } from '@wordpress/element'
 import type { FieldConfig } from '@/types'
 
 import './FormFields.styl'
@@ -10,15 +10,20 @@ interface ColorFieldProps {
   value: string
   onChange: (value: string) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const ColorField: React.FC<ColorFieldProps> = ({
-  id,
-  config,
-  value,
-  onChange,
-  className = ''
-}) => {
+const ColorField = forwardRef<HTMLDivElement, ColorFieldProps>((
+  {
+    id,
+    config,
+    value,
+    onChange,
+    className = '',
+    style,
+  },
+  ref
+) => {
   const [showPicker, setShowPicker] = useState(false)
   const indicatorRef = useRef<HTMLDivElement>(null)
 
@@ -35,7 +40,7 @@ const ColorField: React.FC<ColorFieldProps> = ({
   }
 
   return (
-    <div className={`dvc-field color-field ${className}`}>
+    <div className={`dvc-field color-field ${className}`} ref={ref} style={style}>
       <div className="color-field-layout">
         <div className="color-field-info">
           <label className="dvc-field-label">
@@ -76,6 +81,6 @@ const ColorField: React.FC<ColorFieldProps> = ({
       )}
     </div>
   )
-}
+})
 
 export default ColorField

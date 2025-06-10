@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { TextControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
@@ -9,17 +10,19 @@ interface TextFieldProps {
   value: string
   onChange: (value: string) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const TextField: React.FC<TextFieldProps> = ({
+const TextField = forwardRef<HTMLDivElement, TextFieldProps>(({
   id,
   config,
   value,
   onChange,
-  className = ''
-}) => {
+  className = '',
+  style
+}, ref) => {
   return (
-    <div className={`dvc-field text-field ${className}`}>
+    <div ref={ref} className={`dvc-field text-field ${className}`} style={style}>
       <TextControl
         __nextHasNoMarginBottom
         __next40pxDefaultSize
@@ -30,6 +33,6 @@ const TextField: React.FC<TextFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default TextField

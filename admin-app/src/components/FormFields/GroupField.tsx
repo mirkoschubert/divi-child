@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from '@wordpress/element'
+import { useState, useEffect, useRef, forwardRef } from '@wordpress/element'
 import { chevronDown, chevronRight } from '@wordpress/icons'
 import { Icon } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
@@ -12,6 +12,7 @@ interface GroupFieldProps {
   value: Record<string, unknown>
   onChange: (value: unknown) => void
   className?: string
+  style?: React.CSSProperties
   isFirstGroup?: boolean
   isExpanded?: boolean
   onToggle?: (groupId: string) => void
@@ -19,18 +20,19 @@ interface GroupFieldProps {
   onFieldChange?: (fieldId: string, value: unknown) => void
 }
 
-const GroupField: React.FC<GroupFieldProps> = ({
+const GroupField = forwardRef<HTMLDivElement, GroupFieldProps>(({
   id,
   config,
   value,
   onChange,
   className = '',
+  style,
   isFirstGroup = false,
   isExpanded = false,
   onToggle,
   allValues = {},
   onFieldChange
-}) => {
+}, ref) => {
   const contentRef = useRef<HTMLDivElement>(null)
   const fieldsRef = useRef<HTMLDivElement>(null)
 
@@ -43,7 +45,21 @@ const GroupField: React.FC<GroupFieldProps> = ({
         contentRef.current.style.height = '0px'
       }
     }
-  }, [isExpanded])
+  }, [isExpanded, allValues]) // allValues hinzugefügt, damit auf Änderungen reagiert wird
+
+  // Zusätzliches useEffect für Höhen-Updates bei dependency-Änderungen
+  useEffect(() => {
+    if (isExpanded && contentRef.current && fieldsRef.current) {
+      const timer = setTimeout(() => {
+        if (fieldsRef.current && contentRef.current) {
+          const height = fieldsRef.current.scrollHeight
+          contentRef.current.style.height = `${height}px`
+        }
+      }, 350) // Nach Abschluss der dependency-Animation (300ms + Buffer)
+
+      return () => clearTimeout(timer)
+    }
+  }, [allValues, isExpanded])
 
   const toggleExpanded = () => {
     if (onToggle) {
@@ -60,7 +76,7 @@ const GroupField: React.FC<GroupFieldProps> = ({
   }
 
   return (
-    <div className={`dvc-field group-field ${className} ${isExpanded ? 'expanded' : 'collapsed'}`}>
+    <div ref={ref} className={`dvc-field group-field ${className} ${isExpanded ? 'expanded' : 'collapsed'}`} style={style}>
       <div 
         className="group-field-header"
         onClick={toggleExpanded}
@@ -96,6 +112,6 @@ const GroupField: React.FC<GroupFieldProps> = ({
       </div>
     </div>
   )
-}
+})
 
 export default GroupField

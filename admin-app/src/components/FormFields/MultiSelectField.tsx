@@ -1,4 +1,4 @@
-import { useState } from '@wordpress/element'
+import { useState, forwardRef } from '@wordpress/element'
 import { FormTokenField } from '@wordpress/components'
 import { __ } from '@wordpress/i18n'
 import type { FieldConfig } from '@/types'
@@ -14,15 +14,20 @@ interface MultiSelectFieldProps {
   value: string[]
   onChange: (value: string[]) => void
   className?: string
+  style?: React.CSSProperties
 }
 
-const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
-  id,
-  config,
-  value = [],
-  onChange,
-  className = '',
-}) => {
+const MultiSelectField = forwardRef<HTMLDivElement, MultiSelectFieldProps>((
+  {
+    id,
+    config,
+    value = [],
+    onChange,
+    className = '',
+    style,
+  },
+  ref
+) => {
   const [searchTerm, setSearchTerm] = useState('')
 
   // Options zu Suggestions umwandeln
@@ -54,7 +59,7 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
   }
 
   return (
-    <div className={`dvc-field multi-select-field ${className}`}>
+    <div className={`dvc-field multi-select-field ${className}`} ref={ref} style={style}>
       <div className="dvc-field-header">
         <h4 className='dvc-field-label'>{config.label}</h4>
         {config.description && (
@@ -75,6 +80,6 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
       />
     </div>
   )
-}
+})
 
 export default MultiSelectField
