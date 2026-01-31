@@ -26,6 +26,7 @@ final class Theme
     $this->options = $this->config->get_options();
 
     $this->migration = new Migration();
+    $this->migration->run();
 
     add_action('after_switch_theme', [$this, 'activate'], 10, 2);
     add_action('switch_theme', [$this, 'deactivate'], 10, 3);

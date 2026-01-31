@@ -68,6 +68,10 @@ class Migration
         if (version_compare($from_version, '3.0.0', '<')) {
             $this->migrate_pre_300();
         }
+
+        if (version_compare($from_version, '3.0.1', '<')) {
+            $this->migrate_misc_to_administration();
+        }
     }
     
     /**
@@ -125,6 +129,20 @@ class Migration
         }
     }
     
+    /**
+     * Migration: Rename module slug from 'misc' to 'administration'
+     */
+    protected function migrate_misc_to_administration()
+    {
+        $options = get_option('divi_child_options', []);
+
+        if (isset($options['misc'])) {
+            $options['administration'] = $options['misc'];
+            unset($options['misc']);
+            update_option('divi_child_options', $options);
+        }
+    }
+
     /**
      * Normalisiert einen boolean-Wert
      */

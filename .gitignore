@@ -7,3 +7,5 @@ push5.sh
 rsync.log
 /vendor/
 node_modules
+.claude
+

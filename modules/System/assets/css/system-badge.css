@@ -1,0 +1,54 @@
+/* Container: Site-Name-Link und Badge */
+#wpadminbar #wp-admin-bar-site-name > .ab-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Environment Badge im Titel (Span) */
+#wpadminbar .dvc-environment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* Environment colors (Span selbst) */
+#wpadminbar .dvc-env-local {
+  background-color: rgba(155, 155, 155, 0.15);
+  color: #9b9b9b;
+  border: 1px solid rgba(155, 155, 155, 0.4);
+}
+
+#wpadminbar .dvc-env-development {
+  background-color: rgba(241, 90, 36, 0.12);
+  color: #e8875e;
+  border: 1px solid rgba(241, 90, 36, 0.35);
+}
+
+#wpadminbar .dvc-env-staging {
+  background-color: rgba(56, 132, 244, 0.12);
+  color: #5a9ef0;
+  border: 1px solid rgba(56, 132, 244, 0.35);
+}
+
+#wpadminbar .dvc-env-production {
+  background-color: rgba(0, 210, 99, 0.12);
+  color: #4dca82;
+  border: 1px solid rgba(0, 210, 99, 0.35);
+}
+
+/* Search engine visibility warning icon inside badge */
+#wpadminbar .dvc-environment-badge .dvc-se-warning {
+  display: inline-flex;
+  align-items: center;
+  color: #ff9a00;
+  font-size: 14px;
+  line-height: 1;
+}

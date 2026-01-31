@@ -26,6 +26,7 @@ abstract class Module implements ModuleInterface
   ];
   private static $modules = [];
 
+  protected $service;
   protected $frontend_service;
   protected $admin_service;
   protected $common_service;
@@ -157,6 +158,15 @@ abstract class Module implements ModuleInterface
         }
 
         break;
+      }
+    }
+
+    // Unified Service (einzelne Service.php als Alternative zu 3 getrennten Dateien)
+    $service_class = "DiviChild\\Modules\\{$module_dir}\\Service";
+    if (class_exists($service_class)) {
+      $this->service = new $service_class($this);
+      if (method_exists($this->service, 'init_service')) {
+        $this->service->init_service();
       }
     }
   }

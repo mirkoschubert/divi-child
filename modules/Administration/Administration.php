@@ -1,17 +1,17 @@
 <?php
 
-namespace DiviChild\Modules\Misc;
+namespace DiviChild\Modules\Administration;
 
 use DiviChild\Core\Abstracts\Module;
 
-final class Misc extends Module
+final class Administration extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Miscellaneous';
-  protected $description = 'Miscellaneous fixes and enhancements for Divi';
-  protected $version = '1.2.0';
-  protected $slug = 'misc';
+  protected $name = 'Administration';
+  protected $description = 'Admin, content management and frontend enhancements for Divi';
+  protected $version = '1.3.0';
+  protected $slug = 'administration';
   protected $dependencies = [
     'jquery',
   ];
@@ -29,12 +29,17 @@ final class Misc extends Module
     'mobile_menu_fullscreen' => false,
     'disable_divi_upsells' => false,
     'disable_divi_ai' => false,
+    'duplicate_library' => false,
+    'builder_default' => false,
+    'builder_post_types' => [],
+    'external_links_new_tab' => false,
+    'external_links_rel' => 'noopener noreferrer nofollow',
   ];
 
   /**
    * Admin settings for the module
    * @return array
-   * @package Misc
+   * @package Administration
    * @since 1.0.0
    */
   public function admin_settings() {
@@ -61,6 +66,12 @@ final class Misc extends Module
             'label' => __('Disable auto-update emails', 'divi-child'),
             'description' => __('Stop email notifications when plugins or themes are automatically updated', 'divi-child'),
             'default' => $this->default_options['stop_mail_updates'],
+          ],
+          'duplicate_library' => [
+            'type' => 'toggle',
+            'label' => __('Enable duplicate Divi library items', 'divi-child'),
+            'description' => __('Add a "Duplicate" link to Divi library layouts in the admin list.', 'divi-child'),
+            'default' => $this->default_options['duplicate_library'],
           ],
         ]
       ],
@@ -127,6 +138,19 @@ final class Misc extends Module
             'description' => __('Display mobile menu in fullscreen mode for better UX', 'divi-child'),
             'default' => $this->default_options['mobile_menu_fullscreen'],
           ],
+          'external_links_new_tab' => [
+            'type' => 'toggle',
+            'label' => __('Open external links in new tab', 'divi-child'),
+            'description' => __('Automatically add target="_blank" and rel attributes to all external links on the page.', 'divi-child'),
+            'default' => $this->default_options['external_links_new_tab'],
+          ],
+          'external_links_rel' => [
+            'type' => 'text',
+            'label' => __('Rel attributes for external links', 'divi-child'),
+            'description' => __('Space-separated rel attribute values for external links.', 'divi-child'),
+            'default' => $this->default_options['external_links_rel'],
+            'depends_on' => ['external_links_new_tab' => true],
+          ],
         ]
       ],
       'divi_group' => [
@@ -145,6 +169,24 @@ final class Misc extends Module
             'label' => __('Disable Divi AI', 'divi-child'),
             'description' => __('Remove Divi AI features and interface elements', 'divi-child'),
             'default' => $this->default_options['disable_divi_ai'],
+          ],
+          'builder_default' => [
+            'type' => 'toggle',
+            'label' => __('Enable Divi Builder by default', 'divi-child'),
+            'description' => __('Automatically activate the Divi Builder when creating new posts or pages.', 'divi-child'),
+            'default' => $this->default_options['builder_default'],
+          ],
+          'builder_post_types' => [
+            'type' => 'multi_select',
+            'label' => __('Post types for default builder', 'divi-child'),
+            'description' => __('Select which post types should have the Divi Builder enabled by default.', 'divi-child'),
+            'options' => [
+              'page' => __('Pages', 'divi-child'),
+              'post' => __('Posts', 'divi-child'),
+              'project' => __('Projects', 'divi-child'),
+            ],
+            'default' => $this->default_options['builder_post_types'],
+            'depends_on' => ['builder_default' => true],
           ],
         ]
       ],
