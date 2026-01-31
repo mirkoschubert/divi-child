@@ -14,7 +14,7 @@ import './ModuleCard.styl'
 
 interface ModuleCardProps {
   module: ModuleInfo
-  onToggle: (enabled: boolean) => Promise<void>
+  onToggle: (enabled: boolean) => Promise<unknown>
   onOpenSettings: () => void
 }
 
@@ -44,6 +44,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
       <CardHeader>
         <h3>{module.name}</h3>
         <ToggleControl
+          label=""
           checked={module.enabled}
           onChange={handleToggle}
           disabled={isLoading}

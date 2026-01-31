@@ -88,8 +88,12 @@ class Service extends ModuleService
    */
   public function render_login_background_css()
   {
-    $bg_url = $this->get_module_option('login_background_image');
-    if (empty($bg_url)) {
+    $bg_id = (int) $this->get_module_option('login_background_image');
+    if (empty($bg_id)) {
+      return;
+    }
+    $bg_url = wp_get_attachment_url($bg_id);
+    if (!$bg_url) {
       return;
     }
     ?>

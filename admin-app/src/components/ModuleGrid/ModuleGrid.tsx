@@ -4,7 +4,7 @@ import type { ModuleInfo } from '@/types'
 
 interface ModuleGridProps {
   modules: Record<string, ModuleInfo>
-  onToggleModule: (slug: string, enabled: boolean) => Promise<void>
+  onToggleModule: (slug: string, enabled: boolean) => Promise<unknown>
   onOpenSettings: (slug: string) => void
 }
 

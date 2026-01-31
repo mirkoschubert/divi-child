@@ -23,10 +23,14 @@ export default [
         document: 'readonly',
         console: 'readonly',
         process: 'readonly', // Für NODE_ENV
-        
+        fetch: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        HTMLDivElement: 'readonly',
+
         // React globals (für neue JSX Transform nicht nötig, aber sicherheitshalber)
         React: 'readonly',
-        
+
         // WordPress globals
         wp: 'readonly'
       }

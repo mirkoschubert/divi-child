@@ -66,6 +66,9 @@ final class Admin
     wp_enqueue_script('wp-i18n');
     wp_enqueue_style('wp-components');
 
+    // WordPress Media Library (for ImageField)
+    wp_enqueue_media();
+
     // Unsere React-App
     $js_file_path = $this->config->theme_dir . '/admin-app/build/admin-app.js';
     $js_file_url = $this->config->theme_url . '/admin-app/build/admin-app.js';

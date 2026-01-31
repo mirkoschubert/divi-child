@@ -17,7 +17,7 @@ final class Login extends Module
     'enabled' => false,
     'login_site_identity' => false,
     'login_logo_width' => 320,
-    'login_background_image' => '',
+    'login_background_image' => 0,
   ];
 
   /**
@@ -43,9 +43,9 @@ final class Login extends Module
         'depends_on' => ['login_site_identity' => true],
       ],
       'login_background_image' => [
-        'type' => 'text',
-        'label' => __('Background image URL', 'divi-child'),
-        'description' => __('Full URL to a background image for the login page (displayed full-size).', 'divi-child'),
+        'type' => 'image',
+        'label' => __('Background Image', 'divi-child'),
+        'description' => __('Background image for the login page (displayed full-size).', 'divi-child'),
         'default' => $this->default_options['login_background_image'],
       ],
     ];

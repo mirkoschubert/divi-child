@@ -37,29 +37,61 @@ const GroupField = forwardRef<HTMLDivElement, GroupFieldProps>(({
   const fieldsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (contentRef.current && fieldsRef.current) {
-      if (isExpanded) {
-        const height = fieldsRef.current.scrollHeight
-        contentRef.current.style.height = `${height}px`
-      } else {
-        contentRef.current.style.height = '0px'
+    const el = contentRef.current
+    if (!el || !fieldsRef.current) return
+
+    const handleTransitionEnd = (e: TransitionEvent) => {
+      if (e.propertyName === 'height' && isExpanded) {
+        el.style.height = 'auto'
       }
     }
-  }, [isExpanded, allValues]) // allValues hinzugefügt, damit auf Änderungen reagiert wird
 
-  // Zusätzliches useEffect für Höhen-Updates bei dependency-Änderungen
-  useEffect(() => {
-    if (isExpanded && contentRef.current && fieldsRef.current) {
-      const timer = setTimeout(() => {
-        if (fieldsRef.current && contentRef.current) {
-          const height = fieldsRef.current.scrollHeight
-          contentRef.current.style.height = `${height}px`
-        }
-      }, 350) // Nach Abschluss der dependency-Animation (300ms + Buffer)
+    el.addEventListener('transitionend', handleTransitionEnd)
 
-      return () => clearTimeout(timer)
+    if (isExpanded) {
+      const height = fieldsRef.current.scrollHeight
+      el.style.height = `${height}px`
+    } else {
+      // Beim Zuklappen: Erst aktuelle Höhe setzen, dann auf 0 animieren
+      if (el.style.height === 'auto') {
+        el.style.height = `${el.scrollHeight}px`
+        el.offsetHeight // Force reflow
+      }
+      el.style.height = '0px'
     }
-  }, [allValues, isExpanded])
+
+    return () => {
+      el.removeEventListener('transitionend', handleTransitionEnd)
+    }
+  }, [isExpanded])
+
+  // Höhen-Update bei inneren Wrapper-Animationen (dependency-Änderungen)
+  useEffect(() => {
+    if (!isExpanded) return
+
+    const fieldsEl = fieldsRef.current
+    const contentEl = contentRef.current
+    if (!fieldsEl || !contentEl) return
+
+    const handleInnerTransitionEnd = (e: TransitionEvent) => {
+      // Nur auf height-Transitionen von inneren Dependency-Wrappern reagieren
+      if (e.propertyName !== 'height') return
+      if (e.target === contentEl) return // Eigene Transition ignorieren
+
+      // Wenn group-field-content auf auto steht, passt der Browser automatisch an
+      if (contentEl.style.height === 'auto') return
+
+      // Feste Pixel-Höhe → neu messen
+      const height = fieldsEl.scrollHeight
+      contentEl.style.height = `${height}px`
+    }
+
+    fieldsEl.addEventListener('transitionend', handleInnerTransitionEnd)
+
+    return () => {
+      fieldsEl.removeEventListener('transitionend', handleInnerTransitionEnd)
+    }
+  }, [isExpanded])
 
   const toggleExpanded = () => {
     if (onToggle) {

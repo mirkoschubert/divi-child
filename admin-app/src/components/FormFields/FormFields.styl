@@ -1,6 +1,15 @@
 @import '../../styles/variables'
 @import '../../styles/mixins'
 
+// Wrapper für abhängige Felder (Clip-Animation wie GroupField)
+.dvc-dependency-wrapper
+  overflow hidden
+  transition height 0.3s ease-in-out
+  will-change height
+
+  > .dvc-field
+    border-top 1px solid $admin-border !important
+
 .dvc-field
   wordpress-field()
 
@@ -79,6 +88,45 @@
 
     .components-toggle-control__help
       margin-left 0
+
+
+// MultiSelect Field
+.multi-select-field
+  position relative
+  z-index 1
+
+  .components-form-token-field__input-container
+    position relative
+
+  .components-form-token-field__suggestions-list
+    position absolute
+    left 0
+    width 100%
+    background white
+    border 1px solid $admin-border
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
+    z-index $z-tooltip
+    max-height 200px
+    overflow-y auto
+
+  .components-form-token-field__suggestion
+    padding 8px 12px
+
+    &.is-selected
+      background $theme-color-primary
+      color white
+
+  // Dropdown nach unten öffnen (Standard)
+  &.dropdown-down .components-form-token-field__suggestions-list
+    top 100%
+    border-top none
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
+
+  // Dropdown nach oben öffnen
+  &.dropdown-up .components-form-token-field__suggestions-list
+    bottom 100%
+    border-bottom none
+    box-shadow 0 -4px 8px rgba(0, 0, 0, 0.1)
 
 
 // Color Field
@@ -334,4 +382,51 @@
       width 100%
       justify-content center
       margin-bottom: $spacing-xs
+
+
+// Image Field
+.image-field
+  .image-field-header
+    display flex
+    align-items flex-start
+    justify-content space-between
+    gap $spacing-base
+
+    .image-field-info
+      flex 1
+
+  .image-field-preview
+    margin-top $spacing-base
+    display grid
+    grid-template-columns repeat(auto-fill, minmax(80px, 80px))
+    gap $spacing-sm
+
+    .image-field-item
+      position relative
+      width 80px
+      height 80px
+
+      img
+        width 100%
+        height 100%
+        object-fit cover
+        border-radius $border-radius
+        display block
+
+      .image-field-remove
+        position absolute
+        top -6px
+        right -6px
+        width 20px !important
+        height 20px !important
+        min-width 20px !important
+        padding 0 !important
+        border-radius 50%
+        background white
+        border 1px solid $admin-border
+        box-shadow 0 1px 3px rgba(0, 0, 0, 0.1)
+
+        &:hover
+          border-color $wp-error
+          color $wp-error
 

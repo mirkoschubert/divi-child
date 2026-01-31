@@ -1,10 +1,10 @@
 // Common Mixins
 wordpress-field()
   padding $spacing-md $spacing-lg
-  border-bottom 1px solid $admin-border
-  
-  &:last-child
-    border-bottom none
+  border-top 1px solid $admin-border
+
+  &:first-child
+    border-top none
 
 // Special styling for group fields - no extra spacing
 wordpress-field-grouped()
@@ -12,7 +12,6 @@ wordpress-field-grouped()
   padding-bottom 0
   padding-left 0
   padding-right 0
-  border-bottom none
 
 // Card Style Mixin
 card-style()

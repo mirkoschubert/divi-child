@@ -8,6 +8,7 @@ import {
   TextareaField,
   ColorField,
   GroupField,
+  ImageField,
 } from '../FormFields'
 import type { FieldConfig } from '@/types'
 import { useMemo, useEffect, useRef } from 'react'
@@ -37,14 +38,16 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
   onGroupToggle,
   onFieldChange,
 }) => {
-  const fieldRef = useRef<HTMLDivElement>(null)
-  // 🔧 Dependency-Check für die echte API-Struktur
-  const isVisible = useMemo(() => {
-    if (!fieldConfig.depends_on) {
-      return true // Keine Dependencies = immer sichtbar
-    }
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
 
-    // Die API sendet depends_on immer als Objekt
+  const hasDependency = !!fieldConfig.depends_on
+  const skipWrapperAnimation = fieldConfig.type === 'group'
+
+  // Dependency-Check
+  const isVisible = useMemo(() => {
+    if (!fieldConfig.depends_on) return true
+
     if (typeof fieldConfig.depends_on === 'object') {
       return Object.entries(fieldConfig.depends_on).every(([dependentField, requiredValue]) => {
         const currentValue = allValues[dependentField]
@@ -52,49 +55,52 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
       })
     }
 
-    // Fallback für Legacy-Support (falls doch mal String kommt)
     if (typeof fieldConfig.depends_on === 'string') {
       console.warn('Legacy depends_on string format detected:', fieldConfig.depends_on)
-      return true // Zeige an, wenn unsicher
+      return true
     }
 
     return true
   }, [fieldConfig.depends_on, allValues, fieldId])
 
+  // Wrapper-Animation (wie GroupField-Pattern)
   useEffect(() => {
-    // GroupField und RepeaterField haben ihre eigene Höhenlogik - nicht überschreiben
-    if (fieldConfig.type === 'group' || fieldConfig.type === 'repeater') {
-      return
-    }
-    
-    const timer = setTimeout(() => {
-      if (fieldRef.current) {
-        if (isVisible) {
-          // Set height to auto and measure the full element including padding
-          fieldRef.current.style.height = 'auto'
-          const height = fieldRef.current.offsetHeight
-          fieldRef.current.style.height = '0px'
-          // Force reflow
-          fieldRef.current.offsetHeight
-          fieldRef.current.style.height = `${height}px`
-        } else {
-          fieldRef.current.style.height = '0px'
-        }
+    if (!hasDependency || skipWrapperAnimation) return
+
+    const wrapper = wrapperRef.current
+    const inner = innerRef.current
+    if (!wrapper || !inner) return
+
+    const handleTransitionEnd = (e: TransitionEvent) => {
+      if (e.propertyName === 'height' && e.target === wrapper && isVisible) {
+        wrapper.style.height = 'auto'
       }
-    }, 0)
+    }
 
-    return () => clearTimeout(timer)
-  }, [isVisible, fieldConfig.type])
+    wrapper.addEventListener('transitionend', handleTransitionEnd)
 
-  // 🔧 Dependency Status Check
+    if (isVisible) {
+      const height = inner.scrollHeight
+      wrapper.style.height = `${height}px`
+    } else {
+      if (wrapper.style.height === 'auto') {
+        wrapper.style.height = `${wrapper.scrollHeight}px`
+        wrapper.offsetHeight // Force reflow
+      }
+      wrapper.style.height = '0px'
+    }
+
+    return () => {
+      wrapper.removeEventListener('transitionend', handleTransitionEnd)
+    }
+  }, [isVisible, hasDependency, skipWrapperAnimation])
+
+  // Dependency Status Check
   const getDependencyStatus = () => {
     if (!fieldConfig.dependency_status) return '';
     return fieldConfig.dependency_status.supported ? '' : 'unsupported';
   }
 
-  // Dependency-Message wird nicht mehr angezeigt - Requirements stehen in der Description
-
-  // Rest bleibt gleich...
   const commonProps = {
     id: fieldId,
     config: fieldConfig,
@@ -103,142 +109,144 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
   }
 
   const dependencyClass = getDependencyStatus()
-  
-  const getFieldOpacity = () => {
-    // If field has dependencies, use visibility-based opacity
-    if (fieldConfig.depends_on) {
-      return isVisible ? 1 : 0
+
+  const renderField = () => {
+    switch (fieldConfig.type) {
+      case 'text':
+        return (
+          <TextField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as string) || ''}
+            onChange={onChange}
+          />
+        )
+
+      case 'textarea':
+        return (
+          <TextareaField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as string) || ''}
+            onChange={onChange}
+          />
+        )
+
+      case 'toggle':
+        return (
+          <ToggleField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={Boolean(value)}
+            onChange={onChange}
+            onToggle={onToggle}
+          />
+        )
+
+      case 'select':
+        return (
+          <SelectField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as string) || ''}
+            onChange={onChange}
+          />
+        )
+
+      case 'multi_select':
+        return (
+          <MultiSelectField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as string[]) || []}
+            onChange={onChange}
+          />
+        )
+
+      case 'number':
+        return (
+          <NumberField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as number) || 0}
+            onChange={onChange}
+          />
+        )
+
+      case 'repeater':
+        return (
+          <RepeaterField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as Record<string, unknown>[]) || []}
+            onChange={onChange}
+          />
+        )
+
+      case 'color':
+        return (
+          <ColorField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as string) || ''}
+            onChange={onChange}
+          />
+        )
+
+      case 'image':
+        return (
+          <ImageField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={fieldConfig.multi
+              ? ((value as number[]) || [])
+              : ((value as number) || 0)}
+            onChange={onChange}
+          />
+        )
+
+      case 'group':
+        return (
+          <GroupField
+            {...commonProps}
+            ref={innerRef}
+            className={dependencyClass}
+            value={(value as Record<string, unknown>) || {}}
+            onChange={onChange}
+            isFirstGroup={isFirstGroup}
+            isExpanded={isExpanded}
+            onToggle={onGroupToggle}
+            allValues={allValues}
+            onFieldChange={onFieldChange}
+          />
+        )
+
+      default:
+        return (
+          <div className={`dvc-field ${dependencyClass}`}>
+            <p>Unsupported field type: {fieldConfig.type}</p>
+          </div>
+        )
     }
-    // If field is unsupported but has no dependencies, let CSS handle it
-    return undefined
   }
-  
-  const fieldStyle = fieldConfig.depends_on ? {
-    overflow: 'hidden',
-    transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out',
-    opacity: getFieldOpacity()
-  } : {}
 
-  switch (fieldConfig.type) {
-    case 'text':
-      return (
-        <TextField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as string) || ''}
-          onChange={onChange}
-        />
-      )
-
-    case 'textarea':
-      return (
-        <TextareaField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as string) || ''}
-          onChange={onChange}
-        />
-      )
-
-    case 'toggle':
-      return (
-        <ToggleField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={Boolean(value)}
-          onChange={onChange}
-          onToggle={onToggle}
-        />
-      )
-
-    case 'select':
-      return (
-        <SelectField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as string) || ''}
-          onChange={onChange}
-        />
-      )
-
-    case 'multi_select':
-      return (
-        <MultiSelectField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as string[]) || []}
-          onChange={onChange}
-        />
-      )
-
-    case 'number':
-      return (
-        <NumberField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as number) || 0}
-          onChange={onChange}
-        />
-      )
-
-    case 'repeater':
-      return (
-        <RepeaterField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as Record<string, unknown>[]) || []}
-          onChange={onChange}
-        />
-      )
-
-    case 'color':
-      return (
-        <ColorField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as string) || ''}
-          onChange={onChange}
-        />
-      )
-
-    case 'group':
-      return (
-        <GroupField
-          {...commonProps}
-          ref={fieldRef}
-          style={fieldStyle}
-          className={dependencyClass}
-          value={(value as Record<string, unknown>) || {}}
-          onChange={onChange}
-          isFirstGroup={isFirstGroup}
-          isExpanded={isExpanded}
-          onToggle={onGroupToggle}
-          allValues={allValues}
-          onFieldChange={onFieldChange}
-        />
-      )
-
-    default:
-      return (
-        <div className={`dvc-field ${dependencyClass}`}>
-          <p>Unsupported field type: {fieldConfig.type}</p>
-        </div>
-      )
+  // Felder mit depends_on bekommen einen Wrapper für die Clip-Animation
+  if (hasDependency && !skipWrapperAnimation) {
+    return (
+      <div className="dvc-dependency-wrapper" ref={wrapperRef}>
+        {renderField()}
+      </div>
+    )
   }
+
+  return renderField()
 }

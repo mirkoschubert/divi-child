@@ -34,22 +34,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     const initialData: Record<string, unknown> = {}
     let firstGroupFound = false
 
-    const flattenFields = (fields: Record<string, any>, prefix = '') => {
+    const flattenFields = (fields: Record<string, any>) => {
       Object.entries(fields).forEach(([fieldId, fieldConfig]) => {
-        if (fieldId === 'enabled') return // Skip enabled field
+        if (fieldId === 'enabled') return
 
         if (fieldConfig.type === 'group') {
-          // Set first group as expanded
           if (!firstGroupFound) {
             setExpandedGroup(fieldId)
             firstGroupFound = true
           }
-          // Recursively flatten group fields
           if (fieldConfig.fields) {
-            flattenFields(fieldConfig.fields, prefix)
+            flattenFields(fieldConfig.fields)
           }
         } else {
-          // Regular field - use current options or default
           const currentValue = module.options[fieldId]
           initialData[fieldId] = currentValue !== undefined ? currentValue : fieldConfig.default
         }
@@ -57,7 +54,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     }
 
     flattenFields(module.admin_settings)
-    console.log('🔍 Initial form data:', initialData)
     setFormData(initialData)
   }, [module])
 

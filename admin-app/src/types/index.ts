@@ -22,11 +22,12 @@ export interface AdminSettings {
 }
 
 export interface FieldConfig {
-  type: 'text' | 'textarea' | 'toggle' | 'select' | 'multi_select' | 'number' | 'list' | 'repeater' | 'font_selector' | 'color' | 'group';
+  type: 'text' | 'textarea' | 'toggle' | 'select' | 'multi_select' | 'number' | 'list' | 'repeater' | 'font_selector' | 'color' | 'group' | 'image';
   label?: string;
   title?: string;
   description?: string;
   default?: unknown;
+  multi?: boolean; // For image field: allow multiple selection
   options?: Record<string, string>; // Für select fields
   fields?: Record<string, FieldConfig>; // Für repeater fields und groups
   depends_on?: Record<string, string | boolean | number>;
@@ -75,6 +76,37 @@ export interface UseModulesReturn {
   reload: () => Promise<void>;
 }
 
+// WordPress Media Modal Types
+export interface WpMediaOptions {
+  title?: string;
+  multiple?: boolean;
+  library?: { type?: string };
+  button?: { text?: string };
+}
+
+export interface WpMediaFrame {
+  on: (event: string, callback: () => void) => WpMediaFrame;
+  open: () => WpMediaFrame;
+  state: () => {
+    get: (key: string) => {
+      first: () => WpMediaAttachment;
+      toJSON: () => WpMediaAttachment[];
+    };
+  };
+}
+
+export interface WpMediaAttachment {
+  id: number;
+  url: string;
+  filename: string;
+  title: string;
+  sizes?: {
+    thumbnail?: { url: string };
+    medium?: { url: string };
+    full?: { url: string };
+  };
+}
+
 // Global WordPress Objekte
 declare global {
   interface Window {
@@ -84,6 +116,7 @@ declare global {
       components: typeof import('@wordpress/components');
       apiFetch: typeof import('@wordpress/api-fetch').default;
       i18n: typeof import('@wordpress/i18n');
+      media: (options: WpMediaOptions) => WpMediaFrame;
     };
   }
 }

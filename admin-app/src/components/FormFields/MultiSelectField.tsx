@@ -1,4 +1,4 @@
-import { useState, forwardRef } from '@wordpress/element'
+import { useState, useRef, useCallback, forwardRef } from '@wordpress/element'
 import { FormTokenField } from '@wordpress/components'
 import { __ } from '@wordpress/i18n'
 import type { FieldConfig } from '@/types'
@@ -29,6 +29,25 @@ const MultiSelectField = forwardRef<HTMLDivElement, MultiSelectFieldProps>((
   ref
 ) => {
   const [searchTerm, setSearchTerm] = useState('')
+  const [dropdownDirection, setDropdownDirection] = useState<'up' | 'down'>('down')
+  const fieldWrapperRef = useRef<HTMLDivElement>(null)
+
+  const calculateDirection = useCallback(() => {
+    const el = fieldWrapperRef.current
+    if (!el) return
+
+    // Finde den scrollbaren Modal-Content-Container
+    const modalContent = el.closest('.components-modal__content')
+    if (!modalContent) return
+
+    const elRect = el.getBoundingClientRect()
+    const modalRect = modalContent.getBoundingClientRect()
+
+    const spaceBelow = modalRect.bottom - elRect.bottom
+    const spaceAbove = elRect.top - modalRect.top
+
+    setDropdownDirection(spaceBelow < 220 && spaceAbove > spaceBelow ? 'up' : 'down')
+  }, [])
 
   // Options zu Suggestions umwandeln
   const options = config.options || {}
@@ -46,10 +65,10 @@ const MultiSelectField = forwardRef<HTMLDivElement, MultiSelectFieldProps>((
 
   const handleChange = (tokens: (string | TokenItem)[]) => {
     // Konvertiere TokenItems zu strings
-    const newValues = tokens.map(token => 
+    const newValues = tokens.map(token =>
       typeof token === 'string' ? token : token.value
     )
-    
+
     // Transformiere Display-Werte zurück zu Keys
     const actualValues = newValues.map((displayVal) => {
       const key = Object.keys(options).find((k) => options[k] === displayVal)
@@ -59,7 +78,7 @@ const MultiSelectField = forwardRef<HTMLDivElement, MultiSelectFieldProps>((
   }
 
   return (
-    <div className={`dvc-field multi-select-field ${className}`} ref={ref} style={style}>
+    <div className={`dvc-field multi-select-field dropdown-${dropdownDirection} ${className}`} ref={ref} style={style}>
       <div className="dvc-field-header">
         <h4 className='dvc-field-label'>{config.label}</h4>
         {config.description && (
@@ -67,17 +86,19 @@ const MultiSelectField = forwardRef<HTMLDivElement, MultiSelectFieldProps>((
         )}
       </div>
 
-      <FormTokenField
-        value={displayValues}
-        label={__('Add Items', 'divi-child')}
-        suggestions={filteredSuggestions.map((key) => options[key])}
-        onChange={handleChange}
-        placeholder={__('Search and select...', 'divi-child')}
-        maxSuggestions={200}
-        __next40pxDefaultSize
-        __nextHasNoMarginBottom
-        __experimentalExpandOnFocus
-      />
+      <div ref={fieldWrapperRef} onFocus={calculateDirection}>
+        <FormTokenField
+          value={displayValues}
+          label={__('Add Items', 'divi-child')}
+          suggestions={filteredSuggestions.map((key) => options[key])}
+          onChange={handleChange}
+          placeholder={__('Search and select...', 'divi-child')}
+          maxSuggestions={200}
+          __next40pxDefaultSize
+          __nextHasNoMarginBottom
+          __experimentalExpandOnFocus
+        />
+      </div>
     </div>
   )
 })
