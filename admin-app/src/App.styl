@@ -2,18 +2,18 @@
 @import './styles/mixins'
 
 .dvc-react-admin
-  margin 0 0 0 -20px // Negiert WordPress Admin-Padding
+  margin 0 0 0 -20px
 
 .dvc-react-loading
   display flex
   flex-direction column
   align-items center
   justify-content center
-  padding 40px
+  padding $spacing-xxl
   text-align center
   
   .components-spinner
-    margin-bottom $spacing-md
+    margin-bottom $spacing-base
 
 .dvc-react-header
   background-color white
@@ -38,7 +38,7 @@
       margin-left $spacing-xs
 
 .dvc-modules
-  padding $spacing-md $spacing-lg
+  padding $spacing-base $spacing-lg
   margin: 0
   
   .modules-grid

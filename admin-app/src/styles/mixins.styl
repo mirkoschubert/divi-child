@@ -1,8 +1,7 @@
 // Common Mixins
 wordpress-field()
-  padding-left $spacing-lg
-  padding-right $spacing-lg
-  border-bottom 1px solid #eee
+  padding $spacing-md $spacing-lg
+  border-bottom 1px solid $admin-border
   
   &:last-child
     border-bottom none
@@ -15,7 +14,7 @@ wordpress-field-grouped()
   padding-right 0
   border-bottom none
 
-// Card Style Mixin - FEHLTE!
+// Card Style Mixin
 card-style()
   background white
   border 1px solid $border-color
@@ -69,8 +68,8 @@ state-saving()
     right 10px
     width 18px
     height 18px
-    border 2px solid lighten($wp-primary, 70%)
-    border-top 2px solid $wp-primary
+    border unquote('2px solid color-mix(in srgb, var(--wp-admin-theme-color-2), white 70%)')
+    border-top 2px solid $theme-color-primary
     border-radius 50%
     animation spin 1s linear infinite
     transform translateY(-50%)

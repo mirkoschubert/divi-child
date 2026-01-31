@@ -6,9 +6,11 @@ $wp-warning = #ffb900
 $wp-error = #d63638
 
 // WordPress Theme Colors
-$theme-primary = var(--wordpress-theme-color, #0085ba)
-$theme-primary-light = var(--wordpress-theme-color-light, #11a0d2)
-$theme-primary-dark = var(--wordpress-theme-color-dark, #006799)
+$theme-color-background = var(--wp-admin-theme-color-0, #1d2327)
+$theme-color-background-light = var(--wp-admin-theme-color-1, #2c3338)
+$theme-color-primary = var(--wp-admin-theme-color-2, #2271b1)
+$theme-color-primary-light = unquote('color-mix(in srgb, var(--wp-admin-theme-color-2), white 10%)')
+$theme-color-secondary = var(--wp-admin-theme-color-3, #72aee6)
 
 // Base Design Tokens
 $border-color = #ddd
@@ -18,9 +20,11 @@ $box-shadow = 0 1px 3px rgba(0, 0, 0, 0.1)
 // Spacing System
 $spacing-xs = .25rem // 4px
 $spacing-sm = .5rem // 8px
-$spacing-md = 1rem // 16px
+$spacing-base = 1rem // 16px
+$spacing-md = 1.25rem // 20px
 $spacing-lg = 1.5rem // 24px
 $spacing-xl = 2rem // 32px
+$spacing-xxl = 2.5rem // 40px
 
 // Transitions
 $transition-fast = 0.2s ease
@@ -51,42 +55,3 @@ $z-dropdown = 1000
 $z-modal = 9999
 $z-tooltip = 10000
 
-// Mixins
-card-style()
-  background white
-  border 1px solid $border-color
-  border-radius $border-radius
-  box-shadow $box-shadow
-
-button-style()
-  padding 8px 16px
-  border-radius 3px
-  cursor pointer
-  transition background-color $transition-fast
-  
-  &:hover
-    opacity 0.8
-  
-  &:disabled
-    opacity 0.6
-    cursor not-allowed
-
-flex-between()
-  display flex
-  justify-content space-between
-  align-items center
-
-// Grid System
-grid-responsive($cols = 4, $gap = 1.5rem)
-  display grid
-  grid-template-columns repeat($cols, minmax(250px, 1fr))
-  grid-gap $gap
-  
-  @media (max-width: 1280px)
-    grid-template-columns repeat(3, minmax(250px, 1fr))
-  
-  @media (max-width: 900px)
-    grid-template-columns repeat(2, minmax(250px, 1fr))
-  
-  @media (max-width: $breakpoint-mobile)
-    grid-template-columns repeat(1, minmax(250px, 1fr))

@@ -44,7 +44,7 @@
   display flex
   justify-content space-between
   align-items center
-  padding $spacing-md
+  padding $spacing-base
   border-bottom 1px solid $border-color
   
   h3
@@ -58,6 +58,9 @@
     height 22px
 
     &.is-checked
+      .components-form-toggle__track
+        background-color $theme-color-primary
+        
       .components-form-toggle__thumb
         transform translateX(20px)
 
@@ -76,7 +79,7 @@
 // CardBody Styling  
 .module .components-card__body
   flex-grow 1
-  padding $spacing-md
+  padding $spacing-base
   display flex
   flex-direction column
 
@@ -87,7 +90,7 @@
 
 .module-info
   flex-grow 1
-  padding $spacing-md
+  padding $spacing-base
 
   .module-details
     display grid
@@ -121,7 +124,7 @@
   background-color white
   border none
   box-shadow none
-  color $wp-primary
+  color $theme-color-primary
   width 100%
   padding 0.875rem 1rem
   cursor pointer

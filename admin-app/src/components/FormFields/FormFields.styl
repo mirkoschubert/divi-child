@@ -5,7 +5,7 @@
   wordpress-field()
 
   .dvc-field-header
-    margin-bottom $spacing-md
+    margin-bottom $spacing-base
     
   .dvc-field-label
     font-size $font-size-base
@@ -32,7 +32,7 @@
   // WordPress Components Integration
   .components-base-control,
   .components-toggle-control
-    margin 20px 0
+    margin 0
     width 100%
     
     &__label
@@ -55,6 +55,9 @@
     height 22px
 
     &.is-checked
+      .components-form-toggle__track
+        background-color $theme-color-primary
+
       .components-form-toggle__thumb
         transform translateX(20px)
 
@@ -81,6 +84,7 @@
 // Color Field
 .color-field
   .color-field-layout
+    margin 0
     display flex
     align-items flex-start
     justify-content space-between
@@ -163,7 +167,7 @@
     border-top none
   
   .group-field-header
-    padding 16px 20px
+    padding $spacing-base $spacing-md
     background $admin-light-gray
     border-bottom 1px solid $admin-border
     cursor pointer
@@ -194,7 +198,7 @@
         
     .group-field-toggle
       flex-shrink 0
-      margin-left 16px
+      margin-left $spacing-base
       color $admin-gray
       transition transform 0.2s ease
       display flex
@@ -219,7 +223,7 @@
     margin -1px 0
     
     .dvc-field
-      //margin-bottom 20px
+      //margin-bottom $spacing-md
       
       &:last-child
         margin-bottom 0
@@ -243,14 +247,13 @@
   max-height none !important
 
   .repeater-field-wrapper
-    margin 20px 0
+    margin 0
 
     .repeater-items
-      margin-bottom $spacing-md
+      margin-bottom $spacing-base
     
     .repeater-item
       margin-bottom $spacing-sm
-      /* border 1px solid $admin-border */
       border-radius $border-radius
       overflow hidden
       
@@ -286,11 +289,11 @@
           
         .expand-icon
           display inline-block
-          width 16px
-          height 16px
+          width 1rem
+          height 1rem
           margin-right 8px
           font-size 12px
-          line-height 16px
+          line-height 1rem
           text-align center
           color $admin-gray
           transition transform 0.2s ease
@@ -303,7 +306,7 @@
       padding 0 !important
 
     .repeater-fields
-      padding 1.25rem 0
+      padding $spacing-md 0
       
       .dvc-field
         margin-bottom 1rem
@@ -317,10 +320,10 @@
 
     .repeater-empty
       text-align center
-      padding 40px 20px
+      padding $spacing-xxl $spacing-md
       background $admin-light-gray
       border 2px dashed $admin-border
-      border-radius 4px
+      border-radius $border-radius
       color $admin-gray
       
       p
@@ -330,5 +333,5 @@
     .add-repeater-item
       width 100%
       justify-content center
-      margin-bottom: .25rem
+      margin-bottom: $spacing-xs
 

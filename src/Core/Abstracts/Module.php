@@ -169,7 +169,7 @@ abstract class Module implements ModuleInterface
   public function init_rest_controller()
   {
     if ($this->rest_controller !== null) {
-      error_log("⚠️ REST Controller für {$this->slug} bereits initialisiert");
+      error_log("REST Controller für {$this->slug} bereits initialisiert");
       return;
     }
     $reflection = new \ReflectionClass($this);

@@ -4,91 +4,89 @@
 .dvc-settings-modal
   wp-modal-style()
 
-  // Modal selbst
   .components-modal__content
-    box-shadow: none !important
-    border: 1px solid #ddd
-    border-radius: 4px
-    width: 100% !important
-    max-width: 600px !important
-    height: auto !important
-    max-height: 90vh !important
-    padding: 0
+    box-shadow none !important
+    border 1px solid $border-color
+    border-radius $border-radius
+    width 100% !important
+    max-width 600px !important
+    height auto !important
+    max-height 90vh !important
+    padding 0
     
-  // Header
   .components-modal__header
-    padding: 20px 24px 16px
+    padding $padding-md $padding-lg $padding-base
     
     .components-modal__header-heading
-      font-size: 18px
-      font-weight: 600
-      color: #1e1e1e
-      margin: 0
+      font-size 18px
+      font-weight 600
+      color $admin-dark-gray
+      margin 0
       
-  // Body - volle Breite nutzen
   .components-modal__content .components-modal__content
-    padding: 0 !important
+    padding 0 !important
     
   .dvc-form
-    padding: 0
+    padding: 1px 0;
+    margin: -1px 0;
     
   .dvc-loading
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    padding: 40px 24px
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    padding $spacing-xxl $spacing-lg
     
     p
-      margin-top: 16px
-      color: #646970
-      font-size: 14px
+      margin-top 16px
+      color $admin-gray
+      font-size 14px
       
   // Footer mit Buttons
   .dvc-modal-footer
-    display: flex
-    justify-content: flex-end
-    gap: 12px
-    padding: 16px 24px
-    border-top: 1px solid #e0e0e0
-    background: #f9f9f9
+    display flex
+    justify-content flex-end
+    gap 12px
+    padding $spacing-base $spacing-lg
+    border-top 1px solid #e0e0e0
+    background $admin-light-gray
     
     .components-button
-      min-height: 36px
+      min-height 36px
       
     .components-button.is-primary
-      background: #2271b1
-      border-color: #2271b1
+      background $theme-color-primary
+      border-color $theme-color-primary
       
       &:hover:not(:disabled)
-        background: #135e96
-        border-color: #135e96
+        background $theme-color-primary-light
+        border-color $theme-color-primary-light
         
     .components-button.is-tertiary
-      color: #646970
+      color $admin-gray
       
       &:hover:not(:disabled)
-        color: #1e1e1e
+        color $admin-dark-gray
         
   // Responsive
-  @media (max-width: 782px)
+  @media (max-width 782px)
     .components-modal__content
-      width: 95% !important
-      max-width: 95% !important
-      margin: 20px auto !important
+      width 95% !important
+      max-width 95% !important
+      margin $spacing-md auto !important
       
     .dvc-form
-      > .dvc-field:not(.group-field):first-child
-        margin-top: 16px
+      > .dvc-fieldnot(.group-field)first-child
+        margin-top $spacing-base
         
-      > .dvc-field:not(.group-field):last-child
-        margin-bottom: 16px
+      > .dvc-fieldnot(.group-field)last-child
+        margin-bottom $spacing-base
       
     .dvc-modal-footer
-      padding: 12px 16px
-      flex-direction: column-reverse
-      gap: 8px
+      padding 12px $spacing-base
+      flex-direction column-reverse
+      gap 8px
       
       .components-button
-        width: 100%
-        justify-content: center
+        width 100%
+        justify-content center

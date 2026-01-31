@@ -22,6 +22,7 @@ final class Admin
    */
   public function init()
   {
+    add_action('admin_head', [$this, 'get_theme_colors']);
     add_action('admin_menu', [$this, 'add_admin_menu'], 12);
     add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
   }
@@ -102,6 +103,55 @@ final class Admin
     }
 
     echo '<div id="divi-child-react-admin"></div>';
+  }
+
+
+  /**
+   * Adds admin theme colors of a user to CSS variables
+   * @return void
+   * @since 3.0.0
+   */
+  public function get_theme_colors()
+  {
+    $user_id = get_current_user_id();
+    $color_scheme = get_user_option('admin_color', $user_id);
+    global $_wp_admin_css_colors;
+    if (isset($_wp_admin_css_colors[$color_scheme])) {
+      $colors = $_wp_admin_css_colors[$color_scheme]->colors;
+      // Wenn Modern und nur 3 Farben, zweite Farbe aus der ersten ableiten
+      if ($color_scheme === 'modern' && count($colors) === 3) {
+        $lighter = $this->lighten_color($colors[0], 0.1);
+        array_splice($colors, 1, 0, $lighter);
+      }
+      echo '<style>:root {';
+      foreach ($colors as $i => $color) {
+        echo "--wp-admin-theme-color-$i: $color;";
+      }
+      echo '}</style>';
+    }
+  }
+
+
+  /**
+   * Lightens a hex color by a given percentage
+   * @param string $hex The hex color code
+   * @param float $percent The percentage to lighten (0.0 to 1.0)
+   * @return string The lightened hex color code
+   * @since 3.0.0
+   */
+  public function lighten_color($hex, $percent)
+  {
+    $hex = str_replace('#', '', $hex);
+    if (strlen($hex) == 3) {
+      $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2));
+    $r = min(255, intval($r + (255 - $r) * $percent));
+    $g = min(255, intval($g + (255 - $g) * $percent));
+    $b = min(255, intval($b + (255 - $b) * $percent));
+    return sprintf("#%02x%02x%02x", $r, $g, $b);
   }
 
 }

@@ -70,8 +70,9 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
     const timer = setTimeout(() => {
       if (fieldRef.current) {
         if (isVisible) {
+          // Set height to auto and measure the full element including padding
           fieldRef.current.style.height = 'auto'
-          const height = fieldRef.current.scrollHeight
+          const height = fieldRef.current.offsetHeight
           fieldRef.current.style.height = '0px'
           // Force reflow
           fieldRef.current.offsetHeight
@@ -103,11 +104,20 @@ export const FormFieldRenderer: React.FC<FormFieldRendererProps> = ({
 
   const dependencyClass = getDependencyStatus()
   
-  const fieldStyle = {
+  const getFieldOpacity = () => {
+    // If field has dependencies, use visibility-based opacity
+    if (fieldConfig.depends_on) {
+      return isVisible ? 1 : 0
+    }
+    // If field is unsupported but has no dependencies, let CSS handle it
+    return undefined
+  }
+  
+  const fieldStyle = fieldConfig.depends_on ? {
     overflow: 'hidden',
     transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out',
-    opacity: isVisible ? 1 : 0
-  }
+    opacity: getFieldOpacity()
+  } : {}
 
   switch (fieldConfig.type) {
     case 'text':
