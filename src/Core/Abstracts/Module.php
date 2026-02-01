@@ -27,9 +27,6 @@ abstract class Module implements ModuleInterface
   private static $modules = [];
 
   protected $service;
-  protected $frontend_service;
-  protected $admin_service;
-  protected $common_service;
   protected $rest_controller;
 
   public function __construct()
@@ -99,69 +96,9 @@ abstract class Module implements ModuleInterface
    */
   public function init_services()
   {
-    // Verwende Reflection, um den tatsächlichen Verzeichnisnamen zu ermitteln
     $reflection = new \ReflectionClass($this);
     $module_dir = basename(dirname($reflection->getFileName()));
 
-    // Frontend-Service-Initialisierung
-    if (!is_admin()) {
-      $possible_namespaces = [
-        "DiviChild\\Modules\\{$module_dir}\\Services\\FrontendService",
-        "DiviChild\\Modules\\{$module_dir}\\FrontendService"
-      ];
-
-      foreach ($possible_namespaces as $class_name) {
-        if (class_exists($class_name)) {
-          $this->frontend_service = new $class_name($this);
-
-          if (method_exists($this->frontend_service, 'init_frontend')) {
-            $this->frontend_service->init_frontend();
-          }
-
-          break;
-        }
-      }
-    }
-
-    // Admin-Service-Initialisierung
-    if (is_admin()) {
-      $possible_namespaces = [
-        "DiviChild\\Modules\\{$module_dir}\\Services\\AdminService",
-        "DiviChild\\Modules\\{$module_dir}\\AdminService"
-      ];
-
-      foreach ($possible_namespaces as $class_name) {
-        if (class_exists($class_name)) {
-          $this->admin_service = new $class_name($this);
-
-          if (method_exists($this->admin_service, 'init_admin')) {
-            $this->admin_service->init_admin();
-          }
-
-          break;
-        }
-      }
-    }
-
-    // Gemeinsamer Service für beide (falls vorhanden)
-    $possible_namespaces = [
-      "DiviChild\\Modules\\{$module_dir}\\Services\\CommonService",
-      "DiviChild\\Modules\\{$module_dir}\\CommonService"
-    ];
-
-    foreach ($possible_namespaces as $class_name) {
-      if (class_exists($class_name)) {
-        $this->common_service = new $class_name($this);
-
-        if (method_exists($this->common_service, 'init_common')) {
-          $this->common_service->init_common();
-        }
-
-        break;
-      }
-    }
-
-    // Unified Service (einzelne Service.php als Alternative zu 3 getrennten Dateien)
     $service_class = "DiviChild\\Modules\\{$module_dir}\\Service";
     if (class_exists($service_class)) {
       $this->service = new $service_class($this);

@@ -38,78 +38,26 @@ abstract class ModuleService implements ServiceInterface
     $this->options = $module->get_options();
   }
 
-  
+
   /**
-   * Initializes common functionalities
+   * Initializes all module services (to be overridden by child classes)
    * @return void
    * @since 3.0.0
    */
-  public function init_common()
+  public function init_service()
   {
-    // Basisinitialisierung für gemeinsame Funktionalitäten, kann von Kindklassen überschrieben werden
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_common_assets']);
-    add_action('admin_enqueue_scripts', [$this, 'enqueue_common_assets']);
+    // Override in child classes
   }
 
 
   /**
-   * Initializes frontend functionalities
+   * Enqueues assets (to be overridden by child classes)
    * @return void
    * @since 3.0.0
    */
-  public function init_frontend()
+  public function enqueue_assets()
   {
-    // Basisinitialisierung für Frontend-Funktionalitäten, kann von Kindklassen überschrieben werden
-    if (is_admin()) return;
-    
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
-  }
-
-
-  /**
-   * Initializes admin functionalities
-   * @return void
-   * @since 3.0.0
-   */
-  public function init_admin()
-  {
-    // Basisinitialisierung für Admin-Funktionalitäten, kann von Kindklassen überschrieben werden
-    if (!is_admin()) return;
-    
-    add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_assets']);
-  }
-
-
-  /**
-   * Enqueues common assets
-   * @return void
-   * @since 3.0.0
-   */
-  public function enqueue_common_assets()
-  {
-    // Base initialization for common assets, can be overridden by child classes
-  }
-
-
-  /**
-   * Enqueues frontend assets
-   * @return void
-   * @since 3.0.0
-   */
-  public function enqueue_frontend_assets()
-  {
-    // Base initialization for frontend assets, can be overridden by child classes
-  }
-
-
-  /**
-   * Enqueues admin assets
-   * @return void
-   * @since 3.0.0
-   */
-  public function enqueue_admin_assets()
-  {
-    // Base initialization for admin assets, can be overridden by child classes
+    // Override in child classes
   }
 
 
@@ -155,7 +103,7 @@ abstract class ModuleService implements ServiceInterface
 
   /**
    * Checks if a specific option is enabled
-   * @param string $key 
+   * @param string $key
    * @return bool
    * @since 3.0.0
    */

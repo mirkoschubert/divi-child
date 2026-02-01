@@ -3,42 +3,41 @@
 namespace DiviChild\Modules\Bugs;
 
 use DiviChild\Core\Abstracts\ModuleService;
-use DiviChild\Core\Interfaces\FrontendServiceInterface;
 
-final class FrontendService extends ModuleService implements FrontendServiceInterface
+class Service extends ModuleService
 {
-
   /**
-   * Initializes the frontend service
+   * Initializes all module services
    * @return void
-   * @package Bugs
-   * @since 1.0.0
+   * @since 3.0.0
    */
-  public function init_frontend()
+  public function init_service()
   {
-    parent::init_frontend();
+    // === Frontend Only ===
+    if (!is_admin()) {
+      // 1. Support Center
+      if ($this->is_option_enabled('support_center')) {
+        add_action('wp_enqueue_scripts', [$this, 'remove_divi_support_center']);
+      }
 
-    // 1. Support Center
-    if ($this->is_option_enabled('support_center')) {
-      add_action('wp_enqueue_scripts', [$this, 'remove_divi_support_center']);
-    }
+      // 2. Fixed Navigation
+      if ($this->is_option_enabled('fixed_navigation')) {
+        add_filter('body_class', [$this, 'add_fixed_navigation_class']);
+        add_action('wp_head', [$this, 'add_header_css_variables'], 5);
+      }
 
-    // 2. Fixed Navigation
-    if ($this->is_option_enabled('fixed_navigation')) {
-      add_filter('body_class', [$this, 'add_fixed_navigation_class']);
-      add_action('wp_head', [$this, 'add_header_css_variables'], 5);
+      // Assets
+      add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
     }
-    
   }
 
 
   /**
-   * Loads the frontend assets
+   * Enqueues frontend assets
    * @return void
-   * @package Bugs
    * @since 1.0.0
    */
-  public function enqueue_frontend_assets()
+  public function enqueue_assets()
   {
     // 2. Fixed Navigation
     if ($this->is_option_enabled('fixed_navigation')) {
@@ -62,7 +61,6 @@ final class FrontendService extends ModuleService implements FrontendServiceInte
   /**
    * Removes the Divi Support Center script
    * @return void
-   * @package Bugs
    * @since 1.0.0
    */
   public function remove_divi_support_center()
@@ -74,11 +72,11 @@ final class FrontendService extends ModuleService implements FrontendServiceInte
 
   /**
    * Adds a fixed navigation class to the body
-   * @return void
-   * @package Bugs
+   * @param array $classes
+   * @return array
    * @since 1.0.0
    */
-  function add_fixed_navigation_class($classes)
+  public function add_fixed_navigation_class($classes)
   {
     $has_tb_header = in_array('et-tb-has-header', $classes);
     if (function_exists('et_get_option')) {
@@ -90,7 +88,6 @@ final class FrontendService extends ModuleService implements FrontendServiceInte
     if ($has_tb_header) {
       $classes[] = $is_fixed_header ? 'et_fixed_nav' : 'et_non_fixed_nav';
       $classes[] = 'et_show_nav';
-      // With et-tb-has-header not set the page-container gets a padding-top of the height of the header
       unset($classes[array_search('et-tb-has-header', $classes)]);
     }
     return $classes;
@@ -98,14 +95,14 @@ final class FrontendService extends ModuleService implements FrontendServiceInte
 
 
   /**
-   * Gibt CSS-Variablen für den Header aus
+   * Outputs CSS variables for the header
    * @return void
-   * @package Bugs
    * @since 1.1.0
    */
-  public function add_header_css_variables() {
+  public function add_header_css_variables()
+  {
     if ($this->is_option_enabled('fixed_navigation')) {
-      $header_height = intval($this->get_module_option('header_height')) ?: 80; // Fallback auf 80px
+      $header_height = intval($this->get_module_option('header_height')) ?: 80;
       ?>
       <style id="dvc-header-variables">
         :root {
@@ -115,5 +112,4 @@ final class FrontendService extends ModuleService implements FrontendServiceInte
       <?php
     }
   }
-
 }

@@ -1,51 +1,96 @@
 <?php
 
-namespace DiviChild\Modules\LocalFonts\Services;
+namespace DiviChild\Modules\LocalFonts;
 
 use DiviChild\Core\Abstracts\ModuleService;
-use DiviChild\Core\Interfaces\CommonServiceInterface;
-use DiviChild\Modules\LocalFonts\Downloads;
 
-class CommonService extends ModuleService implements CommonServiceInterface
+class Service extends ModuleService
 {
-  public function init_common()
+  /**
+   * Initializes all module services
+   * @return void
+   * @since 3.0.0
+   */
+  public function init_service()
   {
-    parent::init_common();
+    // === Common (Admin + Frontend) ===
 
-    // 🎯 GOOGLE FONTS DEAKTIVIERUNG - läuft überall (Frontend + Builder)
+    // Disable Google Fonts
     if ($this->is_option_enabled('disable_google_fonts')) {
-        add_filter('et_builder_load_google_fonts', '__return_false');
-        add_filter('et_google_fonts_enqueue', '__return_false');
-        error_log("✅ Google Fonts DISABLED in COMMON (Frontend + Builder)");
+      add_filter('et_builder_load_google_fonts', '__return_false');
+      add_filter('et_google_fonts_enqueue', '__return_false');
     }
 
-    // 🎯 FONT-HOOKS IMMER REGISTRIEREN (Frontend + Builder)
+    // Register local fonts as websafe fonts
     if (!empty($this->get_module_option('selected_fonts'))) {
       add_filter('et_websafe_fonts', [$this, 'register_local_fonts_websafe'], 999, 1);
     }
 
-    // 🎯 AUTO-UPDATE SYSTEM - läuft überall
+    // Auto-update system
     add_action('divi_child_check_font_updates', [$this, 'check_and_update_fonts']);
 
-    // Cron-Job registrieren (nur einmal)
+    // Schedule cron job (once)
     if (!wp_next_scheduled('divi_child_check_font_updates')) {
       wp_schedule_event(strtotime('03:00:00'), 'daily', 'divi_child_check_font_updates');
     }
 
-    // Cleanup-Cron
+    // Cleanup cron
     add_action('divi_child_daily_cron', [$this, 'cleanup_orphaned_files']);
+
+    // === Frontend Only ===
+    if (!is_admin()) {
+      $selected_fonts = $this->get_module_option('selected_fonts');
+      if (!empty($selected_fonts)) {
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets'], 5);
+      }
+    }
   }
 
 
   /**
-   * 🎯 Registriert lokale Fonts als Websafe Fonts (Frontend + Builder)
+   * Enqueues local font CSS files on the frontend
+   * @return void
+   * @since 3.0.0
+   */
+  public function enqueue_assets()
+  {
+    $upload_dir = wp_upload_dir();
+    $fonts_dir = $upload_dir['basedir'] . '/local-fonts';
+    $fonts_url = $upload_dir['baseurl'] . '/local-fonts';
+    $installed_fonts = get_option('divi_child_installed_fonts', []);
+
+    foreach ($installed_fonts as $font_family => $font_data) {
+      $css_filename = sanitize_title($font_family) . '.css';
+      $css_path = $fonts_dir . '/' . $css_filename;
+      $css_url = $fonts_url . '/' . $css_filename;
+
+      if (file_exists($css_path)) {
+        wp_enqueue_style(
+          'divi-child-font-' . sanitize_title($font_family),
+          $css_url,
+          [],
+          filemtime($css_path)
+        );
+      }
+    }
+  }
+
+
+  // =====================================================================
+  // Font Registration
+  // =====================================================================
+
+  /**
+   * Registers local fonts as websafe fonts (Frontend + Builder)
+   * @param array $fonts
+   * @return array
+   * @since 3.0.0
    */
   public function register_local_fonts_websafe($fonts)
   {
     $installed_fonts = get_option('divi_child_installed_fonts', []);
 
     if (empty($installed_fonts)) {
-      error_log("❌ No installed fonts found in database");
       return $fonts;
     }
 
@@ -62,7 +107,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
         'type' => $this->map_category_to_divi_type($category),
         'standard' => 1
       ];
-
     }
 
     return $fonts;
@@ -70,7 +114,10 @@ class CommonService extends ModuleService implements CommonServiceInterface
 
 
   /**
-   * Formatiert Font-Variants für Divi's erwartetes Format
+   * Formats font variants for Divi's expected format
+   * @param array $variants
+   * @return string
+   * @since 3.0.0
    */
   private function format_font_styles_for_divi($variants)
   {
@@ -103,7 +150,6 @@ class CommonService extends ModuleService implements CommonServiceInterface
       }
     }
 
-    // Standard-Weights hinzufügen falls leer
     if (empty($divi_styles)) {
       $divi_styles = ['400', '700'];
     }
@@ -113,7 +159,10 @@ class CommonService extends ModuleService implements CommonServiceInterface
 
 
   /**
-   * Mappt Google Fonts Kategorien auf Divi Font-Types
+   * Maps Google Fonts categories to Divi font types
+   * @param string $category
+   * @return string
+   * @since 3.0.0
    */
   private function map_category_to_divi_type($category)
   {
@@ -129,9 +178,13 @@ class CommonService extends ModuleService implements CommonServiceInterface
   }
 
 
+  // =====================================================================
+  // Auto-Update System
+  // =====================================================================
+
   /**
-   * Checks for updates of installed fonts and updates them if necessary.
-   * @package LocalFonts
+   * Checks for updates of installed fonts and updates them if necessary
+   * @return void
    * @since 3.0.0
    */
   public function check_and_update_fonts()
@@ -139,17 +192,12 @@ class CommonService extends ModuleService implements CommonServiceInterface
     $installed_fonts = get_option('divi_child_installed_fonts', []);
 
     if (empty($installed_fonts)) {
-      error_log("🔄 No local fonts installed, skipping auto-update check");
       return;
     }
 
-    error_log("🔄 Auto-checking for font updates for " . count($installed_fonts) . " fonts");
-
-    // Aktuelle Metadaten von API holen
     $current_metadata = $this->fetch_current_font_metadata();
 
     if (empty($current_metadata)) {
-      error_log("❌ Failed to fetch current font metadata for auto-update check");
       return;
     }
 
@@ -172,20 +220,14 @@ class CommonService extends ModuleService implements CommonServiceInterface
             'new_version' => $current_version,
             'metadata' => $current_font
           ];
-
-          error_log("🔄 Auto-update available: {$font_family} ({$local_version} → {$current_version})");
         }
       }
     }
 
     if (empty($fonts_to_update)) {
-      error_log("✅ All fonts are up to date (auto-check)");
       return;
     }
 
-    error_log("🔄 Auto-updating " . count($fonts_to_update) . " fonts");
-
-    // Download-Service für Updates nutzen
     $download_service = new Downloads($this->module);
 
     foreach ($fonts_to_update as $font_update) {
@@ -197,8 +239,8 @@ class CommonService extends ModuleService implements CommonServiceInterface
 
 
   /**
-   * Fetches the current font metadata from the Google Web Fonts Helper API.
-   * @package LocalFonts
+   * Fetches current font metadata from the Google Web Fonts Helper API
+   * @return array
    * @since 3.0.0
    */
   private function fetch_current_font_metadata()
@@ -227,8 +269,9 @@ class CommonService extends ModuleService implements CommonServiceInterface
 
 
   /**
-   * Saves the font update log to the database.
-   * @package LocalFonts
+   * Saves the font update log to the database
+   * @param array $font_updates
+   * @return void
    * @since 3.0.0
    */
   private function log_font_updates($font_updates)
@@ -258,8 +301,8 @@ class CommonService extends ModuleService implements CommonServiceInterface
 
 
   /**
-   * Cleans up orphaned font files that are no longer tracked.
-   * @package LocalFonts
+   * Cleans up orphaned font files that are no longer tracked
+   * @return void
    * @since 3.0.0
    */
   public function cleanup_orphaned_files()
