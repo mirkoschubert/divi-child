@@ -43,20 +43,29 @@ const ColorField = forwardRef<HTMLDivElement, ColorFieldProps>((
     <div className={`dvc-field color-field ${className}`} ref={ref} style={style}>
       <div className="color-field-layout">
         <div className="color-field-info">
-          <label className="dvc-field-label">
+          <span className="dvc-field-label">
             {config.label}
-          </label>
+          </span>
           {config.description && (
             <p className="dvc-field-description">{config.description}</p>
           )}
         </div>
         <div className="color-field-control">
-          <div 
+          <div
             ref={indicatorRef}
+            role="button"
+            tabIndex={0}
+            aria-label={config.label}
             className="color-indicator-wrapper"
             onClick={handleIndicatorClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleIndicatorClick()
+              }
+            }}
           >
-            <ColorIndicator 
+            <ColorIndicator
               colorValue={value}
             />
           </div>

@@ -90,8 +90,43 @@
       margin-left 0
 
 
+// Select Field (CustomSelectControl)
+/* .select-field
+  position relative
+  z-index 1
+
+  .components-custom-select-control__menu
+    position absolute
+    left 0
+    width 100%
+    background white
+    border 1px solid $admin-dark-gray
+    border-radius 2px
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
+    z-index $z-tooltip
+    max-height 200px
+    overflow-y auto
+
+  .components-custom-select-control__item
+    &[aria-selected="true"],
+    &[data-highlighted]
+      background $theme-color-primary
+      color white
+
+  // Dropdown nach unten (Standard)
+  &.dropdown-down .components-custom-select-control__menu
+    top 100%
+    box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
+
+  // Dropdown nach oben
+  &.dropdown-up .components-custom-select-control__menu
+    bottom 100%
+    top auto
+    box-shadow 0 -4px 8px rgba(0, 0, 0, 0.1) */
+
+
 // MultiSelect Field
-.multi-select-field
+/* .multi-select-field
   position relative
   z-index 1
 
@@ -103,7 +138,8 @@
     left 0
     width 100%
     background white
-    border 1px solid $admin-border
+    border 1px solid $admin-dark-gray
+    border-radius 2px
     box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
     z-index $z-tooltip
     max-height 200px
@@ -119,14 +155,13 @@
   // Dropdown nach unten öffnen (Standard)
   &.dropdown-down .components-form-token-field__suggestions-list
     top 100%
-    border-top none
     box-shadow 0 4px 8px rgba(0, 0, 0, 0.1)
 
   // Dropdown nach oben öffnen
   &.dropdown-up .components-form-token-field__suggestions-list
     bottom 100%
-    border-bottom none
-    box-shadow 0 -4px 8px rgba(0, 0, 0, 0.1)
+    top auto
+    box-shadow 0 -4px 8px rgba(0, 0, 0, 0.1) */
 
 
 // Color Field
@@ -134,9 +169,9 @@
   .color-field-layout
     margin 0
     display flex
-    align-items flex-start
+    align-items center
     justify-content space-between
-    gap 16px
+    gap 1rem
     
   .color-field-info
     flex 1
@@ -262,13 +297,10 @@
   .group-field-content
     overflow hidden
     transition height 0.3s ease-in-out
-    will-change height
     height 0
     
   .group-field-fields
-    // Verhindert margin collapse mit einem kleinen padding
-    padding 1px 0
-    margin -1px 0
+    overflow hidden
     
     .dvc-field
       //margin-bottom $spacing-md
@@ -354,17 +386,7 @@
       padding 0 !important
 
     .repeater-fields
-      padding $spacing-md 0
-      
-      .dvc-field
-        margin-bottom 1rem
-        padding-bottom 1rem
-        border-bottom 1px solid #f0f0f0
-        
-        &:last-child
-          margin-bottom 0
-          padding-bottom 0
-          border-bottom none
+      padding 0
 
     .repeater-empty
       text-align center

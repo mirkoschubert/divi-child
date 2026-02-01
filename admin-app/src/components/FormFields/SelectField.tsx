@@ -1,5 +1,5 @@
-import { forwardRef } from 'react'
-import { SelectControl } from '@wordpress/components'
+import { forwardRef } from '@wordpress/element'
+import { CustomSelectControl } from '@wordpress/components'
 import type { FieldConfig } from '@/types'
 
 import './FormFields.styl'
@@ -22,20 +22,30 @@ const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>(({
   style
 }, ref) => {
   const options = Object.entries(config.options || {}).map(([key, label]) => ({
-    label,
-    value: key,
+    key,
+    name: label,
   }))
+
+  const selectedOption = options.find(opt => opt.key === value)
 
   return (
     <div ref={ref} className={`dvc-field select-field ${className}`} style={style}>
-      <SelectControl
+      <div className="dvc-field-header">
+        <h4 className="dvc-field-label">{config.label}</h4>
+        {config.description && (
+          <p className="dvc-field-description">{config.description}</p>
+        )}
+      </div>
+
+      <CustomSelectControl
         __next40pxDefaultSize
-        __nextHasNoMarginBottom
-        label={config.label}
-        help={config.description}
-        value={value}
+        hideLabelFromVision
+        label={config.label || ''}
+        value={selectedOption || options[0]}
         options={options}
-        onChange={onChange}
+        onChange={({ selectedItem }: { selectedItem: { key: string; name: string } }) => {
+          onChange(selectedItem.key)
+        }}
       />
     </div>
   )

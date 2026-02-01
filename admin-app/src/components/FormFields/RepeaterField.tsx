@@ -33,7 +33,6 @@ const RepeaterField = forwardRef<HTMLDivElement, RepeaterFieldProps>(({
 }, ref) => {
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
   const contentRefs = useRef<Map<number, HTMLDivElement>>(new Map())
-  const fieldsRefs = useRef<Map<number, HTMLDivElement>>(new Map())
 
   const addItem = () => {
     const newItem: Record<string, unknown> = {}
@@ -82,25 +81,22 @@ const RepeaterField = forwardRef<HTMLDivElement, RepeaterFieldProps>(({
     onChange(updatedValue)
   }
 
+  // Expand/collapse Animation (GroupField-Pattern)
   useEffect(() => {
-    // Timeout für nächsten Frame, damit DOM-Updates abgeschlossen sind
-    const timer = setTimeout(() => {
-      contentRefs.current.forEach((contentEl, index) => {
-        const fieldsEl = fieldsRefs.current.get(index)
-        
-        if (contentEl && fieldsEl) {
-          if (expandedItems.has(index)) {
-            const height = fieldsEl.scrollHeight
-            contentEl.style.height = `${height}px`
-          } else {
-            contentEl.style.height = '0px'
-          }
-        }
-      })
-    }, 0)
+    contentRefs.current.forEach((el, index) => {
+      if (!el) return
 
-    return () => clearTimeout(timer)
-  }, [expandedItems, value])
+      if (expandedItems.has(index)) {
+        el.style.height = `${el.scrollHeight}px`
+      } else {
+        if (el.style.height === 'auto') {
+          el.style.height = `${el.scrollHeight}px`
+          el.offsetHeight // Force reflow
+        }
+        el.style.height = '0px'
+      }
+    })
+  }, [expandedItems])
 
   const toggleExpanded = (index: number) => {
     setExpandedItems((prev) => {
@@ -203,7 +199,7 @@ const RepeaterField = forwardRef<HTMLDivElement, RepeaterFieldProps>(({
                 </Flex>
               </CardHeader>
 
-              <div 
+              <div
                 className="repeater-item-content-wrapper"
                 ref={(el) => {
                   if (el) {
@@ -213,20 +209,18 @@ const RepeaterField = forwardRef<HTMLDivElement, RepeaterFieldProps>(({
                   }
                 }}
                 style={{
+                  height: 0,
                   overflow: 'hidden',
                   transition: 'height 0.3s ease-in-out'
                 }}
+                onTransitionEnd={(e) => {
+                  if (e.propertyName === 'height' && isExpanded) {
+                    const el = contentRefs.current.get(index)
+                    if (el) el.style.height = 'auto'
+                  }
+                }}
               >
-                <CardBody 
-                  className="repeater-item-content"
-                  ref={(el) => {
-                    if (el) {
-                      fieldsRefs.current.set(index, el)
-                    } else {
-                      fieldsRefs.current.delete(index)
-                    }
-                  }}
-                >
+                <CardBody className="repeater-item-content">
                   <div className="repeater-fields">
                     {config.fields &&
                       Object.entries(config.fields).map(
