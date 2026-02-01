@@ -47,7 +47,8 @@ class Service extends ModuleService
 
     // Disable Divi Upsells
     if ($this->is_option_enabled('disable_divi_upsells')) {
-      add_action('init', [$this, 'hide_divi_dashboard']);
+      add_action('admin_menu', [$this, 'remove_divi_dashboard'], 999);
+      add_action('init', [$this, 'redirect_divi_dashboard']);
     }
 
     // Enqueue common assets (upsells/AI CSS on both admin + frontend)
@@ -194,16 +195,27 @@ class Service extends ModuleService
   }
 
   /**
-   * Blocks the Divi onboarding/upsell dashboard page
+   * Removes the Divi Dashboard submenu entry
    * @return void
    * @since 1.0.0
    */
-  public function hide_divi_dashboard()
+  public function remove_divi_dashboard()
+  {
+    remove_submenu_page('et_onboarding', 'et_onboarding');
+  }
+
+  /**
+   * Redirects direct access to Divi Dashboard to Theme Options
+   * @return void
+   * @since 1.0.0
+   */
+  public function redirect_divi_dashboard()
   {
     global $pagenow;
     $page = !empty($_GET['page']) ? $_GET['page'] : ''; //phpcs:ignore
-    if (!empty($page) && $page === 'et_onboarding' && !empty($pagenow) && $pagenow === 'admin.php') {
-      wp_die(esc_attr__("You don't have permission to access this page", 'divi-child'));
+    if ($page === 'et_onboarding' && !empty($pagenow) && $pagenow === 'admin.php') {
+      wp_safe_redirect(admin_url('admin.php?page=et_divi_options'));
+      exit();
     }
   }
 

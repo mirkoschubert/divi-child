@@ -36,13 +36,13 @@ final class Admin
   public function add_admin_menu()
   {
     add_submenu_page(
-      'et_divi_options',
+      'et_onboarding',
       __('Child Theme Options', 'divi-child'),
       __('Child Theme Options', 'divi-child'),
       'manage_options',
       'divi-child-options',
       [$this, 'render_page'],
-      1
+      2
     );
   }
 
