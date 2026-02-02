@@ -151,7 +151,7 @@ final class Theme
     $modules_dir = $this->config->theme_dir . '/modules';
 
     if (!is_dir($modules_dir)) {
-      error_log("❌ Modules directory not found: {$modules_dir}");
+      error_log("DiviChild: Modules directory not found: {$modules_dir}");
       return;
     }
 
@@ -177,13 +177,13 @@ final class Theme
           try {
             $instance = new $class_name();
           } catch (\Exception $e) {
-            error_log("❌ Failed to load module {$module_name}: " . $e->getMessage());
+            error_log("DiviChild: Failed to load module {$module_name}: " . $e->getMessage());
           }
         } else {
-          error_log("❌ Module class not found: {$class_name}");
+          error_log("DiviChild: Module class not found: {$class_name}");
         }
       } else {
-        error_log("❌ Module file not found: {$module_file}");
+        error_log("DiviChild: Module file not found: {$module_file}");
       }
     }
   }

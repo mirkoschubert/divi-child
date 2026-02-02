@@ -139,7 +139,8 @@ class Service extends ModuleService
         'styles' => $formatted_styles,
         'character_set' => 'latin-ext',
         'type' => $this->map_category_to_divi_type($category),
-        'standard' => 1
+        'standard' => 1,
+        'sizes' => '6px-200px',
       ];
     }
 

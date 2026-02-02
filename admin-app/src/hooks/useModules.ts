@@ -9,6 +9,8 @@ import type {
   ModuleInfo,
 } from '@/types'
 
+const isDebug = !!window.diviChildConfig?.debug
+
 export const useModules = (): UseModulesReturn => {
   const [modules, setModules] = useState<Record<string, ModuleInfo>>({})
   const [isLoading, setIsLoading] = useState(true)
@@ -19,7 +21,7 @@ export const useModules = (): UseModulesReturn => {
       setIsLoading(true)
       setError(null)
 
-      console.log('diviChildConfig:', window.diviChildConfig)
+      if (isDebug) console.log('DiviChild: Config:', window.diviChildConfig)
       if (!window.diviChildConfig) {
         throw new Error('diviChildConfig is not defined')
       }
@@ -32,7 +34,7 @@ export const useModules = (): UseModulesReturn => {
         throw new Error('No REST API nonce available')
       }
 
-      console.log('Using REST NONCE:', restNonce ? restNonce.substring(0, 10) + '...' : 'MISSING')
+      if (isDebug) console.log('DiviChild: Using nonce:', restNonce.substring(0, 10) + '...')
 
       const response = await fetch(apiUrl, {
         method: 'GET',
@@ -43,48 +45,34 @@ export const useModules = (): UseModulesReturn => {
         }
       })
 
-      console.log('Response status:', response.status)
+      if (isDebug) console.log('DiviChild: Response status:', response.status)
 
       if (!response.ok) {
         const errorText = await response.text()
-        console.error('API Error Response:', errorText)
+        if (isDebug) console.error('DiviChild: API error response:', errorText)
         throw new Error(`HTTP ${response.status}: ${response.statusText}`)
       }
 
       const data = await response.json() as ModulesApiResponse
 
       if (data.success && data.data) {
-        // 🔧 Type-Safe Verarbeitung
         const processedModules: Record<string, ModuleInfo> = {}
-        
+
         Object.entries(data.data).forEach(([slug, moduleData]) => {
-          // Type assertion für moduleData
           const module = moduleData as ModuleInfo
           processedModules[slug] = module
         })
 
         setModules(processedModules)
 
-        // 🔍 DEBUG: Detaillierte Analyse jedes Moduls
-        console.group('🔍 Module Analysis')
-        Object.entries(processedModules).forEach(([slug, module]) => {
-          console.group(`📦 Module: ${slug}`)
-          console.log('✅ All properties:', Object.keys(module))
-          console.log('📖 Name:', module.name)
-          console.log('👤 Author:', module.author)
-          console.log('👤 Author type:', typeof module.author)
-          console.log('👤 Has Author:', !!module.author)
-          console.log('🔢 Version:', module.version)
-          console.log('⚡ Enabled:', module.enabled)
-          console.log('📄 Complete module object:', module)
-          console.groupEnd()
-        })
-        console.groupEnd()
+        if (isDebug) {
+          console.log('DiviChild: Loaded modules:', Object.keys(processedModules))
+        }
       } else {
         setError('Failed to load modules - invalid response')
       }
     } catch (err) {
-      console.error('❌ API Error:', err)
+      if (isDebug) console.error('DiviChild: API error:', err)
       setError(err instanceof Error ? err.message : 'Error loading modules')
     } finally {
       setIsLoading(false)
@@ -98,7 +86,7 @@ export const useModules = (): UseModulesReturn => {
   const toggleModule = useCallback(
     async (moduleSlug: string, enabled: boolean): Promise<ApiResponse> => {
       try {
-        console.log(`🔄 Toggling module ${moduleSlug}:`, { enabled })
+        if (isDebug) console.log(`DiviChild: Toggling ${moduleSlug}:`, { enabled })
 
         const response = await apiFetch<ApiResponse>({
           path: `/divi-child/v1/modules/${moduleSlug}`,
@@ -114,12 +102,12 @@ export const useModules = (): UseModulesReturn => {
               enabled,
             },
           }))
-          console.log(`✅ Module ${moduleSlug} toggled successfully`)
+          if (isDebug) console.log(`DiviChild: ${moduleSlug} toggled successfully`)
         }
 
         return response
       } catch (err) {
-        console.error(`❌ Error toggling module ${moduleSlug}:`, err)
+        if (isDebug) console.error(`DiviChild: Error toggling ${moduleSlug}:`, err)
         throw err
       }
     },
@@ -132,7 +120,7 @@ export const useModules = (): UseModulesReturn => {
       settings: Record<string, unknown>
     ): Promise<ApiResponse> => {
       try {
-        console.log(`🛠️ Updating settings for ${moduleSlug}:`, settings)
+        if (isDebug) console.log(`DiviChild: Updating settings for ${moduleSlug}:`, settings)
 
         const response = await apiFetch<ApiResponse>({
           path: `/divi-child/v1/modules/${moduleSlug}/settings`,
@@ -151,12 +139,12 @@ export const useModules = (): UseModulesReturn => {
               },
             },
           }))
-          console.log(`✅ Settings for ${moduleSlug} updated successfully`)
+          if (isDebug) console.log(`DiviChild: Settings for ${moduleSlug} updated`)
         }
 
         return response
       } catch (err) {
-        console.error(`❌ Error updating settings for ${moduleSlug}:`, err)
+        if (isDebug) console.error(`DiviChild: Error updating ${moduleSlug}:`, err)
         throw err
       }
     },

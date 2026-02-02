@@ -123,7 +123,9 @@ abstract class Module implements ModuleInterface
   public function init_rest_controller()
   {
     if ($this->rest_controller !== null) {
-      error_log("REST Controller für {$this->slug} bereits initialisiert");
+      if (\defined('WP_DEBUG') && WP_DEBUG) {
+        error_log("DiviChild: REST Controller for {$this->slug} already initialized");
+      }
       return;
     }
     $possible_namespaces = [
@@ -329,7 +331,9 @@ abstract class Module implements ModuleInterface
       // Validierung, falls konfiguriert
       if ($has_validation && !empty($validation_pattern)) {
         if (!\preg_match($validation_pattern, $item)) {
-          error_log("❌ sanitize_list_field: Ungültiger Eintrag {$item}");
+          if (\defined('WP_DEBUG') && WP_DEBUG) {
+            error_log("DiviChild: sanitize_list_field: Invalid entry {$item}");
+          }
           continue;
         }
       }

@@ -3,6 +3,7 @@ export interface DiviChildConfig {
   apiUrl: string;
   nonce: string;
   version: string;
+  debug?: boolean;
   modules: Record<string, ModuleInfo>;
 }
 

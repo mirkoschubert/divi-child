@@ -74,7 +74,7 @@ final class Admin
     $js_file_url = $this->config->theme_url . '/admin-app/build/admin-app.js';
 
     if (!\file_exists($js_file_path)) {
-      error_log("❌ React Admin JS file not found: {$js_file_path}");
+      error_log("DiviChild: React Admin JS file not found: {$js_file_path}");
       return;
     }
 
@@ -89,7 +89,8 @@ final class Admin
     wp_localize_script('divi-child-admin-app', 'diviChildConfig', [
       'apiUrl' => rest_url('divi-child/v1/'),
       'nonce' => wp_create_nonce('wp_rest'),
-      'version' => $this->config->theme_version ?? '1.0.0'
+      'version' => $this->config->theme_version ?? '1.0.0',
+      'debug' => \defined('WP_DEBUG') && WP_DEBUG,
     ]);
   }
 

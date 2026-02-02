@@ -54,7 +54,9 @@ final class Config
   public function get_module_options($module_slug)
   {
     if (!isset($this->options[$module_slug])) {
-      error_log("❌ Keine Optionen für {$module_slug} gefunden.");
+      if (\defined('WP_DEBUG') && WP_DEBUG) {
+        error_log("DiviChild: No options found for module '{$module_slug}'.");
+      }
       return [];
     }
 
@@ -92,7 +94,9 @@ final class Config
         
         return $result;
     } else {
-        error_log("⚠️ No changes detected - hook NOT fired!");
+        if (\defined('WP_DEBUG') && WP_DEBUG) {
+            error_log("DiviChild: No changes detected for module options - hook not fired.");
+        }
     }
 
     return true;
@@ -203,7 +207,7 @@ final class Config
           'instance' => $instance
         ];
       } else {
-        error_log("❌ Invalid module instance for slug: $slug");
+        error_log("DiviChild: Invalid module instance for slug: {$slug}");
       }
     }
 
