@@ -1,1 +1,1 @@
-.child .skip-link{position:absolute;top:-100px;left:0;background:#fff;color:#000;padding:8px;z-index:99999;}.child .skip-link:focus{top:0;}
+.child .skip-link{position:absolute;top:-100px;left:0;background:#fff;color:#000;padding:8px;z-index:99999;}.child .skip-link:focus{top:0;}.child.admin-bar .skip-link:focus{top:32px;}@media screen and (max-width:782px){.child.admin-bar .skip-link:focus{top:46px;}}

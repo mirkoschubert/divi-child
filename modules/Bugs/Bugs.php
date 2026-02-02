@@ -31,7 +31,7 @@ final class Bugs extends Module
    * @package Bugs
    * @since 1.0.0
    */
-  public function admin_settings() {
+  public function admin_settings(): array {
     return [
       'support_center' => [
         'type' => 'toggle',

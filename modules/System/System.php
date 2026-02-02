@@ -26,7 +26,7 @@ final class System extends Module
    * @package System
    * @since 1.0.0
    */
-  public function admin_settings()
+  public function admin_settings(): array
   {
     return [
       'environment_badge' => [

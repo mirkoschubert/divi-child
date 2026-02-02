@@ -24,7 +24,7 @@ class Service extends ModuleService
     if ($this->is_option_enabled('disable_author_archives')) {
       add_filter('author_rewrite_rules', '__return_empty_array');
 
-      if (class_exists('WP_Sitemaps')) {
+      if (\class_exists('WP_Sitemaps')) {
         add_filter('wp_sitemaps_add_provider', [$this, 'remove_authors_from_sitemap'], 10, 2);
       }
     }
@@ -105,7 +105,7 @@ class Service extends ModuleService
    */
   public function external_comment_links($content)
   {
-    return str_replace("<a ", "<a target='_blank' rel='noopener noreferrer' ", $content);
+    return \str_replace("<a ", "<a target='_blank' rel='noopener noreferrer' ", $content);
   }
 
   /**
@@ -147,8 +147,8 @@ class Service extends ModuleService
    */
   public function disable_emojis_tinymce($plugins)
   {
-    if (is_array($plugins)) {
-      return array_diff($plugins, ['wpemoji']);
+    if (\is_array($plugins)) {
+      return \array_diff($plugins, ['wpemoji']);
     }
     return [];
   }
@@ -163,7 +163,7 @@ class Service extends ModuleService
   {
     if ('dns-prefetch' == $relation_type) {
       $emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
-      $urls = array_diff($urls, [$emoji_svg_url]);
+      $urls = \array_diff($urls, [$emoji_svg_url]);
     }
     return $urls;
   }
@@ -196,7 +196,7 @@ class Service extends ModuleService
    */
   public function disable_embeds_tinymce_plugin($plugins)
   {
-    return array_diff($plugins, ['wpembed']);
+    return \array_diff($plugins, ['wpembed']);
   }
 
   /**
@@ -207,7 +207,7 @@ class Service extends ModuleService
   public function disable_embeds_rewrites($rules)
   {
     foreach ($rules as $rule => $rewrite) {
-      if (false !== strpos($rewrite, 'embed=true')) {
+      if (false !== \strpos($rewrite, 'embed=true')) {
         unset($rules[$rule]);
       }
     }
@@ -263,8 +263,8 @@ class Service extends ModuleService
    */
   public function log_last_login($user_login, $user)
   {
-    if (is_object($user) && property_exists($user, 'ID')) {
-      update_user_meta($user->ID, 'divi_child_last_login', time());
+    if (\is_object($user) && \property_exists($user, 'ID')) {
+      update_user_meta($user->ID, 'divi_child_last_login', \time());
     }
   }
 
@@ -301,7 +301,7 @@ class Service extends ModuleService
     $date_format = get_option('date_format');
     $time_format = get_option('time_format');
 
-    return wp_date("{$date_format} {$time_format}", (int) $last_login);
+    return wp_date("{$date_format} {$time_format}", \intval($last_login));
   }
 
 
@@ -370,14 +370,14 @@ class Service extends ModuleService
    */
   private function encrypt_user_id($user_id)
   {
-    $key = substr(AUTH_KEY, 0, 24);
+    $key = \substr(AUTH_KEY, 0, 24);
     $encrypted = openssl_encrypt(
-      base_convert($user_id, 10, 36),
+      \base_convert($user_id, 10, 36),
       'DES-EDE3',
       $key,
       OPENSSL_RAW_DATA
     );
-    return bin2hex($encrypted);
+    return \bin2hex($encrypted);
   }
 
   /**
@@ -387,13 +387,13 @@ class Service extends ModuleService
    */
   private function decrypt_author_slug($encrypted_slug)
   {
-    if (!ctype_xdigit($encrypted_slug)) {
+    if (!\ctype_xdigit($encrypted_slug)) {
       return false;
     }
 
-    $key = substr(AUTH_KEY, 0, 24);
+    $key = \substr(AUTH_KEY, 0, 24);
     $decrypted = openssl_decrypt(
-      pack('H*', $encrypted_slug),
+      \pack('H*', $encrypted_slug),
       'DES-EDE3',
       $key,
       OPENSSL_RAW_DATA
@@ -403,7 +403,7 @@ class Service extends ModuleService
       return false;
     }
 
-    return (int) base_convert($decrypted, 36, 10);
+    return (int) \base_convert($decrypted, 36, 10);
   }
 
   /**
@@ -416,7 +416,7 @@ class Service extends ModuleService
   public function encrypt_author_link($link, $author_id, $author_nicename)
   {
     $encrypted = $this->encrypt_user_id($author_id);
-    return str_replace("/{$author_nicename}", "/{$encrypted}", $link);
+    return \str_replace("/{$author_nicename}", "/{$encrypted}", $link);
   }
 
   /**
@@ -432,7 +432,7 @@ class Service extends ModuleService
 
     $author_name = $query->query_vars['author_name'];
 
-    if (ctype_xdigit($author_name)) {
+    if (\ctype_xdigit($author_name)) {
       $user_id = $this->decrypt_author_slug($author_name);
       $user = $user_id ? get_user_by('id', $user_id) : false;
 

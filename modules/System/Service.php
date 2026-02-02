@@ -78,7 +78,7 @@ class Service extends ModuleService
     }
 
     $env = $this->get_environment();
-    $label = self::ENV_LABELS[$env] ?? ucfirst($env);
+    $label = self::ENV_LABELS[$env] ?? \ucfirst($env);
 
     // SE-Warnicon, falls Suche blockiert
     $se_icon = '';

@@ -178,7 +178,7 @@ class Service extends ModuleService
       return $data;
     }
 
-    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+    $ext = \strtolower(\pathinfo($filename, PATHINFO_EXTENSION));
 
     if ($ext === 'svg' && $this->is_option_enabled('svg_support')) {
       $data['type'] = 'image/svg+xml';
@@ -272,7 +272,7 @@ class Service extends ModuleService
     }
 
     $post_meta_infos = $wpdb->get_results($wpdb->prepare("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d", $post_id)); // phpcs:ignore
-    if (count($post_meta_infos) > 0) {
+    if (\count($post_meta_infos) > 0) {
       $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) VALUES ";
       $sql_query_params = [];
       foreach ($post_meta_infos as $meta_info) {
@@ -284,7 +284,7 @@ class Service extends ModuleService
         $sql_query_params[] = $meta_info->meta_key;
         $sql_query_params[] = $meta_info->meta_value;
       }
-      $sql_query = rtrim($sql_query, ',');
+      $sql_query = \rtrim($sql_query, ',');
       if (!empty($sql_query_params)) {
         $wpdb->query($wpdb->prepare($sql_query, $sql_query_params)); // phpcs:ignore
       }
@@ -415,7 +415,7 @@ class Service extends ModuleService
     }
 
     $allowed_post_types = $this->get_module_option('builder_post_types');
-    if (!is_array($allowed_post_types) || empty($allowed_post_types)) {
+    if (!\is_array($allowed_post_types) || empty($allowed_post_types)) {
       return;
     }
 
@@ -424,7 +424,7 @@ class Service extends ModuleService
     }
 
     $builder_post_types = et_builder_get_enabled_builder_post_types();
-    if (!in_array($post->post_type, $builder_post_types) || !in_array($post->post_type, $allowed_post_types)) {
+    if (!\in_array($post->post_type, $builder_post_types) || !\in_array($post->post_type, $allowed_post_types)) {
       return;
     }
 

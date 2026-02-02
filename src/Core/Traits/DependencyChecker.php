@@ -52,7 +52,7 @@ trait DependencyChecker
   private function check_version_constraint(string $current, string $constraint): array
   {
     // Check for range constraint (e.g., "4.0-4.5")
-    if (preg_match('/^(.+?)\s*-\s*(.+)$/', trim($constraint), $matches)) {
+    if (\preg_match('/^(.+?)\s*-\s*(.+)$/', \trim($constraint), $matches)) {
       $min_version = $matches[1];
       $max_version = $matches[2];
       
@@ -62,7 +62,7 @@ trait DependencyChecker
     }
     
     // Parse single constraint
-    if (preg_match('/^(>=|<=|>|<|=)\s*(.+)$/', trim($constraint), $matches)) {
+    if (\preg_match('/^(>=|<=|>|<|=)\s*(.+)$/', \trim($constraint), $matches)) {
       $operator = $matches[1];
       $version = $matches[2];
       

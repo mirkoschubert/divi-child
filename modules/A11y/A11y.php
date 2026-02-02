@@ -46,7 +46,7 @@ final class A11y extends Module
    * @package A11y
    * @since 1.0.0
    */
-  public function admin_settings()
+  public function admin_settings(): array
   {
     return [
       'basic_group' => [

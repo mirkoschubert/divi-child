@@ -31,7 +31,7 @@ class Service extends ModuleService
     if ($this->is_option_enabled('ignore_logged_in') && is_user_logged_in()) return;
 
     $umami_domain = esc_url($this->options['umami_domain']);
-    $umami_domain = str_replace(['http://', 'https://'], '', $umami_domain);
+    $umami_domain = \str_replace(['http://', 'https://'], '', $umami_domain);
     $website_id = esc_js($this->options['website_id']);
 
     echo "<script async defer src='https://{$umami_domain}/script.js' data-website-id='{$website_id}'></script>";

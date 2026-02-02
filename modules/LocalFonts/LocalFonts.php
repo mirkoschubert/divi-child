@@ -31,7 +31,7 @@ final class LocalFonts extends Module
   {
     parent::__construct();
     
-    // 🎯 Hook für Admin-Settings-Speicherung
+    // Hook for admin settings save
     add_action('divi_child_module_options_saved_' . $this->slug, [$this, 'handle_font_downloads'], 10, 2);
   }
 
@@ -41,7 +41,7 @@ final class LocalFonts extends Module
    * @package LocalFonts
    * @since 3.0.0
    */
-  public function admin_settings()
+  public function admin_settings(): array
   {
     return [
       'disable_google_fonts' => [
@@ -94,12 +94,12 @@ final class LocalFonts extends Module
     ]);
 
     if (is_wp_error($response)) {
-      error_log('❌ Webfonts Helper API Error: ' . $response->get_error_message());
+      error_log('LocalFonts: GWFH API error: ' . $response->get_error_message());
       return $this->get_websafe_fonts_options();
     }
 
-    $fonts_data = json_decode(wp_remote_retrieve_body($response), true);
-    if (!is_array($fonts_data)) {
+    $fonts_data = \json_decode(wp_remote_retrieve_body($response), true);
+    if (!\is_array($fonts_data)) {
       return $this->get_websafe_fonts_options();
     }
 
@@ -115,7 +115,7 @@ final class LocalFonts extends Module
     // Metadaten für Download-Service cachen
     set_transient('divi_child_gwfh_fonts_metadata', $fonts_metadata, DAY_IN_SECONDS);
     
-    asort($options);
+    \asort($options);
     set_transient($cache_key, $options, DAY_IN_SECONDS);
 
     return $options;
@@ -145,18 +145,24 @@ final class LocalFonts extends Module
    */
   public function handle_font_downloads($new_options, $old_options = [])
   {
+    // Sync Divi Theme Options
+    $disable = $new_options['disable_google_fonts'] ?? true;
+    $google_api_settings = get_option('et_google_api_settings', []);
+    $google_api_settings['use_google_fonts'] = $disable ? 'off' : 'on';
+    update_option('et_google_api_settings', $google_api_settings);
+
     $old_selected = $old_options['selected_fonts'] ?? [];
     $new_selected = $new_options['selected_fonts'] ?? [];
 
     // Download-Service instanziieren für Downloads
     $downloads = new Downloads($this);
 
-    $fonts_to_download = array_diff($new_selected, $old_selected);
+    $fonts_to_download = \array_diff($new_selected, $old_selected);
     if (!empty($fonts_to_download)) {
       $downloads->download_fonts($fonts_to_download);
     }
 
-    $fonts_to_remove = array_diff($old_selected, $new_selected);
+    $fonts_to_remove = \array_diff($old_selected, $new_selected);
     if (!empty($fonts_to_remove)) {
       $downloads->remove_fonts($fonts_to_remove);
     }

@@ -22,7 +22,7 @@ class Downloads
     $upload_dir = wp_upload_dir();
     $fonts_dir = $upload_dir['basedir'] . '/local-fonts';
 
-    if (!file_exists($fonts_dir)) {
+    if (!\file_exists($fonts_dir)) {
       wp_mkdir_p($fonts_dir);
     }
 
@@ -30,7 +30,9 @@ class Downloads
     $font_display = $this->module->get_options()['font_display'] ?? 'swap';
 
     foreach ($font_families as $font_family) {
-      error_log("🔽 Downloading: {$font_family}");
+      if (\defined('WP_DEBUG') && WP_DEBUG) {
+        error_log("LocalFonts: Downloading font: {$font_family}");
+      }
 
       $metadata = $this->get_font_metadata($font_family);
       $font_id = $metadata['id'];
@@ -42,7 +44,9 @@ class Downloads
           'last_updated' => current_time('mysql'),
           'metadata' => $metadata
         ];
-        error_log("✅ Font '{$font_family}' downloaded successfully");
+        if (\defined('WP_DEBUG') && WP_DEBUG) {
+          error_log("LocalFonts: Font '{$font_family}' downloaded successfully");
+        }
       }
     }
 
@@ -58,14 +62,12 @@ class Downloads
   public function update_single_font($font_update)
   {
     $font_family = $font_update['family'];
-    $new_metadata = $font_update['metadata'];
 
-    error_log("🔄 Auto-updating font: {$font_family}");
+    if (\defined('WP_DEBUG') && WP_DEBUG) {
+      error_log("LocalFonts: Auto-updating font: {$font_family}");
+    }
 
-    // Alte Version entfernen
     $this->remove_fonts([$font_family]);
-
-    // Neue Version herunterladen
     $this->download_fonts([$font_family]);
   }
 
@@ -85,16 +87,16 @@ class Downloads
     ]);
 
     if (is_wp_error($response)) {
-      error_log("❌ ZIP Download failed for {$font_family}: " . $response->get_error_message());
+      error_log("LocalFonts: ZIP download failed for {$font_family}: " . $response->get_error_message());
       return false;
     }
 
     $zip_content = wp_remote_retrieve_body($response);
     $temp_zip = $fonts_dir . '/' . $font_id . '_temp.zip';
-    file_put_contents($temp_zip, $zip_content);
+    \file_put_contents($temp_zip, $zip_content);
 
     $extracted_files = $this->extract_zip_wordpress_style($temp_zip, $fonts_dir);
-    unlink($temp_zip);
+    \unlink($temp_zip);
 
     if (empty($extracted_files)) {
       return false;
@@ -103,7 +105,7 @@ class Downloads
     $this->generate_css_from_metadata($font_family, $extracted_files, $fonts_dir, $font_display, $metadata);
 
     $css_filename = sanitize_title($font_family) . '.css';
-    $this->track_font_files($font_family, array_merge($extracted_files, [$css_filename]));
+    $this->track_font_files($font_family, \array_merge($extracted_files, [$css_filename]));
 
     return true;
   }
@@ -123,7 +125,7 @@ class Downloads
 
     // Fallback
     return [
-      'id' => strtolower(str_replace(' ', '-', $font_family)),
+      'id' => \strtolower(\str_replace(' ', '-', $font_family)),
       'family' => $font_family,
       'variants' => ['regular'],
       'subsets' => ['latin-ext'],
@@ -146,17 +148,17 @@ class Downloads
     global $wp_filesystem;
 
     $extracted_files = [];
-    $temp_extract_dir = $fonts_dir . '/temp_extract_' . uniqid();
+    $temp_extract_dir = $fonts_dir . '/temp_extract_' . \uniqid();
     wp_mkdir_p($temp_extract_dir);
 
     $result = unzip_file($zip_path, $temp_extract_dir);
 
     if (is_wp_error($result)) {
-      error_log("❌ WordPress unzip failed: " . $result->get_error_message());
+      error_log("LocalFonts: Unzip failed: " . $result->get_error_message());
       return [];
     }
 
-    $files = scandir($temp_extract_dir);
+    $files = \scandir($temp_extract_dir);
 
     foreach ($files as $file) {
       if ($file === '.' || $file === '..')
@@ -165,10 +167,12 @@ class Downloads
       $source_path = $temp_extract_dir . '/' . $file;
       $dest_path = $fonts_dir . '/' . $file;
 
-      if (is_file($source_path) && pathinfo($file, PATHINFO_EXTENSION) === 'woff2') {
-        rename($source_path, $dest_path);
+      if (\is_file($source_path) && \pathinfo($file, PATHINFO_EXTENSION) === 'woff2') {
+        \rename($source_path, $dest_path);
         $extracted_files[] = $file;
-        error_log("✅ Extracted: {$file}");
+        if (\defined('WP_DEBUG') && WP_DEBUG) {
+          error_log("LocalFonts: Extracted: {$file}");
+        }
       }
     }
 
@@ -188,7 +192,7 @@ class Downloads
     $fonts_url = $upload_dir['baseurl'] . '/local-fonts';
     $css_rules = [];
 
-    // 🎯 Varianten aus Metadaten holen
+    // Get variants from metadata
     $variants = $metadata['variants'] ?? ['regular'];
 
     foreach ($extracted_files as $filename) {
@@ -197,22 +201,22 @@ class Downloads
       $style = 'normal';
 
       // Robuste Extraktion
-      if (preg_match('/(\d{3})/', $filename, $weight_matches)) {
+      if (\preg_match('/(\d{3})/', $filename, $weight_matches)) {
         $weight = $weight_matches[1];
       }
 
-      if (strpos($filename, 'italic') !== false) {
+      if (\strpos($filename, 'italic') !== false) {
         $style = 'italic';
       }
 
       // Spezielle Behandlung für "regular"
-      if (strpos($filename, 'regular') !== false) {
+      if (\strpos($filename, 'regular') !== false) {
         $weight = '400';
         $style = 'normal';
       }
 
       // @font-face CSS generieren
-      $css_rules[] = sprintf(
+      $css_rules[] = \sprintf(
         "/* %s %s %s */\n@font-face {\n  font-display: %s;\n  font-family: '%s';\n  font-style: %s;\n  font-weight: %s;\n  src: url('%s/%s') format('woff2');\n}",
         $font_family,
         $weight,
@@ -227,16 +231,16 @@ class Downloads
     }
 
     if (empty($css_rules)) {
-      error_log("❌ No CSS rules generated for {$font_family}!");
+      error_log("LocalFonts: No CSS rules generated for {$font_family}");
       return;
     }
 
     // CSS-Datei speichern
-    $css_content = implode("\n\n", $css_rules);
+    $css_content = \implode("\n\n", $css_rules);
     $css_filename = sanitize_title($font_family) . '.css';
     $css_path = $fonts_dir . '/' . $css_filename;
 
-    file_put_contents($css_path, $css_content);
+    \file_put_contents($css_path, $css_content);
   }
 
 
@@ -269,16 +273,20 @@ class Downloads
       if (isset($tracked_files[$font_family])) {
         foreach ($tracked_files[$font_family] as $file) {
           $file_path = $fonts_dir . '/' . $file;
-          if (file_exists($file_path)) {
-            unlink($file_path);
-            error_log("🗑️ Deleted: {$file}");
+          if (\file_exists($file_path)) {
+            \unlink($file_path);
+            if (\defined('WP_DEBUG') && WP_DEBUG) {
+              error_log("LocalFonts: Deleted: {$file}");
+            }
           }
         }
         unset($tracked_files[$font_family]);
       }
 
       unset($installed_fonts[$font_family]);
-      error_log("🗑️ Font '{$font_family}' completely removed");
+      if (\defined('WP_DEBUG') && WP_DEBUG) {
+        error_log("LocalFonts: Font '{$font_family}' removed");
+      }
     }
 
     update_option('divi_child_installed_fonts', $installed_fonts);

@@ -33,7 +33,7 @@ final class Privacy extends Module
    * @return array
    * @since 1.0.0
    */
-  public function admin_settings()
+  public function admin_settings(): array
   {
     return [
       'privacy' => [

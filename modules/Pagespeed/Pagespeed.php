@@ -34,7 +34,7 @@ final class Pagespeed extends Module
    * @package Pagespeed
    * @since 1.0.0
    */
-  public function admin_settings()
+  public function admin_settings(): array
   {
     return [
       'remove_pingback' => [

@@ -13,5 +13,6 @@ interface ModuleInterface {
   public static function get_all_modules();
   public function get_default_options();
   public static function get_all_default_options();
+  public function admin_settings(): array;
 
 }

@@ -48,7 +48,7 @@ class Service extends ModuleService
   public function remove_pingback(&$links)
   {
     foreach ($links as $l => $link) {
-      if (0 === strpos($link, get_option('home'))) {
+      if (0 === \strpos($link, get_option('home'))) {
         unset($links[$l]);
       }
     }
@@ -75,7 +75,7 @@ class Service extends ModuleService
    */
   public function remove_query_strings($src)
   {
-    if (strpos($src, '?ver=')) {
+    if (\strpos($src, '?ver=')) {
       $src = remove_query_arg('ver', $src);
     }
 
@@ -101,17 +101,17 @@ class Service extends ModuleService
   {
     $fonts_data = $this->get_module_option('preload_fonts_list');
 
-    if (is_array($fonts_data)) {
+    if (\is_array($fonts_data)) {
       foreach ($fonts_data as $font_item) {
-        if (is_array($font_item) && isset($font_item['path'])) {
+        if (\is_array($font_item) && isset($font_item['path'])) {
           $font_path = $font_item['path'];
         } else {
-          $font_path = is_string($font_item) ? $font_item : '';
+          $font_path = \is_string($font_item) ? $font_item : '';
         }
 
         if (!empty($font_path)) {
-          $font_type = 'font/' . substr($font_path, strrpos($font_path, ".") + 1);
-          $font_url = (substr($font_path, 0, 4) === "http") ? $font_path : get_site_url() . $font_path;
+          $font_type = 'font/' . \substr($font_path, \strrpos($font_path, ".") + 1);
+          $font_url = (\substr($font_path, 0, 4) === "http") ? $font_path : get_site_url() . $font_path;
           echo '<link rel="preload" href="' . esc_url($font_url) . '" as="font" type="' . esc_attr($font_type) . '" crossorigin="anonymous">' . "\n";
         }
       }

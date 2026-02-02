@@ -42,7 +42,7 @@ final class Administration extends Module
    * @package Administration
    * @since 1.0.0
    */
-  public function admin_settings() {
+  public function admin_settings(): array {
     return [
       'admin_group' => [
         'type' => 'group',

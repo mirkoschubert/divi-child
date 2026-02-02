@@ -78,7 +78,7 @@ class Service extends ModuleService
    */
   public function add_fixed_navigation_class($classes)
   {
-    $has_tb_header = in_array('et-tb-has-header', $classes);
+    $has_tb_header = \in_array('et-tb-has-header', $classes);
     if (function_exists('et_get_option')) {
       $is_fixed_header = 'on' === et_get_option('divi_fixed_nav', 'on');
     } else {
@@ -88,7 +88,7 @@ class Service extends ModuleService
     if ($has_tb_header) {
       $classes[] = $is_fixed_header ? 'et_fixed_nav' : 'et_non_fixed_nav';
       $classes[] = 'et_show_nav';
-      unset($classes[array_search('et-tb-has-header', $classes)]);
+      unset($classes[\array_search('et-tb-has-header', $classes)]);
     }
     return $classes;
   }
@@ -102,7 +102,7 @@ class Service extends ModuleService
   public function add_header_css_variables()
   {
     if ($this->is_option_enabled('fixed_navigation')) {
-      $header_height = intval($this->get_module_option('header_height')) ?: 80;
+      $header_height = \intval($this->get_module_option('header_height')) ?: 80;
       ?>
       <style id="dvc-header-variables">
         :root {

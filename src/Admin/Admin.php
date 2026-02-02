@@ -36,7 +36,7 @@ final class Admin
   public function add_admin_menu()
   {
     add_submenu_page(
-      'et_onboarding',
+      'et_divi_options',
       __('Child Theme Options', 'divi-child'),
       __('Child Theme Options', 'divi-child'),
       'manage_options',
@@ -73,7 +73,7 @@ final class Admin
     $js_file_path = $this->config->theme_dir . '/admin-app/build/admin-app.js';
     $js_file_url = $this->config->theme_url . '/admin-app/build/admin-app.js';
 
-    if (!file_exists($js_file_path)) {
+    if (!\file_exists($js_file_path)) {
       error_log("❌ React Admin JS file not found: {$js_file_path}");
       return;
     }
@@ -82,7 +82,7 @@ final class Admin
       'divi-child-admin-app',
       $js_file_url,
       ['wp-element', 'wp-components', 'wp-api-fetch', 'wp-i18n'],
-      filemtime($js_file_path),
+      \filemtime($js_file_path),
       true
     );
 
@@ -122,9 +122,9 @@ final class Admin
     if (isset($_wp_admin_css_colors[$color_scheme])) {
       $colors = $_wp_admin_css_colors[$color_scheme]->colors;
       // Wenn Modern und nur 3 Farben, zweite Farbe aus der ersten ableiten
-      if ($color_scheme === 'modern' && count($colors) === 3) {
+      if ($color_scheme === 'modern' && \count($colors) === 3) {
         $lighter = $this->lighten_color($colors[0], 0.1);
-        array_splice($colors, 1, 0, $lighter);
+        \array_splice($colors, 1, 0, $lighter);
       }
       echo '<style>:root {';
       foreach ($colors as $i => $color) {
@@ -144,17 +144,17 @@ final class Admin
    */
   public function lighten_color($hex, $percent)
   {
-    $hex = str_replace('#', '', $hex);
-    if (strlen($hex) == 3) {
+    $hex = \str_replace('#', '', $hex);
+    if (\strlen($hex) == 3) {
       $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
     }
-    $r = hexdec(substr($hex, 0, 2));
-    $g = hexdec(substr($hex, 2, 2));
-    $b = hexdec(substr($hex, 4, 2));
-    $r = min(255, intval($r + (255 - $r) * $percent));
-    $g = min(255, intval($g + (255 - $g) * $percent));
-    $b = min(255, intval($b + (255 - $b) * $percent));
-    return sprintf("#%02x%02x%02x", $r, $g, $b);
+    $r = \hexdec(\substr($hex, 0, 2));
+    $g = \hexdec(\substr($hex, 2, 2));
+    $b = \hexdec(\substr($hex, 4, 2));
+    $r = \min(255, \intval($r + (255 - $r) * $percent));
+    $g = \min(255, \intval($g + (255 - $g) * $percent));
+    $b = \min(255, \intval($b + (255 - $b) * $percent));
+    return \sprintf("#%02x%02x%02x", $r, $g, $b);
   }
 
 }

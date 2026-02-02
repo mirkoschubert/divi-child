@@ -182,7 +182,7 @@ final class Config
     $module_data = [];
 
     foreach ($modules as $slug => $instance) {
-      if (is_object($instance)) {
+      if (\is_object($instance)) {
         $module_data[$slug] = [
           'enabled' => $this->get_option($slug, 'enabled') ?: $instance->is_enabled(),
           'name' => $instance->get_name(),

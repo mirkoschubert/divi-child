@@ -47,24 +47,24 @@ abstract class Module implements ModuleInterface
   {
     if (empty($this->name)) {
       $this->name = get_class($this);
-      $this->name = str_replace('DiviChild\\Modules\\', '', $this->name);
+      $this->name = \str_replace('DiviChild\\Modules\\', '', $this->name);
     }
     $this->author = empty($this->author) ? 'Mirko Schubert' : $this->author;
     $this->version = empty($this->version) ? '1.0.0' : $this->version;
-    $this->slug = empty($this->slug) ? strtolower($this->name) : $this->slug;
+    $this->slug = empty($this->slug) ? \strtolower($this->name) : $this->slug;
 
     $this->config = new Config();
     $this->options = $this->config->get_module_options($this->slug);
 
     // Stellen sicher, dass options ein Array ist
-    if (!is_array($this->options)) {
+    if (!\is_array($this->options)) {
       $this->options = [];
     }
 
     // Füge fehlende Optionen aus den Standardwerten hinzu
-    if (!empty($this->default_options) && is_array($this->default_options)) {
+    if (!empty($this->default_options) && \is_array($this->default_options)) {
       foreach ($this->default_options as $key => $default_value) {
-        if (!array_key_exists($key, $this->options)) {
+        if (!\array_key_exists($key, $this->options)) {
           $this->options[$key] = $default_value;
         }
       }
@@ -97,12 +97,12 @@ abstract class Module implements ModuleInterface
   public function init_services()
   {
     $reflection = new \ReflectionClass($this);
-    $module_dir = basename(dirname($reflection->getFileName()));
+    $module_dir = \basename(\dirname($reflection->getFileName()));
 
     $service_class = "DiviChild\\Modules\\{$module_dir}\\Service";
-    if (class_exists($service_class)) {
+    if (\class_exists($service_class)) {
       $this->service = new $service_class($this);
-      if (method_exists($this->service, 'init_service')) {
+      if (\method_exists($this->service, 'init_service')) {
         $this->service->init_service();
       }
     }
@@ -120,7 +120,7 @@ abstract class Module implements ModuleInterface
       return;
     }
     $reflection = new \ReflectionClass($this);
-    $module_dir = basename(dirname($reflection->getFileName()));
+    $module_dir = \basename(\dirname($reflection->getFileName()));
 
     $possible_namespaces = [
       "DiviChild\\Modules\\{$module_dir}\\API\\RestController",
@@ -128,9 +128,9 @@ abstract class Module implements ModuleInterface
     ];
 
     foreach ($possible_namespaces as $class_name) {
-      if (class_exists($class_name)) {
+      if (\class_exists($class_name)) {
         $this->rest_controller = new $class_name($this);
-        if (method_exists($this->rest_controller, 'register_routes')) {
+        if (\method_exists($this->rest_controller, 'register_routes')) {
           $this->rest_controller->register_routes();
         }
         break;
@@ -184,18 +184,18 @@ abstract class Module implements ModuleInterface
     // Ermittle den tatsächlichen Verzeichnisnamen des Moduls
     $reflection = new \ReflectionClass($this);
     $file_path = $reflection->getFileName();
-    $module_dir = basename(dirname($file_path));
+    $module_dir = \basename(\dirname($file_path));
 
     $css_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/css/{$this->slug}.css";
     $js_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/js/{$this->slug}.js";
 
     // Nur CSS enqueuen, wenn die Datei existiert
-    if (file_exists($css_file)) {
+    if (\file_exists($css_file)) {
       wp_enqueue_style("divi-child-{$this->slug}-style", "{$this->config->theme_url}/modules/{$module_dir}/assets/css/{$this->slug}.css");
     }
 
     // Nur JS enqueuen, wenn die Datei existiert
-    if (file_exists($js_file)) {
+    if (\file_exists($js_file)) {
       wp_enqueue_script("divi-child-{$this->slug}-script", "{$this->config->theme_url}/modules/{$module_dir}/assets/js/{$this->slug}.js", ['jquery'], null, true);
 
       // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
@@ -215,12 +215,12 @@ abstract class Module implements ModuleInterface
     $admin_js_file = "{$this->config->theme_dir}/modules/{$this->name}/assets/js/{$this->slug}-admin.js";
 
     // Nur Admin-CSS enqueuen, wenn die Datei existiert
-    if (file_exists($admin_css_file)) {
+    if (\file_exists($admin_css_file)) {
       wp_enqueue_style("divi-child-{$this->slug}-admin-style", "{$this->config->theme_url}/modules/{$this->name}/assets/css/{$this->slug}-admin.css");
     }
 
     // Nur Admin-JS enqueuen, wenn die Datei existiert
-    if (file_exists($admin_js_file)) {
+    if (\file_exists($admin_js_file)) {
       wp_enqueue_script("divi-child-{$this->slug}-admin-script", "{$this->config->theme_url}/modules/{$this->name}/assets/js/{$this->slug}-admin.js", ['jquery'], null, true);
 
       // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
@@ -243,9 +243,9 @@ abstract class Module implements ModuleInterface
     // PHP-Formular-Arrays korrigieren
     foreach ($options as $key => $value) {
       // Array-Notation korrigieren (z.B. "events[0" -> "events")
-      if (preg_match('/^(\w+)\[(\d+)$/', $key, $matches)) {
+      if (\preg_match('/^(\w+)\[(\d+)$/', $key, $matches)) {
         $real_key = $matches[1];
-        $index = intval($matches[2]);
+        $index = \intval($matches[2]);
 
         if (!isset($sanitized[$real_key])) {
           $sanitized[$real_key] = [];
@@ -274,21 +274,21 @@ abstract class Module implements ModuleInterface
       }
 
       // Boolean-Werte richtig behandeln
-      if (isset($this->default_options[$key]) && is_bool($this->default_options[$key])) {
+      if (isset($this->default_options[$key]) && \is_bool($this->default_options[$key])) {
         // Stringwerte "true" und "false" sowie Boolean-Werte und 0/1 korrekt interpretieren
-        if (is_string($value)) {
+        if (\is_string($value)) {
           $sanitized[$key] = $value === 'true' || $value === '1' || $value === 'on';
         } else {
           $sanitized[$key] = (bool) $value;
         }
       }
       // Für Text-Felder: String sanitieren
-      elseif (is_string($value)) {
+      elseif (\is_string($value)) {
         $sanitized[$key] = sanitize_text_field($value);
       }
       // Für numerische Felder: Float oder Int
-      elseif (is_numeric($value)) {
-        $sanitized[$key] = is_float($value + 0) ? (float) $value : (int) $value;
+      elseif (\is_numeric($value)) {
+        $sanitized[$key] = \is_float($value + 0) ? (float) $value : (int) $value;
       }
       // Fallback
       else {
@@ -311,12 +311,12 @@ abstract class Module implements ModuleInterface
   private function sanitize_list_field($key, $value, $field_config)
   {
     // Stelle sicher, dass es ein Array ist
-    if (!is_array($value)) {
+    if (!\is_array($value)) {
       // Wenn es ein String ist, prüfen ob es mehrere Zeilen sind
-      if (is_string($value) && !empty($value)) {
-        $value = explode("\n", $value);
+      if (\is_string($value) && !empty($value)) {
+        $value = \explode("\n", $value);
         // Trimme jedes Element
-        $value = array_map('trim', $value);
+        $value = \array_map('trim', $value);
       } else {
         $value = [];
       }
@@ -328,7 +328,7 @@ abstract class Module implements ModuleInterface
 
     foreach ($value as $item) {
       // Sanitize item
-      $item = trim(sanitize_text_field($item));
+      $item = \trim(sanitize_text_field($item));
 
       // Leere Einträge überspringen
       if (empty($item)) {
@@ -337,7 +337,7 @@ abstract class Module implements ModuleInterface
 
       // Validierung, falls konfiguriert
       if ($has_validation && !empty($validation_pattern)) {
-        if (!preg_match($validation_pattern, $item)) {
+        if (!\preg_match($validation_pattern, $item)) {
           error_log("❌ sanitize_list_field: Ungültiger Eintrag {$item}");
           continue;
         }
@@ -355,13 +355,13 @@ abstract class Module implements ModuleInterface
    */
   private function sanitize_repeater_field($field_name, $value, $field_config)
   {
-    if (!is_array($value)) {
+    if (!\is_array($value)) {
       return [];
     }
 
     $sanitized = [];
     foreach ($value as $item) {
-      if (is_array($item)) {
+      if (\is_array($item)) {
         $sanitized_item = [];
         foreach ($field_config['fields'] as $sub_field_id => $sub_field_config) {
           if (isset($item[$sub_field_id])) {
@@ -520,7 +520,7 @@ abstract class Module implements ModuleInterface
   protected function is_option_enabled($key)
   {
     if (isset($this->options[$key])) {
-      if (is_string($this->options[$key])) {
+      if (\is_string($this->options[$key])) {
         return $this->options[$key] === 'on' || $this->options[$key] === '1' || $this->options[$key] === 'true';
       }
       return (bool) $this->options[$key];
@@ -529,7 +529,7 @@ abstract class Module implements ModuleInterface
     // Fallback auf Default-Werte
     $defaults = $this->default_options;
     if (isset($defaults[$key])) {
-      if (is_string($defaults[$key])) {
+      if (\is_string($defaults[$key])) {
         return $defaults[$key] === 'on' || $defaults[$key] === '1' || $defaults[$key] === 'true';
       }
       return (bool) $defaults[$key];
@@ -547,10 +547,16 @@ abstract class Module implements ModuleInterface
   {
     // Reflection nutzen, um tatsächlichen Modulpfad zu erhalten
     $reflection = new \ReflectionClass($this);
-    $dir_name = basename(dirname($reflection->getFileName()));
+    $dir_name = \basename(\dirname($reflection->getFileName()));
 
     return "{$this->config->theme_url}/modules/{$dir_name}/assets/{$path}";
   }
+
+  /**
+   * Returns the admin settings for this module
+   * @return array
+   */
+  abstract public function admin_settings(): array;
 
   /**
    * Returns admin settings with dependency checks

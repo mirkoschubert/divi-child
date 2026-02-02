@@ -59,7 +59,7 @@ final class UIKit extends Module
    * @package UIKit
    * @since 1.0.0
    */
-  public function admin_settings() {
+  public function admin_settings(): array {
     return [
 
       // 1. BASIC FORM FIELDS

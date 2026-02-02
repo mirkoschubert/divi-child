@@ -160,21 +160,21 @@ final class Theme
     $module_folders = glob("{$modules_dir}/*", GLOB_ONLYDIR);
 
     foreach ($module_folders as $module_folder) {
-      $module_name = basename($module_folder);
+      $module_name = \basename($module_folder);
 
       // Skip directories starting with underscore or dot
-      if (substr($module_name, 0, 1) === '_' || substr($module_name, 0, 1) === '.') {
+      if (\substr($module_name, 0, 1) === '_' || \substr($module_name, 0, 1) === '.') {
         continue;
       }
 
       // Get main module class file (should be named same as directory)
       $module_file = "{$module_folder}/{$module_name}.php";
 
-      if (file_exists($module_file)) {
+      if (\file_exists($module_file)) {
         $class_name = "\\DiviChild\\Modules\\{$module_name}\\{$module_name}";
 
         // Initialize module if class exists
-        if (class_exists($class_name)) {
+        if (\class_exists($class_name)) {
           try {
             $instance = new $class_name();
           } catch (\Exception $e) {
