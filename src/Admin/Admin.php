@@ -10,7 +10,7 @@ final class Admin
 
   public function __construct()
   {
-    $this->config = new Config();
+    $this->config = Config::get_instance();
     $this->init();
   }
 
@@ -128,7 +128,7 @@ final class Admin
       }
       echo '<style>:root {';
       foreach ($colors as $i => $color) {
-        echo "--wp-admin-theme-color-$i: $color;";
+        echo "--wp-admin-theme-color-" . esc_attr($i) . ": " . esc_attr($color) . ";";
       }
       echo '}</style>';
     }

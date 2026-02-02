@@ -16,7 +16,7 @@ final class Login extends Module
   protected $default_options = [
     'enabled' => false,
     'login_site_identity' => false,
-    'login_logo_width' => 320,
+    'login_logo_width' => 120,
     'login_background_image' => 0,
   ];
 

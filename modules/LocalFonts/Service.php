@@ -33,6 +33,9 @@ class Service extends ModuleService
     // Auto-update system
     add_action('divi_child_check_font_updates', [$this, 'check_and_update_fonts']);
 
+    // Register weekly cron interval
+    add_filter('cron_schedules', [$this, 'add_weekly_cron_schedule']);
+
     // Schedule cron job (once)
     if (!wp_next_scheduled('divi_child_check_font_updates')) {
       wp_schedule_event(\strtotime('03:00:00'), 'weekly', 'divi_child_check_font_updates');
@@ -47,6 +50,23 @@ class Service extends ModuleService
     }
   }
 
+
+  /**
+   * Adds a weekly interval to WordPress cron schedules
+   * @param array $schedules
+   * @return array
+   * @since 3.0.0
+   */
+  public function add_weekly_cron_schedule($schedules)
+  {
+    if (!isset($schedules['weekly'])) {
+      $schedules['weekly'] = [
+        'interval' => 604800,
+        'display'  => __('Once Weekly', 'divi-child'),
+      ];
+    }
+    return $schedules;
+  }
 
   /**
    * Dequeues all Divi Google Font stylesheets

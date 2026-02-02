@@ -37,7 +37,7 @@ class Service extends ModuleService
       return;
     }
 
-    $width = (int) ($this->get_module_option('login_logo_width') ?: 320);
+    $width = (int) ($this->get_module_option('login_logo_width') ?: 120);
     ?>
     <style>
       .login h1 {
@@ -46,13 +46,13 @@ class Service extends ModuleService
       .login h1 a,
       .login h1.wp-login-logo a {
         background-image: url('<?php echo esc_url($icon_url); ?>') !important;
-        background-size: <?php echo $width; ?>px <?php echo $width; ?>px;
+        background-size: <?php echo esc_attr($width); ?>px <?php echo esc_attr($width); ?>px;
         background-position: center top;
         background-repeat: no-repeat;
         width: 100%;
         height: auto;
         max-width: 100%;
-        padding-top: <?php echo $width + 10; ?>px;
+        padding-top: <?php echo esc_attr($width + 10); ?>px;
         text-indent: 0 !important;
         overflow: visible !important;
         font-size: 20px;
@@ -122,7 +122,8 @@ class Service extends ModuleService
         color: #fff !important;
       }
       .login #nav a,
-      .login #backtoblog a {
+      .login #backtoblog a,
+      .login .language-switcher {
         color: rgba(255, 255, 255, 0.7) !important;
       }
       .login #nav a:hover,

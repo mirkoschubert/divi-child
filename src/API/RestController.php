@@ -16,7 +16,7 @@ class RestController extends WP_REST_Controller
 
   public function __construct()
   {
-    $this->config = new Config();
+    $this->config = Config::get_instance();
   }
 
   /**

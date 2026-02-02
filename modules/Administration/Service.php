@@ -3,6 +3,7 @@
 namespace DiviChild\Modules\Administration;
 
 use DiviChild\Core\Abstracts\ModuleService;
+use enshrined\svgSanitize\Sanitizer;
 
 class Service extends ModuleService
 {
@@ -31,7 +32,7 @@ class Service extends ModuleService
     if ($this->is_option_enabled('media_infinite_scroll')) {
       add_filter('media_library_infinite_scrolling', '__return_true');
       add_filter('upload_per_page', function () {
-        return 999999999999999999;
+        return 9999;
       });
     }
 
@@ -43,6 +44,11 @@ class Service extends ModuleService
         add_filter('upload_mimes', [$this, 'supported_mimes']);
       }
       add_filter('wp_check_filetype_and_ext', [$this, 'handle_modern_image_upload'], 10, 5);
+
+      // Sanitize SVG uploads
+      if ($this->is_option_enabled('svg_support')) {
+        add_filter('wp_handle_upload_prefilter', [$this, 'sanitize_svg_upload']);
+      }
     }
 
     // Disable Divi Upsells
@@ -192,6 +198,31 @@ class Service extends ModuleService
     }
 
     return $data;
+  }
+
+  /**
+   * Sanitizes SVG files on upload to prevent XSS attacks
+   * @param array $file
+   * @return array
+   * @since 3.0.0
+   */
+  public function sanitize_svg_upload($file)
+  {
+    if ($file['type'] !== 'image/svg+xml') {
+      return $file;
+    }
+
+    $sanitizer = new Sanitizer();
+    $dirty = \file_get_contents($file['tmp_name']);
+    $clean = $sanitizer->sanitize($dirty);
+
+    if ($clean === false) {
+      $file['error'] = __('This SVG file could not be sanitized and was rejected for security reasons.', 'divi-child');
+      return $file;
+    }
+
+    \file_put_contents($file['tmp_name'], $clean);
+    return $file;
   }
 
   /**

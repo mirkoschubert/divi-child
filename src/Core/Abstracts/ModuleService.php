@@ -34,7 +34,7 @@ abstract class ModuleService implements ServiceInterface
   public function __construct(Module $module)
   {
     $this->module = $module;
-    $this->config = new Config();
+    $this->config = Config::get_instance();
     $this->options = $module->get_options();
   }
 

@@ -44,8 +44,8 @@ final class System extends Module
       ],
       'status_panel' => [
         'type' => 'toggle',
-        'label' => __('Show status dashboard widget', 'divi-child'),
-        'description' => __('Display a dashboard widget with Divi requirements and image format support info.', 'divi-child'),
+        'label' => __('Show status in At a Glance', 'divi-child'),
+        'description' => __('Display system versions and image format support in the At a Glance dashboard widget.', 'divi-child'),
         'default' => $this->default_options['status_panel'],
       ],
     ];

@@ -59,7 +59,7 @@ final class Umami extends Module
       'events' => [
         'type' => 'repeater',
         'label' => __('Umami Events', 'divi-child'),
-        'description' => __('Configure events for Umami Analytics', 'divi-child'),
+        'description' => __('Configure events for Umami Analytics. Set the Event ID as the CSS ID of the element you want to track (e.g. a button in Divi).', 'divi-child'),
         'fields' => [
           'id' => [
             'type' => 'text',

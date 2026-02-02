@@ -8,7 +8,7 @@ class Migration
     
     public function __construct()
     {
-        $this->config = new Config();
+        $this->config = Config::get_instance();
     }
     
     /**

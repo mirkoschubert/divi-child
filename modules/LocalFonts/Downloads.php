@@ -93,7 +93,13 @@ class Downloads
 
     $zip_content = wp_remote_retrieve_body($response);
     $temp_zip = $fonts_dir . '/' . $font_id . '_temp.zip';
-    \file_put_contents($temp_zip, $zip_content);
+
+    global $wp_filesystem;
+    if (empty($wp_filesystem)) {
+      require_once(ABSPATH . 'wp-admin/includes/file.php');
+      WP_Filesystem();
+    }
+    $wp_filesystem->put_contents($temp_zip, $zip_content, FS_CHMOD_FILE);
 
     $extracted_files = $this->extract_zip_wordpress_style($temp_zip, $fonts_dir);
     \unlink($temp_zip);
@@ -240,7 +246,12 @@ class Downloads
     $css_filename = sanitize_title($font_family) . '.css';
     $css_path = $fonts_dir . '/' . $css_filename;
 
-    \file_put_contents($css_path, $css_content);
+    global $wp_filesystem;
+    if (empty($wp_filesystem)) {
+      require_once(ABSPATH . 'wp-admin/includes/file.php');
+      WP_Filesystem();
+    }
+    $wp_filesystem->put_contents($css_path, $css_content, FS_CHMOD_FILE);
   }
 
 

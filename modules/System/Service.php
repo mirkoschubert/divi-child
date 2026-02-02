@@ -31,9 +31,9 @@ class Service extends ModuleService
       add_action('admin_enqueue_scripts', [$this, 'enqueue_badge_css']);
     }
 
-    // Status Panel (admin only)
+    // Status summary in At a Glance (admin only)
     if (is_admin() && $this->is_option_enabled('status_panel')) {
-      add_action('wp_dashboard_setup', [$this, 'add_status_widget']);
+      add_action('rightnow_end', [$this, 'display_system_summary']);
     }
   }
 
@@ -110,89 +110,46 @@ class Service extends ModuleService
 
 
   // =====================================================================
-  // Status Panel
+  // System Summary (At a Glance)
   // =====================================================================
 
   /**
-   * Adds the status dashboard widget
+   * Displays a compact system summary line at the bottom of the At a Glance widget
    * @return void
    */
-  public function add_status_widget()
-  {
-    wp_add_dashboard_widget(
-      'dvc_status_panel',
-      __('Divi Child — System Status', 'divi-child'),
-      [$this, 'render_status_widget']
-    );
-  }
-
-  /**
-   * Renders the status dashboard widget
-   * @return void
-   */
-  public function render_status_widget()
+  public function display_system_summary()
   {
     $php_version = phpversion();
     $wp_version = get_bloginfo('version');
-    $divi_version = function_exists('et_get_theme_version') ? et_get_theme_version() : __('Not installed', 'divi-child');
+    $divi_version = function_exists('et_get_theme_version') ? et_get_theme_version() : null;
 
-    $svg_supported = \in_array('image/svg+xml', get_allowed_mime_types());
-    $webp_supported = function_exists('imagewebp');
-    $avif_supported = function_exists('imageavif');
+    $formats = [
+      'WebP' => function_exists('imagewebp'),
+      'AVIF' => function_exists('imageavif'),
+      'SVG' => \in_array('image/svg+xml', get_allowed_mime_types()),
+    ];
 
-    $check = '<span style="color: #46b450;">&#10003;</span>';
-    $cross = '<span style="color: #dc3232;">&#10007;</span>';
-    ?>
-    <table class="widefat striped" style="border: none;">
-      <thead>
-        <tr>
-          <th colspan="2"><strong><?php esc_html_e('Environment', 'divi-child'); ?></strong></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><?php esc_html_e('PHP Version', 'divi-child'); ?></td>
-          <td><?php echo esc_html($php_version); ?>
-            <?php echo version_compare($php_version, '7.4', '>=') ? $check : $cross; ?>
-          </td>
-        </tr>
-        <tr>
-          <td><?php esc_html_e('WordPress Version', 'divi-child'); ?></td>
-          <td><?php echo esc_html($wp_version); ?>
-            <?php echo version_compare($wp_version, '5.0', '>=') ? $check : $cross; ?>
-          </td>
-        </tr>
-        <tr>
-          <td><?php esc_html_e('Divi Version', 'divi-child'); ?></td>
-          <td><?php echo esc_html($divi_version); ?></td>
-        </tr>
-      </tbody>
-      <thead>
-        <tr>
-          <th colspan="2"><strong><?php esc_html_e('Image Format Support', 'divi-child'); ?></strong></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>SVG</td>
-          <td>
-            <?php echo $svg_supported ? $check . ' ' . esc_html__('Enabled', 'divi-child') : $cross . ' ' . esc_html__('Disabled', 'divi-child'); ?>
-          </td>
-        </tr>
-        <tr>
-          <td>WebP</td>
-          <td>
-            <?php echo $webp_supported ? $check . ' ' . esc_html__('Supported', 'divi-child') : $cross . ' ' . esc_html__('Not supported', 'divi-child'); ?>
-          </td>
-        </tr>
-        <tr>
-          <td>AVIF</td>
-          <td>
-            <?php echo $avif_supported ? $check . ' ' . esc_html__('Supported', 'divi-child') : $cross . ' ' . esc_html__('Not supported', 'divi-child'); ?>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <?php
+    $green = '#3c763d';
+    $red = '#a94442';
+
+    $parts = [
+      'PHP ' . esc_html($php_version),
+      'WP ' . esc_html($wp_version),
+    ];
+    if ($divi_version) {
+      $parts[] = 'Divi ' . esc_html($divi_version);
+    }
+
+    $format_parts = [];
+    foreach ($formats as $name => $supported) {
+      $color = $supported ? $green : $red;
+      $format_parts[] = '<span style="color:' . $color . ';">' . esc_html($name) . '</span>';
+    }
+
+    echo '<p class="dvc-system-summary" style="padding:0 12px 4px;margin:0;">'
+      . implode(' &#9642; ', $parts)
+      . ' &#9642; '
+      . implode(' ', $format_parts)
+      . '</p>';
   }
 }

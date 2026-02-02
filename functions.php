@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 
 define('DIVI_CHILD_VERSION', '3.0.0');
 
-require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use DiviChild\Core\Theme;
 

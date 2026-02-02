@@ -11,6 +11,7 @@ abstract class Module implements ModuleInterface
   use DependencyChecker;
 
   protected $enabled = true;
+  protected $dev_only = false;
   protected $name = '';
   protected $description = '';
   protected $author = '';
@@ -28,9 +29,14 @@ abstract class Module implements ModuleInterface
 
   protected $service;
   protected $rest_controller;
+  protected $module_dir;
 
   public function __construct()
   {
+    if ($this->dev_only && !\in_array(wp_get_environment_type(), ['development', 'local'], true)) {
+      return;
+    }
+
     $this->init();
 
     if (!empty($this->slug)) {
@@ -53,7 +59,11 @@ abstract class Module implements ModuleInterface
     $this->version = empty($this->version) ? '1.0.0' : $this->version;
     $this->slug = empty($this->slug) ? \strtolower($this->name) : $this->slug;
 
-    $this->config = new Config();
+    // Cache module directory name via reflection (once)
+    $reflection = new \ReflectionClass($this);
+    $this->module_dir = \basename(\dirname($reflection->getFileName()));
+
+    $this->config = Config::get_instance();
     $this->options = $this->config->get_module_options($this->slug);
 
     // Stellen sicher, dass options ein Array ist
@@ -96,10 +106,7 @@ abstract class Module implements ModuleInterface
    */
   public function init_services()
   {
-    $reflection = new \ReflectionClass($this);
-    $module_dir = \basename(\dirname($reflection->getFileName()));
-
-    $service_class = "DiviChild\\Modules\\{$module_dir}\\Service";
+    $service_class = "DiviChild\\Modules\\{$this->module_dir}\\Service";
     if (\class_exists($service_class)) {
       $this->service = new $service_class($this);
       if (\method_exists($this->service, 'init_service')) {
@@ -119,12 +126,9 @@ abstract class Module implements ModuleInterface
       error_log("REST Controller für {$this->slug} bereits initialisiert");
       return;
     }
-    $reflection = new \ReflectionClass($this);
-    $module_dir = \basename(\dirname($reflection->getFileName()));
-
     $possible_namespaces = [
-      "DiviChild\\Modules\\{$module_dir}\\API\\RestController",
-      "DiviChild\\Modules\\{$module_dir}\\RestController"
+      "DiviChild\\Modules\\{$this->module_dir}\\API\\RestController",
+      "DiviChild\\Modules\\{$this->module_dir}\\RestController"
     ];
 
     foreach ($possible_namespaces as $class_name) {
@@ -181,24 +185,15 @@ abstract class Module implements ModuleInterface
    */
   public function enqueue_scripts()
   {
-    // Ermittle den tatsächlichen Verzeichnisnamen des Moduls
-    $reflection = new \ReflectionClass($this);
-    $file_path = $reflection->getFileName();
-    $module_dir = \basename(\dirname($file_path));
+    $css_file = "{$this->config->theme_dir}/modules/{$this->module_dir}/assets/css/{$this->slug}.css";
+    $js_file = "{$this->config->theme_dir}/modules/{$this->module_dir}/assets/js/{$this->slug}.js";
 
-    $css_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/css/{$this->slug}.css";
-    $js_file = "{$this->config->theme_dir}/modules/{$module_dir}/assets/js/{$this->slug}.js";
-
-    // Nur CSS enqueuen, wenn die Datei existiert
     if (\file_exists($css_file)) {
-      wp_enqueue_style("divi-child-{$this->slug}-style", "{$this->config->theme_url}/modules/{$module_dir}/assets/css/{$this->slug}.css");
+      wp_enqueue_style("divi-child-{$this->slug}-style", "{$this->config->theme_url}/modules/{$this->module_dir}/assets/css/{$this->slug}.css");
     }
 
-    // Nur JS enqueuen, wenn die Datei existiert
     if (\file_exists($js_file)) {
-      wp_enqueue_script("divi-child-{$this->slug}-script", "{$this->config->theme_url}/modules/{$module_dir}/assets/js/{$this->slug}.js", ['jquery'], null, true);
-
-      // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
+      wp_enqueue_script("divi-child-{$this->slug}-script", "{$this->config->theme_url}/modules/{$this->module_dir}/assets/js/{$this->slug}.js", ['jquery'], null, true);
       wp_localize_script("divi-child-{$this->slug}-script", 'dvc_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
     }
   }
@@ -211,19 +206,15 @@ abstract class Module implements ModuleInterface
    */
   public function enqueue_admin_scripts()
   {
-    $admin_css_file = "{$this->config->theme_dir}/modules/{$this->name}/assets/css/{$this->slug}-admin.css";
-    $admin_js_file = "{$this->config->theme_dir}/modules/{$this->name}/assets/js/{$this->slug}-admin.js";
+    $admin_css_file = "{$this->config->theme_dir}/modules/{$this->module_dir}/assets/css/{$this->slug}-admin.css";
+    $admin_js_file = "{$this->config->theme_dir}/modules/{$this->module_dir}/assets/js/{$this->slug}-admin.js";
 
-    // Nur Admin-CSS enqueuen, wenn die Datei existiert
     if (\file_exists($admin_css_file)) {
-      wp_enqueue_style("divi-child-{$this->slug}-admin-style", "{$this->config->theme_url}/modules/{$this->name}/assets/css/{$this->slug}-admin.css");
+      wp_enqueue_style("divi-child-{$this->slug}-admin-style", "{$this->config->theme_url}/modules/{$this->module_dir}/assets/css/{$this->slug}-admin.css");
     }
 
-    // Nur Admin-JS enqueuen, wenn die Datei existiert
     if (\file_exists($admin_js_file)) {
-      wp_enqueue_script("divi-child-{$this->slug}-admin-script", "{$this->config->theme_url}/modules/{$this->name}/assets/js/{$this->slug}-admin.js", ['jquery'], null, true);
-
-      // Nur wenn JS vorhanden ist, dafür auch die AJAX-URL bereitstellen
+      wp_enqueue_script("divi-child-{$this->slug}-admin-script", "{$this->config->theme_url}/modules/{$this->module_dir}/assets/js/{$this->slug}-admin.js", ['jquery'], null, true);
       wp_localize_script("divi-child-{$this->slug}-admin-script", 'dvc_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
     }
   }
@@ -260,7 +251,7 @@ abstract class Module implements ModuleInterface
     }
 
     // Jetzt reguläre Sanitierung durchführen
-    foreach ($options as $key => $value) {
+    foreach ($sanitized as $key => $value) {
       // Für Listen-Felder
       if (isset($admin_settings[$key]) && $admin_settings[$key]['type'] === 'list') {
         $sanitized[$key] = $this->sanitize_list_field($key, $value, $admin_settings[$key]);
@@ -545,11 +536,7 @@ abstract class Module implements ModuleInterface
    */
   public function get_asset_url($path)
   {
-    // Reflection nutzen, um tatsächlichen Modulpfad zu erhalten
-    $reflection = new \ReflectionClass($this);
-    $dir_name = \basename(\dirname($reflection->getFileName()));
-
-    return "{$this->config->theme_url}/modules/{$dir_name}/assets/{$path}";
+    return "{$this->config->theme_url}/modules/{$this->module_dir}/assets/{$path}";
   }
 
   /**

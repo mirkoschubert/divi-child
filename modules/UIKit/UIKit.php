@@ -8,6 +8,7 @@ final class UIKit extends Module
 {
 
   protected $enabled = true;
+  protected $dev_only = true;
   protected $name = 'UI Kit';
   protected $description = 'Reference module for all form field types, repeaters and dependencies';
   protected $version = '1.0.0';
@@ -15,42 +16,6 @@ final class UIKit extends Module
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => true,
-    // Basic Fields
-    'test_text' => 'Default text value',
-    'test_textarea' => "Default textarea\nwith multiple lines",
-    'test_number' => 42,
-    'test_toggle' => true,
-    'test_select' => 'option2',
-    'test_multi_select' => ['option1', 'option3'],
-    'test_color' => '#007cba',
-    'test_image' => '',
-    // Repeaters
-    'simple_repeater' => [
-      [
-        'title' => 'First Item',
-        'description' => 'First item description'
-      ],
-      [
-        'title' => 'Second Item',
-        'description' => 'Second item description'
-      ]
-    ],
-    'complex_repeater' => [
-      [
-        'name' => 'Complex Item 1',
-        'type' => 'type_a',
-        'enabled' => true,
-        'value' => 25,
-        'color' => '#ff0000'
-      ]
-    ],
-    // Dependencies
-    'dep_toggle' => true,
-    'dep_text' => 'This depends on toggle',
-    'dep_mode' => 'mode_a',
-    'dep_conditional' => 'Conditional value',
-    'dep_double' => '#ff6b35',
-    'dep_array' => 'Array dependent value',
   ];
 
   /**

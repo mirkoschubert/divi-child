@@ -6,6 +6,7 @@ use DiviChild\Core\Abstracts\Module;
 
 final class Config
 {
+  private static $instance = null;
 
   public $theme_name = '';
   public $theme_version = '';
@@ -13,6 +14,14 @@ final class Config
   public $theme_dir = '';
   public $theme_url = '';
   protected $options;
+
+  public static function get_instance(): self
+  {
+    if (self::$instance === null) {
+      self::$instance = new self();
+    }
+    return self::$instance;
+  }
 
   public function __construct()
   {

@@ -13,6 +13,7 @@ See `~/Downloads/divi-assistant/`
 - [x] v3.0: Stop Animations If Users Have Preference Set On Their Device For No Animations
 - [x] v3.0: Show Environment Badge In Admin Bar (local, development, staging, production)
 - [x] v3.0: Enable Divi Builder By Default For New Pages/Posts
+- [x] v3.0: Status versions image file support (svg, webp, avif) in "At a glance" dashboard widget
 - [ ] v3.1: Automatically Clear the Divi Static CSS Cache Based on An action
 - [ ] v3.1: 1-click-installer für recommended plugins (with Plugin list import/ export)
 - [ ] v3.2: Manage Your Global Colors (& Show global colors as default)
@@ -37,6 +38,5 @@ See `~/Downloads/admin-site-enhancements/`
 
 ## Other Ideas
 
-- [x] v3.0: Status Panel for Divi requirements and image file support (svg, webp, avif)
 - [ ] v3.3: Disable WordPress-Blog (Posts, Comments, Feeds) completely
 - [ ] v4.0: Custom Modules for Divi 4 & 5

@@ -22,7 +22,7 @@ final class Theme
    */
   public function init()
   {
-    $this->config = new Config();
+    $this->config = Config::get_instance();
     $this->options = $this->config->get_options();
 
     $this->migration = new Migration();
@@ -97,7 +97,6 @@ final class Theme
 
     wp_enqueue_script('wp-i18n');
     wp_enqueue_script('divi-child-script', "{$this->config->theme_url}/assets/js/main.js", ['jquery', 'wp-i18n'], null, true);
-    wp_localize_script('divi-child-script', 'themeOptions', $this->options);
   }
 
   /**

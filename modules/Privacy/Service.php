@@ -364,46 +364,34 @@ class Service extends ModuleService
   // =====================================================================
 
   /**
-   * Encrypts a user ID into an obfuscated author slug
+   * Generates an obfuscated author slug from a user ID using HMAC
    * @param int $user_id
    * @return string
    */
-  private function encrypt_user_id($user_id)
+  private function hash_user_id($user_id)
   {
-    $key = \substr(AUTH_KEY, 0, 24);
-    $encrypted = openssl_encrypt(
-      \base_convert($user_id, 10, 36),
-      'DES-EDE3',
-      $key,
-      OPENSSL_RAW_DATA
-    );
-    return \bin2hex($encrypted);
+    return \substr(hash_hmac('sha256', (string) $user_id, AUTH_KEY), 0, 16);
   }
 
   /**
-   * Decrypts an obfuscated author slug back to a user ID
-   * @param string $encrypted_slug
+   * Finds a user by their obfuscated author slug
+   * @param string $hashed_slug
    * @return int|false
    */
-  private function decrypt_author_slug($encrypted_slug)
+  private function find_user_by_hash($hashed_slug)
   {
-    if (!\ctype_xdigit($encrypted_slug)) {
+    if (!\ctype_xdigit($hashed_slug) || \strlen($hashed_slug) !== 16) {
       return false;
     }
 
-    $key = \substr(AUTH_KEY, 0, 24);
-    $decrypted = openssl_decrypt(
-      \pack('H*', $encrypted_slug),
-      'DES-EDE3',
-      $key,
-      OPENSSL_RAW_DATA
-    );
-
-    if ($decrypted === false) {
-      return false;
+    $users = get_users(['fields' => 'ID']);
+    foreach ($users as $user_id) {
+      if ($this->hash_user_id($user_id) === $hashed_slug) {
+        return (int) $user_id;
+      }
     }
 
-    return (int) \base_convert($decrypted, 36, 10);
+    return false;
   }
 
   /**
@@ -415,8 +403,8 @@ class Service extends ModuleService
    */
   public function encrypt_author_link($link, $author_id, $author_nicename)
   {
-    $encrypted = $this->encrypt_user_id($author_id);
-    return \str_replace("/{$author_nicename}", "/{$encrypted}", $link);
+    $hashed = $this->hash_user_id($author_id);
+    return \str_replace("/{$author_nicename}", "/{$hashed}", $link);
   }
 
   /**
@@ -432,8 +420,8 @@ class Service extends ModuleService
 
     $author_name = $query->query_vars['author_name'];
 
-    if (\ctype_xdigit($author_name)) {
-      $user_id = $this->decrypt_author_slug($author_name);
+    if (\ctype_xdigit($author_name) && \strlen($author_name) === 16) {
+      $user_id = $this->find_user_by_hash($author_name);
       $user = $user_id ? get_user_by('id', $user_id) : false;
 
       if ($user) {
@@ -460,7 +448,7 @@ class Service extends ModuleService
   public function obfuscate_rest_user_slug($response, $user, $request)
   {
     $data = $response->get_data();
-    $data['slug'] = $this->encrypt_user_id($data['id']);
+    $data['slug'] = $this->hash_user_id($data['id']);
     $response->set_data($data);
     return $response;
   }
