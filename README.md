@@ -1,68 +1,126 @@
-# Divi GDPR Child Theme
+# Divi Child Theme
 
-This piece of software is a WordPress child theme boilerplate for Divi. It aims to secure the site, to configure it to meet the GDPR requirements and to optimize it for a better page speed. In addition there are some bug fixes for the Divi Theme itself.
+A feature-rich WordPress child theme for [Divi](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes. It provides privacy and security hardening, page speed optimizations, accessibility improvements, Divi bug fixes, local font management, analytics integration, and much more — all configurable through a modern React-based admin panel.
 
 <p><a href="https://www.buymeacoffee.com/musikuss" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
 
-**GDPR Features:**
+## Requirements
 
-* Localize Google Fonts (or in fact any web font)
-* Make links in the comments truely external
-* Remove the commentor's IP (old ones have to be removed by hand)
-* Disable oEmbeds (old ones have to be removed by hand)
-* Disable WordPress Emojis (in every modern browser Emojis will be displayed anyway)
-* Remove global DNS Prefetching
-* Hide WordPress REST API meta data for security reasons
+- PHP 8.0+
+- WordPress 6.3+
+- [Divi Theme](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes
 
-**Page Speed Tweaks:**
+## Features
 
-* Disable page pingback
-* Remove Dashicons from the frontend
-* Remove CSS and JS query strings
-* Remove Shortlink from head
-* Preload some fonts (or other files)
+All features are organized into modules and can be toggled individually in the admin panel under **Divi Child Settings**.
 
-**Accessibility Tweaks:**
+### Privacy & Security
 
-* Add ARIA support to all relevant elements
-* Make main navigation fully keyboard accessible
-* Focus all clickable elements correctly
-* Tag external links for assistive technology
-* Add a skip link to the page
-* Accessible scroll to top button (Turn off the Divi back-to-top button!)
-* Fix the viewport meta
-* Fix screenreader text
-* Underline all links except headlines and social icons
-* Optimize forms for accessibility (Contact & Comment Form, Minimal Contact Form, Forminator)
+- Make links in comments truly external (`target="_blank"` with proper `rel` attributes)
+- Remove commentor's IP address from stored comments
+- Disable WordPress Emojis and related DNS prefetching
+- Disable oEmbeds
+- Remove global DNS Prefetching
+- Disable WordPress REST API metadata
+- Disable XML-RPC for security
+- Track and display last login time in the users table
+- Disable author archives (redirects to 404)
+- Obfuscate author slugs to prevent user enumeration
 
-**Divi Bug Fixes:**
+### Page Speed
 
-* Remove Divi support center scripts from frontend (Divi 3.20.1)
-* CSS Split Section Fix for alternating sections of image and text (responsive)
-* Fix display errors in Theme Builder (Divi 4.0 up to 4.12)
-* Re-enable fixed navigation bar option when a global header in Theme builder is active (Divi 4.0 and up)
-* Set a `.split-section-fix` class for swapping text and image for tablet or lower (see [Split Section Fix](#user-content-split-section-fix))
+- Disable page pingback
+- Remove Dashicons from the frontend (except for logged-in admins)
+- Remove CSS and JS version query strings
+- Remove Shortlink from head
+- Preload fonts with configurable font list
 
-**Micellaneous features:**
+### Accessibility
 
-* Disable Projects custom post type as well as categories and tags
-* Disable email notifications for plugin and theme auto-updates
-* Restrict email notifications for core updates (only errors will be sent)
-* Enable to upload SVG files
-* Enable to upload WebP files
-* Enable hyphenation for the whole website
-* Set the breakpoint to 1280px for using mobile menu in landscape mode on a tablet
-* Enable fullscreen mode for the mobile menu
+- Add ARIA support to all relevant elements
+- Make main navigation fully keyboard accessible
+- Focus management for all clickable elements
+- Tag external links for assistive technology
+- Add a skip link to the page
+- Accessible scroll-to-top button (turn off the Divi back-to-top button!)
+- Fix the viewport meta tag
+- Fix WordPress screenreader text
+- Underline all links except headlines and social icons
+- Optimize forms for accessibility (Contact Form, Comment Form, Forminator)
+- Respect `prefers-reduced-motion` user preference
+- Customizable text selection highlight colors
+- Improved slider navigation spacing
 
-The next steps will be to bring some CSS hacks to the admin panel as well and to automate the Google Font localization. There will be more explanation for non technical users in the admin panel in the future. So have fun and stay tuned!
+### Divi Bug Fixes
 
-## Instructions
+- Remove Divi support center scripts from frontend (Divi 3.20.1)
+- Fix display errors in Theme Builder (Divi 4.0 up to 4.12)
+- Re-enable fixed navigation bar option for global Theme Builder headers (Divi 4.0+)
+- Customizable fixed header height in pixels
+- Fix logo image sizing in Theme Builder (Divi 4.6.6)
 
-This is a child theme adjusted to the [Divi theme](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes **only**! If you want to create your own child theme for any other WordPress theme, please use my [GDPR theme](https://github.com/mirkoschubert/gdpr-child/) as a boilerplate.
+### Administration
 
-### CSS
+- Duplicate posts and pages with one click
+- Duplicate Divi library items
+- Disable Projects custom post type including categories and tags
+- Disable email notifications for plugin and theme auto-updates
+- Enable infinite scroll in the media library
+- Upload SVG files (with sanitization)
+- Upload WebP files
+- Upload AVIF files
+- Enable hyphenation for the whole website
+- Set the mobile menu breakpoint to 1280px (landscape tablet)
+- Enable fullscreen mode for the mobile menu
+- Disable Divi upsell promotions
+- Disable Divi AI features
+- Set Divi Builder as default editor for new posts/pages
+- Open external links in new tab with configurable `rel` attributes
 
-In order to create clean code and a descent inheritance, the child theme uses a `.child` body class once you activated the child theme. If you want to append your own CSS code to the `style.css`, you should use this class as a prefix, e.g.:
+### Local Fonts
+
+- Disable Divi Google Fonts and serve fonts locally for GDPR compliance
+- Select and download Google Fonts directly from the admin panel
+- Configure `font-display` CSS property (auto, block, swap, fallback, optional)
+- Automatic weekly font updates via cron job
+- Support for multiple font weights and styles
+- Automatic cleanup of orphaned font files
+
+### Umami Analytics
+
+- Integrate [Umami](https://umami.is/) as a privacy-focused analytics solution
+- Configure website ID and Umami instance domain
+- Exclude logged-in users from tracking
+- Enable custom event tracking
+- Track elements by CSS ID
+
+### System Dashboard
+
+- Display environment badge in the admin bar (Local / Dev / Staging / Live)
+- Show a warning when search engine visibility is blocked
+- System status widget in the WordPress dashboard ("At a Glance")
+- Display PHP, WordPress, and Divi version info
+- Detect image format support (WebP, AVIF, SVG)
+
+### Login Customization
+
+- Replace the WordPress logo on the login page with your site icon
+- Customize the login logo width
+- Link the login logo to your homepage
+- Set a custom background image for the login page
+
+## Installation
+
+1. Download the [latest release](https://github.com/mirkoschubert/divi-child/releases/latest/) or clone this repository into `/wp-content/themes/`.
+2. Run `composer install` in the theme directory to install dependencies.
+3. Activate the child theme in WordPress under **Appearance > Themes**.
+4. Configure the modules under **Divi Child Settings** in the admin panel.
+
+**Upgrading from v2.x:** The theme automatically migrates your settings when you activate v3.0.0. It is still recommended to back up your settings before upgrading.
+
+## CSS
+
+The child theme adds a `.child` body class. Use this class as a prefix for your custom CSS in `style.css`:
 
 ```css
 .child p {
@@ -70,42 +128,22 @@ In order to create clean code and a descent inheritance, the child theme uses a 
 }
 ```
 
-### Split Section Fix
+## Updating
 
-If you have any split sections (two column rows with alternating image and text) on your Divi site you know the display errors on mobile devices. Instead of showing every text beneath the image it rotates those sections on mobile as well, leaving you with nasty text-text and image-image combinations.
+The Divi Child Theme does not support automatic updates. To update manually:
 
-With my split section fix you only have to set the class `.split-section-fix` in the affected section and everything looks fine. Even the images don't scale down and get a pleasing 16:9 aspect ration on mobile devices by default.
+1. Download the [latest version](https://github.com/mirkoschubert/divi-child/releases/latest/).
+2. Upload the new theme to `/wp-content/themes/` — **do not overwrite the old version yet**.
+3. Copy your custom CSS from `style.css` and any custom JavaScript from `/assets/js/main.js`.
+4. Activate the new version. Your module settings will be migrated automatically.
+5. Verify everything works, then delete the old version.
 
-### Theme Builder Header Hack
+You may need the [Customizer Export/Import](https://wordpress.org/plugins/customizer-export-import/) plugin to transfer customizer settings.
 
-With Divi 4 the all new theme builder has arrived! Now there's a possibility to set up a global header with a fixed height.
+## Changelog
 
-But ElegantThemes sadly disabled the fixed navigation bar option in the Divi theme options for those global headers.
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of all versions.
 
-With my Theme Builder Header Hack we bring this back and fix some display errors in the theme builder as well. You don't have to do anything once the child theme is activated.
+## License
 
-Feel free to use one of my [Global Header Layouts](https://gist.github.com/mirkoschubert/05f938d6a5edc0001b7aa855d6d38ef6) to import a minimal global header with a fixed height!
-
-**Update v1.3.0:** Since the release of Divi 4 many changes were made, bringing some bugs to my theme builder hack. With v1.3.0 I hopefully fixed all of them and changed my hack in a way, that minor changes in Divi don't affect the Theme Builder Hack that much. If you find any bugs or display failures, please create an [issue](https://github.com/mirkoschubert/divi-child/issues) here on Github!
-
-### Fonts
-
-In Divi you actually can turn off Google Fonts by switching off `Use Google Fonts` under `/Settings/Theme Options/General/`. Then you only see fonts from the [CSS font stack](https://www.cssfontstack.com/), but you can upload your own fonts manually.
-
-But you can also use this child theme to organize your fonts. For Google Fonts simply use the [google-webfonts-helper](https://gwfh.mranftl.com/fonts), copy the downloaded fonts to the `/fonts/` directory and edit the `/assets/css/fonts.css`.
-
-**NOTE:** To use the `TODO` file you should edit it with VSCode and the `Todo+` extension. Please read their documentation for usage information.
-
-### Updating the Divi Child Theme
-
-The purpose of a child theme is to maintain changes even if the parent theme gets updated. So the Divi Child Theme will never have automatic updates. But if you want to use new functions, you can update the child theme manually:
-
-1. Download the [latest version](https://github.com/mirkoschubert/divi-child/releases/latest/) of the Divi child theme.
-2. Unzip it and upload the child theme via FTP to your WordPress installation into the directory `/wp-content/themes/`. You should keep the old version for now - **do not overwrite the old child theme yet!**
-3. Now you have to copy your custom code from the old to the new child theme. This will be mainly parts of the `styles.css` and `/assets/js/main.js`.
-4. If you have localized any font you should copy the contents of the `/assets/css/fonts.css` file as well as every file in the `/assets/fonts/` folder.
-5. If you used a version prior to `v2.0` you should also copy the font list for preloading from the `functions.php` to the list in the admin panel once you activated the new child theme.
-6. Check everything and then activate the new version of the Divi child theme.
-7. Check again if everything works and delete the old version of the child theme afterwards.
-
-You may have to use the [Customizer Export/Import](https://wordpress.org/plugins/customizer-export-import/) plugin for copying the customizer settings to the new child theme.
+GNU General Public License v3.0 — see [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html).

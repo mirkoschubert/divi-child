@@ -370,7 +370,7 @@ class Service extends ModuleService
    */
   private function hash_user_id($user_id)
   {
-    return \substr(hash_hmac('sha256', (string) $user_id, AUTH_KEY), 0, 16);
+    return \substr(hash_hmac('sha256', (string) $user_id, constant('AUTH_KEY')), 0, 16);
   }
 
   /**
