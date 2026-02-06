@@ -2,7 +2,7 @@
 
 <p align="center" style="margin-bottom: 2rem;"><img src="divi-child-3-logo.webp" alt="Divi Child Theme 3" width=200 height="200"></p>
 
-A feature-rich WordPress child theme for [Divi](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes. It provides privacy and security hardening, page speed optimizations, accessibility improvements, Divi bug fixes, local font management, analytics integration, and much more — all configurable through a modern React-based admin panel.
+<p align="center"> A feature-rich WordPress child theme for [Divi](https://www.elegantthemes.com/gallery/divi/) by ElegantThemes. It provides privacy and security hardening, page speed optimizations, accessibility improvements, Divi bug fixes, local font management, analytics integration, and much more — all configurable through a modern React-based admin panel.</p>
 
 <p align="center"><a href="https://www.buymeacoffee.com/musikuss" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
 
