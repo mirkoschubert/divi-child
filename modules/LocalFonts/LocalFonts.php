@@ -8,11 +8,19 @@ use DiviChild\Modules\LocalFonts\Downloads;
 final class LocalFonts extends Module
 {
   protected $enabled = true;
-  protected $name = 'Local Fonts';
-  protected $description = 'Download and manage Google Fonts locally for GDPR compliance and better performance.';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'localfonts';
-  protected $author = 'Divi Child';
+
+  public function get_name(): string
+  {
+    return __('Local Fonts', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Download and manage Google Fonts locally for GDPR compliance and better performance.', 'divi-child');
+  }
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => true,

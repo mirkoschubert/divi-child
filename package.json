@@ -1,14 +1,19 @@
 {
-  "name": "divi-child-admin-app",
-  "version": "1.0.0",
+  "name": "divi-child",
+  "version": "3.0.0",
+  "description": "A Divi Child Theme with GDPR and page speed optimizations",
+  "author": "Mirko Schubert <info@mirkoschubert.de>",
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
-    "start": "webpack --mode=development --watch",
-    "dev": "webpack serve --mode=development",
+    "start": "webpack serve --mode=development",
+    "lint": "eslint admin-app/src --ext .ts,.tsx",
     "type-check": "tsc --noEmit",
-    "lint": "eslint src --ext .ts,.tsx"
+    "build:pot": "pnpm exec makepot . languages --domain theme --slug divi-child",
+    "build:json": "pnpm exec makejson languages --scriptName ../admin-app/build/admin-app.js",
+    "build:translations": "pnpm run build:pot && pnpm run build:json"
   },
   "dependencies": {
     "@wordpress/api-fetch": "^7.24.0",
@@ -30,11 +35,13 @@
     "@types/react-dom": "^18.3.7",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
+    "@wp-blocks/make-pot": "^1.6.3",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.3",
     "eslint": "^9.39.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "minimatch": "^9.0.5",
     "style-loader": "^4.0.0",
     "stylus": "^0.64.0",
     "stylus-loader": "^8.1.2",
@@ -43,5 +50,6 @@
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
-  }
+  },
+  "license": "GPL-3.0"
 }

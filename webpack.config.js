@@ -9,9 +9,9 @@ export default (env, argv) => {
   const isDevelopment = argv.mode === 'development'
 
   return {
-    entry: './src/index.tsx',
+    entry: './admin-app/src/index.tsx',
     output: {
-      path: path.resolve(__dirname, 'build'),
+      path: path.resolve(__dirname, 'admin-app/build'),
       filename: 'admin-app.js',
       publicPath: '/wp-content/themes/divi-child/admin-app/build/',
       clean: true,
@@ -76,12 +76,12 @@ export default (env, argv) => {
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.styl', '.css'],
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '@/components': path.resolve(__dirname, 'src/components'),
-        '@/hooks': path.resolve(__dirname, 'src/hooks'),
-        '@/utils': path.resolve(__dirname, 'src/utils'),
-        '@/types': path.resolve(__dirname, 'src/types'),
-        '@/styles': path.resolve(__dirname, 'src/styles'),
+        '@': path.resolve(__dirname, 'admin-app/src'),
+        '@/components': path.resolve(__dirname, 'admin-app/src/components'),
+        '@/hooks': path.resolve(__dirname, 'admin-app/src/hooks'),
+        '@/utils': path.resolve(__dirname, 'admin-app/src/utils'),
+        '@/types': path.resolve(__dirname, 'admin-app/src/types'),
+        '@/styles': path.resolve(__dirname, 'admin-app/src/styles'),
       },
     },
 
@@ -89,7 +89,7 @@ export default (env, argv) => {
 
     devServer: {
       static: {
-        directory: path.join(__dirname, 'build'),
+        directory: path.join(__dirname, 'admin-app/build'),
       },
       port: 3000,
       hot: true,

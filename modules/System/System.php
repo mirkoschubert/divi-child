@@ -8,10 +8,19 @@ final class System extends Module
 {
 
   protected $enabled = false;
-  protected $name = 'System';
-  protected $description = 'Environment badge, search engine visibility warning and status dashboard widget.';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'system';
+
+  public function get_name(): string
+  {
+    return __('System', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Environment badge, search engine visibility warning and status dashboard widget.', 'divi-child');
+  }
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => false,

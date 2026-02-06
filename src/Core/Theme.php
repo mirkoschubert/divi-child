@@ -41,7 +41,6 @@ final class Theme
     }
 
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-    add_action('wp_set_script_translations', [$this, 'set_script_translations'], 100);
     add_action('after_setup_theme', [$this, 'setup_languages']);
 
     $this->add_child_body_class();
@@ -100,27 +99,34 @@ final class Theme
   }
 
   /**
-   * Set script translations
-   * @return void
-   * @since 2.3.0
-   */
-  public function set_script_translations()
-  {
-    wp_set_script_translations('divi-child-script', 'divi-child', "{$this->config->theme_url}/languages");
-  }
-
-  /**
    * Summary of setup_languages
    * @return void
    * @since 1.0.0
    */
   public function setup_languages()
   {
-    load_child_theme_textdomain('divi-child', "{$this->config->theme_url}/languages");
-    load_child_theme_textdomain('Divi', "{$this->config->theme_url}/languages/theme");
-    load_child_theme_textdomain('et-core', "{$this->config->theme_url}/languages/core");
-    load_child_theme_textdomain('et_builder', "{$this->config->theme_url}/languages/builder");
+    static $done = false;
+    if ($done)
+      return;
+    $done = true;
+
+    $user_locale = get_user_locale(get_current_user_id() ?: 0);
+    $path = $this->config->theme_dir . '/languages';
+
+    global $l10n;
+    unset($l10n['divi-child']);
+
+    $old_locale = switch_to_locale($user_locale);
+    load_child_theme_textdomain('divi-child', $path);
+    switch_to_locale($old_locale);
+
+    // Divi-Domains nur bei Bedarf (sonst unnötig)
+    load_child_theme_textdomain('Divi', $this->config->theme_dir . '/languages/theme');
+    load_child_theme_textdomain('et-core', $this->config->theme_dir . '/languages/core');
+    load_child_theme_textdomain('et_builder', $this->config->theme_dir . '/languages/builder');
   }
+
+
 
   /**
    * Add a 'child' class to the body tag

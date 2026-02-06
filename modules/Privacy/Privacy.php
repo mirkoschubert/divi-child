@@ -8,10 +8,19 @@ final class Privacy extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Privacy & Security';
-  protected $description = 'Privacy and security enhancements for WordPress including GDPR compliance.';
-  protected $version = '1.0.0';
+  protected $author = 'Mirko Schubert';
+  protected $version = '1.1.0';
   protected $slug = 'privacy';
+
+  public function get_name(): string
+  {
+    return __('Privacy & Security', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Privacy and security enhancements for WordPress including GDPR compliance.', 'divi-child');
+  }
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => true,

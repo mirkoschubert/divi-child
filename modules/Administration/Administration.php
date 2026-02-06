@@ -8,10 +8,19 @@ final class Administration extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Administration';
-  protected $description = 'Admin, content management and frontend enhancements for Divi';
-  protected $version = '1.3.0';
+  protected $author = 'Mirko Schubert';
+  protected $version = '1.0.0';
   protected $slug = 'administration';
+
+  public function get_name(): string
+  {
+    return __('Administration', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Admin, content management and frontend enhancements for Divi', 'divi-child');
+  }
   protected $dependencies = [
     'jquery',
   ];

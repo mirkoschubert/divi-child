@@ -9,10 +9,19 @@ final class UIKit extends Module
 
   protected $enabled = true;
   protected $dev_only = true;
-  protected $name = 'UI Kit';
-  protected $description = 'Reference module for all form field types, repeaters and dependencies';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'uikit';
+
+  public function get_name(): string
+  {
+    return __('UI Kit', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Reference module for all form field types, repeaters and dependencies', 'divi-child');
+  }
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => true,

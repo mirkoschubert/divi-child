@@ -7,7 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 export default [
   js.configs.recommended,
   {
-    files: ['**/*.{ts,tsx,js,jsx}'],
+    files: ['admin-app/**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -27,6 +27,7 @@ export default [
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         HTMLDivElement: 'readonly',
+        TransitionEvent: 'readonly',
 
         // React globals (für neue JSX Transform nicht nötig, aber sicherheitshalber)
         React: 'readonly',
@@ -42,26 +43,26 @@ export default [
     },
     rules: {
       // TypeScript Rules
-      '@typescript-eslint/no-unused-vars': ['warn', { 
+      '@typescript-eslint/no-unused-vars': ['warn', {
         argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_' 
+        varsIgnorePattern: '^_'
       }],
       '@typescript-eslint/no-explicit-any': 'warn',
-      
+
       // JavaScript no-unused-vars ausschalten, da TypeScript das übernimmt
       'no-unused-vars': 'off',
-      
+
       // React Rules
       'react/react-in-jsx-scope': 'off', // Nicht nötig mit neuer JSX Transform
       'react/prop-types': 'off',
       'react/display-name': 'off',
-      
+
       // React Hooks Rules
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      
+
       // General Rules
-      'no-console': ['warn', { 
+      'no-console': ['warn', {
         allow: ['warn', 'error'] // Erlaube console.warn und console.error
       }],
       'no-debugger': 'error',
@@ -76,7 +77,7 @@ export default [
   {
     files: ['webpack.config.js', 'eslint.config.js'],
     languageOptions: {
-      sourceType: 'script',
+      sourceType: 'module',
       globals: {
         module: 'readonly',
         require: 'readonly',

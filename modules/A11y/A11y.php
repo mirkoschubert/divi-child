@@ -8,11 +8,19 @@ final class A11y extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Accessibility';
-  protected $description = 'Accessibility module for WordPress.';
-  protected $author = 'Horst Nahrstedt';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.1.0';
   protected $slug = 'a11y';
+
+  public function get_name(): string
+  {
+    return __('Accessibility', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Accessibility module for WordPress.', 'divi-child');
+  }
   protected $dependencies = [
     'js' => [
       'jquery'

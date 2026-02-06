@@ -8,11 +8,19 @@ final class Pagespeed extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Pagespeed';
-  protected $description = 'Google Pagespeed optimization module for WordPress.';
   protected $author = 'Mirko Schubert';
-  protected $version = '1.0.0';
+  protected $version = '1.1.0';
   protected $slug = 'pagespeed';
+
+  public function get_name(): string
+  {
+    return __('Pagespeed', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Google Pagespeed optimization module for WordPress.', 'divi-child');
+  }
   protected $dependencies = [
     'jquery',
   ];

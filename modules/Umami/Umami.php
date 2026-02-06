@@ -8,10 +8,19 @@ final class Umami extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Umami';
-  protected $description = 'Umami Analytics integration for Divi';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'umami';
+
+  public function get_name(): string
+  {
+    return __('Umami', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Umami Analytics integration for Divi', 'divi-child');
+  }
   protected $dependencies = [
     'jquery',
   ];

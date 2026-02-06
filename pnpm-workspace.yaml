@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - '@wp-blocks/make-pot'
+  - tree-sitter
+  - tree-sitter-javascript
+  - tree-sitter-php
+  - tree-sitter-typescript

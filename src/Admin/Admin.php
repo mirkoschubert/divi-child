@@ -86,6 +86,8 @@ final class Admin
       true
     );
 
+    wp_set_script_translations('divi-child-admin-app', 'divi-child', $this->config->theme_dir . '/languages');
+
     wp_localize_script('divi-child-admin-app', 'diviChildConfig', [
       'apiUrl' => rest_url('divi-child/v1/'),
       'nonce' => wp_create_nonce('wp_rest'),

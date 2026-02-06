@@ -1,244 +1,1142 @@
-#, fuzzy
+# Copyright (C) 2026 Divi Child
+# This file is distributed under the GNU General Public License version 3.0 license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Divi Child\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 11:53+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Divi Child 3.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/themes/divi-child\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.4.6; wp-5.6"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"POT-Creation-Date: 2026-02-06T00:59:15.747Z\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mirko Schubert <info@mirkoschubert.de>\n"
+"Language-Team: Mirko Schubert <info@mirkoschubert.de>\n"
+"X-Generator: @wp-blocks/make-pot 1.6.3\n"
+"Language: en\n"
+"X-Domain: divi-child\n"
 
-#: admin/views/partials/a11y.php:54
-msgid "(Comment Form, Minimal Contact Form, Forminator)"
+#: style.css
+#. Name of the theme
+msgid "Divi Child"
 msgstr ""
 
-#: admin/views/partials/bugs.php:8
-msgid "(Divi 3.20.1 only)"
+#: style.css
+#. Author URI of the theme
+msgid "https://mirkoschubert.de"
 msgstr ""
 
-#: admin/views/partials/bugs.php:14
-msgid "(Divi 4.0 and up)"
-msgstr ""
-
-#: admin/views/partials/bugs.php:20
-msgid "(Divi 4.0 up to Divi 4.12)"
-msgstr ""
-
-#: admin/views/partials/bugs.php:26
-msgid "(Divi 4.6.6)"
-msgstr ""
-
-#: admin/views/partials/a11y.php:33
-msgid "(Turn the Divi back to top button off!)"
-msgstr ""
-
+#: style.css
 #. Description of the theme
 msgid ""
 "A Divi Child Theme with lots of GDPR and page speed optimizations and some "
 "tweaks and bug fixed for the parent theme."
 msgstr ""
 
-#: admin/views/options.php:32 admin/views/options.php:35
-msgid "Accessibility"
-msgstr ""
-
-#: admin/views/partials/a11y.php:32
-msgid "Accessible scroll to top button"
-msgstr ""
-
-#: admin/views/partials/a11y.php:27
-msgid "Add a skip link to the page"
-msgstr ""
-
-#: admin/views/partials/a11y.php:7
-msgid "Add ARIA support to all relevant elements"
-msgstr ""
-
-#: admin/views/options.php:42 admin/views/options.php:45
-msgid "Bug Fixes"
-msgstr ""
-
-#: admin/admin.php:99 admin/admin.php:100
-msgid "Child Theme Options"
-msgstr ""
-
-#: admin/views/partials/misc.php:7
-msgid "Disable custom post type Projects."
-msgstr ""
-
-#: admin/views/partials/misc.php:12
-msgid ""
-"Disable email notification when plugins or theme where automatically updated."
-msgstr ""
-
-#: admin/views/partials/gdpr.php:17
-msgid "Disable Emojis"
-msgstr ""
-
-#: admin/views/partials/gdpr.php:22
-msgid "Disable oEmbeds"
-msgstr ""
-
-#: admin/views/partials/page-speed.php:7
-msgid "Disable page pingback"
-msgstr ""
-
-#. Name of the theme
-msgid "Divi Child"
-msgstr ""
-
-#: admin/views/options.php:5
-msgid "Divi Child Options"
-msgstr ""
-
-#: admin/views/partials/gdpr.php:12
-msgid "Don't save the commentor's IP address"
-msgstr ""
-
-#: admin/views/partials/bugs.php:13
-msgid "Enable fixed navigation bar option in Theme Builder"
-msgstr ""
-
-#: admin/views/partials/misc.php:37
-msgid "Enable fullscreen mode for the mobile menu"
-msgstr ""
-
-#: admin/views/partials/misc.php:27
-msgid "Enable hyphenation for the whole website"
-msgstr ""
-
-#: admin/views/partials/misc.php:17
-msgid "Enable to upload SVG files"
-msgstr ""
-
-#: admin/views/partials/misc.php:22
-msgid "Enable to upload WebP files"
-msgstr ""
-
-#: admin/views/partials/bugs.php:19
-msgid "Fix display errors in Theme Builder"
-msgstr ""
-
-#: admin/views/partials/bugs.php:25
-msgid "Fix logo image sizing in Theme Builder"
-msgstr ""
-
-#: admin/views/partials/a11y.php:43
-msgid "Fix screenreader text"
-msgstr ""
-
-#: admin/views/partials/a11y.php:38
-msgid "Fix viewport meta"
-msgstr ""
-
-#: admin/views/partials/a11y.php:17
-msgid "Focus all clickable elements correctly"
-msgstr ""
-
-#: admin/views/options.php:12 admin/views/options.php:15
-msgid "GDPR"
-msgstr ""
-
-#. URI of the theme
-msgid "http://www.elegantthemes.com/gallery/divi/"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://mirkoschubert.de"
-msgstr ""
-
-#. %s is replaced with the link text
-#: assets/js/main.js:231
-#, javascript-format
-msgid "Link to %s opens in a new window"
-msgstr ""
-
-#: admin/views/partials/gdpr.php:7
-msgid "Make every comment and comment author link truely external"
-msgstr ""
-
-#: admin/views/partials/a11y.php:12
-msgid "Make main navigation fully keyboard accessible"
-msgstr ""
-
+#: style.css
 #. Author of the theme
 msgid "Mirko Schubert"
 msgstr ""
 
-#: admin/views/options.php:52 admin/views/options.php:55
-msgid "Miscellaneous"
+#: src/Admin/Admin.php:40
+#: src/Admin/Admin.php:41
+msgid "Child Theme Options"
 msgstr ""
 
-#: admin/views/partials/a11y.php:53
-msgid "Optimize forms for accessibility"
+#: src/API/RestController.php:110
+msgid "Failed to load modules."
 msgstr ""
 
-#: admin/views/options.php:22 admin/views/options.php:25
-msgid "Page Speed"
+#: src/API/RestController.php:130
+#: src/API/RestController.php:180
+msgid "Module not found."
 msgstr ""
 
-#: admin/views/partials/page-speed.php:27
+#: src/API/RestController.php:146
+msgid "Module enabled."
+msgstr ""
+
+#: src/API/RestController.php:147
+msgid "Module disabled."
+msgstr ""
+
+#: src/API/RestController.php:152
+msgid "Failed to save module settings."
+msgstr ""
+
+#: src/API/RestController.php:160
+msgid "Failed to toggle module."
+msgstr ""
+
+#: src/API/RestController.php:204
+msgid "Settings saved."
+msgstr ""
+
+#: src/API/RestController.php:209
+msgid "Failed to save settings."
+msgstr ""
+
+#: src/API/RestController.php:217
+msgid "Failed to update settings."
+msgstr ""
+
+#: modules/Umami/Umami.php:16
+msgid "Umami"
+msgstr ""
+
+#: modules/Umami/Umami.php:21
+msgid "Umami Analytics integration for Divi"
+msgstr ""
+
+#: modules/Umami/Umami.php:45
+msgid "Enter the Domain of your umami instance"
+msgstr ""
+
+#: modules/Umami/Umami.php:46
+msgid "without https://"
+msgstr ""
+
+#: modules/Umami/Umami.php:51
+msgid "Enter your Umami website ID"
+msgstr ""
+
+#: modules/Umami/Umami.php:57
+msgid "Ignore users that are logged in"
+msgstr ""
+
+#: modules/Umami/Umami.php:63
+msgid "Enable Events for Umami"
+msgstr ""
+
+#: modules/Umami/Umami.php:69
+msgid "Umami Events"
+msgstr ""
+
+#: modules/Umami/Umami.php:70
+msgid ""
+"Configure events for Umami Analytics. Set the Event ID as the CSS ID of the "
+"element you want to track (e.g. a button in Divi)."
+msgstr ""
+
+#: modules/UIKit/UIKit.php:17
+msgid "UI Kit"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:22
+msgid "Reference module for all form field types, repeaters and dependencies"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:41
+msgid "Basic Form Fields"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:42
+msgid "All available field types"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:46
+msgid "Text Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:47
+msgid "A simple text input field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:57
+msgid "Textarea Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:58
+msgid "Multi-line text input"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:63
+msgid "Number Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:64
+msgid "Numeric input with min/max validation"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:73
+msgid "Toggle Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:74
+msgid "Boolean on/off switch"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:79
+msgid "Select Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:80
+msgid "Single selection dropdown"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:83
+msgid "First Option"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:84
+msgid "Second Option"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:85
+msgid "Third Option"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:86
+msgid "Fourth Option"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:91
+msgid "Multi-Select Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:92
+msgid "Multiple selection dropdown"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:95
+msgid "Option 1"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:96
+msgid "Option 2"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:97
+msgid "Option 3"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:98
+msgid "Option 4"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:99
+msgid "Option 5"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:104
+msgid "Color Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:105
+msgid "Color picker with hex value"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:110
+msgid "Image Field"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:111
+msgid "Image upload via media library"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:120
+msgid "Repeater Fields"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:121
+msgid "Simple and complex repeater examples"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:125
+msgid "Simple Repeater"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:126
+msgid "Basic repeater with text fields"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:130
+msgid "Item Title"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:135
+msgid "Item Description"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:142
+msgid "Complex Repeater"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:143
+msgid "Repeater with multiple field types and dependencies"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:147
+msgid "Name"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:152
+msgid "Type"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:155
+msgid "Type A"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:156
+msgid "Type B"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:157
+msgid "Type C"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:162
+msgid "Enable Item"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:167
+msgid "Value (Type A only)"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:179
+msgid "Color (when enabled)"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:187
+msgid "Advanced Text (Type B & C)"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:201
+msgid "Dependencies"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:202
+msgid "All dependency variants: simple, conditional, double and array"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:206
+msgid "Master Toggle"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:207
+msgid "Controls dependent fields below"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:212
+msgid "Simple Dependency"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:213
+msgid "Visible when master toggle is on"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:221
+msgid "Mode Select"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:222
+msgid "Controls conditional and array dependencies"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:225
+msgid "Mode A"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:226
+msgid "Mode B"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:227
+msgid "Mode C"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:232
+msgid "Conditional Dependency"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:233
+msgid "Visible only in Mode A"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:241
+msgid "Double Dependency"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:242
+msgid "Visible when toggle is on AND mode is A"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:251
+msgid "Array Dependency"
+msgstr ""
+
+#: modules/UIKit/UIKit.php:252
+msgid "Visible in Mode B or Mode C"
+msgstr ""
+
+#: modules/System/System.php:16
+msgid "System"
+msgstr ""
+
+#: modules/System/System.php:21
+msgid ""
+"Environment badge, search engine visibility warning and status dashboard "
+"widget."
+msgstr ""
+
+#: modules/System/System.php:42
+msgid "Show environment badge"
+msgstr ""
+
+#: modules/System/System.php:43
+msgid ""
+"Display a colored badge in the admin bar showing the current environment "
+"(Local, Dev, Staging, Live)."
+msgstr ""
+
+#: modules/System/System.php:48
+msgid "Show search engine visibility warning"
+msgstr ""
+
+#: modules/System/System.php:49
+msgid ""
+"Display a warning icon in the environment badge when \"Discourage search "
+"engines\" is enabled."
+msgstr ""
+
+#: modules/System/System.php:55
+msgid "Show status in At a Glance"
+msgstr ""
+
+#: modules/System/System.php:56
+msgid ""
+"Display system versions and image format support in the At a Glance "
+"dashboard widget."
+msgstr ""
+
+#: modules/System/Service.php:87
+msgid "Search engines are discouraged from indexing this site"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:17
+msgid "Pagespeed"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:22
+msgid "Google Pagespeed optimization module for WordPress."
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:50
+msgid "Remove Pingback"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:51
+msgid "Removes the pingback header from the site."
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:56
+msgid "Remove Dashicons"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:57
+msgid "Removes dashicons from the frontend"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:62
+msgid "Remove Version Strings"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:63
+msgid "Removes CSS and JS version query strings"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:68
+msgid "Remove Shortlink"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:69
+msgid "Removes shortlink from head"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:74
+msgid "Preload Fonts"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:75
 msgid "Preload some fonts for speed"
 msgstr ""
 
-#: admin/views/partials/page-speed.php:17
-msgid "Remove CSS and JS query strings"
+#: modules/Pagespeed/Pagespeed.php:80
+msgid "Fonts List"
 msgstr ""
 
-#: admin/views/partials/page-speed.php:12
-msgid "Remove dashicons from the frontend"
+#: modules/Pagespeed/Pagespeed.php:81
+msgid "Enter font paths to preload for better performance."
 msgstr ""
 
-#: admin/views/partials/bugs.php:7
+#: modules/Pagespeed/Pagespeed.php:85
+msgid "Font Path"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:86
+msgid "Path starting with \"/wp-content/\" and ending with font extension"
+msgstr ""
+
+#: modules/Pagespeed/Pagespeed.php:90
+msgid ""
+"Please enter a valid font path. It should start with \"/wp-content/\" and "
+"end with a font extension (woff, woff2, ttf, otf, eot)."
+msgstr ""
+
+#: modules/LocalFonts/Service.php:65
+msgid "Once Weekly"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:17
+msgid "Local Fonts"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:22
+msgid ""
+"Download and manage Google Fonts locally for GDPR compliance and better "
+"performance."
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:57
+msgid "Disable Divi Google Fonts"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:58
+msgid "Automatically disable all Google Fonts loading in Divi theme and builder."
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:63
+msgid "Select Google Fonts"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:64
+msgid ""
+"Choose Google Fonts to download locally. All weights and styles will be "
+"downloaded automatically."
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:70
+msgid "Font Display"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:71
+msgid "CSS font-display property for optimal loading performance."
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:73
+msgid "Auto"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:74
+msgid "Block"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:75
+msgid "Swap (Recommended)"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:76
+msgid "Fallback"
+msgstr ""
+
+#: modules/LocalFonts/LocalFonts.php:77
+msgid "Optional"
+msgstr ""
+
+#: modules/Privacy/Service.php:278
+msgid "Last Login"
+msgstr ""
+
+#: modules/Privacy/Service.php:298
+msgid "Never"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:16
+msgid "Privacy & Security"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:21
+msgid "Privacy and security enhancements for WordPress including GDPR compliance."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:49
+msgid "Privacy"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:53
+msgid "Comments External"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:54
+msgid "Make external links in comments truely external."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:59
+msgid "Comments IP"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:60
+msgid "Enable comments to be loaded with IP address."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:65
+msgid "Disable Emojis"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:66
+msgid "Disable emojis for GDPR compliance."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:71
+msgid "Disable oEmbeds"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:72
+msgid "Disable oEmbeds for GDPR compliance."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:77
+msgid "Disable DNS Prefetching"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:78
+msgid "Disable DNS prefetching for GDPR compliance."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:83
+msgid "Disable REST API"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:84
+msgid "Disable REST API for GDPR compliance."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:91
+msgid "Security"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:95
+msgid "Track last login time"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:96
+msgid "Show a \"Last Login\" column in the users table."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:101
+msgid "Disable author archives"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:102
+msgid "Redirect author archive pages to 404 and remove author links."
+msgstr ""
+
+#: modules/Privacy/Privacy.php:107
+msgid "Obfuscate author slugs"
+msgstr ""
+
+#: modules/Privacy/Privacy.php:108
+msgid ""
+"Replace author usernames in URLs with encrypted IDs to prevent user "
+"enumeration."
+msgstr ""
+
+#: modules/Login/Login.php:16
+msgid "Login"
+msgstr ""
+
+#: modules/Login/Login.php:21
+msgid "Customize the WordPress login page with site identity and background image."
+msgstr ""
+
+#: modules/Login/Login.php:42
+msgid "Use site icon as login logo"
+msgstr ""
+
+#: modules/Login/Login.php:43
+msgid ""
+"Replace the WordPress logo on the login page with the site icon and link to "
+"the homepage."
+msgstr ""
+
+#: modules/Login/Login.php:48
+msgid "Logo width (px)"
+msgstr ""
+
+#: modules/Login/Login.php:49
+msgid "Width of the logo on the login page in pixels."
+msgstr ""
+
+#: modules/Login/Login.php:55
+msgid "Background Image"
+msgstr ""
+
+#: modules/Login/Login.php:56
+msgid "Background image for the login page (displayed full-size)."
+msgstr ""
+
+#: modules/Bugs/Bugs.php:16
+msgid "Bug Fixes"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:21
+msgid "Fixes some bugs in Divi"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:46
 msgid "Remove Divi Support Center from Frontend"
 msgstr ""
 
-#: admin/views/partials/gdpr.php:27
-msgid "Remove DNS prefetching for WordPress"
+#: modules/Bugs/Bugs.php:47
+msgid "Available only on Divi 3.20.1"
 msgstr ""
 
-#: admin/views/partials/gdpr.php:32
-msgid "Remove REST API & XML-RPC headers for security reasons"
+#: modules/Bugs/Bugs.php:55
+msgid "Enable fixed navigation bar option in Theme Builder"
 msgstr ""
 
-#: admin/views/partials/page-speed.php:22
-msgid "Remove shortlink from head"
+#: modules/Bugs/Bugs.php:56
+msgid "Available on Divi 4.0 and up"
 msgstr ""
 
-#: admin/views/partials/misc.php:32
-msgid "Set breakpoint for the mobile menu to 1280px"
+#: modules/Bugs/Bugs.php:64
+msgid "Header Height (px)"
 msgstr ""
 
-#: admin/views/partials/bugs.php:31
+#: modules/Bugs/Bugs.php:65
+msgid "Set the height of the fixed header in pixels"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:76
+msgid "Fix display errors in Theme Builder"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:77
+msgid "Available on Divi 4.0 up to 4.12"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:85
+msgid "Fix logo image sizing in Theme Builder"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:86
+msgid "Available only on Divi 4.6.6"
+msgstr ""
+
+#: modules/Bugs/Bugs.php:94
 msgid ""
-"Set CSS class <code>.split-section-fix</code> for swapping image and text on "
-"tablet and phone"
+"Set CSS class .split-section-fix for swapping image and text on tablet and "
+"phone"
 msgstr ""
 
-#: includes/child_a11y.php:28
+#: modules/Bugs/Bugs.php:95
+msgid "Deprecated - will be removed on version 3.2"
+msgstr ""
+
+#: modules/Administration/Service.php:220
+msgid "This SVG file could not be sanitized and was rejected for security reasons."
+msgstr ""
+
+#: modules/Administration/Administration.php:16
+msgid "Administration"
+msgstr ""
+
+#: modules/Administration/Administration.php:21
+msgid "Admin, content management and frontend enhancements for Divi"
+msgstr ""
+
+#: modules/Administration/Administration.php:57
+msgid "Admin & Backend"
+msgstr ""
+
+#: modules/Administration/Administration.php:58
+msgid "WordPress backend improvements and content management features"
+msgstr ""
+
+#: modules/Administration/Administration.php:62
+msgid "Enable duplicate posts"
+msgstr ""
+
+#: modules/Administration/Administration.php:63
+msgid "Allows you to duplicate posts and pages easily."
+msgstr ""
+
+#: modules/Administration/Administration.php:68
+msgid "Disable custom post type Projects"
+msgstr ""
+
+#: modules/Administration/Administration.php:69
+msgid "Removes the Projects post type from Divi"
+msgstr ""
+
+#: modules/Administration/Administration.php:74
+msgid "Disable auto-update emails"
+msgstr ""
+
+#: modules/Administration/Administration.php:75
+msgid "Stop email notifications when plugins or themes are automatically updated"
+msgstr ""
+
+#: modules/Administration/Administration.php:80
+msgid "Enable duplicate Divi library items"
+msgstr ""
+
+#: modules/Administration/Administration.php:81
+msgid "Add a \"Duplicate\" link to Divi library layouts in the admin list."
+msgstr ""
+
+#: modules/Administration/Administration.php:88
+msgid "Media & Files"
+msgstr ""
+
+#: modules/Administration/Administration.php:89
+msgid "Media library enhancements and file format support"
+msgstr ""
+
+#: modules/Administration/Administration.php:93
+msgid "Enable infinite scroll for media library"
+msgstr ""
+
+#: modules/Administration/Administration.php:94
+msgid "Load media files continuously without pagination"
+msgstr ""
+
+#: modules/Administration/Administration.php:99
+msgid "Enable SVG file uploads"
+msgstr ""
+
+#: modules/Administration/Administration.php:100
+msgid ""
+"Allow SVG files in media library. Warning: SVG files can contain malicious "
+"code"
+msgstr ""
+
+#: modules/Administration/Administration.php:108
+msgid "Enable WebP file uploads"
+msgstr ""
+
+#: modules/Administration/Administration.php:109
+msgid ""
+"Allow WebP files in media library. Native support available in WordPress "
+"5.8+"
+msgstr ""
+
+#: modules/Administration/Administration.php:117
+msgid "Enable AVIF file uploads"
+msgstr ""
+
+#: modules/Administration/Administration.php:118
+msgid ""
+"Allow AVIF files in media library. Native support available in WordPress "
+"6.5+"
+msgstr ""
+
+#: modules/Administration/Administration.php:128
+msgid "Frontend & Design"
+msgstr ""
+
+#: modules/Administration/Administration.php:129
+msgid "Visual improvements and responsive design enhancements"
+msgstr ""
+
+#: modules/Administration/Administration.php:133
+msgid "Enable hyphenation"
+msgstr ""
+
+#: modules/Administration/Administration.php:134
+msgid "Activate automatic word hyphenation for better text layout"
+msgstr ""
+
+#: modules/Administration/Administration.php:139
+msgid "Mobile menu at 1280px"
+msgstr ""
+
+#: modules/Administration/Administration.php:140
+msgid "Switch to mobile menu at 1280px instead of default breakpoint"
+msgstr ""
+
+#: modules/Administration/Administration.php:145
+msgid "Fullscreen mobile menu"
+msgstr ""
+
+#: modules/Administration/Administration.php:146
+msgid "Display mobile menu in fullscreen mode for better UX"
+msgstr ""
+
+#: modules/Administration/Administration.php:151
+msgid "Open external links in new tab"
+msgstr ""
+
+#: modules/Administration/Administration.php:152
+msgid ""
+"Automatically add target=\"_blank\" and rel attributes to all external "
+"links on the page."
+msgstr ""
+
+#: modules/Administration/Administration.php:157
+msgid "Rel attributes for external links"
+msgstr ""
+
+#: modules/Administration/Administration.php:158
+msgid "Space-separated rel attribute values for external links."
+msgstr ""
+
+#: modules/Administration/Administration.php:166
+msgid "Divi Customizations"
+msgstr ""
+
+#: modules/Administration/Administration.php:167
+msgid "Disable or customize specific Divi features"
+msgstr ""
+
+#: modules/Administration/Administration.php:171
+msgid "Disable Divi upsells"
+msgstr ""
+
+#: modules/Administration/Administration.php:172
+msgid "Hide promotional messages and upsells in Divi interface"
+msgstr ""
+
+#: modules/Administration/Administration.php:177
+msgid "Disable Divi AI"
+msgstr ""
+
+#: modules/Administration/Administration.php:178
+msgid "Remove Divi AI features and interface elements"
+msgstr ""
+
+#: modules/Administration/Administration.php:183
+msgid "Enable Divi Builder by default"
+msgstr ""
+
+#: modules/Administration/Administration.php:184
+msgid "Automatically activate the Divi Builder when creating new posts or pages."
+msgstr ""
+
+#: modules/Administration/Administration.php:189
+msgid "Post types for default builder"
+msgstr ""
+
+#: modules/Administration/Administration.php:190
+msgid "Select which post types should have the Divi Builder enabled by default."
+msgstr ""
+
+#: modules/Administration/Administration.php:192
+msgid "Pages"
+msgstr ""
+
+#: modules/Administration/Administration.php:193
+msgid "Posts"
+msgstr ""
+
+#: modules/Administration/Administration.php:194
+msgid "Projects"
+msgstr ""
+
+#: modules/A11y/Service.php:135
 msgid "Skip to content"
 msgstr ""
 
-#: admin/views/partials/a11y.php:22
+#: modules/A11y/A11y.php:17
+msgid "Accessibility"
+msgstr ""
+
+#: modules/A11y/A11y.php:22
+msgid "Accessibility module for WordPress."
+msgstr ""
+
+#: modules/A11y/A11y.php:62
+msgid "Basic Accessibility"
+msgstr ""
+
+#: modules/A11y/A11y.php:63
+msgid "Essential accessibility features for your website"
+msgstr ""
+
+#: modules/A11y/A11y.php:67
+msgid "Add a skip link to the page"
+msgstr ""
+
+#: modules/A11y/A11y.php:73
+msgid "Fix viewport meta"
+msgstr ""
+
+#: modules/A11y/A11y.php:79
+msgid "Accessible scroll to top button"
+msgstr ""
+
+#: modules/A11y/A11y.php:80
+msgid "Turn the Divi back to top button off!"
+msgstr ""
+
+#: modules/A11y/A11y.php:87
+msgid "Navigation & Focus"
+msgstr ""
+
+#: modules/A11y/A11y.php:88
+msgid "Keyboard navigation and focus management"
+msgstr ""
+
+#: modules/A11y/A11y.php:92
+msgid "Make main navigation fully keyboard accessible"
+msgstr ""
+
+#: modules/A11y/A11y.php:98
+msgid "Focus all clickable elements correctly"
+msgstr ""
+
+#: modules/A11y/A11y.php:104
 msgid "Tag external links for assistive technology"
 msgstr ""
 
-#: admin/views/partials/page-speed.php:36
-msgid "Type ony one path per line, otherwise it will break!"
+#: modules/A11y/A11y.php:112
+msgid "Content & ARIA"
 msgstr ""
 
-#: admin/views/partials/a11y.php:48
+#: modules/A11y/A11y.php:113
+msgid "Content accessibility and ARIA enhancements"
+msgstr ""
+
+#: modules/A11y/A11y.php:117
+msgid "Add ARIA support to all relevant elements"
+msgstr ""
+
+#: modules/A11y/A11y.php:123
+msgid "Optimize forms for accessibility"
+msgstr ""
+
+#: modules/A11y/A11y.php:124
+msgid "Supports comment form, Minimal Contact Form and Forminator"
+msgstr ""
+
+#: modules/A11y/A11y.php:129
+msgid "Fix screenreader text"
+msgstr ""
+
+#: modules/A11y/A11y.php:137
+msgid "Visual & Animation"
+msgstr ""
+
+#: modules/A11y/A11y.php:138
+msgid "Visual accessibility and animation controls"
+msgstr ""
+
+#: modules/A11y/A11y.php:142
+msgid "Stop animations if users have preference set for no animations"
+msgstr ""
+
+#: modules/A11y/A11y.php:143
+msgid "Respects the prefers-reduced-motion setting on user devices"
+msgstr ""
+
+#: modules/A11y/A11y.php:148
 msgid "Underline all links except headlines and social icons"
 msgstr ""
 
-#. Default text for unknown link
-#: assets/js/main.js:226
-msgid "unknown"
+#: modules/A11y/A11y.php:154
+msgid "Text selection background color"
+msgstr ""
+
+#: modules/A11y/A11y.php:155
+msgid "Background color for selected text"
+msgstr ""
+
+#: modules/A11y/A11y.php:160
+msgid "Text selection text color"
+msgstr ""
+
+#: modules/A11y/A11y.php:161
+msgid "Text color for selected text"
+msgstr ""
+
+#: modules/A11y/A11y.php:166
+msgid "Add spacing to slider navigation elements"
+msgstr ""
+
+#: modules/A11y/A11y.php:167
+msgid "Improves accessibility by adding space between slider controls"
+msgstr ""
+
+#: admin-app/src/App.tsx:39
+msgid "Loading modules..."
+msgstr ""
+
+#: admin-app/src/App.tsx:49
+#: admin-app/src/App.tsx:69
+msgid "Divi Child Theme"
+msgstr ""
+
+#: admin-app/src/components/SettingsModal/SettingsModal.tsx:108
+#: admin-app/src/components/ModuleCard/ModuleCard.tsx:80
+msgid "Settings"
+msgstr ""
+
+#: admin-app/src/components/SettingsModal/SettingsModal.tsx:122
+msgid "Loading settings..."
+msgstr ""
+
+#: admin-app/src/components/SettingsModal/SettingsModal.tsx:138
+msgid "Cancel"
+msgstr ""
+
+#: admin-app/src/components/SettingsModal/SettingsModal.tsx:148
+msgid "Saving..."
+msgstr ""
+
+#: admin-app/src/components/SettingsModal/SettingsModal.tsx:149
+msgid "Save Settings"
+msgstr ""
+
+#: admin-app/src/components/ModuleCard/ModuleCard.tsx:58
+msgid "Version"
+msgstr ""
+
+#: admin-app/src/components/ModuleCard/ModuleCard.tsx:61
+msgid "Author"
+msgstr ""
+
+#: admin-app/src/components/FormFields/RepeaterField.tsx:133
+#: admin-app/src/components/FormFields/RepeaterField.tsx:181
+msgid "Empty item"
+msgstr ""
+
+#: admin-app/src/components/FormFields/RepeaterField.tsx:196
+#: admin-app/src/components/FormFields/ImageField.tsx:149
+msgid "Remove"
+msgstr ""
+
+#: admin-app/src/components/FormFields/RepeaterField.tsx:253
+msgid "No items yet. Add your first item below."
+msgstr ""
+
+#: admin-app/src/components/FormFields/RepeaterField.tsx:263
+msgid "Add Item"
+msgstr ""
+
+#: admin-app/src/components/FormFields/MultiSelectField.tsx:72
+msgid "Add Items"
+msgstr ""
+
+#: admin-app/src/components/FormFields/MultiSelectField.tsx:75
+msgid "Search and select..."
+msgstr ""
+
+#: admin-app/src/components/FormFields/ImageField.tsx:77
+#: admin-app/src/components/FormFields/ImageField.tsx:83
+#: admin-app/src/components/FormFields/ImageField.tsx:133
+msgid "Select Image"
+msgstr ""
+
+#: admin-app/src/components/FormFields/ImageField.tsx:82
+#: admin-app/src/components/FormFields/ImageField.tsx:132
+msgid "Select Images"
+msgstr ""
+
+#: admin-app/src/components/FormFields/ImageField.tsx:129
+msgid "Add More"
+msgstr ""
+
+#: admin-app/src/components/FormFields/ImageField.tsx:130
+msgid "Replace"
 msgstr ""

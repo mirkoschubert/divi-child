@@ -8,10 +8,19 @@ final class Bugs extends Module
 {
 
   protected $enabled = true;
-  protected $name = 'Bug Fixes';
-  protected $description = 'Fixes some bugs in Divi';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.1.0';
   protected $slug = 'bugs';
+
+  public function get_name(): string
+  {
+    return __('Bug Fixes', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Fixes some bugs in Divi', 'divi-child');
+  }
   protected $dependencies = [
     'jquery',
   ];

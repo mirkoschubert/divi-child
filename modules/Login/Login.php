@@ -8,10 +8,19 @@ final class Login extends Module
 {
 
   protected $enabled = false;
-  protected $name = 'Login';
-  protected $description = 'Customize the WordPress login page with site identity and background image.';
+  protected $author = 'Mirko Schubert';
   protected $version = '1.0.0';
   protected $slug = 'login';
+
+  public function get_name(): string
+  {
+    return __('Login', 'divi-child');
+  }
+
+  public function get_description(): string
+  {
+    return __('Customize the WordPress login page with site identity and background image.', 'divi-child');
+  }
   protected $dependencies = [];
   protected $default_options = [
     'enabled' => false,

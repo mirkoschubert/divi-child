@@ -17,19 +17,19 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/types/*": ["src/types/*"]
+      "@/*": ["admin-app/src/*"],
+      "@/components/*": ["admin-app/src/components/*"],
+      "@/hooks/*": ["admin-app/src/hooks/*"],
+      "@/utils/*": ["admin-app/src/utils/*"],
+      "@/types/*": ["admin-app/src/types/*"]
     },
     "types": ["node"]
   },
   "include": [
-    "src/**/*"
+    "admin-app/src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "admin-app/build"
   ]
 }
