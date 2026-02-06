@@ -25,9 +25,9 @@ All features are organized into modules and can be toggled individually in the a
 - Remove global DNS Prefetching
 - Disable WordPress REST API metadata
 - Disable XML-RPC for security
-- Track and display last login time in the users table
-- Disable author archives (redirects to 404)
-- Obfuscate author slugs to prevent user enumeration
+- Track and display last login time in the users table 𝗡𝗘𝗪
+- Disable author archives (redirects to 404) 𝗡𝗘𝗪
+- Obfuscate author slugs to prevent user enumeration 𝗡𝗘𝗪
 
 ### Page Speed
 
@@ -49,9 +49,9 @@ All features are organized into modules and can be toggled individually in the a
 - Fix WordPress screenreader text
 - Underline all links except headlines and social icons
 - Optimize forms for accessibility (Contact Form, Comment Form, Forminator)
-- Respect `prefers-reduced-motion` user preference
-- Customizable text selection highlight colors
-- Improved slider navigation spacing
+- Respect `prefers-reduced-motion` user preference 𝗡𝗘𝗪
+- Customizable text selection highlight colors 𝗡𝗘𝗪
+- Improved slider navigation spacing 𝗡𝗘𝗪
 
 ### Divi Bug Fixes
 
@@ -60,56 +60,57 @@ All features are organized into modules and can be toggled individually in the a
 - Re-enable fixed navigation bar option for global Theme Builder headers (Divi 4.0+)
 - Customizable fixed header height in pixels
 - Fix logo image sizing in Theme Builder (Divi 4.6.6)
+- **Split Section Fix is now deprecated and will be removed at v3.2!** 𝗡𝗘𝗪
 
 ### Administration
 
-- Duplicate posts and pages with one click
-- Duplicate Divi library items
+- Duplicate posts and pages with one click 𝗡𝗘𝗪
+- Duplicate Divi library items 𝗡𝗘𝗪
 - Disable Projects custom post type including categories and tags
 - Disable email notifications for plugin and theme auto-updates
-- Enable infinite scroll in the media library
+- Enable infinite scroll in the media library 𝗡𝗘𝗪
 - Upload SVG files (with sanitization)
 - Upload WebP files
-- Upload AVIF files
+- Upload AVIF files 𝗡𝗘𝗪
 - Enable hyphenation for the whole website
 - Set the mobile menu breakpoint to 1280px (landscape tablet)
 - Enable fullscreen mode for the mobile menu
-- Disable Divi upsell promotions
-- Disable Divi AI features
-- Set Divi Builder as default editor for new posts/pages
-- Open external links in new tab with configurable `rel` attributes
+- Disable Divi upsell promotions 𝗡𝗘𝗪
+- Disable Divi AI features 𝗡𝗘𝗪
+- Set Divi Builder as default editor for new posts/pages 𝗡𝗘𝗪
+- Open external links in new tab with configurable `rel` attributes 𝗡𝗘𝗪
 
 ### Local Fonts
 
-- Disable Divi Google Fonts and serve fonts locally for GDPR compliance
-- Select and download Google Fonts directly from the admin panel
-- Configure `font-display` CSS property (auto, block, swap, fallback, optional)
-- Automatic weekly font updates via cron job
-- Support for multiple font weights and styles
-- Automatic cleanup of orphaned font files
+- Disable Divi Google Fonts and serve fonts locally for GDPR compliance 𝗡𝗘𝗪
+- Select and download Google Fonts directly from the admin panel 𝗡𝗘𝗪
+- Configure `font-display` CSS property (auto, block, swap, fallback, optional) 𝗡𝗘𝗪
+- Automatic weekly font updates via cron job 𝗡𝗘𝗪
+- Support for multiple font weights and styles 𝗡𝗘𝗪
+- Automatic cleanup of orphaned font files 𝗡𝗘𝗪
 
 ### Umami Analytics
 
-- Integrate [Umami](https://umami.is/) as a privacy-focused analytics solution
-- Configure website ID and Umami instance domain
-- Exclude logged-in users from tracking
-- Enable custom event tracking
-- Track elements by CSS ID
+- Integrate [Umami](https://umami.is/) as a privacy-focused analytics solution 𝗡𝗘𝗪
+- Configure website ID and Umami instance domain 𝗡𝗘𝗪
+- Exclude logged-in users from tracking 𝗡𝗘𝗪
+- Enable custom event tracking 𝗡𝗘𝗪
+- Track elements by CSS ID 𝗡𝗘𝗪
 
-### System Dashboard
+### System
 
-- Display environment badge in the admin bar (Local / Dev / Staging / Live)
-- Show a warning when search engine visibility is blocked
-- System status widget in the WordPress dashboard ("At a Glance")
-- Display PHP, WordPress, and Divi version info
-- Detect image format support (WebP, AVIF, SVG)
+- Display environment badge in the admin bar (Local / Dev / Staging / Live) 𝗡𝗘𝗪
+- Show a warning when search engine visibility is blocked 𝗡𝗘𝗪
+- System status in the WordPress dashboard ("At a Glance") 𝗡𝗘𝗪
+- Display PHP, WordPress, and Divi version info 𝗡𝗘𝗪
+- Detect image format support (WebP, AVIF, SVG) 𝗡𝗘𝗪
 
 ### Login Customization
 
-- Replace the WordPress logo on the login page with your site icon
-- Customize the login logo width
-- Link the login logo to your homepage
-- Set a custom background image for the login page
+- Replace the WordPress logo on the login page with your site icon 𝗡𝗘𝗪
+- Customize the login logo width 𝗡𝗘𝗪
+- Link the login logo to your homepage 𝗡𝗘𝗪
+- Set a custom background image for the login page 𝗡𝗘𝗪
 
 ## Installation
 
