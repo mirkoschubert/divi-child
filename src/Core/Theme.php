@@ -95,7 +95,7 @@ final class Theme
     wp_enqueue_style('divi-child-style', "{$this->config->theme_url}/style.css");
 
     wp_enqueue_script('wp-i18n');
-    wp_enqueue_script('divi-child-script', "{$this->config->theme_url}/assets/js/main.js", ['jquery', 'wp-i18n'], null, true);
+    wp_enqueue_script('divi-child-script', "{$this->config->theme_url}/src/assets/js/main.js", ['jquery', 'wp-i18n'], null, true);
   }
 
   /**
