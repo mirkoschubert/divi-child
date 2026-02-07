@@ -18,6 +18,7 @@ push.sh
 push5.sh
 .pushrc
 release.sh
+dist
 
 # Dev-Dokumentation & Tests
 docs
