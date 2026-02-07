@@ -3,8 +3,10 @@
 docs
 push.sh
 push5.sh
+release.sh
 .pushrc
 rsync.log
+dist/
 /vendor/
 node_modules
 .claude

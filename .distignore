@@ -1,0 +1,41 @@
+# Version control
+.git
+.gitignore
+
+# Node.js / Build tools
+node_modules
+admin-app/src
+webpack.config.js
+tsconfig.json
+eslint.config.js
+.prettierrc
+pnpm-workspace.yaml
+pnpm-lock.yaml
+package.json
+
+# Deployment & Release scripts
+push.sh
+push5.sh
+.pushrc
+release.sh
+
+# Dev-Dokumentation & Tests
+docs
+tests
+TESTING.md
+migration.md
+TODO.md
+
+# Logs & OS-Dateien
+rsync.log
+.DS_Store
+.synchronize
+
+# IDE & Tools
+.claude
+
+# Ungenutzte Verzeichnisse
+divi-modules
+
+# Sonstige Nicht-Theme-Dateien
+divi-child-3-logo.webp
